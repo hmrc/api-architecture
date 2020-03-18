@@ -1,0 +1,44 @@
+{
+  "student loans deductions overrides list": [
+    {
+      "employer name": "Unilever",
+      "employer ref": "UN34343",
+      "employer deductions": [
+        {
+          "deduction id": "1000000000ABCDE",
+          "deduction amount": 183.34,
+          "deduction date": "2019-04-06"
+        },
+        {
+          "deduction id": "1000000001ABCDE",
+          "deduction amount": 183.34,
+          "deduction date": "2019-05-06"
+        },
+        {
+          "deduction id": "100000002ABCDE",
+          "deduction amount": 183.34,
+          "deduction date": "2019-04-06"
+        },
+        {
+          "deduction id": "1000000003ABCDE",
+          "deduction amount": 183.34,
+          "deduction date": "2019-06-06"
+        }
+      ]
+    },
+    {
+      "employer name": "Mondelez",
+      "employer ref": "MZ40092",
+      "employer deductions": [
+        {
+          "deduction id": "1000000004ABCDE",
+          "deduction amount": 187.64,
+          "deduction date": "2019-07-06"
+        }
+      ]
+    }
+  ]
+}
+
+
+

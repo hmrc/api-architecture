@@ -1,0 +1,21 @@
+{
+  "income": [
+    {
+      "netPay": 2567.23
+    }
+  ],
+  "deductions": [
+    {
+      "studentLoans": [
+        {
+          "loanRef": "ewrwrwerwe",
+          "deductionAmount": 344.00
+        },
+        {
+          "loanRef": "1234werwe",
+          "deductionAmount": 344.00
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+#%RAML 1.0 Library
+uses:
+  allowances-base-types: base-types/types.raml
+  common-base-types: ../common/base-types.raml
+types:
+  AllowancesDeductionsReliefs:
+    type: object
+    properties:
+      summary: allowances-base-types.Summary
+      detail: allowances-base-types.Detail
+      _links: common-base-types.Links

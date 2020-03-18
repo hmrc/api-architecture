@@ -1,0 +1,113 @@
+{
+  "summary": {
+    "incomeTax": {
+      "incomeTaxCharged": 5000,
+      "incomeTaxDueAfterReliefs": -99999999999.99,
+      "incomeTaxDueAfterGiftAid": 5000
+    },
+    "nics": {
+      "class2NicsAmount": 5000,
+      "class4NicsAmount": 5000,
+      "totalNic": 5000
+    },
+    "totalIncomeTaxNicsCharged": 5000,
+    "totalTaxDeducted": 12500,
+    "totalIncomeTaxAndNicsDue": -99999999999.99,
+    "taxRegime": "UK"
+  },
+  "detail": {
+    "incomeTax": {
+      "payPensionsProfit": {
+        "allowancesAllocated": 12500,
+        "incomeTaxAmount": 5000,
+        "taxBands": [
+          {
+            "name": "SSR",
+            "rate": "20",
+            "bandLimit": 12500,
+            "apportionedbandLimit": 12500,
+            "income": 12500,
+            "taxAmount": 5000
+          }
+        ]
+      },
+      "savingsAndGains": {
+        "allowancesAllocated": 12500,
+        "incomeTaxAmount": 5000,
+        "taxBands": [
+          {
+            "name": "SSR",
+            "rate": "20",
+            "bandLimit": 12500,
+            "apportionedbandLimit": 12500,
+            "income": 12500,
+            "taxAmount": 5000
+          }
+        ]
+      },
+      "dividends": {
+        "allowancesAllocated": 12500,
+        "incomeTaxAmount": 5000,
+        "taxBands": [
+          {
+            "name": "SSR",
+            "rate": "20",
+            "bandLimit": 12500,
+            "apportionedbandLimit": 12500,
+            "income": 12500,
+            "taxAmount": 5000
+          }
+        ]
+      },
+      "giftAid": {
+        "grossGiftAidPayments": 12500,
+        "rate": "20",
+        "giftAidTax": 5000
+      }
+    },
+    "nics": {
+      "class2Nics": {
+        "weeklyRate": 5000,
+        "weeks": 0,
+        "limit": 12500,
+        "apportionedLimit": 12500,
+        "underSmallProfitThreshold": true,
+        "actualClass2Nic": true
+      },
+      "class4Nic": {
+        "class4Losses": {
+          "totalClass4LossesAvailable": 2000,
+          "totalClass4LossesUsed": 1000
+        },
+        "totalIncomeLiableToClass4Charge": 200,
+        "totalIncomeChargeableToClass4": 200,
+        "class4NicBands": [
+          {
+            "name": "ZRT",
+            "rate": "20",
+            "threshold": 12500,
+            "apportionedThreshold": 12500,
+            "income": 5000,
+            "amount": 5000
+          }
+        ]
+      }
+    },
+    "taxDeductedAtSource": {
+      "bbsi": 12500,
+      "ukLandAndProperty": 12500
+    }
+  },
+  "links": [
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}/income-tax-nics-calculated",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}",
+      "rel": "sa-tax-calculation",
+      "method": "GET"
+    }
+  ]
+}

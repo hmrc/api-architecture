@@ -1,0 +1,372 @@
+#%RAML 1.0 Library
+uses:
+  base-types: ../common/base-types.raml
+types:
+  TaxableIncome:
+    type: object
+    properties:
+      summary:
+        type: object
+        properties:
+          totalIncomeReceivedFromAllSources:
+            type: base-types.WholePounds
+            required: true
+          totalTaxableIncome:
+            type: base-types.WholePounds
+            required: true
+      detail:
+        type: object
+        required: true
+        properties:
+          payPensionsProfit:
+            type: object
+            required: false
+            properties:
+              totalIncomeReceived:
+                type: base-types.WholePounds
+                required: false
+              taxableIncome:
+                type: base-types.WholePounds
+                required: false
+              businessProfitLoss:
+                type: object
+                required: false
+                properties:
+                  selfEmployments:
+                    type: array
+                    items: SelfEmploymentsBusinessPL
+                    required: false
+                  ukPropertyFhl:
+                    type: object
+                    required: false
+                    properties:
+                      totalIncome:
+                        type: base-types.MonetaryPos
+                        required: false
+                      totalExpenses:
+                        type: base-types.MonetaryPos
+                        required: false
+                      netProfit:
+                        type: base-types.MonetaryPos
+                        required: false
+                      netLoss:
+                        type: base-types.MonetaryPos
+                        required: false
+                      totalAdditions:
+                        type: base-types.MonetaryPos
+                        required: false
+                      totalDeductions:
+                        type: base-types.MonetaryPos
+                        required: false
+                      accountingAdjustments:
+                        type: base-types.MonetaryPosNeg
+                        required: false
+                      taxableProfit:
+                        type: base-types.WholePounds
+                        required: false
+                      finalLoss: integer
+                      totalBroughtForwardLosses:
+                        type: base-types.WholePounds
+                        required: false
+                      lossForCSFHL:
+                        type: base-types.WholePounds
+                        required: false
+                      broughtForwardLossesUsed:
+                        type: base-types.WholePounds
+                        required: false
+                      taxableProfitAfterLossesDeduction:
+                        type: base-types.WholePounds
+                        required: false
+                      totalLossesCarriedForward:
+                        type: base-types.WholePounds
+                        required: false
+                      annualAdjustments:
+                        type: array
+                        required: false
+                        items:
+                            type: object
+                            properties:
+                              bissId: string
+                              received: string
+                              applied: boolean
+                      lossesDetail:
+                        type: object
+                        required: false
+                        properties:
+                          lossesBroughtForward:
+                            type: array
+                            required: false
+                            items:
+                                type: object
+                                properties:
+                                  taxYearLossIncurred: integer
+                                  currentLossValue: integer
+                                  mtdLoss: boolean
+                          resultOfClaims:
+                            type: array
+                            required: false
+                            items:
+                                type: object
+                                properties:
+                                  claimId: string
+                                  originatingClaimId: string
+                                  taxYearClaimMade: integer
+                                  claimType: string
+                                  mtdLoss: boolean
+                                  taxYearLossIncurred: integer
+                                  lossAmountUsed: integer
+                                  remainingLossValue: integer
+                          defaultCarriedForwardLosses:
+                            type: array
+                            required: false
+                            items:
+                                type: object
+                                properties:
+                                  claimType: string
+                                  taxYearLossIncurred: integer
+                                  currentLossValue: integer
+                  ukPropertyNonFhl:
+                    type: object
+                    required: false
+                    properties:
+                      totalIncome:
+                        type: base-types.MonetaryPos
+                        required: false
+                      totalExpenses:
+                        type: base-types.MonetaryPos
+                        required: false
+                      netProfit:
+                        type: base-types.MonetaryPos
+                        required: false
+                      netLoss:
+                        type: base-types.MonetaryPos
+                        required: false
+                      totalAdditions:
+                        type: base-types.MonetaryPos
+                        required: false
+                      totalDeductions:
+                        type: base-types.MonetaryPos
+                        required: false
+                      accountingAdjustments:
+                        type: base-types.MonetaryPosNeg
+                        required: false
+                      taxableProfit:
+                        type: base-types.WholePounds
+                        required: false
+                      finalLoss:
+                        type: base-types.WholePounds
+                        required: false
+                      totalBroughtForwardLosses:
+                        type: base-types.WholePounds
+                        required: false
+                      broughtForwardLossesUsed:
+                        type: base-types.WholePounds
+                        required: false
+                      taxableProfitAfterLossesDeduction:
+                        type: base-types.WholePounds
+                        required: false
+                      totalLossesCarriedForward:
+                        type: base-types.WholePounds
+                        required: false
+                      annualAdjustments:
+                        type: array
+                        required: false
+                        items:
+                            type: object
+                            properties:
+                              bissId: string
+                              received: string
+                              applied: boolean
+                      lossesDetail:
+                        type: object
+                        required: false
+                        properties:
+                          lossesBroughtForward:
+                            type: array
+                            required: false
+                            items:
+                                type: object
+                                properties:
+                                  lossType: string
+                                  taxYearLossIncurred: integer
+                                  currentLossValue: integer
+                                  mtdLoss: boolean
+                          resultOfClaims:
+                            type: array
+                            required: false
+                            items:
+                                type: object
+                                properties:
+                                  claimId: string
+                                  originatingClaimId: string
+                                  taxYearClaimMade: integer
+                                  claimType: string
+                                  mtdLoss: boolean
+                                  taxYearLossIncurred: integer
+                                  lossAmountUsed: integer
+                                  remainingLossValue: integer
+                          carriedForwardLosses:
+                            type: array
+                            required: false
+                            items:
+                                type: object
+                                properties:
+                                  claimId: string
+                                  claimType: string
+                                  taxYearLossIncurred: integer
+                                  currentLossValue: integer
+                          claimsNotApplied:
+                            type: array
+                            required: false
+                            items:
+                                type: object
+                                properties:
+                                  claimId: string
+                                  taxYearClaimMade: integer
+                                  claimType: string
+          savingsAndGains:
+            type: object
+            required: false
+            properties:
+              totalIncomeReceived:
+                type: integer
+                required: true
+              taxableIncome: integer
+              savings:
+                type: array
+                required: true
+                items:
+                    type: object
+                    properties:
+                      savingsAccountId: string
+                      savingsAccountName: string
+                      grossIncome: integer
+                      netIncome: integer
+                      taxDeducted: integer
+          dividends:
+            type: object
+            required: false
+            properties:
+              totalIncomeReceived: integer
+              taxableIncome: integer
+      _links:
+        type: array
+        items:
+            type: object
+            properties:
+              href: string
+              rel: string
+              method: string
+  SelfEmploymentsBusinessPL:
+    type: object
+    properties:
+      selfEmploymentId:
+        type: base-types.SelfEmploymentId
+        required: true
+      totalIncome:
+        type: base-types.MonetaryPos
+        required: false
+      totalExpenses:
+        type: base-types.MonetaryPos
+        required: false
+      netProfit:
+        type: base-types.MonetaryPos
+        required: false
+      netLoss:
+        type: base-types.MonetaryPos
+        required: false
+      totalAdditions:
+        type: base-types.MonetaryPos
+        required: false
+      totalDeductions:
+        type: base-types.MonetaryPos
+        required: false
+      accountingAdjustments:
+        type: base-types.MonetaryPosNeg
+        required: false
+      taxableProfit:
+        type: base-types.WholePounds
+        required: false
+      finalLoss:
+        type: base-types.WholePounds
+        required: false
+      totalBroughtForwardLosses:
+        type: base-types.WholePounds
+        required: false
+      broughtForwardLossesUsed:
+        type: base-types.WholePounds
+        required: false
+      taxableProfitAfterLossesDeduction:
+        type: base-types.WholePounds
+        required: false
+      totalLossesCarriedForward:
+        type: base-types.WholePounds
+        required: false
+      annualAdjustments:
+        type: array
+        required: false
+        items:
+            type: object
+            properties:
+              bissId: string
+              received: string
+              applied: boolean
+      lossesDetail:
+        type: object
+        required: false
+        properties:
+          lossesBroughtForward:
+            type: array
+            required: false
+            items:
+                type: object
+                properties:
+                  lossType: string
+                  taxYearLossIncurred: integer
+                  currentLossValue: integer
+                  mtdLoss: boolean
+          resultOfClaims:
+            type: array
+            required: false
+            items:
+                type: object
+                properties:
+                  claimId: string
+                  originatingClaimId: string
+                  taxYearClaimMade: integer
+                  claimType: string
+                  mtdLoss: boolean
+                  taxYearLossIncurred: integer
+                  lossAmountUsed: integer
+                  remainingLossValue: integer
+                  lossType: string
+          unclaimedLosses:
+            type: array
+            required: false
+            items:
+                type: object
+                properties:
+                  taxYearLossIncurred: integer
+                  currentLossValue: integer
+                  expires: integer
+                  lossType: string
+          carriedForwardLosses:
+            type: array
+            required: false
+            items:
+                type: object
+                properties:
+                  claimId: string
+                  claimType: string
+                  taxYearLossIncurred: integer
+                  currentLossValue: integer
+                  lossType: string
+          claimsNotApplied:
+            type: array
+            required: false
+            items:
+              type: object
+              properties:
+                claimId: string
+                taxYearClaimMade: integer
+                claimType: string

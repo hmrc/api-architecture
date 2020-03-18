@@ -1,0 +1,43 @@
+#%RAML 1.0 Library
+uses:
+  common-base-types: ../common/base-types.raml
+types:
+  MetadataRoot:
+    type: object
+    properties:
+      metadata: Metadata
+      _links: common-base-types.Links
+  Metadata:
+    type: object
+    properties:
+      id:
+        type: common-base-types.CalcId
+        required: true
+      taxYear:
+        type: common-base-types.TaxYear
+        required: true
+      requestedBy:
+        type: common-base-types.RequestedBy
+        required: true
+      calculationReason:
+        type: string
+        description: The reason why the calculation was performed
+        enum: ["customerRequest", "class2NICEvent", "newLossEvent", "updatedLossEvent", "newClaimEvent", "updatedClaimEvent"]
+        required: true
+        example: customerRequest
+      calculationTimestamp:
+        type: common-base-types.CalculationTimestamp
+        required: true
+      calculationType:
+        type: common-base-types.CalcType
+        required: false
+      intentToCrystallise:
+        type: boolean
+        description: Boolean value showing whether the calculation is intended to be crystallised against, will only be returned if the value is true
+        required: false
+        example: false
+      crystallised:
+        type: boolean
+        description: Boolean value showing whether the calculation has been crystallised, will only be returned if the value is true
+        required: false
+        example: false

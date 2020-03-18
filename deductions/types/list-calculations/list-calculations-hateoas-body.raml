@@ -1,0 +1,28 @@
+#%RAML 1.0 Library
+uses:
+  common-base-types: ../common/base-types.raml
+types:
+  CalculationList:
+    type: object
+    properties:
+      calculations:
+        type: array
+        description: An array of calculation objects. An empty array will never be returned. In the instance that no calculations exist for the supplied NINO and tax year, a MATCHING_RESOURCE_NOT_FOUND error will be returned.
+        items: Calculation
+        minItems: 1
+  Calculation:
+    type: object
+    properties:
+      id:
+        type: common-base-types.CalcId
+        required: true
+      calculationTimestamp:
+        type: common-base-types.CalculationTimestamp
+        required: true
+      type:
+        type: common-base-types.CalcType
+        required: true
+      requestedBy:
+        type: common-base-types.RequestedBy
+        required: false
+      _links: common-base-types.Links

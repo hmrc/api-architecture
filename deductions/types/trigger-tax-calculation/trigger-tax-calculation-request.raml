@@ -1,0 +1,10 @@
+#%RAML 1.0 Library
+uses:
+  common-base-types: ../common/base-types.raml
+types:
+  TriggerTaxCalculationRequest:
+    type: object
+    properties:
+      taxYear:
+        type: common-base-types.TaxYear
+        required: true

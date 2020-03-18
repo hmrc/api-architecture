@@ -1,0 +1,11 @@
+#%RAML 1.0 Library
+uses:
+  losses-balance: base-types/types.raml
+  common-base-types: ../common/base-types.raml
+types:
+  LossesBalance:
+    type: object
+    properties:
+      summary: losses-balance.Summary
+      detail: losses-balance.Detail
+      _links: common-base-types.Links

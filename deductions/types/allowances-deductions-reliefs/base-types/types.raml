@@ -1,0 +1,41 @@
+#%RAML 1.0 Library
+uses:
+  base-types: ../../common/base-types.raml
+types:
+  Detail:
+    type: object
+    properties:
+      allowancesAndDeductions:
+        type: object
+        properties:
+          personalAllowance:
+            type: base-types.WholePounds
+          reducedPersonalAllowance:
+            type: base-types.WholePounds
+          giftOfInvestmentsAndPropertyToCharity:
+            type: base-types.WholePounds
+          blindPersonsAllowance:
+            type: base-types.WholePounds
+          lossesAppliedToGeneralIncome:
+            type: base-types.WholePounds
+      reliefs:
+        type: object
+        properties:
+          residentialFinanceCosts:
+            type: object
+            properties:
+              amountClaimed:
+                type: base-types.WholePounds
+              allowableAmount:
+                type: base-types.WholePounds
+              rate:
+                type: base-types.Percent
+              propertyFinanceRelief:
+                type: base-types.WholePounds
+  Summary:
+    type: object
+    properties:
+      totalAllowancesAndDeductions:
+        type: base-types.WholePounds
+      totalReliefs:
+        type: base-types.WholePounds

@@ -1,0 +1,51 @@
+{
+  "contractors overrides": [
+  {
+    "contractor name": "Bovis",
+    "employer ref": "BV40092",
+    "contractor deduction overrides": [
+      {
+        "deduction amount": 360.00,
+        "period start date": "2019-04-06",
+        "period end date": "2019-05-05",
+        "cost of materials": 35.00,
+        "gross amount paid": 1457.00
+      },
+      {
+        "deduction amount": 360.00,
+        "period start date": "2019-05-06",
+        "period end date": "2019-06-05",
+        "cost of materials": 35.00,
+        "gross amount paid": 1457.00
+      },
+      {
+        "deduction amount": 360.00,
+        "period start date": "2019-07-06",
+        "period end date": "2019-08-05",
+        "cost of materials": 35.00,
+        "gross amount paid": 1457.00
+      }
+    ]
+  },
+  {
+    "contractor name": "P Zweleski Builders",
+    "employer ref": null,
+    "contractor deduction overrides": [
+      {
+        "deduction amount": 80.00,
+        "period start date": "2019-07-06",
+        "period end date": "2019-08-05",
+        "cost of materials": 35.00,
+        "gross amount paid": 1457.00
+      },
+      {
+        "deduction amount": 80.00,
+        "period start date": "2019-09-06",
+        "period end date": "2019-10-05",
+        "cost of materials": 35.00,
+        "gross amount paid": 1457.00
+      }
+    ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "f2fb30e5-4ab6-4a29-b3c1-c7264259ff1c",
+  "_links": [
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment",
+      "rel": "self",
+      "method": "POST"
+    },
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}",
+      "rel": "sa-tax-calculation",
+      "method": "GET"
+    },
+	{
+	  "href": "/individuals/calculations/{nino}/self-assessment",
+      "rel": "sa-tax-calculation-list",
+      "method": "GET"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "student loans deductions position": [
+    {
+      "employer name": "Unilever",
+      "employer ref": "UN34343",
+      "employer deductions": [
+        {
+          "deduction amount": 183.34,
+          "deduction date": "2019-04-06"
+        },
+        {
+          "deduction amount": 183.34,
+          "deduction date": "2019-05-06"
+        },
+        {
+          "deduction amount": 183.34,
+          "deduction date": "2019-04-06"
+        },
+        {
+          "deduction amount": 183.34,
+          "deduction date": "2019-06-06"
+        }
+      ]
+    },
+    {
+      "employer name": "Mondelez",
+      "employer ref": "MZ40092",
+      "employer deductions": [
+        {
+          "deduction amount": 187.64,
+          "deduction date": "2019-07-06"
+        }
+      ]
+    }
+    ]
+  }
+
+
+

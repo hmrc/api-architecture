@@ -1,0 +1,200 @@
+#%RAML 1.0 Library
+uses:
+  base-types: ../../common/base-types.raml
+types:
+  Summary:
+    type: object
+    properties:
+      selfEmployments:
+        type: array
+        items: SelfEmploymentsLossesSummary
+      ukPropertyFhl: UKPropertyLossesSummary
+      ukPropertyNonFhl: UKPropertyLossesSummary
+  Detail:
+    type: object
+    properties:
+      resultOfClaims:
+        type: object
+        description: Claims for the business brought into this calculation and the loss amounts used against the claims.
+        properties:
+          selfEmployments:
+            type: array
+            items: SelfEmploymentResultOfClaims
+          ukPropertyFhl:
+            type: array
+            items: UKPropertyResultOfClaims
+          ukPropertyNonFhl:
+            type: array
+            items: UKPropertyResultOfClaims
+      unclaimedLosses:
+        type: object
+        description: List of losses that have arisen out of this calculation and available to claim in the next calculation where a 'default' claim could not be applied. e.g. Self Employment losses
+        properties:
+          selfEmployments:
+            type: array
+            items: SelfEmploymentUnclaimedLosses
+      carriedForwardLosses:
+        type: object
+        description: Losses arising in this calculation carried forward to the next calculation where a claim has been made. CF & CFCSGI claim types are applicable
+        properties:
+          selfEmployments:
+            type: array
+            items: SelfEmploymentCarriedForward
+          ukPropertyNonFhl:
+            type: array
+            items: UKPropertyNonFhlCarriedForward
+      defaultCarriedForwardLosses:
+        type: object
+        description: Losses arising in this calculation that have been carried forward to the next calculation by default. This applies to specific income sources e.g Furnished Holiday Lettings where losses can only be carried forward. CF & CFCSGI claim types are applicable
+        properties:
+          ukPropertyFhl:
+            type: array
+            items: UKPropertyDefaultCarriedForward
+          ukPropertyNonFhl:
+            type: array
+            items: UKPropertyDefaultCarriedForward
+      claimsNotApplied:
+        type: object
+        description: Claims made that could not be applied in this calculation
+        properties:
+          selfEmployments:
+            type: array
+            items: SelfEmploymentClaimsNotApplied
+          ukPropertyNonFhl:
+            type: array
+            items: UKPropertyClaimsNotApplied
+  SelfEmploymentsLossesSummary:
+    type: object
+    properties:
+      selfEmploymentId: base-types.SelfEmploymentId
+      totalLossesBroughtForward: base-types.WholePounds
+      totalLossesUsed: base-types.WholePounds
+      totalLossesCarriedForward: base-types.WholePounds
+  UKPropertyLossesSummary:
+    type: object
+    properties:
+      totalLossesBroughtForward: base-types.WholePounds
+      totalLossesUsed: base-types.WholePounds
+      totalLossesCarriedForward: base-types.WholePounds
+  SelfEmploymentResultOfClaims:
+    type: object
+    properties:
+      selfEmploymentId: base-types.SelfEmploymentId
+      claimId:
+        type: string
+        description:
+      originatingClaimId:
+        type: string
+        description: The id of a carry sideways claim that resulted in a carry forward.
+      taxYearClaimMade:
+        type: base-types.TaxYear
+        description: The tax year the claim was made in
+      claimType: ClaimType
+      MTDLoss:
+        description: Indicates whether the loss was registered by the taxpayer on joining MTD. Only returned when False.
+        type: boolean
+      taxYearLossIncurred:
+        type: base-types.TaxYear
+        description: The tax year the loss occurred in
+      lossAmountUsed:
+        description: The amount of the loss that has been applied to this calculation
+        type: base-types.WholePounds
+      remainingLossValue:
+        type: base-types.WholePounds
+        description: The amount of the loss remaining after claims have been applied
+      lossType: LossTypes
+  UKPropertyResultOfClaims:
+    type: object
+    properties:
+      claimId:
+        type: string
+        description:
+      originatingClaimId:
+        type: string
+        description: The id of a carry sideways claim that resulted in a carry forward.
+      taxYearClaimMade:
+        type: base-types.TaxYear
+        description: The tax year the claim was made in
+      claimType: ClaimType
+      MTDLoss:
+        description: Indicates whether the loss was registered by the taxpayer on joining MTD. Only returned when False.
+        type: boolean
+      taxYearLossIncurred:
+        type: base-types.TaxYear
+        description: The tax year the loss occurred in
+      lossAmountUsed:
+        description: The amount of the loss that has been applied to this calculation
+        type: base-types.WholePounds
+      remainingLossValue:
+        type: base-types.WholePounds
+        description: The amount of the loss remaining after claims have been applied
+  SelfEmploymentUnclaimedLosses:
+    type: object
+    description: Unclaimed self employment losses
+    properties:
+      selfEmploymentId: base-types.SelfEmploymentId
+      taxYearLossIncurred:
+        type: base-types.TaxYear
+        description: The tax year the loss occurred in
+      currentLossValue:
+        type: base-types.WholePounds
+        description: Current unclaimed loss value
+      expires:
+        type: base-types.TaxYear
+        description: The tax year by which the loss must be claimed
+      lossType: LossTypes
+  ClaimType:
+    type: string
+    enum: ["CF","CSGI","CFCSGI","CSFHL"]
+  ClaimId:
+    type: string
+    description: The unique id of the claim made by the taxpayer
+  LossTypes:
+    type: string
+    description: The type of self employment loss
+    enum: ["income", "class4nics"]
+  SelfEmploymentCarriedForward:
+    type: object
+    properties:
+      selfEmploymentId: base-types.SelfEmploymentId
+      claimId: ClaimId
+      claimType: ClaimType
+      taxYearLossIncurred:
+        type: base-types.TaxYear
+        description: The tax year the loss occurred in
+      currentLossValue: base-types.WholePounds
+      lossType: LossTypes
+  UKPropertyNonFhlCarriedForward:
+    type: object
+    properties:
+      claimId: string
+      claimType: ClaimType
+      taxYearLossIncurred:
+        type: base-types.TaxYear
+        description: The tax year the loss occurred in
+      currentLossValue: base-types.WholePounds
+  UKPropertyDefaultCarriedForward:
+    type: object
+    properties:
+      claimType: ClaimType
+      taxYearLossIncurred:
+        type: base-types.TaxYear
+        description: The tax year the loss occurred in
+      currentLossValue: base-types.WholePounds
+  SelfEmploymentClaimsNotApplied:
+    type: object
+    properties:
+      selfEmploymentId: base-types.SelfEmploymentId
+      claimId: ClaimId
+      taxYearClaimMade:
+        type: base-types.TaxYear
+        description: The tax year the claim was made in
+      claimType: ClaimType
+  UKPropertyClaimsNotApplied:
+    type: object
+    properties:
+      claimId: ClaimId
+      taxYearClaimMade:
+        type: base-types.TaxYear
+        description: The tax year the claim was made in
+      claimType: ClaimType

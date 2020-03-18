@@ -1,0 +1,44 @@
+{
+  "id": "f2fb30e5-4ab6-4a29-b3c1-c7264259ff1c",
+  "taxYear": "2017-18",
+  "requestedBy": "customer",
+  "calculationReason": "customerRequest",
+  "calculationTimestamp": "2019-02-15T09:35:15.094Z",
+  "calculationType": "crystallisation",
+  "intentToCrystallise": true,
+  "crystallised": true,
+  "totalIncomeTaxAndNicsDue": 5000.76,
+  "calculationErrorCount": 0,
+  "links": [
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment",
+      "rel": "sa-tax-calculation-list",
+      "method": "GET"
+    },
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}/taxable-income",
+      "rel": "sa-tax-calculation-taxable-income",
+      "method": "GET"
+    },
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}/allowances-deductions-reliefs",
+      "rel": "sa-tax-calculation-allowances-deductions-reliefs",
+      "method": "GET"
+    },
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}/income-tax-nics-calculated",
+      "rel": "sa-tax-calculation-income-tax-nics-calculated",
+      "method": "GET"
+    },
+    {
+      "href": "/individuals/calculations/{nino}/self-assessment/{calculationId}/allowances-deductions-reliefs",
+      "rel": "sa-tax-calculation-messages",
+      "method": "GET"
+    }
+  ]
+}

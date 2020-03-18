@@ -1,0 +1,349 @@
+{
+  "metadata": {
+    "calcID": "f2fb30e5-4ab6-4a29-b3c1-c7264259ff1c",
+    "taxYear": 2018,
+    "requestedBy": "customer",
+    "calculationReason": "customerRequest",
+    "calculationTimestamp": "2019-02-15T09:35:15.094Z",
+    "calculationType": "Crystallisation"
+  },
+  "incomes-received": {
+    "summary": {
+      "totalIncomeReceivedFromAllSources": 12500
+    },
+    "detail": {
+      "payPensionsProfit": {
+        "totalIncomeReceived": 12500,
+        "businessProfitLoss": {
+          "selfEmployments": [
+            {
+              "selfEmploymentId": "AZIS1234567",
+              "grossProfit": 5000,
+              "totalExpenses": 5000,
+              "totalAdditions": 5000,
+              "totalDeductions": 5000,
+              "netProfit": 5000,
+              "netLoss": 5000,
+              "annualAdjustments": {
+                "bissId": "string",
+                "receivedDate": "2019-06-19T08:56:05Z",
+                "applied": true
+              }
+            }
+          ],
+          "ukPropertyFhl": {
+            "grossProfit": 5000,
+            "totalExpenses": 5000,
+            "totalAdditions": 5000,
+            "totalDeductions": 5000,
+            "netProfit": 5000,
+            "netLoss": 5000,
+            "annualAdjustments": {
+              "bissId": "string",
+              "receivedDate": "2019-06-19T08:56:05Z",
+              "applied": true
+            }
+          },
+          "ukPropertyNonFhl": {
+            "grossProfit": 5000,
+            "totalExpenses": 5000,
+            "totalAdditions": 5000,
+            "totalDeductions": 5000,
+            "netProfit": 5000,
+            "netLoss": 5000,
+            "annualAdjustments": {
+              "bissId": "string",
+              "receivedDate": "2019-06-19T08:56:05Z",
+              "applied": true
+            }
+          }
+        }
+      },
+      "savingsAndGains": {
+        "totalIncomeReceived": 12500,
+        "savings": [
+          {
+            "savingsAccountId": "128347548392685",
+            "savingsAccountName": "Santander",
+            "grossIncome": 5000,
+            "netIncome": 5000,
+            "taxDeducted": 5000
+          }
+        ]
+      },
+      "dividends": {
+        "totalIncomeReceived": 12500
+      }
+    }
+  },
+  "allowances-deductions-reliefs": {
+    "summary": {
+      "totalAllowancesAndDeductions": 12500,
+      "totalReliefs": 12500
+    },
+    "detail": {
+      "allowancesDeductions": {
+        "personalAllowance": 12500,
+        "reducedPersonalAllowance": 12500,
+        "giftOfInvestmentsAndPropertyToCharity": 12500,
+        "blindPersonsAllowance": 12500,
+        "lossesToGeneralIncome": 12500
+      },
+      "reliefs": {
+        "residentialFinanceCosts": {
+          "amountClaimed": 12500,
+          "allowableAmount": 12500,
+          "rate": "20",
+          "propertyFinanceRelief": 12500
+        }
+      }
+    }
+  },
+  "income-tax-calculated": {
+    "summary": {
+      "totalTaxableIncome": 12500,
+      "incomeTaxCharged": 5000,
+      "incomeTaxDueAfterReliefs": -99999999999.99,
+      "incomeTaxDueAfterGiftAid": 5000,
+      "taxRegime": "UK"
+    },
+    "detail": {
+      "payPensionsProfit": {
+        "allowancesAllocated": 12500,
+        "taxableIncome": 12500,
+        "incomeTaxAmount": 5000,
+        "taxBands": [
+          {
+            "name": "SSR",
+            "rate": "20",
+            "bandLimit": 12500,
+            "apportionedbandLimit": 12500,
+            "income": 12500,
+            "taxAmount": 5000
+          }
+        ]
+      },
+      "savingsAndGains": {
+        "allowancesAllocated": 12500,
+        "taxableIncome": 12500,
+        "incomeTaxAmount": 5000,
+        "taxBands": [
+          {
+            "name": "SSR",
+            "rate": "20",
+            "bandLimit": 12500,
+            "apportionedbandLimit": 12500,
+            "income": 12500,
+            "taxAmount": 5000
+          }
+        ]
+      },
+      "dividends": {
+        "allowancesAllocated": 12500,
+        "taxableIncome": 12500,
+        "incomeTaxAmount": 5000,
+        "taxBands": [
+          {
+            "name": "SSR",
+            "rate": "20",
+            "bandLimit": 12500,
+            "apportionedbandLimit": 12500,
+            "income": 12500,
+            "taxAmount": 5000
+          }
+        ]
+      },
+      "giftAid": {
+        "grossGiftAidPayments": 12500,
+        "rate": "20",
+        "giftAidTax": 5000
+      }
+    }
+  },
+  "nics-calculated": {
+    "summary": {
+      "nic2NetOfDeductions": -99999999999.99,
+      "nic4NetOfDeductions": -99999999999.99,
+      "totalNic": 5000
+    },
+    "detail": {
+      "class2Nics": {
+        "amount": 5000,
+        "weeklyRate": 5000,
+        "weeks": 0,
+        "limit": 12500,
+        "apportionedLimit": 12500,
+        "underSmallProfitThreshold": true,
+        "actualClass2Nic": true
+      },
+      "class4Nics": {
+        "totalAmount": 5000,
+        "nic4band": [
+          {
+            "name": "ZRT",
+            "rate": "20",
+            "threshold": 12500,
+            "apportionedThreshold": 12500,
+            "income": 5000,
+            "amount": 5000
+          }
+        ]
+      }
+    },
+    "final-tax-nics-due": {
+      "summary": {
+        "totalIncomeTaxNicsCharged": 5000,
+        "totalIncomeTaxAndNicsDue": -99999999999.99,
+        "totalTaxDeducted": 12500
+      },
+      "detail": {
+        "taxDeductedAtSource": {
+          "bbsi": 12500,
+          "ukLandAndProperty": 12500
+        }
+      }
+    },
+    "losses-balance": {
+      "resultOfClaims": {
+        "selfEmployments": [
+          {
+            "selfEmploymentId": "000000000000210",
+            "claimId": "string",
+            "originatingClaimId": "string",
+            "taxYearClaimMade": 2018,
+            "claimType": "CF",
+            "MTDLoss": true,
+            "taxYearLossIncurred": 2018,
+            "lossAmountUsed": 12500,
+            "remainingLossValue": 12500,
+            "lossType": "income"
+          }
+        ],
+        "ukPropertyFhl": [
+          {
+            "claimId": "string",
+            "originatingClaimId": "string",
+            "taxYearClaimMade": 2018,
+            "claimType": "CF",
+            "MTDLoss": true,
+            "taxYearLossIncurred": 2018,
+            "lossAmountUsed": 12500,
+            "remainingLossValue": 12500
+          }
+        ],
+        "ukPropertyNonFhl": [
+          {
+            "claimId": "string",
+            "originatingClaimId": "string",
+            "taxYearClaimMade": 2018,
+            "claimType": "CF",
+            "MTDLoss": true,
+            "taxYearLossIncurred": 2018,
+            "lossAmountUsed": 12500,
+            "remainingLossValue": 12500
+          }
+        ]
+      },
+      "unclaimedLosses": {
+        "selfEmployments": [
+          {
+            "selfEmploymentId": "000000000000210",
+            "taxYearIncurred": "2018",
+            "currentLossValue": 5000,
+            "expires": "2018",
+            "lossType": "income"
+          }
+        ]
+      },
+      "carriedForwardLosses": {
+        "selfEmployments": [
+          {
+            "selfEmploymentId": "000000000000210",
+            "claimId": "string",
+            "claimType": "CF",
+            "taxYearLossIncurred": 2018,
+            "currentLossValue": 12500,
+            "lossType": "income"
+          }
+        ],
+        "ukPropertyNonFhl": [
+          {
+            "claimId": "string",
+            "claimType": "CF",
+            "taxYearLossIncurred": 2018,
+            "currentLossValue": 12500
+          }
+        ]
+      },
+      "defaultCarriedForwardLosses": {
+        "ukPropertyFhl": [
+          {
+            "claimType": "CF",
+            "taxYearLossIncurred": 2018,
+            "currentLossValue": 12500
+          }
+        ],
+        "ukPropertyNonFhl": [
+          {
+            "claimType": "CF",
+            "taxYearLossIncurred": 2018,
+            "currentLossValue": 12500
+          }
+        ]
+      },
+      "claimsNotApplied": {
+        "selfEmployments": [
+          {
+            "claimId": "string",
+            "selfEmploymentId": "000000000000210",
+            "taxYearClaimMade": 2018,
+            "claimType": "CF"
+          }
+        ],
+        "ukPropertyNonFhl": [
+          {
+            "claimId": "string",
+            "taxYearClaimMade": 2018,
+            "claimType": "CF"
+          }
+        ]
+      },
+      "estimates": {
+        "summary": {
+          "totalTaxableIncome": 99999999.99,
+          "incomeTaxAmount": 99999999.99,
+          "nic2": 99999999,
+          "nic4": 99999999,
+          "totalNicAmount": 99999999.99,
+          "incomeTaxNicAmount": 99999999.99
+        },
+        "detail": {
+          "selfEmployments": [
+            {
+              "selfEmploymentId": "XKIS00000000988",
+              "taxableIncome": 99999999.99,
+              "finalised": true
+            }
+          ],
+          "ukPropertyFhl": {
+            "taxableIncome": 99999999.99,
+            "finalised": true
+          },
+          "ukPropertyNonFhl": {
+            "taxableIncome": 99999999.99,
+            "finalised": true
+          },
+          "ukDividends": {
+            "taxableIncome": 99999999.99
+          },
+          "savings": [
+            {
+              "savingsAccountId": "SAVKB2UVwUTBQGJ",
+              "taxableIncome": 1000.25
+            }
+          ]
+        }
+      }
+    }
+  }
+}
