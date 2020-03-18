@@ -1,7 +1,7 @@
 
 # api-architecture
 
-This is a placeholder README.md for a new repository
+Early stage RAML > HTML designs for APIs
 
 ### License
 
