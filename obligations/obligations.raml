@@ -4,7 +4,8 @@ baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
 uses:
   errors: traits/errors.raml
-  queryParameters: traits/queryParameters.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  obligationQueryParameters: traits/queryParameters.raml
 /obligations:
   /{partyIdentifier}:
     uriParameters:
@@ -16,7 +17,7 @@ uses:
     get:
       displayName: List obligations for the party
       description: List obligations for the party
-      is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,queryParameters.obligations]
+      is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,obligationQueryParameters.obligations]
       responses:
         200:
           body:
