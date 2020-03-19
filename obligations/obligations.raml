@@ -1,0 +1,24 @@
+#%RAML 1.0
+title: DRAFT Obligations
+baseUri: https://api.service.hmrc.gov.uk
+version: 0.1
+uses:
+  errors: traits/errors.raml
+  queryParameters: traits/queryParameters.raml
+/obligations:
+  /{partyIdentifier}:
+    uriParameters:
+      partyIdentifier:
+        description: Party identifier, NINO for SA Individuals
+        type: string
+        pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
+        example: TC663795B
+    get:
+      displayName: List obligations for the party
+      description: List obligations for the party
+      is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,queryParameters.obligations]
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/full-itsa-obligations.json
