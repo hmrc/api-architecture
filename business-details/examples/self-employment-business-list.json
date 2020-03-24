@@ -1,0 +1,34 @@
+{
+  "selfEmployments": [
+    {
+      "id": "HTYD00000001242",
+      "businessName": "A1 Driveways",
+      "links": [
+        {
+          "href": "/business-details/{nino}/self-employments/HTYD00000001242",
+          "rel": "self",
+          "method": "GET"
+        }]
+    },
+    {
+      "id": "XGIS00000001319",
+      "businessName": "Bobs Windows",
+      "links": [
+        {
+          "href": "/business-details/{nino}/self-employments/XGIS00000001319",
+          "rel": "self",
+          "method": "GET"
+        }]
+    },
+    {
+      "id": "KUSC00000007527",
+      "businessName": "Apex Guttering",
+      "links": [
+        {
+          "href": "/business-details/{nino}/self-employments/KUSC00000007527",
+          "rel": "self",
+          "method": "GET"
+        }]
+    }
+  ]
+}

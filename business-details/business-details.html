@@ -170,14 +170,14 @@ pre code {
 .required {
   color: #f00;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT Business Details API documentation <small>version 0.1</small></h1><p>https://api.service.hmrc.gov.uk</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="business_details" class="panel-title">/business-details</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_business_details__partyidentifier_"><span class="parent">/business-details</span>/{partyIdentifier}</a> <span class="methods"><a href="#business_details__partyidentifier__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_business_details__partyidentifier_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#business_details__partyidentifier__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List all businesses</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="business_details__partyidentifier__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/business-details</span>/{partyIdentifier}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List all businesses</p></div><ul class="nav nav-tabs"><li class="active"><a href="#business_details__partyidentifier__get_request" data-toggle="tab">Request</a></li><li><a href="#business_details__partyidentifier__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="business_details__partyidentifier__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li></ul></div><div class="tab-pane" id="business_details__partyidentifier__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT Business Details API documentation <small>version 0.1</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="assumptions"><a href="#assumptions">Assumptions</a></h3><ol><li>Object schemas from backend [DES] API for self-employment businesses and properties are the same</li></ol><h3 id="design_rationale"><a href="#design_rationale">Design Rationale</a></h3><p>The data schemas for business and property are thought to be the same (or very similar), so it made sense to combine everything in one GET "list" and one GET "details". If we need to add further types of business details in future we can extend with finer-grained end-points as non-breaking changes.</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="business_details" class="panel-title">/business-details</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_business_details__partyidentifier_"><span class="parent">/business-details</span>/{partyIdentifier}</a> <span class="methods"><a href="#business_details__partyidentifier__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_business_details__partyidentifier_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#business_details__partyidentifier__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List all businesses</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="business_details__partyidentifier__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/business-details</span>/{partyIdentifier}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List all businesses</p></div><ul class="nav nav-tabs"><li class="active"><a href="#business_details__partyidentifier__get_request" data-toggle="tab">Request</a></li><li><a href="#business_details__partyidentifier__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="business_details__partyidentifier__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>typeOfBusiness</strong>: <em>(string)</em><p>self-employment | uk-property | foreign-property</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>self-employment</code></pre></div></li></ul></div><div class="tab-pane" id="business_details__partyidentifier__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
     {
       "id": "HTYD00000001242",
       "typeOfBusiness": "self-employment",
-      "tradingName": "A1 Driveways",
+      "businessName": "A1 Driveways",
       "links": [
         {
-          "href": "/business-details/{nino}/self-employments/HTYD00000001242",
+          "href": "/business-details/{nino}/HTYD00000001242",
           "rel": "self",
           "method": "GET"
         }
@@ -186,10 +186,10 @@ pre code {
     {
       "id": "XGIS00000001319",
       "typeOfBusiness": "self-employment",
-      "tradingName": "Bobs Windows",
+      "businessName": "Bobs Windows",
       "links": [
         {
-          "href": "/business-details/{nino}/self-employments/XGIS00000001319",
+          "href": "/business-details/{nino}/XGIS00000001319",
           "rel": "self",
           "method": "GET"
         }
@@ -198,10 +198,10 @@ pre code {
     {
       "id": "KUSC00000007527",
       "typeOfBusiness": "self-employment",
-      "tradingName": "Apex Guttering",
+      "businessName": "Apex Guttering",
       "links": [
         {
-          "href": "/business-details/{nino}/self-employments/KUSC00000007527",
+          "href": "/business-details/{nino}/KUSC00000007527",
           "rel": "self",
           "method": "GET"
         }
@@ -210,10 +210,10 @@ pre code {
     {
       "id": "UUJF00000008863",
       "typeOfBusiness": "uk-property",
-      "tradingName": "15 Brookside",
+      "businessName": "15 Brookside",
       "links": [
         {
-          "href": "/business-details/{nino}/property/UUJF00000008863",
+          "href": "/business-details/{nino}/UUJF00000008863",
           "rel": "self",
           "method": "GET"
         }]
@@ -221,10 +221,10 @@ pre code {
     {
       "id": "DFTR00000006356",
       "typeOfBusiness": "foreign-property",
-      "tradingName": "22 Rua El Camino",
+      "businessName": "22 Rua El Camino",
       "links": [
         {
-          "href": "/business-details/{nino}/property/DFTR00000006356",
+          "href": "/business-details/{nino}/DFTR00000006356",
           "rel": "self",
           "method": "GET"
         }]
@@ -233,47 +233,10 @@ pre code {
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_business_details__partyidentifier__self_employments"><span class="parent">/business-details/{partyIdentifier}</span>/self-employments</a> <span class="methods"><a href="#business_details__partyidentifier__self_employments_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_business_details__partyidentifier__self_employments" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#business_details__partyidentifier__self_employments_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List self employment businesses</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="business_details__partyidentifier__self_employments_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/business-details/{partyIdentifier}</span>/self-employments</h4></div><div class="modal-body"><div class="alert alert-info"><p>List self employment businesses</p></div><ul class="nav nav-tabs"><li class="active"><a href="#business_details__partyidentifier__self_employments_get_request" data-toggle="tab">Request</a></li><li><a href="#business_details__partyidentifier__self_employments_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="business_details__partyidentifier__self_employments_get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li></ul></div><div class="tab-pane" id="business_details__partyidentifier__self_employments_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "selfEmployments": [
-    {
-      "id": "HTYD00000001242",
-      "tradingName": "A1 Driveways",
-      "links": [
-        {
-          "href": "/business-details/{nino}/self-employments/HTYD00000001242",
-          "rel": "self",
-          "method": "GET"
-        }]
-    },
-    {
-      "id": "XGIS00000001319",
-      "tradingName": "Bobs Windows",
-      "links": [
-        {
-          "href": "/business-details/{nino}/self-employments/XGIS00000001319",
-          "rel": "self",
-          "method": "GET"
-        }]
-    },
-    {
-      "id": "KUSC00000007527",
-      "tradingName": "Apex Guttering",
-      "links": [
-        {
-          "href": "/business-details/{nino}/self-employments/KUSC00000007527",
-          "rel": "self",
-          "method": "GET"
-        }]
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_business_details__partyidentifier__self_employments__id_"><span class="parent">/business-details/{partyIdentifier}/self-employments</span>/{id}</a> <span class="methods"><a href="#business_details__partyidentifier__self_employments__id__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_business_details__partyidentifier__self_employments__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#business_details__partyidentifier__self_employments__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve self employment businesses detail</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="business_details__partyidentifier__self_employments__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/business-details/{partyIdentifier}/self-employments</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve self employment businesses detail</p></div><ul class="nav nav-tabs"><li class="active"><a href="#business_details__partyidentifier__self_employments__id__get_request" data-toggle="tab">Request</a></li><li><a href="#business_details__partyidentifier__self_employments__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="business_details__partyidentifier__self_employments__id__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>id</strong>: <em><span class="required">required</span>(string)</em><p>Self employment business Id</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>XGIS00000001319</code></pre></div></li></ul></div><div class="tab-pane" id="business_details__partyidentifier__self_employments__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_business_details__partyidentifier___id_"><span class="parent">/business-details/{partyIdentifier}</span>/{id}</a> <span class="methods"><a href="#business_details__partyidentifier___id__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_business_details__partyidentifier___id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#business_details__partyidentifier___id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve businesses detail</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="business_details__partyidentifier___id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/business-details/{partyIdentifier}</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve businesses detail</p></div><ul class="nav nav-tabs"><li class="active"><a href="#business_details__partyidentifier___id__get_request" data-toggle="tab">Request</a></li><li><a href="#business_details__partyidentifier___id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="business_details__partyidentifier___id__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>id</strong>: <em><span class="required">required</span>(string)</em><p>Business Id</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>XGIS00000001319</code></pre></div></li></ul></div><div class="tab-pane" id="business_details__partyidentifier___id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "id": "XGIS00000001319",
   "typeOfBusiness": "self-employment",
-  "tradingName": "Bobs Windows",
+  "businessName": "Bobs Windows",
   "accountingPeriods": [
     {
       "start": "2020-04-06",
@@ -289,71 +252,6 @@ pre code {
   "seasonal": "true",
   "businessAddress": {
     "lineOne": "Plaza 2",
-    "lineTwo": "Telford",
-    "lineThree": "Shropshire",
-    "lineFour": "UK",
-    "postcode": "TF3 4NT"
-  }
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatNino</strong>:<br>The format of the supplied NINO field is not valid</p><pre><code>{
-  "code": "FORMAT_NINO"
-}</code></pre><p><strong>ruleTaxYearNotSupported</strong>:<br>The specified tax year is not supported, that is, the tax year specified is before the minimum tax year value</p><pre><code>{
-  "code": "RULE_TAX_YEAR_NOT_SUPPORTED"
-}</code></pre><p><strong>ruleTaxYearRangeExceeded</strong>:<br>Tax year range exceeded. A tax year range of one year is required</p><pre><code>{
-  "code": "RULE_TAX_YEAR_RANGE_EXCEEDED"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
-  "code": "FORMAT_TAX_YEAR"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_business_details__partyidentifier__property"><span class="parent">/business-details/{partyIdentifier}</span>/property</a> <span class="methods"><a href="#business_details__partyidentifier__property_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_business_details__partyidentifier__property" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#business_details__partyidentifier__property_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List property businesses</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="business_details__partyidentifier__property_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/business-details/{partyIdentifier}</span>/property</h4></div><div class="modal-body"><div class="alert alert-info"><p>List property businesses</p></div><ul class="nav nav-tabs"><li class="active"><a href="#business_details__partyidentifier__property_get_request" data-toggle="tab">Request</a></li><li><a href="#business_details__partyidentifier__property_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="business_details__partyidentifier__property_get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li></ul></div><div class="tab-pane" id="business_details__partyidentifier__property_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "property": [
-    {
-      "id": "UUJF00000008863",
-      "typeOfBusiness": "uk-property",
-      "tradingName": "15 Brookside",
-      "links": [
-        {
-          "href": "/business-details/{nino}/property/UUJF00000008863",
-          "rel": "self",
-          "method": "GET"
-        }]
-    },
-    {
-      "id": "DFTR00000006356",
-      "typeOfBusiness": "foreign-property",
-      "tradingName": "22 Rua El Camino",
-      "links": [
-      {
-        "href": "/business-details/{nino}/property/DFTR00000006356",
-        "rel": "self",
-        "method": "GET"
-      }]
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_business_details__partyidentifier__property__id_"><span class="parent">/business-details/{partyIdentifier}/property</span>/{id}</a> <span class="methods"><a href="#business_details__partyidentifier__property__id__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_business_details__partyidentifier__property__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#business_details__partyidentifier__property__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Retrieve property businesses detail</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="business_details__partyidentifier__property__id__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/business-details/{partyIdentifier}/property</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve property businesses detail</p></div><ul class="nav nav-tabs"><li class="active"><a href="#business_details__partyidentifier__property__id__get_request" data-toggle="tab">Request</a></li><li><a href="#business_details__partyidentifier__property__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="business_details__partyidentifier__property__id__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>id</strong>: <em><span class="required">required</span>(string)</em><p>Property business Id</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>UUJF00000008863</code></pre></div></li></ul></div><div class="tab-pane" id="business_details__partyidentifier__property__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "id": "UUJF00000008863",
-  "typeOfBusiness": "uk-property",
-  "tradingName": "15 Brookside",
-  "accountingPeriods": [
-    {
-      "start": "2020-04-06",
-      "end": "2021-04-05"
-    },
-    {
-      "start": "2019-04-06",
-      "end": "2020-04-05"
-    }
-  ],
-  "accountingType": "cash",
-  "commencementDate": "2019-03-01",
-  "seasonal": "false",
-  "businessAddress": {
-    "lineOne": "15 Brookside",
     "lineTwo": "Telford",
     "lineThree": "Shropshire",
     "lineFour": "UK",

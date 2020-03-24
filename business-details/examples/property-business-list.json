@@ -1,0 +1,26 @@
+{
+  "property": [
+    {
+      "id": "UUJF00000008863",
+      "typeOfBusiness": "uk-property",
+      "businessName": "15 Brookside",
+      "links": [
+        {
+          "href": "/business-details/{nino}/property/UUJF00000008863",
+          "rel": "self",
+          "method": "GET"
+        }]
+    },
+    {
+      "id": "DFTR00000006356",
+      "typeOfBusiness": "foreign-property",
+      "businessName": "22 Rua El Camino",
+      "links": [
+      {
+        "href": "/business-details/{nino}/property/DFTR00000006356",
+        "rel": "self",
+        "method": "GET"
+      }]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+[
+    {
+      "id": "HTYD00000001242",
+      "typeOfBusiness": "self-employment",
+      "businessName": "A1 Driveways",
+      "links": [
+        {
+          "href": "/business-details/{nino}/HTYD00000001242",
+          "rel": "self",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "id": "XGIS00000001319",
+      "typeOfBusiness": "self-employment",
+      "businessName": "Bobs Windows",
+      "links": [
+        {
+          "href": "/business-details/{nino}/XGIS00000001319",
+          "rel": "self",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "id": "KUSC00000007527",
+      "typeOfBusiness": "self-employment",
+      "businessName": "Apex Guttering",
+      "links": [
+        {
+          "href": "/business-details/{nino}/KUSC00000007527",
+          "rel": "self",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "id": "UUJF00000008863",
+      "typeOfBusiness": "uk-property",
+      "businessName": "15 Brookside",
+      "links": [
+        {
+          "href": "/business-details/{nino}/UUJF00000008863",
+          "rel": "self",
+          "method": "GET"
+        }]
+    },
+    {
+      "id": "DFTR00000006356",
+      "typeOfBusiness": "foreign-property",
+      "businessName": "22 Rua El Camino",
+      "links": [
+        {
+          "href": "/business-details/{nino}/DFTR00000006356",
+          "rel": "self",
+          "method": "GET"
+        }]
+    }
+]

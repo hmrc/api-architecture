@@ -1,7 +1,7 @@
 {
-  "id": "XGIS00000001319",
-  "typeOfBusiness": "self-employment",
-  "tradingName": "Bobs Windows",
+  "id": "UUJF00000008863",
+  "typeOfBusiness": "uk-property",
+  "businessName": "15 Brookside",
   "accountingPeriods": [
     {
       "start": "2020-04-06",
@@ -14,9 +14,9 @@
   ],
   "accountingType": "cash",
   "commencementDate": "2019-03-01",
-  "seasonal": "true",
+  "seasonal": "false",
   "businessAddress": {
-    "lineOne": "Plaza 2",
+    "lineOne": "15 Brookside",
     "lineTwo": "Telford",
     "lineThree": "Shropshire",
     "lineFour": "UK",

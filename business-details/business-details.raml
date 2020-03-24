@@ -2,6 +2,13 @@
 title: DRAFT Business Details
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
+documentation:
+- title: Assumptions
+  content: ' <ol>
+                <li>Object schemas from backend [DES] API for self-employment businesses and properties are the same</li>
+             </ol>'
+- title: Design Rationale
+  content: 'The data schemas for business and property are thought to be the same (or very similar), so it made sense to combine everything in one GET "list" and one GET "details".  If we need to add further types of business details in future we can extend with finer-grained end-points as non-breaking changes.'
 uses:
   genericErrors: ../generic/traits/errors.raml
 /business-details:
@@ -16,59 +23,29 @@ uses:
       displayName: List all businesses
       description: List all businesses
       is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
+      queryParameters:
+        typeOfBusiness:
+          displayName: self-employment | uk-property | foreign-property
+          description: self-employment | uk-property | foreign-property
+          example: self-employment
+          required: false
       responses:
         200:
           body:
             application/json:
               example: !include examples/all-business-list.json
-    /self-employments:
+    /{id}:
+      uriParameters:
+        id:
+          description: Business Id
+          type: string
+          example: XGIS00000001319
       get:
-        displayName: List self employment businesses
-        description: List self employment businesses
-        is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
+        displayName: Retrieve businesses detail
+        description: Retrieve businesses detail
+        is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
         responses:
           200:
             body:
               application/json:
-                example: !include examples/self-employment-business-list.json
-      /{id}:
-        uriParameters:
-          id:
-            description: Self employment business Id
-            type: string
-            example: XGIS00000001319
-        get:
-          displayName: Retrieve self employment businesses detail
-          description: Retrieve self employment businesses detail
-          is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
-          responses:
-            200:
-              body:
-                application/json:
-                  example: !include examples/self-employment-business.json
-    /property:
-      get:
-        displayName: List property businesses
-        description: List property businesses
-        is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
-        responses:
-          200:
-            body:
-              application/json:
-                example: !include examples/property-business-list.json
-      /{id}:
-        uriParameters:
-          id:
-            description: Property business Id
-            type: string
-            example: UUJF00000008863
-        get:
-          displayName: Retrieve property businesses detail
-          description: Retrieve property businesses detail
-          is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
-          responses:
-            200:
-              body:
-                application/json:
-                  example: !include examples/property-business.json
-
+                example: !include examples/business-details.json
