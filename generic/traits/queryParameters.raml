@@ -1,8 +1,19 @@
+#%RAML 1.0 Library
 traits:
   taxYear:
     queryParameters:
       taxYear:
         type: string
-        description: The tax year the data applies to, for example, 2017-18. If no tax year is supplied calculations for the current tax year will be returned. The start year and end year must not span two tax years. No gaps are allowed, for example, 2019-21 is not valid. The minimum tax year is 2017-18.
-        example: "2017-18"
+        description: The tax year the data applies to, for example, 2020-21. If no tax year is supplied calculations for the current tax year will be returned. The start year and end year must not span two tax years. No gaps are allowed, for example, 2019-21 is not valid. The minimum tax year is 2017-18.
+        example: "2020-21"
+        required: false
+  startEndDateRange:
+    queryParameters:
+      start:
+        description: The start date to filter the results by
+        type: date-only
+        required: false
+      end:
+        description: The end date to filter the results by
+        type: date-only
         required: false

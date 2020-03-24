@@ -23,17 +23,29 @@ traits:
                 description: 'The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.'
                 value:
                   code: CLIENT_OR_AGENT_NOT_AUTHORISED
-  formatNino:
+  # FORMAT ERRORS
+  formatPartyIdentifier:
     responses:
       400:
         body:
           application/json:
             type: types.errorResponse
             examples:
-              formatNino:
-                description: The format of the supplied NINO field is not valid
+              formatPartyIdentifier:
+                description: The format of the supplied party identifier is not valid
                 value:
-                  code: FORMAT_NINO
+                  code: FORMAT_PARTY_IDENTIFIER
+  formatBusinessIdentifier:
+      responses:
+        400:
+          body:
+            application/json:
+              type: types.errorResponse
+              examples:
+                formatBusinessIdentifier:
+                  description: The format of the supplied business identifier is not valid
+                  value:
+                    code: FORMAT_BUSINESS_IDENTIFIER
   formatTaxYear:
     responses:
       400:
@@ -45,6 +57,61 @@ traits:
                 description: The format of the supplied tax year is not valid
                 value:
                   code: FORMAT_TAX_YEAR
+  formatStartDate:
+    responses:
+      400:
+        body:
+          application/json:
+            type: types.errorResponse
+            examples:
+              formatStartDate:
+                description: The format of the supplied start date is not valid
+                value:
+                  code: FORMAT_START_DATE
+  formatEndDate:
+    responses:
+      400:
+        body:
+          application/json:
+            type: types.errorResponse
+            examples:
+              formatEndDate:
+                description: The format of the supplied end date is not valid
+                value:
+                  code: FORMAT_END_DATE
+  formatType:
+      responses:
+        400:
+          body:
+            application/json:
+              type: types.errorResponse
+              examples:
+                formatType:
+                  description: The format of the supplied type field is not valid
+                  value:
+                    code: FORMAT_TYPE
+  formatStatus:
+      responses:
+        400:
+          body:
+            application/json:
+              type: types.errorResponse
+              examples:
+                formatStatus:
+                  description: The format of the supplied status field is not valid
+                  value:
+                    code: FORMAT_STATUS
+  rangeEndDateBeforeStartDate:
+          responses:
+            400:
+              body:
+                application/json:
+                  type: types.errorResponse
+                  examples:
+                    rangeEndDateBeforeStartDate:
+                      description: The end date is before the start date
+                      value:
+                        code: RANGE_END_DATE_BEFORE_START_DATE
   ruleTaxYearNotSupported:
     responses:
       400:
@@ -67,17 +134,6 @@ traits:
                 description: Tax year range exceeded. A tax year range of one year is required
                 value:
                   code: RULE_TAX_YEAR_RANGE_EXCEEDED
-  formatCalculationId:
-    responses:
-      400:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              formatCalculationId:
-                description: The format of the calculation is not valid
-                value:
-                  code: FORMAT_CALCULATION_ID
   ruleIncorrectOrEmptyBodySubmitted:
     responses:
       400:

@@ -1,31 +1,14 @@
 #%RAML 1.0 Library
 traits:
-  obligations:
-    queryParameters:
-      source:
-          description: The source context for the obligation e.g. self employment business
-          type: string
-          enum: ["selfEmployment","ukProperty","foreignProperty"]
-          required: false
-      sourceId:
-          description: The associated source identifier for the obligation
-          type: string
-          required: false
-      type:
-          description: The type of obligation
-          enum: ["incomeAndExpenses", "selfAssessmentCrystallisation", "vatReturn", "selfAssessmentEndOfPeriodStatement"]
-          type: string
-          required: true
-      status:
-          description: The type of obligation
-          enum: ["open", "fulfilled"]
-          type: string
-          required: false
-      start:
-          description: The start date to filter obligations by
-          type: date-only
-          required: false
-      end:
-          description: The end date to filter obligations by
-          type: date-only
-          required: false
+  obligations-regime:
+        queryParameters:
+          type:
+              description: The type of obligation
+              enum: ["income-expenditure", "end-of-period-statement","self-assessment-crystallisation"]
+              type: string
+              required: false
+          status:
+              description: The type of obligation
+              enum: ["open", "fulfilled"]
+              type: string
+              required: false
