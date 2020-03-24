@@ -12,6 +12,15 @@ uses:
         type: string
         pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
         example: TC663795B
+    get:
+      displayName: List all businesses
+      description: List all businesses
+      is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/all-business-list.json
     /self-employments:
       get:
         displayName: List self employment businesses
@@ -21,4 +30,45 @@ uses:
           200:
             body:
               application/json:
-                example: !include examples/self-employment-business.json
+                example: !include examples/self-employment-business-list.json
+      /{id}:
+        uriParameters:
+          id:
+            description: Self employment business Id
+            type: string
+            example: XGIS00000001319
+        get:
+          displayName: Retrieve self employment businesses detail
+          description: Retrieve self employment businesses detail
+          is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/self-employment-business.json
+    /property:
+      get:
+        displayName: List property businesses
+        description: List property businesses
+        is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/property-business-list.json
+      /{id}:
+        uriParameters:
+          id:
+            description: Property business Id
+            type: string
+            example: UUJF00000008863
+        get:
+          displayName: Retrieve property businesses detail
+          description: Retrieve property businesses detail
+          is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/property-business.json
+
