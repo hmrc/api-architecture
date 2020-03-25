@@ -23,6 +23,18 @@ traits:
                 description: 'The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.'
                 value:
                   code: CLIENT_OR_AGENT_NOT_AUTHORISED
+  internalServerError:
+      responses:
+        500:
+          body:
+            application/json:
+              type: types.errorResponse
+              examples:
+                clientOrAgentNotAuthorised:
+                  description: 'Internal server error'
+                  value:
+                    code: INTERNAL_SERVER_ERROR
+
   # FORMAT ERRORS
   formatPartyIdentifier:
     responses:
@@ -101,6 +113,7 @@ traits:
                   description: The format of the supplied status field is not valid
                   value:
                     code: FORMAT_STATUS
+  #RANGE ERRORS
   rangeEndDateBeforeStartDate:
           responses:
             400:
@@ -112,6 +125,7 @@ traits:
                       description: The end date is before the start date
                       value:
                         code: RANGE_END_DATE_BEFORE_START_DATE
+  #RULE ERRORS
   ruleTaxYearNotSupported:
     responses:
       400:
@@ -145,14 +159,26 @@ traits:
                 description: An empty or non-matching body was submitted, this could be caused by a missing mandatory field
                 value:
                   code: RULE_INCORRECT_OR_EMPTY_BODY_SUBMITTED
-  ruleNoIncomeSubmissionsExist:
-    responses:
-      403:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              ruleNoIncomeSubmissionsExist:
-                description: A calculation could not be performed because no income data has been submitted against the tax year
-                value:
-                  code: RULE_NO_INCOME_SUBMISSIONS_EXIST
+  #MISSING ERRORS
+  missingStartDate:
+          responses:
+            400:
+              body:
+                application/json:
+                  type: types.errorResponse
+                  examples:
+                    missingStartDate:
+                      description: The start date parameter is missing
+                      value:
+                        code: MISSING_START_DATE
+    missingEndDate:
+          responses:
+            400:
+              body:
+                application/json:
+                  type: types.errorResponse
+                  examples:
+                    missingEndDate:
+                      description: The end date parameter is missing
+                      value:
+                        code: MISSING_END_DATE

@@ -13,6 +13,7 @@ uses:
   genericQueryParameters: ../generic/traits/queryParameters.raml
   obligationQueryParameters: traits/queryParameters.raml
   obligationErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
 /obligations:
   /{partyIdentifier}:
     uriParameters:
@@ -25,7 +26,22 @@ uses:
       get:
         displayName: List income tax obligations for the party
         description: List income tax obligations for the party
-        is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatPartyIdentifier,genericErrors.formatStartDate,genericErrors.formatEndDate,genericErrors.formatType,genericErrors.rangeEndDateBeforeStartDate,obligationErrors.ruleDateRangeInvalid,obligationErrors.ruleStartDateNotSupported,obligationErrors.rangeDateTooLong,obligationQueryParameters.obligations-regime,genericQueryParameters.startEndDateRange]
+        is: [genericErrors.internalServerError,
+             genericErrors.notFound,
+             genericErrors.clientOrAgentNotAuthorised,
+             genericErrors.formatPartyIdentifier,
+             genericErrors.formatStartDate,
+             genericErrors.formatEndDate,
+             genericErrors.formatType,
+             genericErrors.rangeEndDateBeforeStartDate,
+             obligationErrors.ruleDateRangeInvalid,
+             obligationErrors.ruleStartDateNotSupported,
+             obligationErrors.rangeDateTooLong,
+             genericErrors.missingStartDate,
+             genericErrors.missingEndDate, |
+             obligationQueryParameters.obligations-regime,
+             genericQueryParameters.startEndDateRange,
+             genericHeaders.standardHeaders]
         responses:
           200:
             body:

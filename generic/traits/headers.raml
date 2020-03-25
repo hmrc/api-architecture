@@ -1,0 +1,39 @@
+#%RAML 1.0 Library
+traits:
+  standardHeaders:
+    responses:
+      200:
+        headers:
+          X-CorrelationId:
+            description: Unique ID for operation tracking
+            type: string
+            pattern: ^[A-Za-z0-9\-]{36}$
+            example: a1e8057e-fbbc-47a8-a8b4-78d9f015c253
+      400:
+        headers:
+          X-CorrelationId:
+            description: Unique ID for operation tracking
+            type: string
+            pattern: ^[A-Za-z0-9\-]{36}$
+            example: a1e8057e-fbbc-47a8-a8b4-78d9f015c253
+      403:
+        headers:
+          X-CorrelationId:
+            description: Unique ID for operation tracking
+            type: string
+            pattern: ^[A-Za-z0-9\-]{36}$
+            example: a1e8057e-fbbc-47a8-a8b4-78d9f015c253
+      404:
+        headers:
+          X-CorrelationId:
+            description: Unique ID for operation tracking
+            type: string
+            pattern: ^[A-Za-z0-9\-]{36}$
+            example: a1e8057e-fbbc-47a8-a8b4-78d9f015c253
+      500:
+        headers:
+          X-CorrelationId:
+            description: Unique ID for operation tracking
+            type: string
+            pattern: ^[A-Za-z0-9\-]{36}$
+            example: a1e8057e-fbbc-47a8-a8b4-78d9f015c253
