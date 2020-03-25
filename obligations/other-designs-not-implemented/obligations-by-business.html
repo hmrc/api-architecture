@@ -1,0 +1,395 @@
+<!DOCTYPE HTML><html><head><title>DRAFT Obligations by Party/Business</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.5.0"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"><style>
+      .hljs {
+  background: transparent;
+}
+.parent {
+  color: #999;
+}
+.list-group-item > .badge {
+  float: none;
+  margin-right: 6px;
+}
+.panel-title > .methods {
+  float: right;
+}
+.badge {
+  border-radius: 0;
+  text-transform: uppercase;
+  width: 70px;
+  font-weight: normal;
+  color: #f3f3f6;
+  line-height: normal;
+}
+.badge_get {
+  background-color: #63a8e2;
+}
+.badge_post {
+  background-color: #6cbd7d;
+}
+.badge_put {
+  background-color: #22bac4;
+}
+.badge_delete {
+  background-color: #d26460;
+}
+.badge_patch {
+  background-color: #ccc444;
+}
+.list-group,
+.panel-group {
+  margin-bottom: 0;
+}
+.panel-group .panel-white {
+  border-radius: 0;
+}
+.panel-white:last-child {
+  border-bottom-color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.panel-white .panel-heading {
+  background: white;
+}
+.tab-pane ul {
+  padding-left: 2em;
+}
+.tab-pane h1 {
+  font-size: 1.3em;
+}
+.tab-pane h2 {
+  font-size: 1.2em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ddd;
+}
+.tab-pane h3 {
+  font-size: 1.1em;
+}
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+#sidebar {
+  margin-top: 30px;
+  padding-right: 5px;
+  overflow: auto;
+  height: 90%;
+}
+.top-resource-description {
+  border-bottom: 1px solid #ddd;
+  background: #fcfcfc;
+  padding: 15px 15px 0 15px;
+  margin: -15px -15px 10px -15px;
+}
+.resource-description {
+  border-bottom: 1px solid #fcfcfc;
+  background: #fcfcfc;
+  padding: 15px 15px 0 15px;
+  margin: -15px -15px 10px -15px;
+}
+.resource-description p:last-child {
+  margin: 0;
+}
+.list-group .badge {
+  float: left;
+}
+.method_description {
+  margin-left: 85px;
+}
+.method_description p:last-child {
+  margin: 0;
+}
+/* pre code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+} */
+.items {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+}
+.examples {
+  margin-left: 0.5em;
+}
+.resource-modal li > ul {
+  margin-bottom: 1em;
+}
+.required {
+  color: #f00;
+}
+
+.modal
+{
+  position: static;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-content
+{
+  border-color: #b7b7b7;
+}
+
+.panel-group .panel+.panel
+{
+  margin-top: 10px;
+}
+
+.nav.nav-tabs
+{
+  margin-top: 10px;
+}
+
+.alert
+{
+  margin-bottom: 0;
+}
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-12" role="main"><div class="page-header"><h1>DRAFT Obligations by Party/Business <small>version 0.1</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="resource_model"><a href="#resource_model">Resource Model</a></h3><table class="table"><thead><tr><th>Endpoints</th></tr></thead><tbody><tr><td>/obligations/{partyIdentifier}/income-tax [GET]</td></tr><tr><td>/obligations/{partyIdentifier}/business/self-employments/{selfEmploymentId} [GET]</td></tr><tr><td>/obligations/{partyIdentifier}/business/ukProperty/{ukPropertyId} [GET]</td></tr><tr><td>/obligations/{partyIdentifier}/business/foreign-property/{foreignPropertyId} [GET]</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="obligations" class="panel-title">/obligations</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/obligations/{partyIdentifier}</span>/income-tax <span class="methods"><span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="obligations__partyidentifier__income_tax_get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/obligations/{partyIdentifier}</span>/income-tax</h4></div><div class="modal-body"><div class="alert alert-info"><p>List income tax obligations for the party</p></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__income_tax_get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__income_tax_get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>type</strong>: <em>(self-assessment-crystallisation)</em><p>The type of obligation</p></li><li><strong>status</strong>: <em>(one of open, fulfilled)</em><p>The type of obligation</p></li><li><strong>start</strong>: <em>(date-only)</em><p>The start date to filter the results by</p></li><li><strong>end</strong>: <em>(date-only)</em><p>The end date to filter the results by</p></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__income_tax_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__income_tax_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "incomeTaxObligations": {
+    "type": "self-assessment-crystallisation",
+    "obligations": [
+      {
+        "start": "2017-04-06",
+        "end": "2018-05-04",
+        "due": "2019-01-31",
+        "status": "open"
+      }
+    ]
+  }
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatPartyIdentifier</strong>:<br>The format of the supplied party identifier is not valid</p><pre><code>{
+  "code": "FORMAT_PARTY_IDENTIFIER"
+}</code></pre><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+  "code": "FORMAT_START_DATE"
+}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
+  "code": "FORMAT_END_DATE"
+}</code></pre><p><strong>formatType</strong>:<br>The format of the supplied type field is not valid</p><pre><code>{
+  "code": "FORMAT_TYPE"
+}</code></pre><p><strong>formatStatus</strong>:<br>The format of the supplied status field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>rangeEndDateBeforeStartDate</strong>:<br>The end date is before the start date</p><pre><code>{
+  "code": "RANGE_END_DATE_BEFORE_START_DATE"
+}</code></pre><p><strong>formatBusinessIdentifier</strong>:<br>The format of the supplied business identifier is not valid</p><pre><code>{
+  "code": "FORMAT_BUSINESS_IDENTIFIER"
+}</code></pre><p><strong>ruleDateRangeInvalid</strong>:<br>The date range is longer than 365 days or less than a day</p><pre><code>{
+  "code": "RULE_DATE_RANGE_INVALID"
+}</code></pre><p><strong>ruleStartDateNotSupported</strong>:<br>The start date specified is before 2018-04-06</p><pre><code>{
+  "code": "RULE_START_DATE_NOT_SUPPORTED"
+}</code></pre><p><strong>rangeDateTooLOng</strong>:<br>The date range is longer than 366 days.</p><pre><code>{
+  "code": "RANGE_DATE_TOO_LONG"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/obligations/{partyIdentifier}/business/self-employments</span>/{selfEmploymentId} <span class="methods"><span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="obligations__partyidentifier__business_self_employments__selfemploymentid__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/obligations/{partyIdentifier}/business/self-employments</span>/{selfEmploymentId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List self employment business obligations</p></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__business_self_employments__selfemploymentid__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__business_self_employments__selfemploymentid__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>selfEmploymentId</strong>: <em><span class="required">required</span>(string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>type</strong>: <em>(one of income-expenses, end-of-period-statement)</em><p>The type of obligation</p></li><li><strong>status</strong>: <em>(one of open, fulfilled)</em><p>The type of obligation</p></li><li><strong>start</strong>: <em>(date-only)</em><p>The start date to filter the results by</p></li><li><strong>end</strong>: <em>(date-only)</em><p>The end date to filter the results by</p></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__business_self_employments__selfemploymentid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__business_self_employments__selfemploymentid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "selfEmploymentObligations": [
+    {
+      "type": "income-expenses",
+      "obligations": [
+        {
+          "start": "2017-04-06",
+          "end": "2017-07-05",
+          "due": "2017-08-05",
+          "status": "fulfilled",
+          "received": "2017-08-06"
+        },
+        {
+          "start": "2017-07-06",
+          "end": "2017-10-05",
+          "due": "2017-11-05",
+          "status": "open"
+        },
+        {
+          "start": "2017-10-06",
+          "end": "2018-01-05",
+          "due": "2018-02-05",
+          "status": "open"
+        },
+        {
+          "start": "2018-01-06",
+          "end": "2018-04-05",
+          "due": "2018-05-06",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "type": "end-of-period-statement",
+      "obligations": [
+        {
+          "start": "2017-04-06",
+          "end": "2018-05-04",
+          "due": "2019-01-31",
+          "status": "open"
+        }
+      ]
+    }
+  ]
+}
+</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatPartyIdentifier</strong>:<br>The format of the supplied party identifier is not valid</p><pre><code>{
+  "code": "FORMAT_PARTY_IDENTIFIER"
+}</code></pre><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+  "code": "FORMAT_START_DATE"
+}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
+  "code": "FORMAT_END_DATE"
+}</code></pre><p><strong>formatType</strong>:<br>The format of the supplied type field is not valid</p><pre><code>{
+  "code": "FORMAT_TYPE"
+}</code></pre><p><strong>formatStatus</strong>:<br>The format of the supplied status field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>rangeEndDateBeforeStartDate</strong>:<br>The end date is before the start date</p><pre><code>{
+  "code": "RANGE_END_DATE_BEFORE_START_DATE"
+}</code></pre><p><strong>formatBusinessIdentifier</strong>:<br>The format of the supplied business identifier is not valid</p><pre><code>{
+  "code": "FORMAT_BUSINESS_IDENTIFIER"
+}</code></pre><p><strong>ruleDateRangeInvalid</strong>:<br>The date range is longer than 365 days or less than a day</p><pre><code>{
+  "code": "RULE_DATE_RANGE_INVALID"
+}</code></pre><p><strong>ruleStartDateNotSupported</strong>:<br>The start date specified is before 2018-04-06</p><pre><code>{
+  "code": "RULE_START_DATE_NOT_SUPPORTED"
+}</code></pre><p><strong>rangeDateTooLOng</strong>:<br>The date range is longer than 366 days.</p><pre><code>{
+  "code": "RANGE_DATE_TOO_LONG"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/obligations/{partyIdentifier}/business/uk-property</span>/{ukPropertyId} <span class="methods"><span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="obligations__partyidentifier__business_uk_property__ukpropertyid__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/obligations/{partyIdentifier}/business/uk-property</span>/{ukPropertyId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List UK Property business obligations</p></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__business_uk_property__ukpropertyid__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__business_uk_property__ukpropertyid__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>ukPropertyId</strong>: <em><span class="required">required</span>(string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>type</strong>: <em>(one of income-expenses, end-of-period-statement)</em><p>The type of obligation</p></li><li><strong>status</strong>: <em>(one of open, fulfilled)</em><p>The type of obligation</p></li><li><strong>start</strong>: <em>(date-only)</em><p>The start date to filter the results by</p></li><li><strong>end</strong>: <em>(date-only)</em><p>The end date to filter the results by</p></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__business_uk_property__ukpropertyid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__business_uk_property__ukpropertyid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "obligations": [
+    {
+      "type": "income-expenses",
+      "obligations": [
+        {
+          "start": "2017-04-06",
+          "end": "2017-07-05",
+          "due": "2017-08-05",
+          "status": "fulfilled",
+          "received": "2017-08-06"
+        },
+        {
+          "start": "2017-07-06",
+          "end": "2017-10-05",
+          "due": "2017-11-05",
+          "status": "open"
+        },
+        {
+          "start": "2017-10-06",
+          "end": "2018-01-05",
+          "due": "2018-02-05",
+          "status": "open"
+        },
+        {
+          "start": "2018-01-06",
+          "end": "2018-04-05",
+          "due": "2018-05-06",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "type": "end-of-period-statement",
+      "obligations": [
+        {
+          "start": "2017-04-06",
+          "end": "2018-05-04",
+          "due": "2019-01-31",
+          "status": "open"
+        }
+      ]
+    }
+  ]
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatPartyIdentifier</strong>:<br>The format of the supplied party identifier is not valid</p><pre><code>{
+  "code": "FORMAT_PARTY_IDENTIFIER"
+}</code></pre><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+  "code": "FORMAT_START_DATE"
+}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
+  "code": "FORMAT_END_DATE"
+}</code></pre><p><strong>formatType</strong>:<br>The format of the supplied type field is not valid</p><pre><code>{
+  "code": "FORMAT_TYPE"
+}</code></pre><p><strong>formatStatus</strong>:<br>The format of the supplied status field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>rangeEndDateBeforeStartDate</strong>:<br>The end date is before the start date</p><pre><code>{
+  "code": "RANGE_END_DATE_BEFORE_START_DATE"
+}</code></pre><p><strong>formatBusinessIdentifier</strong>:<br>The format of the supplied business identifier is not valid</p><pre><code>{
+  "code": "FORMAT_BUSINESS_IDENTIFIER"
+}</code></pre><p><strong>ruleDateRangeInvalid</strong>:<br>The date range is longer than 365 days or less than a day</p><pre><code>{
+  "code": "RULE_DATE_RANGE_INVALID"
+}</code></pre><p><strong>ruleStartDateNotSupported</strong>:<br>The start date specified is before 2018-04-06</p><pre><code>{
+  "code": "RULE_START_DATE_NOT_SUPPORTED"
+}</code></pre><p><strong>rangeDateTooLOng</strong>:<br>The date range is longer than 366 days.</p><pre><code>{
+  "code": "RANGE_DATE_TOO_LONG"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/obligations/{partyIdentifier}/business/foreign-property</span>/{ukPropertyId} <span class="methods"><span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="obligations__partyidentifier__business_foreign_property__ukpropertyid__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/obligations/{partyIdentifier}/business/foreign-property</span>/{ukPropertyId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List Foreign Property business obligations</p></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__business_foreign_property__ukpropertyid__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__business_foreign_property__ukpropertyid__get_request"><h3>URI Parameters</h3><ul><li><strong>partyIdentifier</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>Party identifier, NINO for SA Individuals</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>ukPropertyId</strong>: <em><span class="required">required</span>(string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>type</strong>: <em>(one of income-expenses, end-of-period-statement)</em><p>The type of obligation</p></li><li><strong>status</strong>: <em>(one of open, fulfilled)</em><p>The type of obligation</p></li><li><strong>start</strong>: <em>(date-only)</em><p>The start date to filter the results by</p></li><li><strong>end</strong>: <em>(date-only)</em><p>The end date to filter the results by</p></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#obligations__partyidentifier__business_foreign_property__ukpropertyid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="obligations__partyidentifier__business_foreign_property__ukpropertyid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "obligations": [
+    {
+      "type": "income-expenses",
+      "obligations": [
+        {
+          "start": "2017-04-06",
+          "end": "2017-07-05",
+          "due": "2017-08-05",
+          "status": "fulfilled",
+          "received": "2017-08-06"
+        },
+        {
+          "start": "2017-07-06",
+          "end": "2017-10-05",
+          "due": "2017-11-05",
+          "status": "open"
+        },
+        {
+          "start": "2017-10-06",
+          "end": "2018-01-05",
+          "due": "2018-02-05",
+          "status": "open"
+        },
+        {
+          "start": "2018-01-06",
+          "end": "2018-04-05",
+          "due": "2018-05-06",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "type": "end-of-period-statement",
+      "obligations": [
+        {
+          "start": "2017-04-06",
+          "end": "2018-05-04",
+          "due": "2019-01-31",
+          "status": "open"
+        }
+      ]
+    }
+  ]
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatPartyIdentifier</strong>:<br>The format of the supplied party identifier is not valid</p><pre><code>{
+  "code": "FORMAT_PARTY_IDENTIFIER"
+}</code></pre><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+  "code": "FORMAT_START_DATE"
+}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
+  "code": "FORMAT_END_DATE"
+}</code></pre><p><strong>formatType</strong>:<br>The format of the supplied type field is not valid</p><pre><code>{
+  "code": "FORMAT_TYPE"
+}</code></pre><p><strong>formatStatus</strong>:<br>The format of the supplied status field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>rangeEndDateBeforeStartDate</strong>:<br>The end date is before the start date</p><pre><code>{
+  "code": "RANGE_END_DATE_BEFORE_START_DATE"
+}</code></pre><p><strong>formatBusinessIdentifier</strong>:<br>The format of the supplied business identifier is not valid</p><pre><code>{
+  "code": "FORMAT_BUSINESS_IDENTIFIER"
+}</code></pre><p><strong>ruleDateRangeInvalid</strong>:<br>The date range is longer than 365 days or less than a day</p><pre><code>{
+  "code": "RULE_DATE_RANGE_INVALID"
+}</code></pre><p><strong>ruleStartDateNotSupported</strong>:<br>The start date specified is before 2018-04-06</p><pre><code>{
+  "code": "RULE_START_DATE_NOT_SUPPORTED"
+}</code></pre><p><strong>rangeDateTooLOng</strong>:<br>The date range is longer than 366 days.</p><pre><code>{
+  "code": "RANGE_DATE_TOO_LONG"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div></div></div></div></div></div></div></body></html>

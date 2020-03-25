@@ -2,101 +2,36 @@
 uses:
   types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
 traits:
-  notFound:
-    responses:
-      404:
-        body:
-          application/json:
-            type: types.errorResponse
-            example:
-              description: No tax calculations could be found for the supplied NINO and tax year.
-              value:
-                code: MATCHING_RESOURCE_NOT_FOUND
-  clientOrAgentNotAuthorised:
-    responses:
-      403:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              clientOrAgentNotAuthorised:
-                description: 'The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.'
-                value:
-                  code: CLIENT_OR_AGENT_NOT_AUTHORISED
-  formatNino:
+  ruleDateRangeInvalid:
     responses:
       400:
         body:
           application/json:
             type: types.errorResponse
             examples:
-              formatNino:
-                description: The format of the supplied NINO field is not valid
+              ruleDateRangeInvalid:
+                description: The date range is longer than 365 days or less than a day
                 value:
-                  code: FORMAT_NINO
-  formatTaxYear:
+                  code: RULE_DATE_RANGE_INVALID
+  ruleStartDateNotSupported:
     responses:
       400:
         body:
           application/json:
             type: types.errorResponse
             examples:
-              formatTaxYear:
-                description: The format of the supplied tax year is not valid
+              ruleStartDateNotSupported:
+                description: The start date specified is before 2018-04-06
                 value:
-                  code: FORMAT_TAX_YEAR
-  ruleTaxYearNotSupported:
-    responses:
-      400:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              ruleTaxYearNotSupported:
-                description: The specified tax year is not supported, that is, the tax year specified is before the minimum tax year value
-                value:
-                  code: RULE_TAX_YEAR_NOT_SUPPORTED
-  ruleTaxYearRangeExceeded:
-    responses:
-      400:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              ruleTaxYearRangeExceeded:
-                description: Tax year range exceeded. A tax year range of one year is required
-                value:
-                  code: RULE_TAX_YEAR_RANGE_EXCEEDED
-  formatCalculationId:
-    responses:
-      400:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              formatCalculationId:
-                description: The format of the calculation is not valid
-                value:
-                  code: FORMAT_CALCULATION_ID
-  ruleIncorrectOrEmptyBodySubmitted:
-    responses:
-      400:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              ruleIncorrectOrEmptyBodySubmitted:
-                description: An empty or non-matching body was submitted, this could be caused by a missing mandatory field
-                value:
-                  code: RULE_INCORRECT_OR_EMPTY_BODY_SUBMITTED
-  ruleNoIncomeSubmissionsExist:
-    responses:
-      403:
-        body:
-          application/json:
-            type: types.errorResponse
-            examples:
-              ruleNoIncomeSubmissionsExist:
-                description: A calculation could not be performed because no income data has been submitted against the tax year
-                value:
-                  code: RULE_NO_INCOME_SUBMISSIONS_EXIST
+                  code: RULE_START_DATE_NOT_SUPPORTED
+  rangeDateTooLong:
+      responses:
+        400:
+          body:
+            application/json:
+              type: types.errorResponse
+              examples:
+                rangeDateTooLOng:
+                  description: The date range is longer than 366 days.
+                  value:
+                    code: RANGE_DATE_TOO_LONG
