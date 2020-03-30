@@ -238,7 +238,9 @@
     "lineFour": "UK",
     "postcode": "TF3 4NT"
   }
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>ruleTaxYearNotSupported</strong>:<br>The specified tax year is not supported, that is, the tax year specified is before the minimum tax year value</p><pre><code>{
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>ruleTaxYearNotSupported</strong>:<br>The specified tax year is not supported, that is, the tax year specified is before the minimum tax year value</p><pre><code>{
   "code": "RULE_TAX_YEAR_NOT_SUPPORTED"
 }</code></pre><p><strong>ruleTaxYearRangeExceeded</strong>:<br>Tax year range exceeded. A tax year range of one year is required</p><pre><code>{
   "code": "RULE_TAX_YEAR_RANGE_EXCEEDED"
