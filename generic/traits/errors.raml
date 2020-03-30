@@ -113,6 +113,17 @@ traits:
                   description: The format of the supplied status field is not valid
                   value:
                     code: FORMAT_STATUS
+  formatNino:
+      responses:
+        400:
+          body:
+            application/json:
+              type: types.errorResponse
+              examples:
+                formatStatus:
+                  description: The format of the supplied Nino field is not valid
+                  value:
+                    code: FORMAT_STATUS
   #RANGE ERRORS
   rangeEndDateBeforeStartDate:
           responses:
@@ -171,14 +182,14 @@ traits:
                       description: The start date parameter is missing
                       value:
                         code: MISSING_START_DATE
-    missingEndDate:
-          responses:
-            400:
-              body:
-                application/json:
-                  type: types.errorResponse
-                  examples:
-                    missingEndDate:
-                      description: The end date parameter is missing
-                      value:
-                        code: MISSING_END_DATE
+  missingEndDate:
+        responses:
+          400:
+            body:
+              application/json:
+                type: types.errorResponse
+                examples:
+                  missingEndDate:
+                    description: The end date parameter is missing
+                    value:
+                      code: MISSING_END_DATE
