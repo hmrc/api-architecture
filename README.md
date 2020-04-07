@@ -14,5 +14,6 @@ This code is open source software licensed under the [Apache 2.0 License]("http:
 | API              | Status |
 |------------------|:-------|
 | [Deductions](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/deductions/deductions.html)       | DRAFT  |
+| [Income](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/income/income.html)       | DRAFT  |
 | [Obligations](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/obligations/obligations.html)      | DRAFT  |
 | [Business Details](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/business-details/business-details.html) | DRAFT  |
