@@ -1,0 +1,31 @@
+{
+  "insurance-policies": [
+    {
+      "type": "LIFE INSURANCE",
+      "event": "Death of spouse",
+      "customerReference":"Life Ins",
+      "gainAmount": 15422.00,
+      "taxPaid": 1542.00,
+      "yearsHeld": 14,
+      "yearsHeldSinceLastGain": 3,
+      "deficiencyRelief": null
+    },
+    {
+      "type": "CAPITAL REDEMPTION",
+      "event": "Chips Cashed In",
+      "customerReference":"Capital Redemp Policy",
+      "gainAmount": 15422.00,
+      "yearsHeld": 14,
+      "yearsHeldSinceLastGain": 3
+    },
+    {
+      "type": "LIFE ANNUITY",
+      "event": null,
+      "gainAmount": 532.00,
+      "taxPaid": null,
+      "yearsHeld": 14,
+      "yearsHeldSinceLastGain": 3,
+      "deficiencyRelief": null
+    }
+  ]
+}

@@ -234,28 +234,7 @@
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/cis/{taxableEntityId}</span>/amendments <span class="methods"><span class="badge badge_post">post</span></span></h4></div><div class="modal" tabindex="0" id="deductions_cis__taxableentityid__amendments_post"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/deductions/cis/{taxableEntityId}</span>/amendments</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create CIS deductions amendments for a Contractor &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments_post_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "fromDate": "2019-04-06" ,
-  "toDate": "2020-04-05",
-  "contractorName": "Bovis",
-  "employerRef": "BV40092",
-  "periodData": [
-    {
-      "deductionAmount": 355.00,
-      "deductionFromDate": "2019-06-06",
-      "deductionToDate": "2019-07-05",
-      "costOfMaterials": 35.00,
-      "grossAmountPaid": 1457.00
-    },
-    {
-      "deductionAmount": 355.00,
-      "deductionFromDate": "2019-07-06",
-      "deductionToDate": "2019-08-05",
-      "costOfMaterials": 35.00,
-      "grossAmountPaid": 1457.00
-    }
-  ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/cis/{taxableEntityId}</span>/amendments <span class="methods"><span class="badge badge_post">post</span></span></h4></div><div class="modal" tabindex="0" id="deductions_cis__taxableentityid__amendments_post"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/deductions/cis/{taxableEntityId}</span>/amendments</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create CIS deductions amendments for a Contractor &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments_post_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "id": "S4636A77V5KB8625U"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
   "code": "FORMAT_START_DATE"

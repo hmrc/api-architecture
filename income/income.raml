@@ -5,10 +5,10 @@ version: 0.1
 documentation:
   - title: Resource Model
     content: |
-      | Endpoints | Methods   |
-      |-----------|-----------|
-      | /income/securities/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Securities | /income/securities/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Insurance Policies | /income/insurance-policies/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
   genericErrors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -19,23 +19,62 @@ uses:
   /securities:
     /{taxableEntityId}:
       uriParameters:
-        taxableEntityId:
-          description: Unique entity identifier, NINO for SA Individuals
-          type: string
-          pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
-          example: TC663795B
+        taxableEntityId: baseTypes.TaxableEntityId
       /{taxYear}:
         uriParameters:
-          baseTypes.TaxYear
+          taxYear: baseTypes.TaxYear
         get:
-          displayName: employment
-          description: employment
+          displayName: List of securities income
+          description: List of securities income
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
             200:
               body:
                 application/json:
-                  #example: !include examples/cis_deductions_amendments_response.json
+                  example: !include examples/securities.json
+        put:
+          displayName: Create/update securities income submission
+          description: Create/update securities income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          responses:
+            200:
           body:
             application/json:
               example: !include examples/securities.json
+        delete:
+          displayName: Delete securities income submission
+          description: Delete securities income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          responses:
+            204:
+  /insurance-policies:
+    /{taxableEntityId}:
+      uriParameters:
+          taxableEntityId: baseTypes.TaxableEntityId
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: List of Insurance Policies income
+          description: List of Insurance Policies income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/insurance.json
+        put:
+          displayName: Create/update Insurance Policies income submission
+          description: Create/update Insurance Policies income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/insurance.json
+        delete:
+          displayName: Delete Insurance Policies income submission
+          description: Delete Insurance Policies income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          responses:
+            204:
