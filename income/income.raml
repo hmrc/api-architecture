@@ -1,0 +1,41 @@
+#%RAML 1.0
+title: DRAFT
+baseUri: https://api.service.hmrc.gov.uk
+version: 0.1
+documentation:
+  - title: Resource Model
+    content: |
+      | Endpoints | Methods   |
+      |-----------|-----------|
+      | /income/securities/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+
+uses:
+  genericErrors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/income:
+  /securities:
+    /{taxableEntityId}:
+      uriParameters:
+        taxableEntityId:
+          description: Unique entity identifier, NINO for SA Individuals
+          type: string
+          pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
+          example: TC663795B
+      /{taxYear}:
+        uriParameters:
+          baseTypes.TaxYear
+        get:
+          displayName: employment
+          description: employment
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          responses:
+            200:
+              body:
+                application/json:
+                  #example: !include examples/cis_deductions_amendments_response.json
+          body:
+            application/json:
+              example: !include examples/securities.json

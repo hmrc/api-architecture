@@ -1,72 +1,34 @@
 #%RAML 1.0
-title: DRAFT [Individual] Deductions MTD
+title: DRAFT Deductions MTD
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.5
-#documentation:
-#- title:  Change History
-#  content: '<table>
-#             <tr>
-#               <th>Version &nbsp;</th>
-#               <th>Date &nbsp;</th>
-#               <th>Author &nbsp;</th>
-#               <th>Comments &nbsp;</th>
-#             </tr>
-#             <tr>
-#               <td>0.5 &nbsp;</td>
-#               <td>2020-03-11 &nbsp;</td>
-#               <td>T Porter &nbsp;</td>
-#               <td>Corrected JSON example for current-position&nbsp;</td>
-#             </tr>
-#             <tr>
-#               <td>0.4.3 &nbsp;</td>
-#               <td>2020-03-11 &nbsp;</td>
-#               <td>T Porter &nbsp;</td>
-#               <td>Removed header from PUT JSON example&nbsp;</td>
-#             </tr>
-#             <tr>
-#               <td>0.4.2 &nbsp;</td>
-#               <td>2020-03-10 &nbsp;</td>
-#               <td>T Porter &nbsp;</td>
-#               <td>Resolved ID listing issue&nbsp;</td>
-#             </tr>
-#             <tr>
-#               <td>0.4.1 &nbsp;</td>
-#               <td>2020-03-03 &nbsp;</td>
-#               <td>T Porter &nbsp;</td>
-#               <td>Removed GET amendments by ID &nbsp;</td>
-#             </tr>
-#             <tr>
-#               <td>0.4 &nbsp;</td>
-#               <td>2020-03-03 &nbsp;</td>
-#               <td>T Porter &nbsp;</td>
-#               <td>Revised endpoints & payloads to reflect latest changes agreed 28 Feb & 2 Mar &nbsp;</td>
-#             </tr>
-#           </table>'
-#- title: Open Issues
-#  content: ' <ol>
-#                <li>None</li>
-#              </ol>'
-#- title: Closed Issues
-#  content: ' <ol>
-#               <li>Ideally we''d like to get a list of the amendment IDs somehow. We''ve proposed endpoint /deductions/cis/{nino}/amendments for this. But surfacing the IDs in the current-position for the customer supplied deductions would work also.  <strong>RESOLUTION:</strong> IDs listable using returnSubmissions query parameter</li>
-#             </ol>'
+documentation:
+  - title: Resource Model
+    content: |
+      | Deduction Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | CIS | /deductions/cis/{taxableEntityId}/current-position | [GET] |
+      |  | /deductions/cis/{taxableEntityId}/amendments | [GET] [POST] |
+      |  | /deductions/cis/{taxableEntityId}/amendments/{submissionId} | [[PUT] [DELETE] |
+      | Student Loans | /deductions/student-loans/{taxableEntityId}/current-position | [GET] |
+      |  | /deductions/student-loans/{taxableEntityId}/amendments | [GET] [POST] |
+      |  | /deductions/student-loans/{taxableEntityId}/amendments/{submissionId} | [[PUT] [DELETE] |
 uses:
   errors: ../generic/traits/errors.raml
   queryParameters: ../generic/traits/queryParameters.raml
-  #allowances-deductions-reliefs: types/allowances-deductions-reliefs/allowances-deductions-reliefs-hateoas-body.raml
   base-types: ../generic/types/common/base-types.raml
 /deductions:
   /cis:
-    /{nino}:
+    /{taxableEntityId}:
       uriParameters:
-        nino:
-          description: National Insurance number, in the format AA999999A.
-          type: base-types.Nino
+        taxableEntityId:
+          description: Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual
+          type: base-types.taxableEntityId
       /current-position:
         get:
           displayName: List current position of CIS deductions.
           description: List current position of CIS deductions.
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           queryParameters:
             fromDate:
               displayName: Start date of the tax year in YYYY-MM-DD
@@ -95,7 +57,7 @@ uses:
         post:
           displayName: Create CIS deductions amendments for a Contractor & Tax Year
           description: Create CIS deductions amendments for a Contractor & Tax Year
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
             200:
               body:
@@ -104,16 +66,16 @@ uses:
           body:
             application/json:
               example: !include examples/cis_deductions_amendments_post.json
-        /{id}:
+        /{submissionId}:
           uriParameters:
-            id:
+            submissionId:
               description: Id for the  CIS deduction amendments collection
               type: string
               example: S4636A77V5KB8625U
           put:
             displayName: Update CIS deductions amendments for a Contractor & Tax Year
             description: Update CIS deductions amendments for a Contractor & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
             responses:
               200:
             body:
@@ -122,162 +84,75 @@ uses:
           delete:
             displayName: Delete CIS deductions amendments for a Contractor & Tax Year
             description: Delete CIS deductions amendments for a Contractor & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId]
             responses:
               204:
-#  /student-loans:
-#    /{nino}:
-#      uriParameters:
-#        nino:
-#          description: National Insurance number, in the format AA999999A.
-#          type: string
-#          pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
-#          example: TC663795B
-#      /current-position:
-#        get:
-#          displayName: List current position of CIS deductions.
-#          description: List current position of CIS deductions.
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.ruleTaxYearNotSupported,errors.ruleTaxYearRangeExceeded,errors.formatTaxYear]
-#          queryParameters:
-#            fromDate:
-#              displayName: Start date of the tax year in YYYY-MM-DD
-#              type: date-only
-#              description:  Start date of the tax year in YYYY-MM-DD
-#              example: 2018-04-06
-#              required: true
-#            toDate:
-#              displayName: End date of the tax year in YYYY-MM-DD
-#              type: date-only
-#              description: End date of the tax year in YYYY-MM-DD
-#              example: 2019-04-05
-#              required: true
-#            source:
-#              displayName: Source of CIS Deductions i.e. those supplied by the Contractor, the Customer or all (blended)
-#              description: Source of CIS Deductions i.e. those supplied by the Contractor, the Customer or all (blended)
-#              example: all
-#              default: all
-#              required: true
-#          responses:
-#            200:
-#              body:
-#                application/json:
-#                  example: !include examples/cis_deductions_position_blended.json
-#      /amendments:
-#        post:
-#          displayName: Create CIS deductions amendments for a Contractor & Tax Year
-#          description: Create CIS deductions amendments for a Contractor & Tax Year
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.ruleTaxYearNotSupported,errors.ruleTaxYearRangeExceeded,errors.formatTaxYear]
-#          responses:
-#            200:
-#              body:
-#                application/json:
-#                  example: !include examples/cis_deductions_amendments_response.json
-#          body:
-#            application/json:
-#              example: !include examples/cis_deductions_amendments_post.json
-#        /{id}:
-#          uriParameters:
-#            id:
-#              description: Id for the  CIS deduction amendments collection
-#              type: string
-#              example: S4636A77V5KB8625U
-#          put:
-#            displayName: Update CIS deductions amendments for a Contractor & Tax Year
-#            description: Update CIS deductions amendments for a Contractor & Tax Year
-#            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.ruleTaxYearNotSupported,errors.ruleTaxYearRangeExceeded,errors.formatTaxYear]
-#            responses:
-#              200:
-#            body:
-#              application/json:
-#                example: !include examples/cis_deductions_amendments_put.json
-#          delete:
-#            displayName: Delete CIS deductions amendments for a Contractor & Tax Year
-#            description: Delete CIS deductions amendments for a Contractor & Tax Year
-#            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.ruleTaxYearNotSupported,errors.ruleTaxYearRangeExceeded,errors.formatTaxYear]
-#            responses:
-#              204:
-#  /student-loans-old:
-#    /{nino}:
-#      uriParameters:
-#        nino:
-#          description: National Insurance number, in the format AA999999A.
-#          type: string
-#          pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
-#          example: TC663795B
-#      /current-position:
-#        get:
-#          displayName: List current position of Student Loans deductions for an employment period
-#          description: List current position of Student Loans deductions for an employment period
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.ruleTaxYearNotSupported,errors.ruleTaxYearRangeExceeded,errors.formatTaxYear]
-#          queryParameters:
-#            fromDate:
-#              displayName: From Date of the period to query
-#              type: date-only
-#              description: From Date of the period to query in YYYY-MM-DD
-#              example: 2018-04-06
-#              required: true
-#            toDate:
-#              displayName: To Date of the period to query
-#              type: date-only
-#              description: To Date of the period to query in YYYY-MM-DD
-#              example: 2019-04-05
-#              required: true
-#          responses:
-#            200:
-#          body:
-#            application/json:
-#              example: !include examples/sl_deductions_position.json
-#      /amendments:
-#        get:
-#          displayName: Retrieve a list of Student Loan deduction amendments for an employment period
-#          description: Retrieve a list of Student Loan deduction amendments for an employment period
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
-#          queryParameters:
-#            fromDate:
-#              displayName: From Date of the period to query
-#              type: date-only
-#              description: From Date of the period to query in YYYY-MM-DD
-#              example: 2018-04-06
-#              required: true
-#            toDate:
-#              displayName: To Date of the period to query
-#              type: date-only
-#              description: To Date of the period to query in YYYY-MM-DD
-#              example: 2019-04-05
-#              required: true
-#          responses:
-#            200:
-#          body:
-#            application/json:
-#              example: !include examples/sl_deductions_amendments_list.json
-#        /{id}:
-#          uriParameters:
-#            id:
-#              description: Id of the Student Loan amendment
-#              type: string
-#              pattern: ^[A-Za-z0-9]{15}$
-#              example: 1234567890ABCDE
-#          get:
-#            displayName: Retrieve a Student Loan deduction amendment
-#            description: Retrieve a Student Loan deduction amendment
-#            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
-#            responses:
-#              200:
-#            body:
-#              application/json:
-#                example: !include examples/sl_deduction_amendments.json
-#          put:
-#            displayName: Create or update a Student Loan deduction amendment
-#            description: Create or update a Student Loan deduction amendment
-#            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
-#            responses:
-#              200:
-#            body:
-#              application/json:
-#                example: !include examples/sl_deduction_amendments.json
-#          delete:
-#            displayName: Delete a Student Loan deduction amendment
-#            description: Delete a Student Loan deduction amendment
-#            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
-#            responses:
-#              204:
+  /student-loans:
+    /{taxableEntityId}:
+      uriParameters:
+        taxableEntityId:
+          description: Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual
+          type: base-types.taxableEntityId
+      /current-position:
+        get:
+          displayName: List current position of Student Loans.
+          description: List current position of Student Loans.
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          queryParameters:
+            fromDate:
+              displayName: Start date of the tax year in YYYY-MM-DD
+              type: date-only
+              description:  Start date of the tax year in YYYY-MM-DD
+              example: 2018-04-06
+              required: true
+            toDate:
+              displayName: End date of the tax year in YYYY-MM-DD
+              type: date-only
+              description: End date of the tax year in YYYY-MM-DD
+              example: 2019-04-05
+              required: true
+            source:
+              displayName: Source of Student Loans i.e. those supplied by the Employer, the Customer or all (blended)
+              description: Source of Student Loans i.e. those supplied by the Employer, the Customer or all (blended)
+              example: all
+              default: all
+              required: true
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/cis_deductions_position_blended.json
+      /amendments:
+        post:
+          displayName: Create Student Loan deductions amendments for an Employment & Tax Year
+          description: Create Student Loan deductions amendments for an Employment & Tax Year
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/cis_deductions_amendments_response.json
+          body:
+            application/json:
+              example: !include examples/cis_deductions_amendments_post.json
+        /{submissionId}:
+          uriParameters:
+            submissionId:
+              description: Id for the  CIS deduction amendments collection
+              type: string
+              example: S4636A77V5KB8625U
+          put:
+            displayName: Update Create Student Loan deductions amendments for an Employment & Tax Year
+            description: Update Create Student Loan deductions amendments for an Employment & Tax Year
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+            responses:
+              200:
+            body:
+              application/json:
+                example: !include examples/cis_deductions_amendments_put.json
+          delete:
+            displayName: Delete Student Loan deductions amendments for an Employment & Tax Year
+            description: Delete Student Loan deductions amendments for an Employment & Tax Year
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId]
+            responses:
+              204:
