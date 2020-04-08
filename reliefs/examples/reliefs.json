@@ -1,0 +1,34 @@
+{
+  "reliefs": [
+    {
+      "type": "VCT SUBCRIPTIONS",
+      "customerReference": "My VCT",
+      "name": "VCT Fund X",
+      "knowledgeIntensive": null,
+      "uniqueInvestmentRef": null,
+      "investmentDate": "2018-04-16",
+      "amountInvested": 23312.00,
+      "reliefClaimed": 1334.00
+    },
+    {
+      "type": "EIS SUBCRIPTIONS",
+      "customerReference": "My EIS",
+      "name": "EIS Fund X",
+      "knowledgeIntensive": "no",
+      "uniqueInvestmentRef": "XTAL",
+      "investmentDate": "20017-07-07",
+      "amountInvested": 23312.00,
+      "reliefClaimed": 43432.00
+    },
+    {
+      "type": "COMMUNITY INVESTMENT",
+      "customerReference": "My Comm Investment",
+      "name": "CI X",
+      "knowledgeIntensive": null,
+      "uniqueInvestmentRef": null,
+      "investmentDate": "20017-07-07",
+      "amountInvested": 6442.00,
+      "reliefClaimed": 2344.00
+    }
+  ]
+}

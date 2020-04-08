@@ -1,0 +1,57 @@
+{
+  "otherEmployment": [
+    {
+      "type": "Share Scheme",
+      "customerReference": "wibble",
+      "employerOrCompanyName": "Unilever",
+      "grossAmount": 8950.00,
+      "shareOption": "yes",
+      "shareRestrictions": "no",
+      "electionIgnoreRestrictions": "no",
+      "payeRefNo": "AXD342233",
+      "shareSchemeType": "",
+      "optionGrantDate": "2016-01-01",
+      "eventDate": "2018-01-01",
+      "optionExercised": "yes",
+      "considersationReceived": 12492.00,
+      "noSharesAcquired": 3234,
+      "shareClass": "Class A",
+      "exercisePrice": 34.32 ,
+      "pricePaidForOption": 27.22,
+      "profitOnOption": 35443.22,
+      "employersNicsPaidOnOption": 4322.22,
+      "taxableAmount": 3452.34,
+      "noSharesReceived": 2144,
+      "dateSharesCeased": "2018-11-23",
+      "amountPaidForSharesOnAward": 27.22,
+      "awardMarketValueOfShares": 15345.22,
+      "exerciseMarketValueOfShares": 15345.22,
+      "unrestrictedMarketValueOfShares": 15345.22,
+      "MarketValueOfSharesAfterRestriction": 15345.22
+    },
+    {
+      "type": "LUMP SUM - END OF JOB",
+      "customerReference": "xyz",
+      "grossAmount":1233.33,
+      "taxTakenOff":232.33
+    },
+    {
+      "type": "LUMP SUM - EFRBS",
+      "customerReference": "abc",
+      "grossAmount":1233.33,
+      "taxTakenOff":232.33,
+      "exemptions": 22.22
+    },
+    {
+      "type": "LUMP SUM - REDUNDANCY",
+      "customerReference": "efg",
+      "grossAmount": 1233.33,
+      "taxTakenOff": 232.33
+    },
+    {
+      "type": "LUMP SUM - COMPENSATION LESS THAN 30K",
+      "customerReference": "lmn",
+      "grossAmount": 1233.33
+    }
+  ]
+}

@@ -9,8 +9,10 @@ documentation:
       |-----------|-----------|-----------|
       | Securities | /income/securities/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
       | Insurance Policies | /income/insurance-policies/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Other Employment | /income/employment/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Foreign | /income/foreign/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
-  genericErrors: ../generic/traits/errors.raml
+  errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
   wipErrors: traits/errors.raml
   genericHeaders: ../generic/traits/headers.raml
@@ -26,7 +28,7 @@ uses:
         get:
           displayName: List of securities income
           description: List of securities income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -35,7 +37,7 @@ uses:
         put:
           displayName: Create/update securities income submission
           description: Create/update securities income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
           body:
@@ -44,7 +46,7 @@ uses:
         delete:
           displayName: Delete securities income submission
           description: Delete securities income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             204:
   /insurance-policies:
@@ -57,7 +59,7 @@ uses:
         get:
           displayName: List of Insurance Policies income
           description: List of Insurance Policies income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -66,7 +68,7 @@ uses:
         put:
           displayName: Create/update Insurance Policies income submission
           description: Create/update Insurance Policies income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
           responses:
             200:
           body:
@@ -75,6 +77,69 @@ uses:
         delete:
           displayName: Delete Insurance Policies income submission
           description: Delete Insurance Policies income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:
+  /employment:
+    /other:
+      /{taxableEntityId}:
+        uriParameters:
+            taxableEntityId: baseTypes.TaxableEntityId
+        /{taxYear}:
+          uriParameters:
+            taxYear: baseTypes.TaxYear
+          get:
+            displayName: List of Other Employment income
+            description: List of Other Employment income
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/emp-other.json
+          put:
+            displayName: Create/update Other Employment income submission
+            description: Create/update Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            responses:
+              200:
+            body:
+              application/json:
+                example: !include examples/emp-other.json
+          delete:
+            displayName: Delete Other Employment income submission
+            description: Delete Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+            responses:
+              204:
+  /foreign:
+    /{taxableEntityId}:
+      uriParameters:
+          taxableEntityId: baseTypes.TaxableEntityId
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: List of Foreign income
+          description: List of Foreign income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/insurance.json
+        put:
+          displayName: Create/update Foreign income submission
+          description: Create/update Foreign income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/insurance.json
+        delete:
+          displayName: Delete Foreign income submission
+          description: Delete Foreign income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             204:

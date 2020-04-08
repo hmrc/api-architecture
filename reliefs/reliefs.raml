@@ -1,0 +1,81 @@
+#%RAML 1.0
+title: DRAFT
+baseUri: https://api.service.hmrc.gov.uk
+version: 0.1
+documentation:
+  - title: Resource Model
+    content: |
+      | Relief Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Investment | /reliefs/investment/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Other | /reliefs/investment/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/reliefs:
+  /investment:
+    /{taxableEntityId}:
+      uriParameters:
+        taxableEntityId: baseTypes.TaxableEntityId
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: List of Investment Reliefs
+          description: List of Investment Reliefs
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/reliefs.json
+        put:
+          displayName: Create/update Investment Reliefs submission
+          description: Create/update Investment Reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/reliefs.json
+        delete:
+          displayName: Delete Investment Reliefs submission
+          description: Delete Investment Reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:
+  /other:
+    /{taxableEntityId}:
+      uriParameters:
+        taxableEntityId: baseTypes.TaxableEntityId
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: List of Other Reliefs
+          description: List of Other  Reliefs
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/other.json
+        put:
+          displayName: Create/update Other Reliefs submission
+          description: Create/update Other Reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/reliefs.json
+        delete:
+          displayName: Delete Other Reliefs submission
+          description: Delete Other Reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:
+

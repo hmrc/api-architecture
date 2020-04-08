@@ -1,0 +1,16 @@
+{
+  "foreign": [
+      {
+        "type": "???",
+        "customerReference" : "wibble",
+        "earningsNotTaxable": 15455.00,
+        "reliefNotClaimed": 2300.00,
+        "exemptEmployersPensionContribs": 689.00,
+        "migrantMemReliefQopsRefNo": "ER3223423",
+        "dblTaxationRelief": 4232.00,
+        "dblTaxationCountry": "GER",
+        "dblTaxationArticle": "3211-1",
+        "dblTaxationTreaty": "Munich"
+      }
+    ]
+}
