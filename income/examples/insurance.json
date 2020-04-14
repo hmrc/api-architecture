@@ -26,6 +26,23 @@
       "yearsHeld": 14,
       "yearsHeldSinceLastGain": 3,
       "deficiencyRelief": null
+    },
+    {
+      "type": "VOIDED ISAS",
+      "customerReference":"voided",
+      "event": null,
+      "gainAmount": 532.00,
+      "taxPaid": null,
+      "yearsHeld": 14,
+      "yearsHeldSinceLastGain": 3,
+      "deficiencyRelief": null
+    },
+    {
+      "type": "FOREIGN POLICIES",
+      "customerReference":"non uk",
+      "gainAmount": 532.00,
+      "taxPaid": null,
+      "yearsHeld": 14
     }
   ]
 }

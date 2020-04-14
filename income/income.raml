@@ -7,7 +7,7 @@ documentation:
     content: |
       | Income Type | Endpoints | Methods   |
       |-----------|-----------|-----------|
-      | Securities | /income/securities/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Savings | /income/savings/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
       | Insurance Policies | /income/insurance-policies/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
       | Other Employment | /income/employment/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
       | Foreign | /income/foreign/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
@@ -18,7 +18,7 @@ uses:
   genericHeaders: ../generic/traits/headers.raml
   baseTypes: ../generic/types/common/base-types.raml
 /income:
-  /securities:
+  /savings:
     /{taxableEntityId}:
       uriParameters:
         taxableEntityId: baseTypes.TaxableEntityId
@@ -33,7 +33,7 @@ uses:
             200:
               body:
                 application/json:
-                  example: !include examples/securities.json
+                  example: !include examples/savings.json
         put:
           displayName: Create/update securities income submission
           description: Create/update securities income submission
@@ -42,7 +42,7 @@ uses:
             200:
           body:
             application/json:
-              example: !include examples/securities.json
+              example: !include examples/savings.json
         delete:
           displayName: Delete securities income submission
           description: Delete securities income submission

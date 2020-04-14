@@ -1,0 +1,18 @@
+{
+  "savings": [
+    {
+      "type": "SECURITIES",
+      "taxTakenOff": 100.0,
+      "grossAmount": 1455.0
+    },
+    {
+      "type": "FOREIGN INTEREST",
+      "countryCode": "GER",
+      "amountBeforeTax": 1232.22,
+      "taxTakenOff": 22.22,
+      "specialWitholdingTax": 22.22,
+      "fctr": true,
+      "taxableAmount": 2321.22
+    }
+  ]
+}
