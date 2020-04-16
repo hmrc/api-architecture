@@ -1,57 +1,49 @@
 {
   "otherEmployment": [
     {
-      "type": "Share Scheme",
+      "type": "SHARE OPTIONS",
+      "employerName": "wibble",
+      "PAYERef" : "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateOfOptionGrant": "20-11-2019",
+      "dateOfEvent": "20-11-2019",
+      "optionNotExercisedButConsiderationReceived": "??",
+      "amountOfConsiderationReceived": 23122.22,
+      "noOfSharesAcquired": 1,
+      "classOfSharesAcquired": "FIRST",
+      "exercisePrice": 12.22,
+      "amountPaidForOption": 123.22,
+      "marketValueOfSharesOnExcise": 1232.22,
+      "profitOnOptionExercised": 1232.33,
+      "employersNICpaid": 2312.22,
+      "taxableAmount" : 2132.22
+    },
+    {
+      "type": "SHARES AWARDED/RECEIVED",
+      "employerName": "Wibble",
+      "PAYERef" : "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "noOfShare/securitiesAwarded": 11,
+      "classOfShareAwarded": "FIRST",
+      "dateSharesAwarded" : "20-11-2019",
+      "sharesSubjectToRestrictions": true,
+      "electionEnteredIgnoreRestrictions": true,
+      "actualMarketValueOfSharesOnAward": 2123.22,
+      "unrestrictedMarketValueOfSharesOnAward": 123.22,
+      "amountPaidForSharesOnAward": 123.22,
+      "marketValueAfterRestrictionsLifted": 1232.22,
+      "taxableAmount": 12321.22
+    },
+    {
+      "type": "DISABILITY",
       "customerReference": "wibble",
-      "employerOrCompanyName": "Unilever",
-      "grossAmount": 8950.00,
-      "shareOption": "yes",
-      "shareRestrictions": "no",
-      "electionIgnoreRestrictions": "no",
-      "payeRefNo": "AXD342233",
-      "shareSchemeType": "",
-      "optionGrantDate": "2016-01-01",
-      "eventDate": "2018-01-01",
-      "optionExercised": "yes",
-      "considersationReceived": 12492.00,
-      "noSharesAcquired": 3234,
-      "shareClass": "Class A",
-      "exercisePrice": 34.32 ,
-      "pricePaidForOption": 27.22,
-      "profitOnOption": 35443.22,
-      "employersNicsPaidOnOption": 4322.22,
-      "taxableAmount": 3452.34,
-      "noSharesReceived": 2144,
-      "dateSharesCeased": "2018-11-23",
-      "amountPaidForSharesOnAward": 27.22,
-      "awardMarketValueOfShares": 15345.22,
-      "exerciseMarketValueOfShares": 15345.22,
-      "unrestrictedMarketValueOfShares": 15345.22,
-      "MarketValueOfSharesAfterRestriction": 15345.22
+      "amountDeducted": 1223.22
     },
     {
-      "type": "LUMP SUM - END OF JOB",
-      "customerReference": "xyz",
-      "grossAmount":1233.33,
-      "taxTakenOff":232.33
-    },
-    {
-      "type": "LUMP SUM - EFRBS",
-      "customerReference": "abc",
-      "grossAmount":1233.33,
-      "taxTakenOff":232.33,
-      "exemptions": 22.22
-    },
-    {
-      "type": "LUMP SUM - REDUNDANCY",
-      "customerReference": "efg",
-      "grossAmount": 1233.33,
-      "taxTakenOff": 232.33
-    },
-    {
-      "type": "LUMP SUM - COMPENSATION LESS THAN 30K",
-      "customerReference": "lmn",
-      "grossAmount": 1233.33
+      "type": "FOREIGN SERVICE",
+      "customerReference": "wibble",
+      "amountDeducted": 1223.22
     }
   ]
 }

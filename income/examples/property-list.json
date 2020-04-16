@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "submissionId":"12",
+      "startDate": "2019-06-04",
+      "endDate": "2019-05-07"
+    },
+    {
+      "submissionId":"13",
+      "startDate": "2019-06-07",
+      "endDate": "2019-05-10"
+    }
+  ]
+}

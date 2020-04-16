@@ -151,11 +151,11 @@
 {
   margin-bottom: 0;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-12" role="main"><div class="page-header"><h1>DRAFT <small>version 0.1</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="resource_model"><a href="#resource_model">Resource Model</a></h3><table class="table"><thead><tr><th>Relief Type</th><th>Endpoints</th><th>Methods</th></tr></thead><tbody><tr><td>Investment</td><td>/reliefs/investment/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Other</td><td>/reliefs/investment/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="reliefs" class="panel-title">/reliefs</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/reliefs/investment/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="reliefs_investment__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/reliefs/investment/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Investment Reliefs</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-12" role="main"><div class="page-header"><h1>DRAFT <small>version 0.1</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="resource_model"><a href="#resource_model">Resource Model</a></h3><table class="table"><thead><tr><th>Relief Type</th><th>Endpoints</th><th>Methods</th></tr></thead><tbody><tr><td>Investment</td><td>/reliefs/investment/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Foreign</td><td>/reliefs/foreign/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Other</td><td>/reliefs/other/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="reliefs" class="panel-title">/reliefs</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/reliefs/investment/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="reliefs_investment__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/reliefs/investment/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Investment Reliefs</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "reliefs": [
     {
       "type": "VCT SUBCRIPTIONS",
-      "customerReference": "My VCT",
+      "customerReference": "Wibble",
       "name": "VCT Fund X",
       "knowledgeIntensive": null,
       "uniqueInvestmentRef": null,
@@ -165,7 +165,7 @@
     },
     {
       "type": "EIS SUBCRIPTIONS",
-      "customerReference": "My EIS",
+      "customerReference": "Wibble",
       "name": "EIS Fund X",
       "knowledgeIntensive": "no",
       "uniqueInvestmentRef": "XTAL",
@@ -175,13 +175,29 @@
     },
     {
       "type": "COMMUNITY INVESTMENT",
-      "customerReference": "My Comm Investment",
+      "customerReference": "Wibble",
       "name": "CI X",
       "knowledgeIntensive": null,
       "uniqueInvestmentRef": null,
       "investmentDate": "20017-07-07",
       "amountInvested": 6442.00,
       "reliefClaimed": 2344.00
+    },
+    {
+      "TYPE": "SEED ENTERPRISE INVESTMENT",
+      "customerReference": "Wibble",
+      "companyName": "Wibble Inc",
+      "uniqueInvestmentRef": "123412/1A",
+      "investmentDate": "21-12-2020",
+      "amountInvested": 123123.22
+    },
+    {
+      "type": "SOCIAL ENTERPRISE INVESTMENT",
+      "socialEnterpriseName": "Wibble Inc",
+      "customerReference": "Wibble",
+      "uniqueInvestmentRef": "123412/1A",
+      "investmentDate": "21-12-2020",
+      "amountInvested": 123123.22
     }
   ]
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
@@ -196,7 +212,7 @@
   "reliefs": [
     {
       "type": "VCT SUBCRIPTIONS",
-      "customerReference": "My VCT",
+      "customerReference": "Wibble",
       "name": "VCT Fund X",
       "knowledgeIntensive": null,
       "uniqueInvestmentRef": null,
@@ -206,7 +222,7 @@
     },
     {
       "type": "EIS SUBCRIPTIONS",
-      "customerReference": "My EIS",
+      "customerReference": "Wibble",
       "name": "EIS Fund X",
       "knowledgeIntensive": "no",
       "uniqueInvestmentRef": "XTAL",
@@ -216,13 +232,29 @@
     },
     {
       "type": "COMMUNITY INVESTMENT",
-      "customerReference": "My Comm Investment",
+      "customerReference": "Wibble",
       "name": "CI X",
       "knowledgeIntensive": null,
       "uniqueInvestmentRef": null,
       "investmentDate": "20017-07-07",
       "amountInvested": 6442.00,
       "reliefClaimed": 2344.00
+    },
+    {
+      "TYPE": "SEED ENTERPRISE INVESTMENT",
+      "customerReference": "Wibble",
+      "companyName": "Wibble Inc",
+      "uniqueInvestmentRef": "123412/1A",
+      "investmentDate": "21-12-2020",
+      "amountInvested": 123123.22
+    },
+    {
+      "type": "SOCIAL ENTERPRISE INVESTMENT",
+      "socialEnterpriseName": "Wibble Inc",
+      "customerReference": "Wibble",
+      "uniqueInvestmentRef": "123412/1A",
+      "investmentDate": "21-12-2020",
+      "amountInvested": 123123.22
     }
   ]
 }</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
@@ -243,50 +275,43 @@
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/reliefs/other/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="reliefs_other__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/reliefs/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Other Reliefs</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_other__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_other__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_other__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_other__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "reliefs": [
-    {
-      "type": "NON DEDUCTABLE LOAN INTEREST",
-      "customerReference": "My ref",
-      "reliefClaimed": 763.00
+    "type": "NON DEDUCTABLE LOAN INTEREST",
+    "customerReference": "Wibble",
+    "reliefClaimed": 763.00
     },
     {
       "type": "PAYROLL GIVING",
-      "customerReference": "My ref",
+      "customerReference": "Wibble",
       "reliefClaimed": 154.00
     },
     {
       "type":"QUALIFYING DISTRIBUTION REDEMPTION OF SHARES AND SECURITIES",
-      "customerReference": "My ref",
+      "customerReference": "Wibble",
       "amount": 222.22
     },
     {
       "type":"MAINTENANCE PAYMENTS",
-      "customerReference": "My ref",
+      "customerReference": "Wibble",
       "amount": 222.22
     },
     {
       "type":"POST CESSATION TRADE RELIEF AND CERTAIN OTHER LOSSES",
-      "customerReference": "My ref",
-      "businessName": "Business Inc",
+      "customerReference": "Wibble",
+      "businessName": "Wibble Inc",
       "dateBusinessCeased": "2019-08-10",
-      "natureOfTrade": "My ref Manufacturer",
+      "natureOfTrade": "Wibble Manufacturer",
       "incomeSource": "AB12412/A12",
       "amount": 222.22
     },
     {
-      "type": "SEED ENTERPRISE INVESTMENT",
-      "customerReference": "My ref",
-      "companyName": "ACME Inc",
-      "uniqueInvestmentRef": "123412/1A",
-      "dateOfInvestment": "21-12-2020",
-      "amount": 123123.22
+      "type": "ANNUAL PAYMENTS MADE",
+      "customerReference": "Wibble",
+      "reliefClaimed": 763.00
     },
     {
-      "type": "SOCIAL ENTERPRISE INVESTMENT",
-      "socialEnterpriseName": "SEN ",
-      "customerReference": "My ref",
-      "uniqueInvestmentRef": "123412/1A",
-      "dateOfInvestment": "21-12-2020",
-      "amount": 123123.22
+      "type": "QUALIFYING LOAN INTEREST PAYMENTS",
+      "customerReference": "Wibble",
+      "reliefClaimed": 763.00
     }
   ]
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
@@ -301,7 +326,7 @@
   "reliefs": [
     {
       "type": "VCT SUBCRIPTIONS",
-      "customerReference": "My VCT",
+      "customerReference": "Wibble",
       "name": "VCT Fund X",
       "knowledgeIntensive": null,
       "uniqueInvestmentRef": null,
@@ -311,7 +336,7 @@
     },
     {
       "type": "EIS SUBCRIPTIONS",
-      "customerReference": "My EIS",
+      "customerReference": "Wibble",
       "name": "EIS Fund X",
       "knowledgeIntensive": "no",
       "uniqueInvestmentRef": "XTAL",
@@ -321,13 +346,29 @@
     },
     {
       "type": "COMMUNITY INVESTMENT",
-      "customerReference": "My Comm Investment",
+      "customerReference": "Wibble",
       "name": "CI X",
       "knowledgeIntensive": null,
       "uniqueInvestmentRef": null,
       "investmentDate": "20017-07-07",
       "amountInvested": 6442.00,
       "reliefClaimed": 2344.00
+    },
+    {
+      "TYPE": "SEED ENTERPRISE INVESTMENT",
+      "customerReference": "Wibble",
+      "companyName": "Wibble Inc",
+      "uniqueInvestmentRef": "123412/1A",
+      "investmentDate": "21-12-2020",
+      "amountInvested": 123123.22
+    },
+    {
+      "type": "SOCIAL ENTERPRISE INVESTMENT",
+      "socialEnterpriseName": "Wibble Inc",
+      "customerReference": "Wibble",
+      "uniqueInvestmentRef": "123412/1A",
+      "investmentDate": "21-12-2020",
+      "amountInvested": 123123.22
     }
   ]
 }</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_other__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_other__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
@@ -339,6 +380,44 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="reliefs_other__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/reliefs/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Other Reliefs submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_other__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_other__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_other__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_other__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/reliefs/foreign/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="reliefs_foreign__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/reliefs/foreign/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of foreign Reliefs</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_foreign__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_foreign__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_foreign__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_foreign__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "reliefs": [
+    {
+      "type": "FOREIGN TAX CREDIT RELIEF CGT",
+      "amount" : 123.22
+    }
+  ]
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="reliefs_foreign__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/reliefs/foreign/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update foreign Reliefs submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_foreign__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_foreign__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "reliefs": [
+    {
+      "type": "FOREIGN TAX CREDIT RELIEF CGT",
+      "amount" : 123.22
+    }
+  ]
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_foreign__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_foreign__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="reliefs_foreign__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/reliefs/foreign/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete foreign Reliefs submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_foreign__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_foreign__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_foreign__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_foreign__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
   "code": "FORMAT_STATUS"
 }</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"

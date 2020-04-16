@@ -8,7 +8,8 @@ documentation:
       | Relief Type | Endpoints | Methods   |
       |-----------|-----------|-----------|
       | Investment | /reliefs/investment/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Other | /reliefs/investment/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Foreign | /reliefs/foreign/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Other | /reliefs/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -78,4 +79,36 @@ uses:
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             204:
+  /foreign:
+    /{taxableEntityId}:
+      uriParameters:
+        taxableEntityId: baseTypes.TaxableEntityId
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: List of foreign Reliefs
+          description: List of foreign  Reliefs
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/reliefs-foreign.json
+        put:
+          displayName: Create/update foreign Reliefs submission
+          description: Create/update foreign Reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/reliefs-foreign.json
+        delete:
+          displayName: Delete foreign Reliefs submission
+          description: Delete foreign Reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:
+
 

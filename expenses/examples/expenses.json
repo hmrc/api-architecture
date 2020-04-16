@@ -1,0 +1,14 @@
+{
+  "expenses": [
+    {
+      "type": "PAYMENTS TO TRADE UNIONS FOR DEATH BENEFITS",
+      "customerReference": "wibble",
+      "expenseAmount": 1223.22
+    },
+    {
+      "type": "PATENT ROYALTIES PAYMENTS",
+      "customerReference": "wibble",
+      "expenseAmount": 1223.22
+    }
+  ]
+}

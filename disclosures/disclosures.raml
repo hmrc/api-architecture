@@ -1,0 +1,47 @@
+#%RAML 1.0
+title: DRAFT
+baseUri: https://api.service.hmrc.gov.uk
+version: 0.1
+documentation:
+  - title: Resource Model
+    content: |
+      | Dosclosure Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Tax Avoidance | /disclosures/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/disclosures:
+  /{taxableEntityId}:
+    uriParameters:
+      taxableEntityId: baseTypes.TaxableEntityId
+    /{taxYear}:
+      uriParameters:
+        taxYear: baseTypes.TaxYear
+      get:
+        displayName: List of Disclosures
+        description: List of Disclosures
+        is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/disclosures.json
+      put:
+        displayName: Create/update Disclosures submission
+        description: Create/update Disclosures submission
+        is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+        responses:
+          200:
+        body:
+          application/json:
+            example: !include examples/disclosures.json
+      delete:
+        displayName: Delete Disclosures submission
+        description: Delete Disclosures submission
+        is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+        responses:
+          204:

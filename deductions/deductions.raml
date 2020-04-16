@@ -13,7 +13,9 @@ documentation:
       | Student Loans | /deductions/student-loans/{taxableEntityId}/current-position | [GET] |
       |  | /deductions/student-loans/{taxableEntityId}/amendments | [GET] [POST] |
       |  | /deductions/student-loans/{taxableEntityId}/amendments/{submissionId} | [[PUT] [DELETE] |
+      | Others | /deductions/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
+
   errors: ../generic/traits/errors.raml
   queryParameters: ../generic/traits/queryParameters.raml
   base-types: ../generic/types/common/base-types.raml
@@ -153,3 +155,34 @@ uses:
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId]
             responses:
               204:
+  /other:
+    /{taxableEntityId}:
+      uriParameters:
+          taxableEntityId: baseTypes.TaxableEntityId
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: List of other deductions
+          description: List of other deductions
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/other_deductions.json
+        put:
+          displayName: Create/update other deductions submission
+          description: Create/update other deductions submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/other_deductions.json
+        delete:
+          displayName: Delete other deductions submission
+          description: Delete other deductions submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:

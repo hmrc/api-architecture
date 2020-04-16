@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for f in `ls -d */ | cut -d"/" -f1 | grep -Ev "node_modules|generic"`
+for f in `ls -d */ | cut -d"/" -f1 | grep -Ev "node_modules|generic|html_docs"`
 do
     cd ${f}
     echo ${f}
@@ -8,6 +8,10 @@ do
         do
             npx raml2html --theme raml2html-printable-theme --input ${g}.raml --output ${g}.html
             npx raml2html --theme raml2html-default-theme --input ${g}.raml --output ${g}-compact.html
+
+            cp *compact.html ../html_docs
         done
     cd ../
 done
+rm html_docs.zip
+zip html_docs.zip html_docs/*
