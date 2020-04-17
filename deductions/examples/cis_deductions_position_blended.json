@@ -13,61 +13,60 @@
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-04-03",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-05-06",
         "deductionToDate": "2019-06-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-05-03",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-06-06",
         "deductionToDate": "2019-07-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2020-01-14",
-        "submittedBy": "customer"
+        "source": "customer"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-07-06",
         "deductionToDate": "2019-08-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2020-01-14",
-        "submittedBy": "customer"
+        "source": "customer"
       }
     ]
   },
   {
-    "submissionId": null,
     "fromDate": "2019-04-06",
     "toDate": "2020-04-05",
     "contractorName": "Taylor Wimpy",
     "employerRef": "TW44355",
     "periodData": [
       {
-        "deductionAmount": 60.00,
         "deductionFromDate": "2019-07-06",
         "deductionToDate": "2019-08-05",
+        "deductionAmount": 60.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-08-05",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 60.00,
         "deductionFromDate": "2019-09-06",
         "deductionToDate": "2019-10-05",
+        "deductionAmount": 60.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-08-05",
-        "submittedBy": "contractor"
+        "source": "contractor"
       }
     ]
   }

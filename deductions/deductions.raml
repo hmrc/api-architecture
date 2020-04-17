@@ -62,9 +62,9 @@ uses:
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
             200:
-              body:
-                application/json:
-                  example: !include examples/cis_deductions_amendments_response.json
+          body:
+            application/json:
+              example: !include examples/cis_deductions_amendments_post.json
         /{submissionId}:
           uriParameters:
             submissionId:
@@ -111,8 +111,8 @@ uses:
               example: 2019-04-05
               required: true
             source:
-              displayName: Source of Student Loans i.e. those supplied by the Employer, the Customer or all (blended)
-              description: Source of Student Loans i.e. those supplied by the Employer, the Customer or all (blended)
+              displayName: Source of Student Loans i.e. those supplied by the employer, the eustomer or all (blended)
+              description: Source of Student Loans i.e. those supplied by the employer, the eustomer or all (blended)
               example: all
               default: all
               required: true
