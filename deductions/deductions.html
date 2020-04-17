@@ -166,61 +166,60 @@
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-04-03",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-05-06",
         "deductionToDate": "2019-06-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-05-03",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-06-06",
         "deductionToDate": "2019-07-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2020-01-14",
-        "submittedBy": "customer"
+        "source": "customer"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-07-06",
         "deductionToDate": "2019-08-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2020-01-14",
-        "submittedBy": "customer"
+        "source": "customer"
       }
     ]
   },
   {
-    "submissionId": null,
     "fromDate": "2019-04-06",
     "toDate": "2020-04-05",
     "contractorName": "Taylor Wimpy",
     "employerRef": "TW44355",
     "periodData": [
       {
-        "deductionAmount": 60.00,
         "deductionFromDate": "2019-07-06",
         "deductionToDate": "2019-08-05",
+        "deductionAmount": 60.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-08-05",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 60.00,
         "deductionFromDate": "2019-09-06",
         "deductionToDate": "2019-10-05",
+        "deductionAmount": 60.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-08-05",
-        "submittedBy": "contractor"
+        "source": "contractor"
       }
     ]
   }
@@ -235,10 +234,37 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/cis/{taxableEntityId}</span>/amendments <span class="methods"><span class="badge badge_post">post</span></span></h4></div><div class="modal" tabindex="0" id="deductions_cis__taxableentityid__amendments_post"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/deductions/cis/{taxableEntityId}</span>/amendments</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create CIS deductions amendments for a Contractor &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments_post_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "employerRef": "BV40092",
+  "contractorName": "Bovis",
   "fromDate": "2019-04-06" ,
   "toDate": "2020-04-05",
-  "contractorName": "Bovis",
-  "employerRef": "BV40092",
+  "periodData": [
+    {
+      "deductionFromDate": "2019-06-06",
+      "deductionToDate": "2019-07-05",
+      "grossAmountPaid": 1457.00,
+      "deductionAmount": 355.00,
+      "costOfMaterials": 35.00
+    },
+    {
+      "deductionFromDate": "2019-07-06",
+      "deductionToDate": "2019-08-05",
+      "grossAmountPaid": 1457.00,
+      "deductionAmount": 355.00,
+      "costOfMaterials": 35.00
+    }
+  ]
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+  "code": "FORMAT_START_DATE"
+}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
+  "code": "FORMAT_END_DATE"
+}</code></pre><p><strong>ruleTaxYearRangeExceeded</strong>:<br>Tax year range exceeded. A tax year range of one year is required</p><pre><code>{
+  "code": "RULE_TAX_YEAR_RANGE_EXCEEDED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/cis/{taxableEntityId}/amendments</span>/{submissionId} <span class="methods"><span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="deductions_cis__taxableentityid__amendments__submissionid__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/deductions/cis/{taxableEntityId}/amendments</span>/{submissionId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update CIS deductions amendments for a Contractor &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments__submissionid__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments__submissionid__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li><li><strong>submissionId</strong>: <em><span class="required">required</span>(string)</em><p>Id for the CIS deduction amendments collection</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>S4636A77V5KB8625U</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "periodData": [
     {
       "deductionAmount": 355.00,
@@ -255,32 +281,7 @@
       "grossAmountPaid": 1457.00
     }
   ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
-  "code": "FORMAT_START_DATE"
-}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
-  "code": "FORMAT_END_DATE"
-}</code></pre><p><strong>ruleTaxYearRangeExceeded</strong>:<br>Tax year range exceeded. A tax year range of one year is required</p><pre><code>{
-  "code": "RULE_TAX_YEAR_RANGE_EXCEEDED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/cis/{taxableEntityId}/amendments</span>/{submissionId} <span class="methods"><span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="deductions_cis__taxableentityid__amendments__submissionid__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/deductions/cis/{taxableEntityId}/amendments</span>/{submissionId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update CIS deductions amendments for a Contractor &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments__submissionid__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments__submissionid__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li><li><strong>submissionId</strong>: <em><span class="required">required</span>(string)</em><p>Id for the CIS deduction amendments collection</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>S4636A77V5KB8625U</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
-  {
-    "deductionAmount": 355.00,
-    "deductionFromDate": "2019-06-06",
-    "deductionToDate": "2019-07-05",
-    "costOfMaterials": 35.00,
-    "grossAmountPaid": 1457.00
-  },
-  {
-    "deductionAmount": 355.00,
-    "deductionFromDate": "2019-07-06",
-    "deductionToDate": "2019-08-05",
-    "costOfMaterials": 35.00,
-    "grossAmountPaid": 1457.00
-  }
-]</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments__submissionid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments__submissionid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_cis__taxableentityid__amendments__submissionid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_cis__taxableentityid__amendments__submissionid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
   "code": "FORMAT_START_DATE"
 }</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
   "code": "FORMAT_END_DATE"
@@ -294,7 +295,7 @@
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/student-loans/{taxableEntityId}</span>/current-position <span class="methods"><span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="deductions_student_loans__taxableentityid__current_position_get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/deductions/student-loans/{taxableEntityId}</span>/current-position</h4></div><div class="modal-body"><div class="alert alert-info"><p>List current position of Student Loans.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__current_position_get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__current_position_get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li></ul><h3>Query Parameters</h3><ul><li><strong>fromDate</strong>: <em><span class="required">required</span>(date-only)</em><p>Start date of the tax year in YYYY-MM-DD</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2018-04-06</code></pre></div></li><li><strong>toDate</strong>: <em><span class="required">required</span>(date-only)</em><p>End date of the tax year in YYYY-MM-DD</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2019-04-05</code></pre></div></li><li><strong>source</strong>: <em><span class="required">required</span>(string - default: all)</em><p>Source of Student Loans i.e. those supplied by the Employer, the Customer or all (blended)</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>all</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__current_position_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__current_position_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/student-loans/{taxableEntityId}</span>/current-position <span class="methods"><span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="deductions_student_loans__taxableentityid__current_position_get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/deductions/student-loans/{taxableEntityId}</span>/current-position</h4></div><div class="modal-body"><div class="alert alert-info"><p>List current position of Student Loans.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__current_position_get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__current_position_get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li></ul><h3>Query Parameters</h3><ul><li><strong>fromDate</strong>: <em><span class="required">required</span>(date-only)</em><p>Start date of the tax year in YYYY-MM-DD</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2018-04-06</code></pre></div></li><li><strong>toDate</strong>: <em><span class="required">required</span>(date-only)</em><p>End date of the tax year in YYYY-MM-DD</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2019-04-05</code></pre></div></li><li><strong>source</strong>: <em><span class="required">required</span>(string - default: all)</em><p>Source of Student Loans i.e. those supplied by the employer, the eustomer or all (blended)</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>all</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__current_position_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__current_position_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
   {
     "submissionId": "54759eb3c090d83494e2d804",
     "fromDate": "2019-04-06" ,
@@ -309,61 +310,60 @@
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-04-03",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-05-06",
         "deductionToDate": "2019-06-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-05-03",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-06-06",
         "deductionToDate": "2019-07-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2020-01-14",
-        "submittedBy": "customer"
+        "source": "customer"
       },
       {
-        "deductionAmount": 355.00,
         "deductionFromDate": "2019-07-06",
         "deductionToDate": "2019-08-05",
+        "deductionAmount": 355.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2020-01-14",
-        "submittedBy": "customer"
+        "source": "customer"
       }
     ]
   },
   {
-    "submissionId": null,
     "fromDate": "2019-04-06",
     "toDate": "2020-04-05",
     "contractorName": "Taylor Wimpy",
     "employerRef": "TW44355",
     "periodData": [
       {
-        "deductionAmount": 60.00,
         "deductionFromDate": "2019-07-06",
         "deductionToDate": "2019-08-05",
+        "deductionAmount": 60.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-08-05",
-        "submittedBy": "contractor"
+        "source": "contractor"
       },
       {
-        "deductionAmount": 60.00,
         "deductionFromDate": "2019-09-06",
         "deductionToDate": "2019-10-05",
+        "deductionAmount": 60.00,
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
         "submissionDate": "2019-08-05",
-        "submittedBy": "contractor"
+        "source": "contractor"
       }
     ]
   }
@@ -378,10 +378,39 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/student-loans/{taxableEntityId}</span>/amendments <span class="methods"><span class="badge badge_post">post</span></span></h4></div><div class="modal" tabindex="0" id="deductions_student_loans__taxableentityid__amendments_post"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/deductions/student-loans/{taxableEntityId}</span>/amendments</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create Student Loan deductions amendments for an Employment &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__amendments_post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__amendments_post_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "employerRef": "BV40092",
+  "contractorName": "Bovis",
   "fromDate": "2019-04-06" ,
   "toDate": "2020-04-05",
-  "contractorName": "Bovis",
-  "employerRef": "BV40092",
+  "periodData": [
+    {
+      "deductionFromDate": "2019-06-06",
+      "deductionToDate": "2019-07-05",
+      "grossAmountPaid": 1457.00,
+      "deductionAmount": 355.00,
+      "costOfMaterials": 35.00
+    },
+    {
+      "deductionFromDate": "2019-07-06",
+      "deductionToDate": "2019-08-05",
+      "grossAmountPaid": 1457.00,
+      "deductionAmount": 355.00,
+      "costOfMaterials": 35.00
+    }
+  ]
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__amendments_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__amendments_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "id": "S4636A77V5KB8625U"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+  "code": "FORMAT_START_DATE"
+}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
+  "code": "FORMAT_END_DATE"
+}</code></pre><p><strong>ruleTaxYearRangeExceeded</strong>:<br>Tax year range exceeded. A tax year range of one year is required</p><pre><code>{
+  "code": "RULE_TAX_YEAR_RANGE_EXCEEDED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/student-loans/{taxableEntityId}/amendments</span>/{submissionId} <span class="methods"><span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="deductions_student_loans__taxableentityid__amendments__submissionid__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/deductions/student-loans/{taxableEntityId}/amendments</span>/{submissionId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Create Student Loan deductions amendments for an Employment &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__amendments__submissionid__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__amendments__submissionid__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li><li><strong>submissionId</strong>: <em><span class="required">required</span>(string)</em><p>Id for the CIS deduction amendments collection</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>S4636A77V5KB8625U</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "periodData": [
     {
       "deductionAmount": 355.00,
@@ -398,34 +427,7 @@
       "grossAmountPaid": 1457.00
     }
   ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__amendments_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__amendments_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "id": "S4636A77V5KB8625U"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
-  "code": "FORMAT_START_DATE"
-}</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
-  "code": "FORMAT_END_DATE"
-}</code></pre><p><strong>ruleTaxYearRangeExceeded</strong>:<br>Tax year range exceeded. A tax year range of one year is required</p><pre><code>{
-  "code": "RULE_TAX_YEAR_RANGE_EXCEEDED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/deductions/student-loans/{taxableEntityId}/amendments</span>/{submissionId} <span class="methods"><span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="deductions_student_loans__taxableentityid__amendments__submissionid__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/deductions/student-loans/{taxableEntityId}/amendments</span>/{submissionId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Create Student Loan deductions amendments for an Employment &amp; Tax Year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__amendments__submissionid__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__amendments__submissionid__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(base-types.taxableEntityId)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p></li><li><strong>submissionId</strong>: <em><span class="required">required</span>(string)</em><p>Id for the CIS deduction amendments collection</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>S4636A77V5KB8625U</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
-  {
-    "deductionAmount": 355.00,
-    "deductionFromDate": "2019-06-06",
-    "deductionToDate": "2019-07-05",
-    "costOfMaterials": 35.00,
-    "grossAmountPaid": 1457.00
-  },
-  {
-    "deductionAmount": 355.00,
-    "deductionFromDate": "2019-07-06",
-    "deductionToDate": "2019-08-05",
-    "costOfMaterials": 35.00,
-    "grossAmountPaid": 1457.00
-  }
-]</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__amendments__submissionid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__amendments__submissionid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#deductions_student_loans__taxableentityid__amendments__submissionid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="deductions_student_loans__taxableentityid__amendments__submissionid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStartDate</strong>:<br>The format of the supplied start date is not valid</p><pre><code>{
   "code": "FORMAT_START_DATE"
 }</code></pre><p><strong>formatEndDate</strong>:<br>The format of the supplied end date is not valid</p><pre><code>{
   "code": "FORMAT_END_DATE"
