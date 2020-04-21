@@ -3,23 +3,24 @@ title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
 documentation:
-  - title: Product Types
+  - title: Investment
     content: |
-     | Product Type                 | Source | Boxes        |
+     | Investment Type                 | Source | Boxes        |
      |:-----------------------------|:-------|:-------------|
      | VCT Subscriptions            | SA101  | AOR Box 1    |
      | EIS Subscriptions            | SA101  | AOR Box 2    |
      | Community Investment         | SA101  | AOR Box 3    |
      | Seed Enterprise Investment   | SA101  | AOR Box 10   |
      | Social Enterprise Investment | SA101  | AOR Box 11   |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Relief Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Investment | /reliefs/investment/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Other
     content: |
-      | Relief Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Investment | /reliefs/investment/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                                                | Source | Boxes                   |
+     | Other Type                                                | Source | Boxes                   |
      |:------------------------------------------------------------|:-------|:------------------------|
      | Non Deductable Loan Interest                                | SA101  | AOR Box 12              |
      | Payroll Giving                                              | SA101  | Other Information box 6 |
@@ -28,21 +29,23 @@ documentation:
      | Maintenance Payments                                        | SA101  | AOR box 7               |
      | Annual Payments Made                                        | SA101  |                         |
      | Qualifying Loan Interest Payments                           | SA101  |                         |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Relief Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Other | /reliefs/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Foreign
     content: |
-      | Relief Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Other | /reliefs/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                    | Source | Boxes  |
+     | Foreign Type                    | Source | Boxes  |
      |:--------------------------------|:-------|:-------|
      | Foreign Tax Credit Relief       | SA106  | Box 2  |
-  - title: Resource Model
-    content: |
-      | Relief Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Foreign | /reliefs/foreign/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#  - title: Resource Model
+#    content: |
+#      | Relief Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Foreign | /reliefs/foreign/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml

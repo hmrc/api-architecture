@@ -3,11 +3,17 @@ title: DRAFT Obligations by Regime
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
 documentation:
-  - title: Resource Model
+  - title: Obligations
     content: |
-      | Endpoints |
-      ------------
-      | /obligations/{taxableEntityId}/income-tax [GET] |
+     | Obligation Type                    | Source | Boxes |
+     |:--------------------------------|:-------|:-----------|
+     | Income Tax                      |   | |
+#  - title: Resource Model
+#    content: |
+#      | Endpoints |
+#      ------------
+#      | /obligations/{taxableEntityId}/income-tax [GET] |
+#      ___
 uses:
   genericErrors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml

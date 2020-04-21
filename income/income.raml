@@ -3,59 +3,63 @@ title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
 documentation:
-  - title: Product Types
+  - title: Insurance Policies
     content: |
-     | Product Type                | Source | Boxes               |
+     | Insurance Type                | Source | Boxes               |
      |:----------------------------|:-------|:--------------------|
      | Life Insurance Policies     | SA101  | AOI boxes 4-7, 11   |
      | Life Annuity Contracts      | SA101  | AOI boxes 4-7, 11   |
      | Capital Redemption Policies | SA101  | AOI boxes 4-7, 11   |
      | Voided ISAs                 | SA101  | AOI boxes 8 - 11    |
      | Foreign Policies            | SA106  | boxes 43 - 45       |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Insurance Policies | /income/insurance-policies/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Savings
     content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Insurance Policies | /income/insurance-policies/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                | Source | Boxes                   |
+     | Savings Type                | Source | Boxes                   |
      |:----------------------------|:-------|:------------------------|
      | BBSI                        | SA100  |                         |
      | Securities                  | SA101  | AOI boxes 1-3           |
      | Foreign Interest            | SA106  | A- F Interest / savings |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Savings | /income/savings/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Employment - Other
     content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Savings | /income/savings/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                    | Source | Boxes      |
+     | Employment - Other Type                    | Source | Boxes      |
      |:--------------------------------|:-------|:-----------|
      | Share Options                   | SA101  | ASE Box 1  |
      | Shares Awarded or Received      | SA101  | ASE Box 1  |
      | Disability                      | SA101  | ASE Box 10 |
      | Foreign Service                 | SA101  | ASE box 10 |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Other Employment | /income/employment/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Foreign
     content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Other Employment | /income/employment/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                    | Source | Boxes      |
+     | Foreign Type                    | Source | Boxes      |
      |:--------------------------------|:-------|:-----------|
      | Foreign Earnings                | SA101  | ASE Box 12 |
      | Unremittable Foreign Income     | SA106  | box 1      |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Foreign | /income/foreign/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Dividends
     content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Foreign | /income/foreign/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                             | Source | Boxes           |
+     | Divdend Type                             | Source | Boxes           |
      |:-----------------------------------------|:-------|:----------------|
      | UK Dividends                             | SA100  |                 |
      | Foreign Dividends                        | SA106  | A - F Dividends |
@@ -64,47 +68,39 @@ documentation:
      | Bonus Issue of Securities                | SA101  | AOI Box 13      |
      | Redeemable Shares                        | SA101  | AOI Box 13      |
      | Close Company Loans Written Off          | SA101  | AOI Boxy 13.1   |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Dividends | /income/dividends/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Pensions
     content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Dividends | /income/dividends/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                    | Source | Boxes          |
+     | Pension Type                    | Source | Boxes          |
      |:--------------------------------|:-------|:---------------|
      | Foreign Pensions                | SA106  | A - F Pensions |
      | Overseas Pension Contributions  | SA101  | ASE box 14     |
-  - title: Resource Model
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Pensions | /income/pensions/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Other
     content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Pensions | /income/pensions/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                            | Source | Boxes              |
+     | Other Type                            | Source | Boxes              |
      |:----------------------------------------|:-------|:-------------------|
      | Business Receipts                       | SA101  | AOI Box 14 - 15    |
      | All Other Income Received Whilst Abroad | SA106  | A - F Other Income |
      | Overseas Income and Gains               | SA106  | Box 41             |
      | Chargeable Foreign Benefits and Gifts   | SA106  | Box 42             |
      | Omitted Foreign Income                  | SA106  | Box 46             |
-  - title: Resource Model
-    content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Other | /income/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-  - title: Product Types
-    content: |
-     | Product Type                                | Source | Boxes      |
-     |:--------------------------------------------|:-------|:-----------|
-     | Payments to Trade Unions for Death Benefits | SA101  | AOR Box 8  |
-     | Patent Royalties                            | SA101  | ASE Box 15 |
-  - title: Resource Model
-    content: |
-      | Income Type | Endpoints | Methods   |
-      |-----------|-----------|-----------|
-      | Expenses | /expenses/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Other | /income/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -112,52 +108,6 @@ uses:
   genericHeaders: ../generic/traits/headers.raml
   baseTypes: ../generic/types/common/base-types.raml
 /income:
-  /property:
-    /{nino}:
-      uriParameters:
-        taxableEntityId: baseTypes.TaxableEntityId
-      /{incomeSourceId}:
-        uriParameters:
-          incomeSourceId: baseTypes.IncomeSourceId
-        post:
-          displayName: Create property income submission
-          description: Create property income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
-          responses:
-            200:
-          body:
-            application/json:
-              example: !include examples/property-post.json
-        get:
-          displayName: List of property income
-          description: List of property income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
-          responses:
-            200:
-              body:
-                application/json:
-                  example: !include examples/property-list.json
-        /{submissionId}:
-          uriParameters:
-            submissionId: baseTypes.SubmissionId
-          put:
-            displayName: Create/update property income submission
-            description: Create/update property income submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
-            responses:
-              200:
-            body:
-              application/json:
-                example: !include examples/property.json
-          get:
-            displayName: Retrieve property income by submission
-            description: Retrieve property income by submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
-            responses:
-              200:
-                body:
-                  application/json:
-                    example: !include examples/property-withid.json
   /savings:
     /{nino}:
       uriParameters:

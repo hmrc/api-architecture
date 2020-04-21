@@ -9,6 +9,18 @@ documentation:
              </ol>'
 - title: Design Rationale
   content: 'The data schemas for business and property are thought to be the same (or very similar), so it made sense to combine everything in one GET "list" and one GET "details".  If we need to add further types of business details in future we can extend with finer-grained end-points as non-breaking changes.'
+- title: Business Details
+  content: |
+   | Details Type                    | Source | Boxes                     |
+   |:--------------------------------|:-------|:--------------------------|
+   | Business Details                   |   |  |
+#- title: Resource Model
+#  content: |
+#    | Type | Endpoints | Methods   |
+#    |-----------|-----------|-----------|
+#    | Business | /business-details/{partiyIdentifier} | [GET] |
+#    | Business | /business-details/{partiyIdentifier}/{id} |[PUT] [DELETE] |
+#    ___
 uses:
   genericErrors: ../generic/traits/errors.raml
 /business-details:

@@ -151,257 +151,173 @@
 {
   margin-bottom: 0;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-12" role="main"><div class="page-header"><h1>DRAFT <small>version 0.1</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="resource_model"><a href="#resource_model">Resource Model</a></h3><table class="table"><thead><tr><th>Income Type</th><th>Endpoints</th><th>Methods</th></tr></thead><tbody><tr><td>Property</td><td>/income/property/{taxableEntityId}/{incomeSourceId}</td><td>[POST] [GET]</td></tr><tr><td></td><td>/income/property/{taxableEntityId}/{incomeSourceId}/{submissionId}</td><td>[PUT] [GET]</td></tr><tr><td>Savings</td><td>/income/savings/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Insurance Policies</td><td>/income/insurance-policies/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Other Employment</td><td>/income/employment/other/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Foreign</td><td>/income/foreign/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Dividends</td><td>/income/dividends/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Pensions</td><td>/income/pensions/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr><tr><td>Other</td><td>/income/other/{taxableEntityId}/{taxYear}</td><td>[GET] [PUT] [DELETE]</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="income" class="panel-title">/income</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/property/{taxableEntityId}</span>/{incomeSourceId} <span class="methods"><span class="badge badge_post">post</span> <span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="income_property__taxableentityid___incomesourceid__post"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/income/property/{taxableEntityId}</span>/{incomeSourceId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create property income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid__post_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid__post_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>incomeSourceId</strong>: <em><span class="required">required</span>(baseTypes.IncomeSourceId)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "properties": [
-    {
-      "startDate": "06-04-2019",
-      "endDate"  : "06-07-2019",
-      "income": {
-        ... //todo
-      },
-      "expenses": {
-        ... //todo
-      }
-    }
-  ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid__post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid__post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_property__taxableentityid___incomesourceid__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/property/{taxableEntityId}</span>/{incomeSourceId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of property income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>incomeSourceId</strong>: <em><span class="required">required</span>(baseTypes.IncomeSourceId)</em></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "properties": [
-    {
-      "submissionId":"12",
-      "startDate": "2019-06-04",
-      "endDate": "2019-05-07"
-    },
-    {
-      "submissionId":"13",
-      "startDate": "2019-06-07",
-      "endDate": "2019-05-10"
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/property/{taxableEntityId}/{incomeSourceId}</span>/{submissionId} <span class="methods"><span class="badge badge_put">put</span> <span class="badge badge_get">get</span></span></h4></div><div class="modal" tabindex="0" id="income_property__taxableentityid___incomesourceid___submissionid__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/property/{taxableEntityId}/{incomeSourceId}</span>/{submissionId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update property income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid___submissionid__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid___submissionid__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>incomeSourceId</strong>: <em><span class="required">required</span>(baseTypes.IncomeSourceId)</em></li><li><strong>submissionId</strong>: <em><span class="required">required</span>(baseTypes.SubmissionId)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "properties": [
-    {
-      "submissionId":"12",
-      "startDate": "2019-06-04",
-      "endDate": "2019-05-07"
-    },
-    {
-      "submissionId":"13",
-      "startDate": "2019-06-07",
-      "endDate": "2019-05-10"
-    }
-  ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid___submissionid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid___submissionid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_property__taxableentityid___incomesourceid___submissionid__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/property/{taxableEntityId}/{incomeSourceId}</span>/{submissionId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Retrieve property income by submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid___submissionid__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid___submissionid__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>incomeSourceId</strong>: <em><span class="required">required</span>(baseTypes.IncomeSourceId)</em></li><li><strong>submissionId</strong>: <em><span class="required">required</span>(baseTypes.SubmissionId)</em></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_property__taxableentityid___incomesourceid___submissionid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_property__taxableentityid___incomesourceid___submissionid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "properties": [
-    {
-      "startDate": "06-04-2019",
-      "endDate": "06-07-2019",
-      "income": {
-        ... //todo
-      },
-      "expenses": {
-        ... //todo
-      }
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/savings/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_savings__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/savings/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of savings income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-12" role="main"><div class="page-header"><h1>DRAFT <small>version 0.1</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="insurance_policies"><a href="#insurance_policies">Insurance Policies</a></h3><table class="table"><thead><tr><th align="left">Insurance Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Life Insurance Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Life Annuity Contracts</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Capital Redemption Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Voided ISAs</td><td align="left">SA101</td><td align="left">AOI boxes 8 - 11</td></tr><tr><td align="left">Foreign Policies</td><td align="left">SA106</td><td align="left">boxes 43 - 45</td></tr></tbody></table><h3 id="savings"><a href="#savings">Savings</a></h3><table class="table"><thead><tr><th align="left">Savings Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">BBSI</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Securities</td><td align="left">SA101</td><td align="left">AOI boxes 1-3</td></tr><tr><td align="left">Foreign Interest</td><td align="left">SA106</td><td align="left">A- F Interest / savings</td></tr></tbody></table><h3 id="employment___other"><a href="#employment___other">Employment - Other</a></h3><table class="table"><thead><tr><th align="left">Employment - Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Share Options</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Shares Awarded or Received</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Disability</td><td align="left">SA101</td><td align="left">ASE Box 10</td></tr><tr><td align="left">Foreign Service</td><td align="left">SA101</td><td align="left">ASE box 10</td></tr></tbody></table><h3 id="foreign"><a href="#foreign">Foreign</a></h3><table class="table"><thead><tr><th align="left">Foreign Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Earnings</td><td align="left">SA101</td><td align="left">ASE Box 12</td></tr><tr><td align="left">Unremittable Foreign Income</td><td align="left">SA106</td><td align="left">box 1</td></tr></tbody></table><h3 id="dividends"><a href="#dividends">Dividends</a></h3><table class="table"><thead><tr><th align="left">Divdend Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">UK Dividends</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Foreign Dividends</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Dividend Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Stock Dividends</td><td align="left">SA101</td><td align="left">AOI Box 12</td></tr><tr><td align="left">Bonus Issue of Securities</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Redeemable Shares</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Close Company Loans Written Off</td><td align="left">SA101</td><td align="left">AOI Boxy 13.1</td></tr></tbody></table><h3 id="pensions"><a href="#pensions">Pensions</a></h3><table class="table"><thead><tr><th align="left">Pension Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Pensions</td><td align="left">SA106</td><td align="left">A - F Pensions</td></tr><tr><td align="left">Overseas Pension Contributions</td><td align="left">SA101</td><td align="left">ASE box 14</td></tr></tbody></table><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Business Receipts</td><td align="left">SA101</td><td align="left">AOI Box 14 - 15</td></tr><tr><td align="left">All Other Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Other Income</td></tr><tr><td align="left">Overseas Income and Gains</td><td align="left">SA106</td><td align="left">Box 41</td></tr><tr><td align="left">Chargeable Foreign Benefits and Gifts</td><td align="left">SA106</td><td align="left">Box 42</td></tr><tr><td align="left">Omitted Foreign Income</td><td align="left">SA106</td><td align="left">Box 46</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="income" class="panel-title">/income</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/savings/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_savings__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/savings/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of savings income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "savings": [
-    {
-      "type": "SECURITIES",
-      "taxTakenOff": 100.0,
-      "grossAmount": 1455.0
-    },
-    {
-      "type": "FOREIGN INTEREST",
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "fctr": true,
-      "taxableAmount": 2321.22
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+    [
+      {
+        "type": "SECURITIES",
+        "taxTakenOff": 100.0,
+        "grossAmount": 1455.0
+      },
+      {
+        "type": "FOREIGN INTEREST",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "fctr": true,
+        "taxableAmount": 2321.22
+      }
+    ]
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_savings__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/savings/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update savings income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_savings__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/savings/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update savings income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "savings": [
-    {
-      "type": "SECURITIES",
-      "taxTakenOff": 100.0,
-      "grossAmount": 1455.0
-    },
-    {
-      "type": "FOREIGN INTEREST",
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "fctr": true,
-      "taxableAmount": 2321.22
-    }
-  ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+    [
+      {
+        "type": "SECURITIES",
+        "taxTakenOff": 100.0,
+        "grossAmount": 1455.0
+      },
+      {
+        "type": "FOREIGN INTEREST",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "fctr": true,
+        "taxableAmount": 2321.22
+      }
+    ]
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_savings__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/savings/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete savings income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_savings__nino___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/savings/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete savings income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/insurance-policies/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_insurance_policies__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/insurance-policies/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Insurance Policies income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/insurance-policies/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_insurance_policies__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Insurance Policies income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "insurance-policies": [
-    {
-      "type": "LIFE INSURANCE",
-      "event": "Death of spouse",
-      "customerReference":"Life Ins",
-      "gainAmount": 15422.00,
-      "taxPaid": 1542.00,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3,
-      "deficiencyRelief": null
-    },
-    {
-      "type": "CAPITAL REDEMPTION",
-      "event": "Chips Cashed In",
-      "customerReference":"Capital Redemp Policy",
-      "gainAmount": 15422.00,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3
-    },
-    {
-      "type": "LIFE ANNUITY",
-      "event": null,
-      "gainAmount": 532.00,
-      "taxPaid": null,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3,
-      "deficiencyRelief": null
-    },
-    {
-      "type": "VOIDED ISAS",
-      "customerReference":"voided",
-      "event": null,
-      "gainAmount": 532.00,
-      "taxPaid": null,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3,
-      "deficiencyRelief": null
-    },
-    {
-      "type": "FOREIGN POLICIES",
-      "customerReference":"non uk",
-      "gainAmount": 532.00,
-      "taxPaid": null,
-      "yearsHeld": 14
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+      {
+        "type": "LIFE INSURANCE",
+        "event": "Death of spouse",
+        "customerReference":"wibble",
+        "gainAmount": 15422.00,
+        "taxPaid": 1542.00,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3,
+        "deficiencyRelief": 0
+      },
+      {
+        "type": "CAPITAL REDEMPTION",
+        "event": "Chips Cashed In",
+        "customerReference":"wobble",
+        "gainAmount": 15422.00,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3
+      },
+      {
+        "type": "LIFE ANNUITY",
+        "event": null,
+        "customerReference":"wobble",
+        "gainAmount": 532.00,
+        "taxPaid": null,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3,
+        "deficiencyRelief": 0
+      },
+      {
+        "type": "VOIDED ISAS",
+        "customerReference":"wobble",
+        "event": null,
+        "gainAmount": 532.00,
+        "taxPaid": null,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3,
+        "deficiencyRelief": 0
+      },
+      {
+        "type": "FOREIGN POLICIES",
+        "customerReference":"wobble",
+        "gainAmount": 532.00,
+        "taxPaid": null,
+        "yearsHeld": 14
+      }
+    ]
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_insurance_policies__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/insurance-policies/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Insurance Policies income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_insurance_policies__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Insurance Policies income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "insurance-policies": [
-    {
-      "type": "LIFE INSURANCE",
-      "event": "Death of spouse",
-      "customerReference":"Life Ins",
-      "gainAmount": 15422.00,
-      "taxPaid": 1542.00,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3,
-      "deficiencyRelief": null
-    },
-    {
-      "type": "CAPITAL REDEMPTION",
-      "event": "Chips Cashed In",
-      "customerReference":"Capital Redemp Policy",
-      "gainAmount": 15422.00,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3
-    },
-    {
-      "type": "LIFE ANNUITY",
-      "event": null,
-      "gainAmount": 532.00,
-      "taxPaid": null,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3,
-      "deficiencyRelief": null
-    },
-    {
-      "type": "VOIDED ISAS",
-      "customerReference":"voided",
-      "event": null,
-      "gainAmount": 532.00,
-      "taxPaid": null,
-      "yearsHeld": 14,
-      "yearsHeldSinceLastGain": 3,
-      "deficiencyRelief": null
-    },
-    {
-      "type": "FOREIGN POLICIES",
-      "customerReference":"non uk",
-      "gainAmount": 532.00,
-      "taxPaid": null,
-      "yearsHeld": 14
-    }
-  ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+      {
+        "type": "LIFE INSURANCE",
+        "event": "Death of spouse",
+        "customerReference":"wibble",
+        "gainAmount": 15422.00,
+        "taxPaid": 1542.00,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3,
+        "deficiencyRelief": 0
+      },
+      {
+        "type": "CAPITAL REDEMPTION",
+        "event": "Chips Cashed In",
+        "customerReference":"wobble",
+        "gainAmount": 15422.00,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3
+      },
+      {
+        "type": "LIFE ANNUITY",
+        "event": null,
+        "customerReference":"wobble",
+        "gainAmount": 532.00,
+        "taxPaid": null,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3,
+        "deficiencyRelief": 0
+      },
+      {
+        "type": "VOIDED ISAS",
+        "customerReference":"wobble",
+        "event": null,
+        "gainAmount": 532.00,
+        "taxPaid": null,
+        "yearsHeld": 14,
+        "yearsHeldSinceLastGain": 3,
+        "deficiencyRelief": 0
+      },
+      {
+        "type": "FOREIGN POLICIES",
+        "customerReference":"wobble",
+        "gainAmount": 532.00,
+        "taxPaid": null,
+        "yearsHeld": 14
+      }
+    ]
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_insurance_policies__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/insurance-policies/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Insurance Policies income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_insurance_policies__nino___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Insurance Policies income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/employment/other/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_employment_other__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/employment/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Other Employment income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/employment/other/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_employment_other__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/employment/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Other Employment income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "otherEmployment": [
     {
       "type": "SHARE OPTIONS",
@@ -449,15 +365,13 @@
       "amountDeducted": 1223.22
     }
   ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_employment_other__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/employment/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Other Employment income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_employment_other__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/employment/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Other Employment income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "otherEmployment": [
     {
       "type": "SHARE OPTIONS",
@@ -505,269 +419,315 @@
       "amountDeducted": 1223.22
     }
   ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_employment_other__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/employment/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Other Employment income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_employment_other__nino___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/employment/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Other Employment income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/foreign/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_foreign__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/foreign/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Foreign income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/foreign/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_foreign__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/foreign/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Foreign income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "foreign": [
-    {
-      "type": "FOREIGN EARNINGS",
-      "customerReference" : "wibble",
-      "earningsNotTaxableUK": 15455.00,
-    },
-    {
-      "type": "UNREMITTABLE",
-      "countryCode": "GER",
-      "amountInForeignCurrency":213.22,
-      "amountTaxPaid": 232.22
-    }
+      {
+        "type": "FOREIGN EARNINGS",
+        "customerReference" : "wibble",
+        "earningsNotTaxableUK": 15455.00
+      },
+      {
+        "type": "UNREMITTABLE FOREIGN INCOME",
+        "countryCode": "GER",
+        "amountInForeignCurrency":213.22,
+        "amountTaxPaid": 232.22
+      }
     ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_foreign__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/foreign/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Foreign income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_foreign__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/foreign/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Foreign income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "foreign": [
-    {
-      "type": "FOREIGN EARNINGS",
-      "customerReference" : "wibble",
-      "earningsNotTaxableUK": 15455.00,
-    },
-    {
-      "type": "UNREMITTABLE",
-      "countryCode": "GER",
-      "amountInForeignCurrency":213.22,
-      "amountTaxPaid": 232.22
-    }
+      {
+        "type": "FOREIGN EARNINGS",
+        "customerReference" : "wibble",
+        "earningsNotTaxableUK": 15455.00
+      },
+      {
+        "type": "UNREMITTABLE FOREIGN INCOME",
+        "countryCode": "GER",
+        "amountInForeignCurrency":213.22,
+        "amountTaxPaid": 232.22
+      }
     ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_foreign__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/foreign/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Foreign income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_foreign__nino___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/foreign/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Foreign income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/dividends/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_dividends__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/dividends/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of dividends income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/dividends/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_dividends__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/dividends/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of dividends income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "dividends": [
-    {
-      "type": "UK DIVIDEND",
-      "customerReference": "wibble",
-      "amount": 1232.23
-    },
-    {
-      "type": "FOREIGN DIVIDEND",
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "fctr": true,
-      "taxableAmount": 2321.22
-    },
-    {
-      "type": "STOCK DIVIDEND",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble01"
-    },
-    {
-      "type": "REDEEMABLE SHARES",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble02"
-    },
-    {
-      "type": "BONUS ISSUES OF SECURITIES",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble03"
-    },
-    {
-      "type": "CLOSE COMPANY LOANS WRITTEN OFF",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble04"
-    }
+      {
+        "type": "UK DIVIDEND",
+        "customerReference": "wibble",
+        "amount": 1232.23
+      },
+      {
+        "type": "FOREIGN DIVIDEND",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "STOCK DIVIDEND",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble01"
+      },
+      {
+        "type": "REDEEMABLE SHARES",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble02"
+      },
+      {
+        "type": "BONUS ISSUES OF SECURITIES",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble03"
+      },
+      {
+        "type": "CLOSE COMPANY LOANS WRITTEN OFF",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble04"
+      }
     ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_dividends__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/dividends/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update dividends income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_dividends__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/dividends/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update dividends income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "dividends": [
-    {
-      "type": "UK DIVIDEND",
-      "customerReference": "wibble",
-      "amount": 1232.23
-    },
-    {
-      "type": "FOREIGN DIVIDEND",
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "fctr": true,
-      "taxableAmount": 2321.22
-    },
-    {
-      "type": "STOCK DIVIDEND",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble01"
-    },
-    {
-      "type": "REDEEMABLE SHARES",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble02"
-    },
-    {
-      "type": "BONUS ISSUES OF SECURITIES",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble03"
-    },
-    {
-      "type": "CLOSE COMPANY LOANS WRITTEN OFF",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble04"
-    }
+      {
+        "type": "UK DIVIDEND",
+        "customerReference": "wibble",
+        "amount": 1232.23
+      },
+      {
+        "type": "FOREIGN DIVIDEND",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "STOCK DIVIDEND",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble01"
+      },
+      {
+        "type": "REDEEMABLE SHARES",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble02"
+      },
+      {
+        "type": "BONUS ISSUES OF SECURITIES",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble03"
+      },
+      {
+        "type": "CLOSE COMPANY LOANS WRITTEN OFF",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble04"
+      }
     ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_dividends__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/dividends/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete dividends income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_dividends__nino___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/dividends/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete dividends income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/pensions/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_pensions__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/pensions/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of pensions income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/pensions/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_pensions__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/pensions/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of pensions income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "pensions": [
-    {
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "fctr": true,
-      "taxableAmount": 2321.22
-    },
-    {
-      "type": "OVERSEAS PENSION CONTRIBUTIONS",
-      "customerReference" : "wibble",
-      "exemptEmployersPensionContribs": 689.00,
-      "migrantMemReliefQopsRefNo": "ER3223423",
-      "dblTaxationRelief": 4232.00,
-      "dblTaxationCountry": "GER",
-      "dblTaxationArticle": "3211-1",
-      "dblTaxationTreaty": "Munich"
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+      {
+        "type": "FOREIGN PENSIONS",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "OVERSEAS PENSION CONTRIBUTIONS",
+        "customerReference" : "wibble",
+        "exemptEmployersPensionContribs": 689.00,
+        "migrantMemReliefQopsRefNo": "ER3223423",
+        "dblTaxationRelief": 4232.00,
+        "dblTaxationCountry": "GER",
+        "dblTaxationArticle": "3211-1",
+        "dblTaxationTreaty": "Munich"
+      }
+    ]
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_pensions__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/pensions/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update pensions income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_pensions__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/pensions/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update pensions income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "pensions": [
-    {
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "fctr": true,
-      "taxableAmount": 2321.22
-    },
-    {
-      "type": "OVERSEAS PENSION CONTRIBUTIONS",
-      "customerReference" : "wibble",
-      "exemptEmployersPensionContribs": 689.00,
-      "migrantMemReliefQopsRefNo": "ER3223423",
-      "dblTaxationRelief": 4232.00,
-      "dblTaxationCountry": "GER",
-      "dblTaxationArticle": "3211-1",
-      "dblTaxationTreaty": "Munich"
-    }
-  ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
-  "code": "FORMAT_TAX_YEAR"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_pensions__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/pensions/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete pensions income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
-  "code": "FORMAT_TAX_YEAR"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
-  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
-  "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/other/{taxableEntityId}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_other__taxableentityid___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of other income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__taxableentityid___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__taxableentityid___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__taxableentityid___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__taxableentityid___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "other": [
-    {
-      "type": "BUSINESS RECEIPTS",
-      "grossAmount": 12321.22,
-      "taxYear": "2017-18"
-    }
+      {
+        "type": "FOREIGN PENSIONS",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "OVERSEAS PENSION CONTRIBUTIONS",
+        "customerReference" : "wibble",
+        "exemptEmployersPensionContribs": 689.00,
+        "migrantMemReliefQopsRefNo": "ER3223423",
+        "dblTaxationRelief": 4232.00,
+        "dblTaxationCountry": "GER",
+        "dblTaxationArticle": "3211-1",
+        "dblTaxationTreaty": "Munich"
+      }
     ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_other__taxableentityid___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update other income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__taxableentityid___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__taxableentityid___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_pensions__nino___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/pensions/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete pensions income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/other/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_other__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of other income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "other": [
-    {
-      "type": "BUSINESS RECEIPTS",
-      "grossAmount": 12321.22,
-      "taxYear": "2017-18"
-    }
+      {
+        "type": "BUSINESS RECEIPTS",
+        "grossAmount": 12321.22,
+        "taxYear": "2017-18"
+      },
+      {
+        "type": "ALL OTHER INCOME RECEIVED WHILST ABROAD",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22,
+        "residentialFinancialCostAmount": 200.25,
+        "broughtFwdResidentialFinancialCostAmount": 100.25
+      },
+      {
+        "type": "OVERSEAS INCOME AND GAINS",
+        "gainAmount" : 1232.22
+      },
+      {
+        "type": "CHARGEABLE FOREIGN BENEFITS AND GIFTS",
+        "transactionBenefit": 100.22,
+        "protectedForeignIncomeSourceBenefit": 111.22,
+        "protectedForeignIncomeOnwardGift": 111.23,
+        "benefitReceivedAsASettler": 111.22,
+        "onwardGiftReceivedAsASettler": 111.22
+      },
+      {
+        "type": "OMITTED FOREIGN INCOME",
+        "amount": 12321.22
+      }
     ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__taxableentityid___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__taxableentityid___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_other__taxableentityid___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/other/{taxableEntityId}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete other income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__taxableentityid___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__taxableentityid___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__taxableentityid___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__taxableentityid___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
-  "code": "FORMAT_STATUS"
-}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_other__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update other income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "other": [
+      {
+        "type": "BUSINESS RECEIPTS",
+        "grossAmount": 12321.22,
+        "taxYear": "2017-18"
+      },
+      {
+        "type": "ALL OTHER INCOME RECEIVED WHILST ABROAD",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22,
+        "residentialFinancialCostAmount": 200.25,
+        "broughtFwdResidentialFinancialCostAmount": 100.25
+      },
+      {
+        "type": "OVERSEAS INCOME AND GAINS",
+        "gainAmount" : 1232.22
+      },
+      {
+        "type": "CHARGEABLE FOREIGN BENEFITS AND GIFTS",
+        "transactionBenefit": 100.22,
+        "protectedForeignIncomeSourceBenefit": 111.22,
+        "protectedForeignIncomeOnwardGift": 111.23,
+        "benefitReceivedAsASettler": 111.22,
+        "onwardGiftReceivedAsASettler": 111.22
+      },
+      {
+        "type": "OMITTED FOREIGN INCOME",
+        "amount": 12321.22
+      }
+    ]
+}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_other__nino___taxyear__delete"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete other income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__delete_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string)</em></li><li><strong>taxableEntityId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
