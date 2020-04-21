@@ -5,8 +5,6 @@ Early stage RAML > HTML designs for APIs
 
 ## API Prototype Status
 
-##### Click name to preview 
-
 | API              | Status |
 |------------------|:-------|
 | [Business](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/business/business.html)       | DRAFT  |
