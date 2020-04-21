@@ -6,12 +6,13 @@ do
     echo ${f}
         for g in `ls *.raml | cut -d"." -f1`
         do
-            npx raml2html --theme raml2html-printable-theme --input ${g}.raml --output ${g}.html
+            npx raml2html --theme raml2html-printable-theme --input ${g}.raml --output ${g}-printable.html
+            cp *printable.html ../html_docs_printable
             npx raml2html --theme raml2html-default-theme --input ${g}.raml --output ${g}-compact.html
+            cp *compact.html ../html_docs_compact
 
-            cp *compact.html ../html_docs
         done
     cd ../
 done
 rm html_docs.zip
-zip html_docs.zip html_docs/*
+zip html_docs.zip html_docs_compact/*
