@@ -3,6 +3,11 @@ title: DRAFT Deductions MTD
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.5
 documentation:
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes |
+     |:--------------------------------|:-------|:-----------|
+     | CIS Deductions                       |   | |
   - title: Resource Model
     content: |
       | Deduction Type | Endpoints | Methods   |
@@ -10,12 +15,29 @@ documentation:
       | CIS | /deductions/cis/{taxableEntityId}/current-position | [GET] |
       |  | /deductions/cis/{taxableEntityId}/amendments | [GET] [POST] |
       |  | /deductions/cis/{taxableEntityId}/amendments/{submissionId} | [[PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes |
+     |:--------------------------------|:-------|:-----------|
+     | Student Loans                     | SA100  |  |
+  - title: Resource Model
+    content: |
+      | Deduction Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
       | Student Loans | /deductions/student-loans/{taxableEntityId}/current-position | [GET] |
       |  | /deductions/student-loans/{taxableEntityId}/amendments | [GET] [POST] |
       |  | /deductions/student-loans/{taxableEntityId}/amendments/{submissionId} | [[PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes |
+     |:--------------------------------|:-------|:-----------|
+     | SeaFarers                       | SA101  | ASE box 11|
+  - title: Resource Model
+    content: |
+      | Deduction Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
       | Others | /deductions/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
-
   errors: ../generic/traits/errors.raml
   queryParameters: ../generic/traits/queryParameters.raml
   base-types: ../generic/types/common/base-types.raml

@@ -1,42 +1,47 @@
 {
   "reliefs": [
-    "type": "NON DEDUCTABLE LOAN INTEREST",
-    "customerReference": "Wibble",
-    "reliefClaimed": 763.00
-    },
-    {
-      "type": "PAYROLL GIVING",
-      "customerReference": "Wibble",
-      "reliefClaimed": 154.00
-    },
-    {
-      "type":"QUALIFYING DISTRIBUTION REDEMPTION OF SHARES AND SECURITIES",
-      "customerReference": "Wibble",
-      "amount": 222.22
-    },
-    {
-      "type":"MAINTENANCE PAYMENTS",
-      "customerReference": "Wibble",
-      "amount": 222.22
-    },
-    {
-      "type":"POST CESSATION TRADE RELIEF AND CERTAIN OTHER LOSSES",
-      "customerReference": "Wibble",
-      "businessName": "Wibble Inc",
-      "dateBusinessCeased": "2019-08-10",
-      "natureOfTrade": "Wibble Manufacturer",
-      "incomeSource": "AB12412/A12",
-      "amount": 222.22
-    },
-    {
-      "type": "ANNUAL PAYMENTS MADE",
-      "customerReference": "Wibble",
-      "reliefClaimed": 763.00
-    },
-    {
-      "type": "QUALIFYING LOAN INTEREST PAYMENTS",
-      "customerReference": "Wibble",
-      "reliefClaimed": 763.00
-    }
-  ]
+      {
+        "type": "NON DEDUCTABLE LOAN INTEREST",
+        "customerReference": "Wibble",
+        "reliefClaimed": 763.00
+      },
+      {
+        "type": "PAYROLL GIVING",
+        "customerReference": "Wibble",
+        "reliefClaimed": 154.00
+      },
+      {
+        "type":"QUALIFYING DISTRIBUTION REDEMPTION OF SHARES AND SECURITIES",
+        "customerReference": "Wibble",
+        "amount": 222.22
+      },
+      {
+        "type":"MAINTENANCE PAYMENTS",
+        "customerReference": "Wibble",
+        "exSpouseName" : "Hilda",
+        "exSpouseDateOfBirth": "2000-01-01",
+        "amount": 222.22
+      },
+      {
+        "type":"POST CESSATION TRADE RELIEF AND CERTAIN OTHER LOSSES",
+        "customerReference": "Wibble",
+        "businessName": "Wibble Inc",
+        "dateBusinessCeased": "2019-08-10",
+        "natureOfTrade": "Wibble Manufacturer",
+        "incomeSource": "AB12412/A12",
+        "amount": 222.22
+      },
+      {
+        "type": "ANNUAL PAYMENTS MADE",
+        "customerReference": "Wibble",
+        "reliefClaimed": 763.00
+      },
+      {
+        "type": "QUALIFYING LOAN INTEREST PAYMENTS",
+        "customerReference": "Wibble",
+        "lenderName": "Maurice",
+        "reliefClaimed": 763.00
+      }
+
+    ]
 }

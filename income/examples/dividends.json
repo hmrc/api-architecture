@@ -1,38 +1,47 @@
 {
   "dividends": [
-    {
-      "type": "UK DIVIDEND",
-      "customerReference": "wibble",
-      "amount": 1232.23
-    },
-    {
-      "type": "FOREIGN DIVIDEND",
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "fctr": true,
-      "taxableAmount": 2321.22
-    },
-    {
-      "type": "STOCK DIVIDEND",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble01"
-    },
-    {
-      "type": "REDEEMABLE SHARES",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble02"
-    },
-    {
-      "type": "BONUS ISSUES OF SECURITIES",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble03"
-    },
-    {
-      "type": "CLOSE COMPANY LOANS WRITTEN OFF",
-      "grossAmount": 12321.22,
-      "customerReference": "wibble04"
-    }
+      {
+        "type": "UK DIVIDEND",
+        "customerReference": "wibble",
+        "amount": 1232.23
+      },
+      {
+        "type": "FOREIGN DIVIDEND",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      },
+      {
+        "type": "STOCK DIVIDEND",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble01"
+      },
+      {
+        "type": "REDEEMABLE SHARES",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble02"
+      },
+      {
+        "type": "BONUS ISSUES OF SECURITIES",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble03"
+      },
+      {
+        "type": "CLOSE COMPANY LOANS WRITTEN OFF",
+        "grossAmount": 12321.22,
+        "customerReference": "wibble04"
+      }
     ]
 }

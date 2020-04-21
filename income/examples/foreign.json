@@ -1,15 +1,15 @@
 {
   "foreign": [
-    {
-      "type": "FOREIGN EARNINGS",
-      "customerReference" : "wibble",
-      "earningsNotTaxableUK": 15455.00,
-    },
-    {
-      "type": "UNREMITTABLE",
-      "countryCode": "GER",
-      "amountInForeignCurrency":213.22,
-      "amountTaxPaid": 232.22
-    }
+      {
+        "type": "FOREIGN EARNINGS",
+        "customerReference" : "wibble",
+        "earningsNotTaxableUK": 15455.00
+      },
+      {
+        "type": "UNREMITTABLE FOREIGN INCOME",
+        "countryCode": "GER",
+        "amountInForeignCurrency":213.22,
+        "amountTaxPaid": 232.22
+      }
     ]
 }

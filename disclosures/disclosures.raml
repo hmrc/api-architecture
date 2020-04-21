@@ -3,11 +3,16 @@ title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
 documentation:
-  - title: Resource Model
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes                     |
+     |:--------------------------------|:-------|:--------------------------|
+     | Tax Avoidance                   | SA101  | Tax Avoidance Box 19 - 20 |
+      - title: Resource Model
     content: |
       | Dosclosure Type | Endpoints | Methods   |
       |-----------|-----------|-----------|
-      | Tax Avoidance | /disclosures/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Tax Avoidance | /disclosures/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -15,9 +20,9 @@ uses:
   genericHeaders: ../generic/traits/headers.raml
   baseTypes: ../generic/types/common/base-types.raml
 /disclosures:
-  /{taxableEntityId}:
+  /{nino}:
     uriParameters:
-      taxableEntityId: baseTypes.TaxableEntityId
+      nino: baseTypes.Nino
     /{taxYear}:
       uriParameters:
         taxYear: baseTypes.TaxYear

@@ -3,13 +3,46 @@ title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
 documentation:
+  - title: Product Types
+    content: |
+     | Product Type                 | Source | Boxes        |
+     |:-----------------------------|:-------|:-------------|
+     | VCT Subscriptions            | SA101  | AOR Box 1    |
+     | EIS Subscriptions            | SA101  | AOR Box 2    |
+     | Community Investment         | SA101  | AOR Box 3    |
+     | Seed Enterprise Investment   | SA101  | AOR Box 10   |
+     | Social Enterprise Investment | SA101  | AOR Box 11   |
   - title: Resource Model
     content: |
       | Relief Type | Endpoints | Methods   |
       |-----------|-----------|-----------|
-      | Investment | /reliefs/investment/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Foreign | /reliefs/foreign/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Other | /reliefs/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Investment | /reliefs/investment/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                                                | Source | Boxes                   |
+     |:------------------------------------------------------------|:-------|:------------------------|
+     | Non Deductable Loan Interest                                | SA101  | AOR Box 12              |
+     | Payroll Giving                                              | SA101  | Other Information box 6 |
+     | Qualifying Distribution Redemption Of Shares and Securities | SA101  | AOR box 9               |
+     | Post Cessation Trade Relief and Certain Other Losses        | SA101  | AOR box 6               |
+     | Maintenance Payments                                        | SA101  | AOR box 7               |
+     | Annual Payments Made                                        | SA101  |                         |
+     | Qualifying Loan Interest Payments                           | SA101  |                         |
+  - title: Resource Model
+    content: |
+      | Relief Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Other | /reliefs/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes  |
+     |:--------------------------------|:-------|:-------|
+     | Foreign Tax Credit Relief       | SA106  | Box 2  |
+  - title: Resource Model
+    content: |
+      | Relief Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Foreign | /reliefs/foreign/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -18,9 +51,9 @@ uses:
   baseTypes: ../generic/types/common/base-types.raml
 /reliefs:
   /investment:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
-        taxableEntityId: baseTypes.TaxableEntityId
+        nino: baseTypes.Nino
       /{taxYear}:
         uriParameters:
           taxYear: baseTypes.TaxYear
@@ -49,9 +82,9 @@ uses:
           responses:
             204:
   /other:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
-        taxableEntityId: baseTypes.TaxableEntityId
+        nino: baseTypes.Nino
       /{taxYear}:
         uriParameters:
           taxYear: baseTypes.TaxYear
@@ -80,9 +113,9 @@ uses:
           responses:
             204:
   /foreign:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
-        taxableEntityId: baseTypes.TaxableEntityId
+        nino: baseTypes.Nino
       /{taxYear}:
         uriParameters:
           taxYear: baseTypes.TaxYear

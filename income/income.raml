@@ -3,19 +3,108 @@ title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
 version: 0.1
 documentation:
+  - title: Product Types
+    content: |
+     | Product Type                | Source | Boxes               |
+     |:----------------------------|:-------|:--------------------|
+     | Life Insurance Policies     | SA101  | AOI boxes 4-7, 11   |
+     | Life Annuity Contracts      | SA101  | AOI boxes 4-7, 11   |
+     | Capital Redemption Policies | SA101  | AOI boxes 4-7, 11   |
+     | Voided ISAs                 | SA101  | AOI boxes 8 - 11    |
+     | Foreign Policies            | SA106  | boxes 43 - 45       |
   - title: Resource Model
     content: |
       | Income Type | Endpoints | Methods   |
       |-----------|-----------|-----------|
-      | Property | /income/property/{taxableEntityId}/{incomeSourceId} | [POST] [GET] |
-      |          | /income/property/{taxableEntityId}/{incomeSourceId}/{submissionId} | [PUT] [GET] |
-      | Savings | /income/savings/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Insurance Policies | /income/insurance-policies/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Other Employment | /income/employment/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Foreign | /income/foreign/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Dividends | /income/dividends/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Pensions | /income/pensions/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
-      | Other | /income/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+      | Insurance Policies | /income/insurance-policies/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                | Source | Boxes                   |
+     |:----------------------------|:-------|:------------------------|
+     | BBSI                        | SA100  |                         |
+     | Securities                  | SA101  | AOI boxes 1-3           |
+     | Foreign Interest            | SA106  | A- F Interest / savings |
+  - title: Resource Model
+    content: |
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Savings | /income/savings/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes      |
+     |:--------------------------------|:-------|:-----------|
+     | Share Options                   | SA101  | ASE Box 1  |
+     | Shares Awarded or Received      | SA101  | ASE Box 1  |
+     | Disability                      | SA101  | ASE Box 10 |
+     | Foreign Service                 | SA101  | ASE box 10 |
+  - title: Resource Model
+    content: |
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Other Employment | /income/employment/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes      |
+     |:--------------------------------|:-------|:-----------|
+     | Foreign Earnings                | SA101  | ASE Box 12 |
+     | Unremittable Foreign Income     | SA106  | box 1      |
+  - title: Resource Model
+    content: |
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Foreign | /income/foreign/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                             | Source | Boxes           |
+     |:-----------------------------------------|:-------|:----------------|
+     | UK Dividends                             | SA100  |                 |
+     | Foreign Dividends                        | SA106  | A - F Dividends |
+     | Dividend Income Received Whilst Abroad   | SA106  | A - F Dividends |
+     | Stock Dividends                          | SA101  | AOI Box 12      |
+     | Bonus Issue of Securities                | SA101  | AOI Box 13      |
+     | Redeemable Shares                        | SA101  | AOI Box 13      |
+     | Close Company Loans Written Off          | SA101  | AOI Boxy 13.1   |
+  - title: Resource Model
+    content: |
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Dividends | /income/dividends/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                    | Source | Boxes          |
+     |:--------------------------------|:-------|:---------------|
+     | Foreign Pensions                | SA106  | A - F Pensions |
+     | Overseas Pension Contributions  | SA101  | ASE box 14     |
+  - title: Resource Model
+    content: |
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Pensions | /income/pensions/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                            | Source | Boxes              |
+     |:----------------------------------------|:-------|:-------------------|
+     | Business Receipts                       | SA101  | AOI Box 14 - 15    |
+     | All Other Income Received Whilst Abroad | SA106  | A - F Other Income |
+     | Overseas Income and Gains               | SA106  | Box 41             |
+     | Chargeable Foreign Benefits and Gifts   | SA106  | Box 42             |
+     | Omitted Foreign Income                  | SA106  | Box 46             |
+  - title: Resource Model
+    content: |
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Other | /income/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+  - title: Product Types
+    content: |
+     | Product Type                                | Source | Boxes      |
+     |:--------------------------------------------|:-------|:-----------|
+     | Payments to Trade Unions for Death Benefits | SA101  | AOR Box 8  |
+     | Patent Royalties                            | SA101  | ASE Box 15 |
+  - title: Resource Model
+    content: |
+      | Income Type | Endpoints | Methods   |
+      |-----------|-----------|-----------|
+      | Expenses | /expenses/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -24,7 +113,7 @@ uses:
   baseTypes: ../generic/types/common/base-types.raml
 /income:
   /property:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
         taxableEntityId: baseTypes.TaxableEntityId
       /{incomeSourceId}:
@@ -33,7 +122,7 @@ uses:
         post:
           displayName: Create property income submission
           description: Create property income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
           responses:
             200:
           body:
@@ -42,7 +131,7 @@ uses:
         get:
           displayName: List of property income
           description: List of property income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
           responses:
             200:
               body:
@@ -54,7 +143,7 @@ uses:
           put:
             displayName: Create/update property income submission
             description: Create/update property income submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             responses:
               200:
             body:
@@ -63,14 +152,14 @@ uses:
           get:
             displayName: Retrieve property income by submission
             description: Retrieve property income by submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             responses:
               200:
                 body:
                   application/json:
                     example: !include examples/property-withid.json
   /savings:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
         taxableEntityId: baseTypes.TaxableEntityId
       /{taxYear}:
@@ -79,7 +168,7 @@ uses:
         get:
           displayName: List of savings income
           description: List of savings income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -88,7 +177,7 @@ uses:
         put:
           displayName: Create/update savings income submission
           description: Create/update savings income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
           body:
@@ -97,11 +186,11 @@ uses:
         delete:
           displayName: Delete savings income submission
           description: Delete savings income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
   /insurance-policies:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
           taxableEntityId: baseTypes.TaxableEntityId
       /{taxYear}:
@@ -110,7 +199,7 @@ uses:
         get:
           displayName: List of Insurance Policies income
           description: List of Insurance Policies income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -119,7 +208,7 @@ uses:
         put:
           displayName: Create/update Insurance Policies income submission
           description: Create/update Insurance Policies income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
           responses:
             200:
           body:
@@ -128,12 +217,12 @@ uses:
         delete:
           displayName: Delete Insurance Policies income submission
           description: Delete Insurance Policies income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
   /employment:
     /other:
-      /{taxableEntityId}:
+      /{nino}:
         uriParameters:
             taxableEntityId: baseTypes.TaxableEntityId
         /{taxYear}:
@@ -142,7 +231,7 @@ uses:
           get:
             displayName: List of Other Employment income
             description: List of Other Employment income
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             responses:
               200:
                 body:
@@ -151,7 +240,7 @@ uses:
           put:
             displayName: Create/update Other Employment income submission
             description: Create/update Other Employment income submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             responses:
               200:
             body:
@@ -160,11 +249,11 @@ uses:
           delete:
             displayName: Delete Other Employment income submission
             description: Delete Other Employment income submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             responses:
               204:
   /foreign:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
           taxableEntityId: baseTypes.TaxableEntityId
       /{taxYear}:
@@ -173,7 +262,7 @@ uses:
         get:
           displayName: List of Foreign income
           description: List of Foreign income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -182,7 +271,7 @@ uses:
         put:
           displayName: Create/update Foreign income submission
           description: Create/update Foreign income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
           responses:
             200:
           body:
@@ -191,11 +280,11 @@ uses:
         delete:
           displayName: Delete Foreign income submission
           description: Delete Foreign income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
   /dividends:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
         taxableEntityId: baseTypes.TaxableEntityId
       /{taxYear}:
@@ -204,7 +293,7 @@ uses:
         get:
           displayName: List of dividends income
           description: List of dividends income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -213,7 +302,7 @@ uses:
         put:
           displayName: Create/update dividends income submission
           description: Create/update dividends income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
           body:
@@ -222,11 +311,11 @@ uses:
         delete:
           displayName: Delete dividends income submission
           description: Delete dividends income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
   /pensions:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
         taxableEntityId: baseTypes.TaxableEntityId
       /{taxYear}:
@@ -235,7 +324,7 @@ uses:
         get:
           displayName: List of pensions income
           description: List of pensions income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -244,7 +333,7 @@ uses:
         put:
           displayName: Create/update pensions income submission
           description: Create/update pensions income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
           body:
@@ -253,11 +342,11 @@ uses:
         delete:
           displayName: Delete pensions income submission
           description: Delete pensions income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
   /other:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
         taxableEntityId: baseTypes.TaxableEntityId
       /{taxYear}:
@@ -266,7 +355,7 @@ uses:
         get:
           displayName: List of other income
           description: List of other income
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
               body:
@@ -275,7 +364,7 @@ uses:
         put:
           displayName: Create/update other income submission
           description: Create/update other income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
           body:
@@ -284,11 +373,11 @@ uses:
         delete:
           displayName: Delete other income submission
           description: Delete other income submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
 #  /$NAME$:
-#    /{taxableEntityId}:
+#    /{nino}:
 #      uriParameters:
 #        taxableEntityId: baseTypes.TaxableEntityId
 #      /{taxYear}:
@@ -297,7 +386,7 @@ uses:
 #        get:
 #          displayName: List of $NAME$ income
 #          description: List of $NAME$ income
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
 #          responses:
 #            200:
 #              body:
@@ -306,7 +395,7 @@ uses:
 #        put:
 #          displayName: Create/update $NAME$ income submission
 #          description: Create/update $NAME$ income submission
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
 #          responses:
 #            200:
 #          body:
@@ -315,6 +404,6 @@ uses:
 #        delete:
 #          displayName: Delete $NAME$ income submission
 #          description: Delete $NAME$ income submission
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
 #          responses:
 #            204:
