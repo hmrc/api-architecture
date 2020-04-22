@@ -1,0 +1,20 @@
+[
+  {
+    "countryCode": "BRA",
+    "income": {
+      "rentAmount" : 200.22,
+      "taxDeducted": 22.22
+    },
+    "expenses": {
+      "premisesRunningCostsAmount": 100.25,
+      "repairsAndMaintenanceAmount": 100.25 ,
+      "financialCostsAmount": 100.25 ,
+      "professionalFeesAmount": 100.25 ,
+      "costOfServicesAmount": 100.25 ,
+      "travelCostsAmount": 100.25 ,
+      "otherAmount": 100.25 ,
+      "consolidatedExpenseAmount": 100.25 //optional replaces all other expenses
+    }
+  }
+ ]
+}

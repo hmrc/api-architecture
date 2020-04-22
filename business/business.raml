@@ -1,0 +1,119 @@
+#%RAML 1.0
+title: DRAFT
+baseUri: https://api.service.hmrc.gov.uk
+version: 0.1
+documentation:
+  - title: Property - Periodic Submission
+    content: |
+       | Property Type    | Source | Boxes       |
+       |:----------------|:-------|:-------------|
+       | UK FHL          | SA105  |              |
+       | UK NON-FHL      | SA105  |              |
+       | Foreign FHL-EEA | SA106  |              |
+       | Foreign Property| SA106  |              |
+#  - title: Resource Model
+#    content: |
+#      | Business Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Property  |/business/property/{nino}/{incomeSourceId}/period/               | [POST], [GET] |
+#      | Property  |/business/property/{nino}/{incomeSourceId}/period/{submissionId} | [PUT], [GET]  |
+#      ___
+  - title: Property - Annual Submission
+    content: |
+     | Property Type                    | Source | Boxes           |
+     |:--------------------------------|:-------|:----------------|
+     | UK FHL                          |        |                 |
+     | UK NON FHL                      |        |                 |
+     | FOREIGN FHL EEA                 | SA106  |                 |
+     | FOREIGN PROPERTY                | SA106  |                 |
+#  - title: Resource Model
+#    content: |
+#      | Business Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Property | /business/property/{taxableEntityId}/{incomeSourceId}/annual/{taxYear}  | [GET] [PUT] [DELETE] |
+#     ___
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/busines:
+  /property:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{incomeSourceId}:
+        uriParameters:
+          incomeSourceId: baseTypes.IncomeSourceId
+        /period:
+          uriParameters:
+            incomeSourceId: baseTypes.IncomeSourceId
+          get:
+            displayName: List of Property Income & Expenses
+            description: List of Property Income & Expenses
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/business-get.json
+          post:
+            displayName: Create/update Property Income & Expenses submission
+            description: Create/update Property Income & Expenses submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            responses:
+              200:
+            body:
+              application/json:
+                example: !include examples/business-post.json
+          /{submissionId}:
+            uriParameters:
+              submissionId: baseTypes.SubmissionId
+            get:
+              displayName: List of Property Income & Expenses
+              description: List of Property Income & Expenses
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+                  body:
+                    application/json:
+                      example: !include examples/business-get.json
+            put:
+              displayName: Create/update Property Income & Expenses submission
+              description: Create/update Property Income & Expenses submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/annual-business.json
+        /annual:
+          /{taxYear}:
+            uriParameters:
+              taxYear: baseTypes.TaxYear
+            get:
+              displayName: List of Property annual submission
+              description: List of Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+                  body:
+                    application/json:
+                      example: !include examples/annual-business.json
+            put:
+              displayName: Create/update Property annual submission
+              description: Create/update Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/annual-business.json
+            delete:
+              displayName: Delete Property annual submission
+              description: Delete Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+              responses:
+                204:
+

@@ -1,0 +1,14 @@
+#%RAML 1.0 Library
+traits:
+  obligations-regime:
+        queryParameters:
+          type:
+              description: The type of obligation
+              enum: ["income-expenditure", "end-of-period-statement","self-assessment-crystallisation"]
+              type: string
+              required: false
+          status:
+              description: The type of obligation
+              enum: ["open", "fulfilled"]
+              type: string
+              required: false
