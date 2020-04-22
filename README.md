@@ -14,4 +14,4 @@ Early stage RAML > HTML designs for APIs
 | [Expenses](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/deductions/expenses-compact.html)       | DRAFT  |
 | [Income](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/income/income-compact.html)       | DRAFT  |
 | [Obligations](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/obligations/obligations-compact.html)      | DRAFT  |
-| [Reliefs](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/income/reliefs-compact.html)       | DRAFT  |
+| [Reliefs](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/reliefs/reliefs-compact.html)       | DRAFT  |
