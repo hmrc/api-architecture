@@ -12,7 +12,7 @@ documentation:
 #    content: |
 #      | Endpoints |
 #      ------------
-#      | /obligations/{taxableEntityId}/income-tax [GET] |
+#      | /obligations/{nino}/income-tax [GET] |
 #      ___
 uses:
   genericErrors: ../generic/traits/errors.raml
@@ -21,9 +21,9 @@ uses:
   obligationErrors: traits/errors.raml
   genericHeaders: ../generic/traits/headers.raml
 /obligations:
-  /{taxableEntityId}:
+  /{nino}:
     uriParameters:
-      taxableEntityId:
+      nino:
         description: Party identifier, NINO for SA Individuals
         type: string
         pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
@@ -35,7 +35,7 @@ uses:
         is: [genericErrors.internalServerError,
              genericErrors.notFound,
              genericErrors.clientOrAgentNotAuthorised,
-             genericErrors.formattaxableEntityId,
+             genericErrors.formatnino,
              genericErrors.formatStartDate,
              genericErrors.formatEndDate,
              genericErrors.formatType,

@@ -13,7 +13,7 @@ documentation:
 #    content: |
 #      | Expense Type | Endpoints | Methods   |
 #      |-----------|-----------|-----------|
-#      | Other | /expenses/other/{taxableEntityId}/{taxYear} | [POST] [GET] [PUT] |
+#      | Other | /expenses/other/{nino}/{taxYear} | [POST] [GET] [PUT] |
 #      ---
 uses:
   errors: ../generic/traits/errors.raml
@@ -23,9 +23,9 @@ uses:
   baseTypes: ../generic/types/common/base-types.raml
 /expenses:
   /other:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
-        taxableEntityId: baseTypes.TaxableEntityId
+        nino: baseTypes.Nino
       /{taxYear}:
         uriParameters:
           taxYear: baseTypes.TaxYear

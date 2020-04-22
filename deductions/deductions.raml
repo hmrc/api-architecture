@@ -12,9 +12,9 @@ documentation:
 #    content: |
 #      | Deduction Type | Endpoints | Methods   |
 #      |-----------|-----------|-----------|
-#      | CIS | /deductions/cis/{taxableEntityId}/current-position | [GET] |
-#      |  | /deductions/cis/{taxableEntityId}/amendments | [GET] [POST] |
-#      |  | /deductions/cis/{taxableEntityId}/amendments/{submissionId} | [[PUT] [DELETE] |
+#      | CIS | /deductions/cis/{nino}/current-position | [GET] |
+#      |  | /deductions/cis/{nino}/amendments | [GET] [POST] |
+#      |  | /deductions/cis/{nino}/amendments/{submissionId} | [[PUT] [DELETE] |
   - title: Student Loans
     content: |
      | Deduction Type                    | Source | Boxes |
@@ -24,9 +24,9 @@ documentation:
 #    content: |
 #      | Deduction Type | Endpoints | Methods   |
 #      |-----------|-----------|-----------|
-#      | Student Loans | /deductions/student-loans/{taxableEntityId}/current-position | [GET] |
-#      |  | /deductions/student-loans/{taxableEntityId}/amendments | [GET] [POST] |
-#      |  | /deductions/student-loans/{taxableEntityId}/amendments/{submissionId} | [[PUT] [DELETE] |
+#      | Student Loans | /deductions/student-loans/{nino}/current-position | [GET] |
+#      |  | /deductions/student-loans/{nino}/amendments | [GET] [POST] |
+#      |  | /deductions/student-loans/{nino}/amendments/{submissionId} | [[PUT] [DELETE] |
   - title: Other
     content: |
      | Other Type                    | Source | Boxes |
@@ -36,7 +36,7 @@ documentation:
 #    content: |
 #      | Deduction Type | Endpoints | Methods   |
 #      |-----------|-----------|-----------|
-#      | Others | /deductions/other/{taxableEntityId}/{taxYear} | [GET] [PUT] [DELETE] |
+#      | Others | /deductions/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
 uses:
   errors: ../generic/traits/errors.raml
   queryParameters: ../generic/traits/queryParameters.raml
@@ -44,16 +44,16 @@ uses:
 /deductions:
   description:
   /cis:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
-        taxableEntityId:
+        nino:
           description: Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual
-          type: base-types.taxableEntityId
+          type: base-types.nino
       /current-position:
         get:
           displayName: List current position of CIS deductions.
           description: List current position of CIS deductions.
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           queryParameters:
             fromDate:
               displayName: Start date of the tax year in YYYY-MM-DD
@@ -82,7 +82,7 @@ uses:
         post:
           displayName: Create CIS deductions amendments for a Contractor & Tax Year
           description: Create CIS deductions amendments for a Contractor & Tax Year
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
             200:
           body:
@@ -97,7 +97,7 @@ uses:
           put:
             displayName: Update CIS deductions amendments for a Contractor & Tax Year
             description: Update CIS deductions amendments for a Contractor & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
             responses:
               200:
             body:
@@ -106,20 +106,20 @@ uses:
           delete:
             displayName: Delete CIS deductions amendments for a Contractor & Tax Year
             description: Delete CIS deductions amendments for a Contractor & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino]
             responses:
               204:
   /student-loans:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
-        taxableEntityId:
+        nino:
           description: Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual
-          type: base-types.taxableEntityId
+          type: base-types.nino
       /current-position:
         get:
           displayName: List current position of Student Loans.
           description: List current position of Student Loans.
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           queryParameters:
             fromDate:
               displayName: Start date of the tax year in YYYY-MM-DD
@@ -148,7 +148,7 @@ uses:
         post:
           displayName: Create Student Loan deductions amendments for an Employment & Tax Year
           description: Create Student Loan deductions amendments for an Employment & Tax Year
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
             200:
               body:
@@ -166,7 +166,7 @@ uses:
           put:
             displayName: Update Create Student Loan deductions amendments for an Employment & Tax Year
             description: Update Create Student Loan deductions amendments for an Employment & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
             responses:
               200:
             body:
@@ -175,13 +175,13 @@ uses:
           delete:
             displayName: Delete Student Loan deductions amendments for an Employment & Tax Year
             description: Delete Student Loan deductions amendments for an Employment & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formattaxableEntityId]
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino]
             responses:
               204:
   /other:
-    /{taxableEntityId}:
+    /{nino}:
       uriParameters:
-          taxableEntityId: baseTypes.TaxableEntityId
+          nino: baseTypes.nino
       /{taxYear}:
         uriParameters:
           taxYear: baseTypes.TaxYear
