@@ -44,9 +44,7 @@ uses:
   /cis:
     /{nino}:
       uriParameters:
-        nino:
-          description: Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual
-          type: base-types.nino
+        nino: base-types.Nino
       /current-position:
         get:
           displayName: List current position of CIS deductions.
@@ -66,11 +64,10 @@ uses:
               example: 2019-04-05
               required: true
             source:
-              displayName: Source of CIS Deductions i.e. those supplied by the Contractor, the Customer or all (blended)
-              description: Source of CIS Deductions i.e. those supplied by the Contractor, the Customer or all (blended)
-              example: all
-              default: all
-              required: true
+              displayName: Source of CIS Deductions i.e. those supplied by the Contractor, the Customer; Implicit default is All
+              description: Source of CIS Deductions i.e. those supplied by the Contractor, the Customer; Implicit default is All
+              example: customer
+              required: false
           responses:
             200:
               body:
@@ -88,10 +85,7 @@ uses:
               example: !include examples/cis_deductions_amendments_post.json
         /{submissionId}:
           uriParameters:
-            submissionId:
-              description: Id for the  CIS deduction amendments collection
-              type: string
-              example: S4636A77V5KB8625U
+            submissionId: base-types.SubmissionId
           put:
             displayName: Update CIS deductions amendments for a Contractor & Tax Year
             description: Update CIS deductions amendments for a Contractor & Tax Year
@@ -110,10 +104,10 @@ uses:
   /student-loans:
     /{nino}:
       uriParameters:
-          nino: baseTypes.nino
+        nino: base-types.Nino
       /{taxYear}:
         uriParameters:
-          taxYear: baseTypes.TaxYear
+          taxYear: base-types.TaxYear
         get:
           displayName: List of Student Loans deductions
           description: List of Student Loans deductions
@@ -141,10 +135,10 @@ uses:
   /other:
     /{nino}:
       uriParameters:
-          nino: baseTypes.nino
+        nino: base-types.Nino
       /{taxYear}:
         uriParameters:
-          taxYear: baseTypes.TaxYear
+          taxYear: base-types.TaxYear
         get:
           displayName: List of other deductions
           description: List of other deductions

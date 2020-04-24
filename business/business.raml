@@ -45,11 +45,9 @@ uses:
         uriParameters:
           incomeSourceId: baseTypes.IncomeSourceId
         /period:
-          uriParameters:
-            incomeSourceId: baseTypes.IncomeSourceId
           get:
-            displayName: List of Property Income & Expenses
-            description: List of Property Income & Expenses
+            displayName: List of Periodic Property Income & Expenses submissions
+            description: List of Periodic Property Income & Expenses submissions
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
             responses:
               200:
@@ -57,20 +55,23 @@ uses:
                   application/json:
                     example: !include examples/periodic-business-get.json
           post:
-            displayName: Create/update Property Income & Expenses submission
-            description: Create/update Property Income & Expenses submission
+            displayName: Create/update Periodic Property Income & Expenses submission
+            description: Create/update Periodic Property Income & Expenses submission
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
-            responses:
-              200:
             body:
               application/json:
                 example: !include examples/periodic-business-post.json
+            responses:
+              201:
+                body:
+                  application/json:
+                    example: !include examples/periodic-business-post-resp.json
           /{submissionId}:
             uriParameters:
-              submissionId: baseTypes.SubmissionId
+              submissionId: b.SubmissionId
             get:
-              displayName: List of Property Income & Expenses
-              description: List of Property Income & Expenses
+              displayName: List of Periodic Property Income & Expenses submissions
+              description: List of Periodic Property Income & Expenses submissions
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
               responses:
                 200:
@@ -78,8 +79,8 @@ uses:
                     application/json:
                       example: !include examples/periodic-business-get-withid.json
             put:
-              displayName: Create/update Property Income & Expenses submission
-              description: Create/update Property Income & Expenses submission
+              displayName: Create/update Periodic Property Income & Expenses submission
+              description: Create/update Periodic Property Income & Expenses submission
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
               responses:
                 200:

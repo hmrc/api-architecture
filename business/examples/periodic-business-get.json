@@ -1,13 +1,13 @@
 {
   "properties": [
     {
-      "id": "12",
+      "submissionId": "12",
       "type": "FOREIGN PROPERTY",
       "fromDate": "2019-06-04",
       "toDate": "2019-05-07"
     },
     {
-      "id": "13",
+      "submissionId": "13",
       "type": "FOREIGN FHL EEA",
       "fromDate": "2019-06-07",
       "toDate": "2019-05-10"

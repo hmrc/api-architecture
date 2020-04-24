@@ -20,14 +20,11 @@ uses:
   obligationQueryParameters: traits/queryParameters.raml
   obligationErrors: traits/errors.raml
   genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
 /obligations:
   /{nino}:
     uriParameters:
-      nino:
-        description: Party identifier, NINO for SA Individuals
-        type: string
-        pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
-        example: TC663795B
+      nino: baseTypes.Nino
     /income-tax:
       get:
         displayName: List income tax obligations for the party
