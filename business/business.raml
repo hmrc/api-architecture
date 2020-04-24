@@ -17,7 +17,6 @@ documentation:
 #      |-----------|-----------|-----------|
 #      | Property  |/business/property/{nino}/{incomeSourceId}/period/               | [POST], [GET] |
 #      | Property  |/business/property/{nino}/{incomeSourceId}/period/{submissionId} | [PUT], [GET]  |
-#      ___
   - title: Property - Annual Submission
     content: |
      | Property Type                    | Source | Boxes           |
@@ -31,7 +30,6 @@ documentation:
 #      | Business Type | Endpoints | Methods   |
 #      |-----------|-----------|-----------|
 #      | Property | /business/property/{nino}/{incomeSourceId}/annual/{taxYear}  | [GET] [PUT] [DELETE] |
-#     ___
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -66,7 +64,7 @@ uses:
               200:
             body:
               application/json:
-                example: !include examples/periodic-business-get-withid.json
+                example: !include examples/periodic-business-post.json
           /{submissionId}:
             uriParameters:
               submissionId: baseTypes.SubmissionId
@@ -78,7 +76,7 @@ uses:
                 200:
                   body:
                     application/json:
-                      example: !include examples/business-get.json
+                      example: !include examples/periodic-business-get-withid.json
             put:
               displayName: Create/update Property Income & Expenses submission
               description: Create/update Property Income & Expenses submission

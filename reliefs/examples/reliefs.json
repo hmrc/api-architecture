@@ -2,17 +2,17 @@
   "reliefs": [
     {
       "type": "VCT SUBCRIPTIONS",
-      "customerReference": "Wibble",
+      "customerReference": "myref",
       "name": "VCT Fund X",
-      "knowledgeIntensive": null,
-      "uniqueInvestmentRef": null,
+      "knowledgeIntensive": false,
+      "uniqueInvestmentRef": false,
       "investmentDate": "2018-04-16",
       "amountInvested": 23312.00,
       "reliefClaimed": 1334.00
     },
     {
       "type": "EIS SUBCRIPTIONS",
-      "customerReference": "Wibble",
+      "customerReference": "myref",
       "name": "EIS Fund X",
       "knowledgeIntensive": "no",
       "uniqueInvestmentRef": "XTAL",
@@ -22,28 +22,28 @@
     },
     {
       "type": "COMMUNITY INVESTMENT",
-      "customerReference": "Wibble",
+      "customerReference": "myref",
       "name": "CI X",
-      "knowledgeIntensive": null,
-      "uniqueInvestmentRef": null,
+      "knowledgeIntensive": true,
+      "uniqueInvestmentRef": true,
       "investmentDate": "20017-07-07",
       "amountInvested": 6442.00,
       "reliefClaimed": 2344.00
     },
     {
       "TYPE": "SEED ENTERPRISE INVESTMENT",
-      "customerReference": "Wibble",
-      "companyName": "Wibble Inc",
+      "customerReference": "myref",
+      "companyName": "ACME Inc",
       "uniqueInvestmentRef": "123412/1A",
-      "investmentDate": "21-12-2020",
+      "investmentDate": "2020-12-21",
       "amountInvested": 123123.22
     },
     {
       "type": "SOCIAL ENTERPRISE INVESTMENT",
-      "socialEnterpriseName": "Wibble Inc",
-      "customerReference": "Wibble",
+      "socialEnterpriseName": "ACME Inc",
+      "customerReference": "myref",
       "uniqueInvestmentRef": "123412/1A",
-      "investmentDate": "21-12-2020",
+      "investmentDate": "2020-12-12",
       "amountInvested": 123123.22
     }
   ]

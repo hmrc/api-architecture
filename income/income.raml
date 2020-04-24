@@ -326,34 +326,3 @@ uses:
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
-#  /$NAME$:
-#    /{nino}:
-#      uriParameters:
-#        nino: baseTypes.Nino
-#      /{taxYear}:
-#        uriParameters:
-#          taxYear: baseTypes.TaxYear
-#        get:
-#          displayName: List of $NAME$ income
-#          description: List of $NAME$ income
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-#          responses:
-#            200:
-#              body:
-#                application/json:
-#                  example: !include examples/$NAME$.json
-#        put:
-#          displayName: Create/update $NAME$ income submission
-#          description: Create/update $NAME$ income submission
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-#          responses:
-#            200:
-#          body:
-#            application/json:
-#              example: !include examples/$NAME$.json
-#        delete:
-#          displayName: Delete $NAME$ income submission
-#          description: Delete $NAME$ income submission
-#          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-#          responses:
-#            204:

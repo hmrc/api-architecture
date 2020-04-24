@@ -24,9 +24,7 @@ documentation:
 #    content: |
 #      | Deduction Type | Endpoints | Methods   |
 #      |-----------|-----------|-----------|
-#      | Student Loans | /deductions/student-loans/{nino}/current-position | [GET] |
-#      |  | /deductions/student-loans/{nino}/amendments | [GET] [POST] |
-#      |  | /deductions/student-loans/{nino}/amendments/{submissionId} | [[PUT] [DELETE] |
+#      | Student Loans | /deductions/student-loans/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
   - title: Other
     content: |
      | Other Type                    | Source | Boxes |
@@ -112,69 +110,34 @@ uses:
   /student-loans:
     /{nino}:
       uriParameters:
-        nino:
-          description: Unique identifier of the taxable entity to which the submission belongs i.e. NINO for an individual
-          type: base-types.nino
-      /current-position:
+          nino: baseTypes.nino
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
         get:
-          displayName: List current position of Student Loans.
-          description: List current position of Student Loans.
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
-          queryParameters:
-            fromDate:
-              displayName: Start date of the tax year in YYYY-MM-DD
-              type: date-only
-              description:  Start date of the tax year in YYYY-MM-DD
-              example: 2018-04-06
-              required: true
-            toDate:
-              displayName: End date of the tax year in YYYY-MM-DD
-              type: date-only
-              description: End date of the tax year in YYYY-MM-DD
-              example: 2019-04-05
-              required: true
-            source:
-              displayName: Source of Student Loans i.e. those supplied by the employer, the eustomer or all (blended)
-              description: Source of Student Loans i.e. those supplied by the employer, the eustomer or all (blended)
-              example: all
-              default: all
-              required: true
+          displayName: List of Student Loans deductions
+          description: List of Student Loans deductions
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
               body:
                 application/json:
-                  example: !include examples/sl_deduction_override.json
-      /amendments:
-        post:
-          displayName: Create Student Loan deductions amendments for an Employment & Tax Year
-          description: Create Student Loan deductions amendments for an Employment & Tax Year
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
+                  example: !include examples/sl_deductions_position.json
+        put:
+          displayName: Create/update Student Loans submission
+          description: Create/update Student Loans submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
           responses:
             200:
           body:
             application/json:
-              example: !include examples/sl_deduction_override.json
-        /{submissionId}:
-          uriParameters:
-            submissionId:
-              description: Id for the  Student Loan amendment
-              type: string
-              example: S4636A77V5KB8625U
-          put:
-            displayName: Update Create Student Loan deductions amendments for an Employment & Tax Year
-            description: Update Create Student Loan deductions amendments for an Employment & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
-            responses:
-              200:
-            body:
-              application/json:
-                example: !include examples/sl_deduction_override.json
-          delete:
-            displayName: Delete Student Loan deductions amendments for an Employment & Tax Year
-            description: Delete Student Loan deductions amendments for an Employment & Tax Year
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino]
-            responses:
-              204:
+              example: !include examples/sl_deductions_position.json
+        delete:
+          displayName: Delete Student Loans submission
+          description: Delete Student Loans submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:
   /other:
     /{nino}:
       uriParameters:

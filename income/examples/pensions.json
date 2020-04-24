@@ -11,13 +11,13 @@
       },
       {
         "type": "OVERSEAS PENSION CONTRIBUTIONS",
-        "customerReference" : "wibble",
+        "customerReference" : "myref",
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
         "dblTaxationRelief": 4232.00,
-        "dblTaxationCountry": "GER",
-        "dblTaxationArticle": "3211-1",
-        "dblTaxationTreaty": "Munich"
+        "dblTaxationCountryCode": "GER",
+        "dblTaxationArticle": "ABC123",
+        "dblTaxationTreaty": "Treaty Name"
       }
     ]
 }

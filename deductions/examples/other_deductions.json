@@ -2,7 +2,7 @@
   "other": [
     {
       "type": "SEAFARERS",
-      "customerReference": "wobble",
+      "customerReference": "myref",
       "amountDeducted": 2342.22,
       "nameOfShip": "Boaty McBoatface",
       "dateFrom": "2018-08-17",

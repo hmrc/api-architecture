@@ -2,7 +2,7 @@
   "dividends": [
       {
         "type": "UK DIVIDEND",
-        "customerReference": "wibble",
+        "customerReference": "myref",
         "amount": 1232.23
       },
       {
@@ -26,22 +26,22 @@
       {
         "type": "STOCK DIVIDEND",
         "grossAmount": 12321.22,
-        "customerReference": "wibble01"
+        "customerReference": "my divs"
       },
       {
         "type": "REDEEMABLE SHARES",
         "grossAmount": 12321.22,
-        "customerReference": "wibble02"
+        "customerReference": "my shares"
       },
       {
         "type": "BONUS ISSUES OF SECURITIES",
         "grossAmount": 12321.22,
-        "customerReference": "wibble03"
+        "customerReference": "my secs"
       },
       {
         "type": "CLOSE COMPANY LOANS WRITTEN OFF",
         "grossAmount": 12321.22,
-        "customerReference": "wibble04"
+        "customerReference": "write off"
       }
     ]
 }

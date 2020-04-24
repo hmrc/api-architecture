@@ -18,3 +18,32 @@
   }
  ]
 }
+
+
+[
+{
+"countryCode": "FRA",
+"income": {
+"rentIncome": {
+"rentAmount": 100.25,
+"taxDeducted": 100.25,
+},
+"foreignTaxCreditRelief": 122.22,
+"premiumsOfLeaseGrantAmount": 100.25,
+"otherPropertyIncomeAmount": 100.25 ,
+},
+"expenses": {
+"premisesRunningCostsAmount": 100.25,
+"repairsAndMaintenanceAmount": 100.25 ,
+"financialCostsAmount": 200.25,
+"professionalFeesAmount": 100.25,
+"travelCostsAmount": 100.25,
+"costOfServicesAmount": 100.25,
+"residentialFinancialCostAmount": 200.25,
+"broughtFwdResidentialFinancialCostAmount": 100.25,
+"otherAmount": 100.25,
+"consolidatedExpenseAmount": 100.25 //optional replaces all other expenses
+}
+}
+]
+```

@@ -20,10 +20,10 @@
       },
       {
         "type": "LIFE ANNUITY",
-        "event": null,
+        "event": 'event',
         "customerReference":"wobble",
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 44.44,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
@@ -31,9 +31,9 @@
       {
         "type": "VOIDED ISAS",
         "customerReference":"wobble",
-        "event": null,
+        "event": 'event',
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 23.22,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
@@ -42,7 +42,7 @@
         "type": "FOREIGN POLICIES",
         "customerReference":"wobble",
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 33.00,
         "yearsHeld": 14
       }
     ]

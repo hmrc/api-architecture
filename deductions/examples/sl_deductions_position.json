@@ -4,13 +4,13 @@
       {
         "planType" : "UNDERGRADUATE",
         "employerRef": "12321/1232",
-        "employerName": "Wibble Inc",
+        "employerName": "Emp Inc",
         "deductionAmount": 1322.22
       },
       {
         "planType" : "POSTGRADUATE",
         "employerRef": "12321/1232",
-        "employerName": "Wibble Inc",
+        "employerName": "Job Ltd",
         "deductionAmount": 1322.22
       }
     ]

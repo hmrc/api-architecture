@@ -4,7 +4,7 @@
       "type": "SHARE OPTIONS",
       "employerName": "wibble",
       "PAYERef" : "AB1321/123",
-      "schemePlanType": "Wibble",
+      "schemePlanType": "scheme a1",
       "dateOfOptionGrant": "20-11-2019",
       "dateOfEvent": "20-11-2019",
       "optionNotExercisedButConsiderationReceived": "??",
@@ -20,13 +20,13 @@
     },
     {
       "type": "SHARES AWARDED/RECEIVED",
-      "employerName": "Wibble",
+      "employerName": "employer",
       "PAYERef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "schemePlanType": "myscheme",
+      "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
       "noOfShare/securitiesAwarded": 11,
       "classOfShareAwarded": "FIRST",
-      "dateSharesAwarded" : "20-11-2019",
+      "dateSharesAwarded" : "2019-11-20",
       "sharesSubjectToRestrictions": true,
       "electionEnteredIgnoreRestrictions": true,
       "actualMarketValueOfSharesOnAward": 2123.22,
@@ -37,12 +37,12 @@
     },
     {
       "type": "DISABILITY",
-      "customerReference": "wibble",
+      "customerReference": "myref",
       "amountDeducted": 1223.22
     },
     {
       "type": "FOREIGN SERVICE",
-      "customerReference": "wibble",
+      "customerReference": "myref",
       "amountDeducted": 1223.22
     }
   ]

@@ -2,7 +2,7 @@
   "foreign": [
       {
         "type": "FOREIGN EARNINGS",
-        "customerReference" : "wibble",
+        "customerReference" : "myref",
         "earningsNotTaxableUK": 15455.00
       },
       {
