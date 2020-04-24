@@ -176,7 +176,8 @@ pre code {
       {
         "type": "SECURITIES",
         "taxTakenOff": 100.0,
-        "grossAmount": 1455.0
+        "grossAmount": 1455.0,
+        "netAmount": 123.22
       },
       {
         "type": "FOREIGN INTEREST",
@@ -200,7 +201,8 @@ pre code {
       {
         "type": "SECURITIES",
         "taxTakenOff": 100.0,
-        "grossAmount": 1455.0
+        "grossAmount": 1455.0,
+        "netAmount": 123.22
       },
       {
         "type": "FOREIGN INTEREST",
@@ -246,10 +248,10 @@ pre code {
       },
       {
         "type": "LIFE ANNUITY",
-        "event": null,
+        "event": &#39;event&#39;,
         "customerReference":"wobble",
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 44.44,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
@@ -257,9 +259,9 @@ pre code {
       {
         "type": "VOIDED ISAS",
         "customerReference":"wobble",
-        "event": null,
+        "event": &#39;event&#39;,
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 23.22,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
@@ -268,7 +270,7 @@ pre code {
         "type": "FOREIGN POLICIES",
         "customerReference":"wobble",
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 33.00,
         "yearsHeld": 14
       }
     ]
@@ -300,10 +302,10 @@ pre code {
       },
       {
         "type": "LIFE ANNUITY",
-        "event": null,
+        "event": &#39;event&#39;,
         "customerReference":"wobble",
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 44.44,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
@@ -311,9 +313,9 @@ pre code {
       {
         "type": "VOIDED ISAS",
         "customerReference":"wobble",
-        "event": null,
+        "event": &#39;event&#39;,
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 23.22,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
@@ -322,7 +324,7 @@ pre code {
         "type": "FOREIGN POLICIES",
         "customerReference":"wobble",
         "gainAmount": 532.00,
-        "taxPaid": null,
+        "taxPaid": 33.00,
         "yearsHeld": 14
       }
     ]
@@ -342,7 +344,7 @@ pre code {
       "type": "SHARE OPTIONS",
       "employerName": "wibble",
       "PAYERef" : "AB1321/123",
-      "schemePlanType": "Wibble",
+      "schemePlanType": "scheme a1",
       "dateOfOptionGrant": "20-11-2019",
       "dateOfEvent": "20-11-2019",
       "optionNotExercisedButConsiderationReceived": "??",
@@ -358,13 +360,13 @@ pre code {
     },
     {
       "type": "SHARES AWARDED/RECEIVED",
-      "employerName": "Wibble",
+      "employerName": "employer",
       "PAYERef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "schemePlanType": "myscheme",
+      "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
       "noOfShare/securitiesAwarded": 11,
       "classOfShareAwarded": "FIRST",
-      "dateSharesAwarded" : "20-11-2019",
+      "dateSharesAwarded" : "2019-11-20",
       "sharesSubjectToRestrictions": true,
       "electionEnteredIgnoreRestrictions": true,
       "actualMarketValueOfSharesOnAward": 2123.22,
@@ -375,12 +377,12 @@ pre code {
     },
     {
       "type": "DISABILITY",
-      "customerReference": "wibble",
+      "customerReference": "myref",
       "amountDeducted": 1223.22
     },
     {
       "type": "FOREIGN SERVICE",
-      "customerReference": "wibble",
+      "customerReference": "myref",
       "amountDeducted": 1223.22
     }
   ]
@@ -396,7 +398,7 @@ pre code {
       "type": "SHARE OPTIONS",
       "employerName": "wibble",
       "PAYERef" : "AB1321/123",
-      "schemePlanType": "Wibble",
+      "schemePlanType": "scheme a1",
       "dateOfOptionGrant": "20-11-2019",
       "dateOfEvent": "20-11-2019",
       "optionNotExercisedButConsiderationReceived": "??",
@@ -412,13 +414,13 @@ pre code {
     },
     {
       "type": "SHARES AWARDED/RECEIVED",
-      "employerName": "Wibble",
+      "employerName": "employer",
       "PAYERef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "schemePlanType": "myscheme",
+      "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
       "noOfShare/securitiesAwarded": 11,
       "classOfShareAwarded": "FIRST",
-      "dateSharesAwarded" : "20-11-2019",
+      "dateSharesAwarded" : "2019-11-20",
       "sharesSubjectToRestrictions": true,
       "electionEnteredIgnoreRestrictions": true,
       "actualMarketValueOfSharesOnAward": 2123.22,
@@ -429,12 +431,12 @@ pre code {
     },
     {
       "type": "DISABILITY",
-      "customerReference": "wibble",
+      "customerReference": "myref",
       "amountDeducted": 1223.22
     },
     {
       "type": "FOREIGN SERVICE",
-      "customerReference": "wibble",
+      "customerReference": "myref",
       "amountDeducted": 1223.22
     }
   ]
@@ -452,7 +454,7 @@ pre code {
   "foreign": [
       {
         "type": "FOREIGN EARNINGS",
-        "customerReference" : "wibble",
+        "customerReference" : "myref",
         "earningsNotTaxableUK": 15455.00
       },
       {
@@ -472,7 +474,7 @@ pre code {
   "foreign": [
       {
         "type": "FOREIGN EARNINGS",
-        "customerReference" : "wibble",
+        "customerReference" : "myref",
         "earningsNotTaxableUK": 15455.00
       },
       {
@@ -496,7 +498,7 @@ pre code {
   "dividends": [
       {
         "type": "UK DIVIDEND",
-        "customerReference": "wibble",
+        "customerReference": "myref",
         "amount": 1232.23
       },
       {
@@ -520,22 +522,22 @@ pre code {
       {
         "type": "STOCK DIVIDEND",
         "grossAmount": 12321.22,
-        "customerReference": "wibble01"
+        "customerReference": "my divs"
       },
       {
         "type": "REDEEMABLE SHARES",
         "grossAmount": 12321.22,
-        "customerReference": "wibble02"
+        "customerReference": "my shares"
       },
       {
         "type": "BONUS ISSUES OF SECURITIES",
         "grossAmount": 12321.22,
-        "customerReference": "wibble03"
+        "customerReference": "my secs"
       },
       {
         "type": "CLOSE COMPANY LOANS WRITTEN OFF",
         "grossAmount": 12321.22,
-        "customerReference": "wibble04"
+        "customerReference": "write off"
       }
     ]
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
@@ -548,7 +550,7 @@ pre code {
   "dividends": [
       {
         "type": "UK DIVIDEND",
-        "customerReference": "wibble",
+        "customerReference": "myref",
         "amount": 1232.23
       },
       {
@@ -572,22 +574,22 @@ pre code {
       {
         "type": "STOCK DIVIDEND",
         "grossAmount": 12321.22,
-        "customerReference": "wibble01"
+        "customerReference": "my divs"
       },
       {
         "type": "REDEEMABLE SHARES",
         "grossAmount": 12321.22,
-        "customerReference": "wibble02"
+        "customerReference": "my shares"
       },
       {
         "type": "BONUS ISSUES OF SECURITIES",
         "grossAmount": 12321.22,
-        "customerReference": "wibble03"
+        "customerReference": "my secs"
       },
       {
         "type": "CLOSE COMPANY LOANS WRITTEN OFF",
         "grossAmount": 12321.22,
-        "customerReference": "wibble04"
+        "customerReference": "write off"
       }
     ]
 }</code></pre></div></div><div class="tab-pane" id="income_dividends__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
@@ -615,13 +617,13 @@ pre code {
       },
       {
         "type": "OVERSEAS PENSION CONTRIBUTIONS",
-        "customerReference" : "wibble",
+        "customerReference" : "myref",
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
         "dblTaxationRelief": 4232.00,
-        "dblTaxationCountry": "GER",
-        "dblTaxationArticle": "3211-1",
-        "dblTaxationTreaty": "Munich"
+        "dblTaxationCountryCode": "GER",
+        "dblTaxationArticle": "ABC123",
+        "dblTaxationTreaty": "Treaty Name"
       }
     ]
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
@@ -643,13 +645,13 @@ pre code {
       },
       {
         "type": "OVERSEAS PENSION CONTRIBUTIONS",
-        "customerReference" : "wibble",
+        "customerReference" : "myref",
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
         "dblTaxationRelief": 4232.00,
-        "dblTaxationCountry": "GER",
-        "dblTaxationArticle": "3211-1",
-        "dblTaxationTreaty": "Munich"
+        "dblTaxationCountryCode": "GER",
+        "dblTaxationArticle": "ABC123",
+        "dblTaxationTreaty": "Treaty Name"
       }
     ]
 }</code></pre></div></div><div class="tab-pane" id="income_pensions__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
