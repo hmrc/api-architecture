@@ -1,6 +1,19 @@
 {
-  "deduction id": "100000000ABCDE",
-  "deduction amount": 183.34,
-  "deduction date": "2019-04-06"
+  "studentLoan": [
+    {
+      "loanType" : "UNDERGRADUATE",
+      "payrollId": "123123ABC",
+      "employerRef": "12321/1232",
+      "employerName": "Wibble Inc",
+      "deductionAmount": 1322.22
+    },
+    {
+      "loanType" : "POSTGRADUATE",
+      "payrollId": "123123ABC",
+      "employerRef": "12321/1232",
+      "employerName": "Wibble Inc",
+      "deductionAmount": 1322.22
+    }
+  ]
 }
 

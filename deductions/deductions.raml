@@ -143,7 +143,7 @@ uses:
             200:
               body:
                 application/json:
-                  example: !include examples/cis_deductions_position_blended.json
+                  example: !include examples/sl_deduction_override.json
       /amendments:
         post:
           displayName: Create Student Loan deductions amendments for an Employment & Tax Year
@@ -151,16 +151,13 @@ uses:
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
             200:
-              body:
-                application/json:
-                  example: !include examples/cis_deductions_amendments_response.json
           body:
             application/json:
-              example: !include examples/cis_deductions_amendments_post.json
+              example: !include examples/sl_deduction_override.json
         /{submissionId}:
           uriParameters:
             submissionId:
-              description: Id for the  CIS deduction amendments collection
+              description: Id for the  Student Loan amendment
               type: string
               example: S4636A77V5KB8625U
           put:
@@ -171,7 +168,7 @@ uses:
               200:
             body:
               application/json:
-                example: !include examples/cis_deductions_amendments_put.json
+                example: !include examples/sl_deduction_override.json
           delete:
             displayName: Delete Student Loan deductions amendments for an Employment & Tax Year
             description: Delete Student Loan deductions amendments for an Employment & Tax Year
