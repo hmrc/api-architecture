@@ -480,7 +480,6 @@ pre code {
       "taxableAmount": 12321.22
     }
   ],
-{
   "other": [
     {
       "type": "DISABILITY",
@@ -594,7 +593,6 @@ pre code {
       "taxableAmount": 12321.22
     }
   ],
-{
   "other": [
     {
       "type": "DISABILITY",
@@ -735,7 +733,6 @@ pre code {
     "taxableAmount": 2321.22
     }
   ],
-{
   "dividendsUk": [
     {
       "type": "UK DIVIDEND",
@@ -842,7 +839,6 @@ pre code {
     "taxableAmount": 2321.22
     }
   ],
-{
   "dividendsUk": [
     {
       "type": "UK DIVIDEND",
@@ -1045,7 +1041,51 @@ pre code {
         "amount": 12321.22
       }
     ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}
+
+// Front End Review
+// Objects are too diverse and would require excessive guidance
+// Alternative proposed:
+
+{
+  "other": [
+    {
+      "type": "BUSINESS RECEIPTS",
+      "grossAmount": 12321.22,
+      "taxYear": "2017-18"
+    },
+    {
+      "type": "OVERSEAS INCOME AND GAINS",
+      "gainAmount" : 1232.22
+    },
+    {
+      "type": "OMITTED FOREIGN INCOME",
+      "amount": 12321.22
+    }
+    ],
+  "chargeableForeignBenefitsAndGifts": [
+    {
+    "transactionBenefit": 100.22,
+    "protectedForeignIncomeSourceBenefit": 111.22,
+    "protectedForeignIncomeOnwardGift": 111.23,
+    "benefitReceivedAsASettler": 111.22,
+    "onwardGiftReceivedAsASettler": 111.22,
+    }
+    ]
+  "allOtherIncomeReceivedWhilstAbroad": [
+    {
+      "countryCode": "GER",
+      "amountBeforeTax": 1232.22,
+      "taxTakenOff": 22.22,
+      "specialWitholdingTax": 22.22,
+      "foreignTaxCreditRelief": true,
+      "taxableAmount": 2321.22,
+      "residentialFinancialCostAmount": 200.25,
+      "broughtFwdResidentialFinancialCostAmount": 100.25
+    }
+  ]
+}
+</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
@@ -1086,7 +1126,51 @@ pre code {
         "amount": 12321.22
       }
     ]
-}</code></pre></div></div><div class="tab-pane" id="income_other__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+}
+
+// Front End Review
+// Objects are too diverse and would require excessive guidance
+// Alternative proposed:
+
+{
+  "other": [
+    {
+      "type": "BUSINESS RECEIPTS",
+      "grossAmount": 12321.22,
+      "taxYear": "2017-18"
+    },
+    {
+      "type": "OVERSEAS INCOME AND GAINS",
+      "gainAmount" : 1232.22
+    },
+    {
+      "type": "OMITTED FOREIGN INCOME",
+      "amount": 12321.22
+    }
+    ],
+  "chargeableForeignBenefitsAndGifts": [
+    {
+    "transactionBenefit": 100.22,
+    "protectedForeignIncomeSourceBenefit": 111.22,
+    "protectedForeignIncomeOnwardGift": 111.23,
+    "benefitReceivedAsASettler": 111.22,
+    "onwardGiftReceivedAsASettler": 111.22,
+    }
+    ]
+  "allOtherIncomeReceivedWhilstAbroad": [
+    {
+      "countryCode": "GER",
+      "amountBeforeTax": 1232.22,
+      "taxTakenOff": 22.22,
+      "specialWitholdingTax": 22.22,
+      "foreignTaxCreditRelief": true,
+      "taxableAmount": 2321.22,
+      "residentialFinancialCostAmount": 200.25,
+      "broughtFwdResidentialFinancialCostAmount": 100.25
+    }
+  ]
+}
+</code></pre></div></div><div class="tab-pane" id="income_other__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
