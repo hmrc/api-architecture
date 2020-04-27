@@ -45,3 +45,58 @@
       }
     ]
 }
+
+// Front End Review
+// Objects are too diverse and would require excessive guidance
+// Alternative proposed:
+
+{
+  "dividendsForeign": [
+    {
+      "type": "FOREIGN DIVIDEND",
+      "countryCode": "GER",
+      "amountBeforeTax": 1232.22,
+      "taxTakenOff": 22.22,
+      "specialWitholdingTax": 22.22,
+      "foreignTaxCreditRelief": true,
+      "taxableAmount": 2321.22
+    },
+    {
+    "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
+    "countryCode": "GER",
+    "amountBeforeTax": 1232.22,
+    "taxTakenOff": 22.22,
+    "specialWitholdingTax": 22.22,
+    "foreignTaxCreditRelief": true,
+    "taxableAmount": 2321.22
+    }
+  ],
+{
+  "dividendsUk": [
+    {
+      "type": "UK DIVIDEND",
+      "customerReference": "myref",
+      "amount": 1232.23
+    },
+    {
+      "type": "STOCK DIVIDEND",
+      "grossAmount": 12321.22,
+      "customerReference": "my divs"
+    },
+    {
+      "type": "REDEEMABLE SHARES",
+      "grossAmount": 12321.22,
+      "customerReference": "my shares"
+    },
+    {
+      "type": "BONUS ISSUES OF SECURITIES",
+      "grossAmount": 12321.22,
+      "customerReference": "my secs"
+    },
+    {
+      "type": "CLOSE COMPANY LOANS WRITTEN OFF",
+      "grossAmount": 12321.22,
+      "customerReference": "write off"
+    }
+  ]
+}
