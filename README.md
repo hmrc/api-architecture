@@ -8,7 +8,6 @@ Early stage RAML > HTML designs for APIs
 | API              | Status |
 |------------------|:-------|
 | [Business](        https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/business/business-printable.html)       | DRAFT  |
-| [Business Details](https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/business-details/business-details-printable.html) | DRAFT  |
 | [Deductions](      https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/deductions/deductions-printable.html)       | DRAFT  |
 | [Disclosures](     https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/disclosures/disclosures-printable.html)       | DRAFT  |
 | [Expenses](        https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/expenses/expenses-printable.html)       | DRAFT  |
