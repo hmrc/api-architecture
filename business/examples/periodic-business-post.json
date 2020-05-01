@@ -1,56 +1,61 @@
 {
-  "fromDate": "2019-04-06",
-  "toDate": "2019-07-06",
-  "type": "FOREIGN FHL EEA",
-  "countries": [
-    {
-      "countryCode": "GER",
-      "income": {
-        "rentAmount": 200.22,
-        "taxDeducted": 22.22
-      },
-      "expenses": {
-        "premisesRunningCostsAmount": 100.25,
-        "repairsAndMaintenanceAmount": 100.25,
-        "financialCostsAmount": 100.25,
-        "professionalFeesAmount": 100.25,
-        "costOfServicesAmount": 100.25,
-        "travelCostsAmount": 100.25,
-        "otherAmount": 100.25,
-        "consolidatedExpenseAmount": 100.25
-        //optional replaces all other expenses
-      }
-    }
-  ]
-}
-{
-  "fromDate": "2019-04-06",
-  "toDate": "2019-07-06",
-  "type" : "FOREIGN PROPERTY",
-  "countries" : [
-    {
-      "countryCode": "GER",
-      "income": {
-        "rentIncome": {
-          "rentAmount": 100.25,
-          "taxDeducted": 100.25,
-          "foreignTaxCreditRelief": 122.22
+  "foreignFhlEea":
+  {
+    "dateFrom": "2019-04-06",
+    "dateTo"  : "2019-07-06",
+    "countries": [
+      {
+        "countryCode": "GER",
+        "income": {
+          "rentAmount" : 200.22,
+          "taxDeducted": 22.22
         },
-        "premiumsOfLeaseGrantAmount": 100.25,
-        "otherPropertyIncomeAmount": 100.25 ,
-      },
-      "expenses": {
-        "premisesRunningCostsAmount": 100.25,
-        "repairsAndMaintenanceAmount": 100.25 ,
-        "financialCostsAmount": 200.25,
-        "professionalFeesAmount": 100.25,
-        "travelCostsAmount": 100.25,
-        "costOfServicesAmount": 100.25,
-        "residentialFinancialCostAmount": 200.25,
-        "broughtFwdResidentialFinancialCostAmount": 100.25,
-        "otherAmount": 100.25,
-        "consolidatedExpenseAmount": 100.25 //optional replaces all other expenses
+        "expenses": {
+          "premisesRunningCostsAmount": 100.25,
+          "repairsAndMaintenanceAmount": 100.25 ,
+          "financialCostsAmount": 100.25 ,
+          "professionalFeesAmount": 100.25 ,
+          "costOfServicesAmount": 100.25 ,
+          "travelCostsAmount": 100.25 ,
+          "otherAmount": 100.25 ,
+          "consolidatedExpenseAmount": 100.25 //optional replaces all other expenses
+        }
       }
-    }
-  ]
+    ]
+  }
 }
+
+{
+  "foreignProperty":
+  {
+    "dateFrom": "2019-04-06",
+    "dateTo"  : "2019-07-06",
+    "countries" : [
+      {
+        "countryCode": "GER",
+        "income": {
+          "rentIncome": {
+            "rentAmount": 100.25,
+            "taxDeducted": 100.25
+          },
+          "foreignTaxCreditRelief": 122.22,
+          "premiumsOfLeaseGrantAmount": 100.25,
+          "otherPropertyIncomeAmount": 100.25
+        },
+        "expenses": {
+          "premisesRunningCostsAmount": 100.25,
+          "repairsAndMaintenanceAmount": 100.25 ,
+          "financialCostsAmount": 200.25,
+          "professionalFeesAmount": 100.25,
+          "travelCostsAmount": 100.25,
+          "costOfServicesAmount": 100.25,
+          "residentialFinancialCostAmount": 200.25,
+          "broughtFwdResidentialFinancialCostAmount": 100.25,
+          "otherAmount": 100.25,
+          "consolidatedExpenseAmount": 100.25 //optional replaces all other expenses
+        }
+      }
+    ]
+  }
+}
+
