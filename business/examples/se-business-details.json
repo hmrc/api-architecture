@@ -1,0 +1,25 @@
+{
+  "id": "XGIS00000001319",
+  "typeOfBusiness": "self-employment",
+  "businessName": "Bobs Windows",
+  "accountingPeriods": [
+    {
+      "start": "2020-04-06",
+      "end": "2021-04-05"
+    },
+    {
+      "start": "2019-04-06",
+      "end": "2020-04-05"
+    }
+  ],
+  "accountingType": "cash",
+  "commencementDate": "2019-03-01",
+  "seasonal": "true",
+  "businessAddress": {
+    "lineOne": "Plaza 2",
+    "lineTwo": "Telford",
+    "lineThree": "Shropshire",
+    "lineFour": "UK",
+    "postcode": "TF3 4NT"
+  }
+}
