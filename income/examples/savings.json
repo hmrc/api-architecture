@@ -1,44 +1,17 @@
 {
-  "savings": [
-    [
+  "securities":
       {
-        "type": "SECURITIES",
         "taxTakenOff": 100.0,
         "grossAmount": 1455.0,
         "netAmount": 123.22
       },
+  "foreignInterest":   //TODO missing from IBD Swagger?
       {
-        "type": "FOREIGN INTEREST",
         "amountBeforeTax": 1232.22,
         "countryCode": "GER",
         "taxTakenOff": 22.22,
         "specialWitholdingTax": 22.22,
         "taxableAmount": 2321.22,
-        "fctr": true
+        "foreignTaxCreditRelief": true //TODO check this is correct
       }
-    ]
-}
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-{
-  "securities": [
-    {
-      "taxTakenOff": 100.0,
-      "grossAmount": 1455.0,
-      "netAmount": 123.22
-    }
-  ],
-  "foreignInterest": [
-    {
-      "amountBeforeTax": 1232.22,
-      "countryCode": "GER",
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "taxableAmount": 2321.22,
-      "fctr": true
-    }
-  ]
 }
