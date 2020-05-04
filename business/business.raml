@@ -1,7 +1,7 @@
 #%RAML 1.0
 title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-04 10:42
+version: 2020-05-04 11:44
 documentation:
   - title: Property - Periodic Submission
     content: |
@@ -145,12 +145,9 @@ uses:
               body:
                 application/json:
                   example: !include examples/all-business-list.json
-        /{businessId}:
+        /{incomeSourceId}:
           uriParameters:
-            id:
-              description: Business Id
-              type: string
-              example: XGIS00000001319
+            incomeSourceId: baseTypes.IncomeSourceId
           get:
             displayName: Retrieve business detail
             description: Retrieve business detail

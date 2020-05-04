@@ -17,9 +17,10 @@
   "seasonal": "true",
   "businessAddress": {
     "lineOne": "22 Rua El Camino",
-    "lineTwo": "",
-    "lineThree": "Malaga",
-    "lineFour": "ES",
-    "postcode": "23423"
+    "lineTwo": "Malaga",
+    "lineThree": "",,
+    "lineFour": "",
+    "postcode": "23423",
+    "countryCode": "ES"
   }
 }
