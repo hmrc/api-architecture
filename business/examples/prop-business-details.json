@@ -1,7 +1,7 @@
 {
-  "id": "DFTR00000006356",
+  "businessId": "DFTR00000006356",
   "typeOfBusiness": "foreign-property",
-  "businessName": "22 Rua El Camino",
+  "tradingName": "22 Rua El Camino",
   "accountingPeriods": [
     {
       "start": "2020-04-06",
@@ -14,6 +14,7 @@
   ],
   "accountingType": "cash",
   "commencementDate": "2019-03-01",
+  "cessationDate": "",
   "seasonal": "true",
   "businessAddress": {
     "lineOne": "22 Rua El Camino",
