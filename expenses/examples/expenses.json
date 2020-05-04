@@ -1,14 +1,10 @@
 {
-  "expenses": [
-    {
-      "type": "PAYMENTS TO TRADE UNIONS FOR DEATH BENEFITS",
+    "paymentsToTradeUnionsForDeathBenefits": {
       "customerReference": "myref",
       "expenseAmount": 1223.22
     },
-    {
-      "type": "PATENT ROYALTIES PAYMENTS",
+    "patentRoyaltiesPayments":{
       "customerReference": "myref",
       "expenseAmount": 1223.22
     }
-  ]
 }

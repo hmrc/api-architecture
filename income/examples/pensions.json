@@ -1,7 +1,5 @@
 {
-  "pensions": [
-      {
-        "type": "FOREIGN PENSIONS",
+  "foreignPensions":{
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -9,8 +7,7 @@
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
       },
-      {
-        "type": "OVERSEAS PENSION CONTRIBUTIONS",
+   "overseasPensionContributions": {
         "customerReference" : "myref",
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
@@ -19,37 +16,4 @@
         "dblTaxationArticle": "ABC123",
         "dblTaxationTreaty": "Treaty Name"
       }
-    ]
-}
-
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-
-{
-  "foreignPensions": [
-    {
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "foreignTaxCreditRelief": true,
-      "taxableAmount": 2321.22
-    }
-  ]
-},
-{
- "overseasPensionContributions": [
-    {
-      "customerReference" : "myref",
-      "exemptEmployersPensionContribs": 689.00,
-      "migrantMemReliefQopsRefNo": "ER3223423",
-      "dblTaxationRelief": 4232.00,
-      "dblTaxationCountryCode": "GER",
-      "dblTaxationArticle": "ABC123",
-      "dblTaxationTreaty": "Treaty Name"
-    }
-  ]
 }

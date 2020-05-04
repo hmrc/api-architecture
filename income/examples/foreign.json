@@ -1,15 +1,11 @@
 {
-  "foreign": [
-      {
-        "type": "FOREIGN EARNINGS",
-        "customerReference" : "myref",
-        "earningsNotTaxableUK": 15455.00
-      },
-      {
-        "type": "UNREMITTABLE FOREIGN INCOME",
-        "countryCode": "GER",
-        "amountInForeignCurrency":213.22,
-        "amountTaxPaid": 232.22
-      }
-    ]
+  "foreignEarnings": {
+    "customerReference" : "cust ref",
+    "earningsNotTaxableUK": 15455.00
+  },
+  "unremittableForeignIncome": {
+    "countryCode": "GER",
+    "amountInForeignCurrency":213.22,
+    "amountTaxPaid": 232.22
+  }
 }

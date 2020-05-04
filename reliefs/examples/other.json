@@ -1,29 +1,23 @@
 {
-  "reliefs": [
-      {
-        "type": "NON DEDUCTABLE LOAN INTEREST",
+  "nonDeductableLoanInterest": {
         "customerReference": "myref",
         "reliefClaimed": 763.00
       },
-      {
-        "type": "PAYROLL GIVING",
+  "payrollGiving": {
         "customerReference": "myref",
         "reliefClaimed": 154.00
       },
-      {
-        "type":"QUALIFYING DISTRIBUTION REDEMPTION OF SHARES AND SECURITIES",
+  "qualifyingDistributionRedemptionOfSharesAndSecurities": {
         "customerReference": "myref",
         "amount": 222.22
       },
-      {
-        "type":"MAINTENANCE PAYMENTS",
+  "maintenancePayments": {
         "customerReference": "myref",
         "exSpouseName" : "Hilda",
         "exSpouseDateOfBirth": "2000-01-01",
         "amount": 222.22
       },
-      {
-        "type":"POST CESSATION TRADE RELIEF AND CERTAIN OTHER LOSSES",
+  "postCessationTradeReliefAndCertainOtherLosses": {
         "customerReference": "myref",
         "businessName": "ACME Inc",
         "dateBusinessCeased": "2019-08-10",
@@ -31,16 +25,13 @@
         "incomeSource": "AB12412/A12",
         "amount": 222.22
       },
-      {
-        "type": "ANNUAL PAYMENTS MADE",
+  "annualPaymentsMade": {
         "customerReference": "myref",
         "reliefClaimed": 763.00
       },
-      {
-        "type": "QUALIFYING LOAN INTEREST PAYMENTS",
+  "qualifyingLoanInterestPayments": {
         "customerReference": "myref",
         "lenderName": "Maurice",
         "reliefClaimed": 763.00
       }
-    ]
 }

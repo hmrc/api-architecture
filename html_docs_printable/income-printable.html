@@ -151,7 +151,7 @@
 {
   margin-bottom: 0;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-12" role="main"><div class="page-header"><h1>DRAFT <small>version 2020-05-04 10:00</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="insurance_policies"><a href="#insurance_policies">Insurance Policies</a></h3><table class="table"><thead><tr><th align="left">Insurance Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Life Insurance Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Life Annuity Contracts</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Capital Redemption Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Voided ISAs</td><td align="left">SA101</td><td align="left">AOI boxes 8 - 11</td></tr><tr><td align="left">Foreign Policies</td><td align="left">SA106</td><td align="left">boxes 43 - 45</td></tr></tbody></table><h3 id="savings"><a href="#savings">Savings</a></h3><table class="table"><thead><tr><th align="left">Savings Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">BBSI</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Securities</td><td align="left">SA101</td><td align="left">AOI boxes 1-3</td></tr><tr><td align="left">Foreign Interest</td><td align="left">SA106</td><td align="left">A- F Interest / savings</td></tr></tbody></table><h3 id="employment___other"><a href="#employment___other">Employment - Other</a></h3><table class="table"><thead><tr><th align="left">Employment - Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Share Options</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Shares Awarded or Received</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Disability</td><td align="left">SA101</td><td align="left">ASE Box 10</td></tr><tr><td align="left">Foreign Service</td><td align="left">SA101</td><td align="left">ASE box 10</td></tr></tbody></table><h3 id="foreign"><a href="#foreign">Foreign</a></h3><table class="table"><thead><tr><th align="left">Foreign Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Earnings</td><td align="left">SA101</td><td align="left">ASE Box 12</td></tr><tr><td align="left">Unremittable Foreign Income</td><td align="left">SA106</td><td align="left">box 1</td></tr></tbody></table><h3 id="dividends"><a href="#dividends">Dividends</a></h3><table class="table"><thead><tr><th align="left">Divdend Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">UK Dividends</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Foreign Dividends</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Dividend Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Stock Dividends</td><td align="left">SA101</td><td align="left">AOI Box 12</td></tr><tr><td align="left">Bonus Issue of Securities</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Redeemable Shares</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Close Company Loans Written Off</td><td align="left">SA101</td><td align="left">AOI Boxy 13.1</td></tr></tbody></table><h3 id="pensions"><a href="#pensions">Pensions</a></h3><table class="table"><thead><tr><th align="left">Pension Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Pensions</td><td align="left">SA106</td><td align="left">A - F Pensions</td></tr><tr><td align="left">Overseas Pension Contributions</td><td align="left">SA101</td><td align="left">ASE box 14</td></tr></tbody></table><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Business Receipts</td><td align="left">SA101</td><td align="left">AOI Box 14 - 15</td></tr><tr><td align="left">All Other Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Other Income</td></tr><tr><td align="left">Overseas Income and Gains</td><td align="left">SA106</td><td align="left">Box 41</td></tr><tr><td align="left">Chargeable Foreign Benefits and Gifts</td><td align="left">SA106</td><td align="left">Box 42</td></tr><tr><td align="left">Omitted Foreign Income</td><td align="left">SA106</td><td align="left">Box 46</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="income" class="panel-title">/income</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/savings/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_savings__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/savings/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of savings income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-12" role="main"><div class="page-header"><h1>DRAFT <small>version 2020-05-04 10:42</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="insurance_policies"><a href="#insurance_policies">Insurance Policies</a></h3><table class="table"><thead><tr><th align="left">Insurance Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Life Insurance Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Life Annuity Contracts</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Capital Redemption Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Voided ISAs</td><td align="left">SA101</td><td align="left">AOI boxes 8 - 11</td></tr><tr><td align="left">Foreign Policies</td><td align="left">SA106</td><td align="left">boxes 43 - 45</td></tr></tbody></table><h3 id="savings"><a href="#savings">Savings</a></h3><table class="table"><thead><tr><th align="left">Savings Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">BBSI</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Securities</td><td align="left">SA101</td><td align="left">AOI boxes 1-3</td></tr><tr><td align="left">Foreign Interest</td><td align="left">SA106</td><td align="left">A- F Interest / savings</td></tr></tbody></table><h3 id="employment___other"><a href="#employment___other">Employment - Other</a></h3><table class="table"><thead><tr><th align="left">Employment - Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Share Options</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Shares Awarded or Received</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Disability</td><td align="left">SA101</td><td align="left">ASE Box 10</td></tr><tr><td align="left">Foreign Service</td><td align="left">SA101</td><td align="left">ASE box 10</td></tr></tbody></table><h3 id="foreign"><a href="#foreign">Foreign</a></h3><table class="table"><thead><tr><th align="left">Foreign Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Earnings</td><td align="left">SA101</td><td align="left">ASE Box 12</td></tr><tr><td align="left">Unremittable Foreign Income</td><td align="left">SA106</td><td align="left">box 1</td></tr></tbody></table><h3 id="dividends"><a href="#dividends">Dividends</a></h3><table class="table"><thead><tr><th align="left">Divdend Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">UK Dividends</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Foreign Dividends</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Dividend Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Stock Dividends</td><td align="left">SA101</td><td align="left">AOI Box 12</td></tr><tr><td align="left">Bonus Issue of Securities</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Redeemable Shares</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Close Company Loans Written Off</td><td align="left">SA101</td><td align="left">AOI Boxy 13.1</td></tr></tbody></table><h3 id="pensions"><a href="#pensions">Pensions</a></h3><table class="table"><thead><tr><th align="left">Pension Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Pensions</td><td align="left">SA106</td><td align="left">A - F Pensions</td></tr><tr><td align="left">Overseas Pension Contributions</td><td align="left">SA101</td><td align="left">ASE box 14</td></tr></tbody></table><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Business Receipts</td><td align="left">SA101</td><td align="left">AOI Box 14 - 15</td></tr><tr><td align="left">All Other Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Other Income</td></tr><tr><td align="left">Overseas Income and Gains</td><td align="left">SA106</td><td align="left">Box 41</td></tr><tr><td align="left">Chargeable Foreign Benefits and Gifts</td><td align="left">SA106</td><td align="left">Box 42</td></tr><tr><td align="left">Omitted Foreign Income</td><td align="left">SA106</td><td align="left">Box 46</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="income" class="panel-title">/income</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/savings/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_savings__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/savings/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of savings income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "securities":
       {
         "taxTakenOff": 100.0,
@@ -312,111 +312,51 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/employment/other/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_employment_other__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/employment/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Other Employment income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "other": [
+  "shareOption":
+      {
+        "employerName": "Company Ltd",
+        "empRef" : "AB1321/123",
+        "schemePlanType": "Wibble",
+        "dateOfOptionGrant": "2019-11-20",
+        "dateOfEvent": "2019-11-20",
+        "optionNotExercisedButConsiderationReceived": "??",
+        "amountOfConsiderationReceived": 23122.22,
+        "noOfSharesAcquired": 1,
+        "classOfSharesAcquired": "FIRST",
+        "exercisePrice": 12.22,
+        "amountPaidForOption": 123.22,
+        "marketValueOfSharesOnExcise": 1232.22,
+        "profitOnOptionExercised": 1232.33,
+        "employersNicPaid": 2312.22,
+        "taxableAmount" : 2132.22
+      },
+    "sharesAwardedOrReceived":
+       {
+        "employerName": "Company Ltd",
+        "empRef" : "AB1321/123",
+        "schemePlanType": "Scheme a",
+        "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
+        "noOfShareSecuritiesAwarded": 11,
+        "classOfShareAwarded": "FIRST",
+        "dateSharesAwarded" : "2019-11-20",
+        "sharesSubjectToRestrictions": true,
+        "electionEnteredIgnoreRestrictions": true,
+        "actualMarketValueOfSharesOnAward": 2123.22,
+        "unrestrictedMarketValueOfSharesOnAward": 123.22,
+        "amountPaidForSharesOnAward": 123.22,
+        "marketValueAfterRestrictionsLifted": 1232.22,
+        "taxableAmount": 12321.22
+       },
+  "disability":
     {
-      "type": "SHARE OPTIONS",
-      "employerName": "wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateOfOptionGrant": "2019-11-20",
-      "dateOfEvent": "2019-11-20",
-      "optionNotExercisedButConsiderationReceived": "??",
-      "amountOfConsiderationReceived": 23122.22,
-      "noOfSharesAcquired": 1,
-      "classOfSharesAcquired": "FIRST",
-      "exercisePrice": 12.22,
-      "amountPaidForOption": 123.22,
-      "marketValueOfSharesOnExcise": 1232.22,
-      "profitOnOptionExercised": 1232.33,
-      "employersNicPaid": 2312.22,
-      "taxableAmount" : 2132.22
-    },
-    {
-      "type": "SHARES AWARDED OR RECEIVED",
-      "employerName": "Wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
-      "noOfShareSecuritiesAwarded": 11,
-      "classOfShareAwarded": "FIRST",
-      "dateSharesAwarded" : "2019-11-20",
-      "sharesSubjectToRestrictions": true,
-      "electionEnteredIgnoreRestrictions": true,
-      "actualMarketValueOfSharesOnAward": 2123.22,
-      "unrestrictedMarketValueOfSharesOnAward": 123.22,
-      "amountPaidForSharesOnAward": 123.22,
-      "marketValueAfterRestrictionsLifted": 1232.22,
-      "taxableAmount": 12321.22
-    },
-    {
-      "type": "DISABILITY",
-      "customerReference": "wibble",
+      "customerReference": "cust ref",
       "amountDeducted": 1223.22
     },
+  "foreignService":
     {
-      "type": "FOREIGN SERVICE",
-      "customerReference": "wibble",
+      "customerReference": "cust ref",
       "amountDeducted": 1223.22
     }
-  ]
-}
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-{
-  "shareOptions": [
-    {
-      "type": "SHARE OPTIONS",
-      "employerName": "wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateOfOptionGrant": "2019-11-20",
-      "dateOfEvent": "2019-11-20",
-      "optionNotExercisedButConsiderationReceived": "??",
-      "amountOfConsiderationReceived": 23122.22,
-      "noOfSharesAcquired": 1,
-      "classOfSharesAcquired": "FIRST",
-      "exercisePrice": 12.22,
-      "amountPaidForOption": 123.22,
-      "marketValueOfSharesOnExcise": 1232.22,
-      "profitOnOptionExercised": 1232.33,
-      "employersNicPaid": 2312.22,
-      "taxableAmount" : 2132.22
-    }
-  ],
-{
-  "sharesAwardedOrReceived": [
-    {
-      "employerName": "Wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
-      "noOfShareSecuritiesAwarded": 11,
-      "classOfShareAwarded": "FIRST",
-      "dateSharesAwarded" : "2019-11-20",
-      "sharesSubjectToRestrictions": true,
-      "electionEnteredIgnoreRestrictions": true,
-      "actualMarketValueOfSharesOnAward": 2123.22,
-      "unrestrictedMarketValueOfSharesOnAward": 123.22,
-      "amountPaidForSharesOnAward": 123.22,
-      "marketValueAfterRestrictionsLifted": 1232.22,
-      "taxableAmount": 12321.22
-    }
-  ],
-  "other": [
-    {
-      "type": "DISABILITY",
-      "customerReference": "wibble",
-      "amountDeducted": 1223.22
-    },
-    {
-      "type": "FOREIGN SERVICE",
-      "customerReference": "wibble",
-      "amountDeducted": 1223.22
-    }
-  ]
 }
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
@@ -425,111 +365,51 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_employment_other__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/employment/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Other Employment income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "other": [
+  "shareOption":
+      {
+        "employerName": "Company Ltd",
+        "empRef" : "AB1321/123",
+        "schemePlanType": "Wibble",
+        "dateOfOptionGrant": "2019-11-20",
+        "dateOfEvent": "2019-11-20",
+        "optionNotExercisedButConsiderationReceived": "??",
+        "amountOfConsiderationReceived": 23122.22,
+        "noOfSharesAcquired": 1,
+        "classOfSharesAcquired": "FIRST",
+        "exercisePrice": 12.22,
+        "amountPaidForOption": 123.22,
+        "marketValueOfSharesOnExcise": 1232.22,
+        "profitOnOptionExercised": 1232.33,
+        "employersNicPaid": 2312.22,
+        "taxableAmount" : 2132.22
+      },
+    "sharesAwardedOrReceived":
+       {
+        "employerName": "Company Ltd",
+        "empRef" : "AB1321/123",
+        "schemePlanType": "Scheme a",
+        "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
+        "noOfShareSecuritiesAwarded": 11,
+        "classOfShareAwarded": "FIRST",
+        "dateSharesAwarded" : "2019-11-20",
+        "sharesSubjectToRestrictions": true,
+        "electionEnteredIgnoreRestrictions": true,
+        "actualMarketValueOfSharesOnAward": 2123.22,
+        "unrestrictedMarketValueOfSharesOnAward": 123.22,
+        "amountPaidForSharesOnAward": 123.22,
+        "marketValueAfterRestrictionsLifted": 1232.22,
+        "taxableAmount": 12321.22
+       },
+  "disability":
     {
-      "type": "SHARE OPTIONS",
-      "employerName": "wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateOfOptionGrant": "2019-11-20",
-      "dateOfEvent": "2019-11-20",
-      "optionNotExercisedButConsiderationReceived": "??",
-      "amountOfConsiderationReceived": 23122.22,
-      "noOfSharesAcquired": 1,
-      "classOfSharesAcquired": "FIRST",
-      "exercisePrice": 12.22,
-      "amountPaidForOption": 123.22,
-      "marketValueOfSharesOnExcise": 1232.22,
-      "profitOnOptionExercised": 1232.33,
-      "employersNicPaid": 2312.22,
-      "taxableAmount" : 2132.22
-    },
-    {
-      "type": "SHARES AWARDED OR RECEIVED",
-      "employerName": "Wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
-      "noOfShareSecuritiesAwarded": 11,
-      "classOfShareAwarded": "FIRST",
-      "dateSharesAwarded" : "2019-11-20",
-      "sharesSubjectToRestrictions": true,
-      "electionEnteredIgnoreRestrictions": true,
-      "actualMarketValueOfSharesOnAward": 2123.22,
-      "unrestrictedMarketValueOfSharesOnAward": 123.22,
-      "amountPaidForSharesOnAward": 123.22,
-      "marketValueAfterRestrictionsLifted": 1232.22,
-      "taxableAmount": 12321.22
-    },
-    {
-      "type": "DISABILITY",
-      "customerReference": "wibble",
+      "customerReference": "cust ref",
       "amountDeducted": 1223.22
     },
+  "foreignService":
     {
-      "type": "FOREIGN SERVICE",
-      "customerReference": "wibble",
+      "customerReference": "cust ref",
       "amountDeducted": 1223.22
     }
-  ]
-}
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-{
-  "shareOptions": [
-    {
-      "type": "SHARE OPTIONS",
-      "employerName": "wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateOfOptionGrant": "2019-11-20",
-      "dateOfEvent": "2019-11-20",
-      "optionNotExercisedButConsiderationReceived": "??",
-      "amountOfConsiderationReceived": 23122.22,
-      "noOfSharesAcquired": 1,
-      "classOfSharesAcquired": "FIRST",
-      "exercisePrice": 12.22,
-      "amountPaidForOption": 123.22,
-      "marketValueOfSharesOnExcise": 1232.22,
-      "profitOnOptionExercised": 1232.33,
-      "employersNicPaid": 2312.22,
-      "taxableAmount" : 2132.22
-    }
-  ],
-{
-  "sharesAwardedOrReceived": [
-    {
-      "employerName": "Wibble",
-      "empRef" : "AB1321/123",
-      "schemePlanType": "Wibble",
-      "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
-      "noOfShareSecuritiesAwarded": 11,
-      "classOfShareAwarded": "FIRST",
-      "dateSharesAwarded" : "2019-11-20",
-      "sharesSubjectToRestrictions": true,
-      "electionEnteredIgnoreRestrictions": true,
-      "actualMarketValueOfSharesOnAward": 2123.22,
-      "unrestrictedMarketValueOfSharesOnAward": 123.22,
-      "amountPaidForSharesOnAward": 123.22,
-      "marketValueAfterRestrictionsLifted": 1232.22,
-      "taxableAmount": 12321.22
-    }
-  ],
-  "other": [
-    {
-      "type": "DISABILITY",
-      "customerReference": "wibble",
-      "amountDeducted": 1223.22
-    },
-    {
-      "type": "FOREIGN SERVICE",
-      "customerReference": "wibble",
-      "amountDeducted": 1223.22
-    }
-  ]
 }
 </code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_employment_other__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_employment_other__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
@@ -542,19 +422,15 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/foreign/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_foreign__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/foreign/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Foreign income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "foreign": [
-      {
-        "type": "FOREIGN EARNINGS",
-        "customerReference" : "myref",
-        "earningsNotTaxableUK": 15455.00
-      },
-      {
-        "type": "UNREMITTABLE FOREIGN INCOME",
-        "countryCode": "GER",
-        "amountInForeignCurrency":213.22,
-        "amountTaxPaid": 232.22
-      }
-    ]
+  "foreignEarnings": {
+    "customerReference" : "cust ref",
+    "earningsNotTaxableUK": 15455.00
+  },
+  "unremittableForeignIncome": {
+    "countryCode": "GER",
+    "amountInForeignCurrency":213.22,
+    "amountTaxPaid": 232.22
+  }
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
@@ -562,19 +438,15 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_foreign__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/foreign/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Foreign income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "foreign": [
-      {
-        "type": "FOREIGN EARNINGS",
-        "customerReference" : "myref",
-        "earningsNotTaxableUK": 15455.00
-      },
-      {
-        "type": "UNREMITTABLE FOREIGN INCOME",
-        "countryCode": "GER",
-        "amountInForeignCurrency":213.22,
-        "amountTaxPaid": 232.22
-      }
-    ]
+  "foreignEarnings": {
+    "customerReference" : "cust ref",
+    "earningsNotTaxableUK": 15455.00
+  },
+  "unremittableForeignIncome": {
+    "countryCode": "GER",
+    "amountInForeignCurrency":213.22,
+    "amountTaxPaid": 232.22
+  }
 }</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_foreign__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_foreign__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
@@ -586,14 +458,11 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/dividends/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_dividends__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/dividends/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of dividends income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "dividends": [
-      {
-        "type": "UK DIVIDEND",
-        "customerReference": "myref",
+    "ukDividend": {
+      "customerReference": "myref",
         "amount": 1232.23
       },
-      {
-        "type": "FOREIGN DIVIDEND",
+    "foreignDividend": {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -601,8 +470,7 @@
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
       },
-      {
-        "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
+    "dividendIncomeReceivedWhilstAbroad": {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -610,96 +478,35 @@
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
       },
-      {
-        "type": "STOCK DIVIDEND",
+    "stockDividend": {
         "grossAmount": 12321.22,
         "customerReference": "my divs"
       },
-      {
-        "type": "REDEEMABLE SHARES",
+    "redeemableShares": {
         "grossAmount": 12321.22,
         "customerReference": "my shares"
       },
-      {
-        "type": "BONUS ISSUES OF SECURITIES",
+        "bonusIssuesOfSecurities": {
         "grossAmount": 12321.22,
         "customerReference": "my secs"
       },
-      {
-        "type": "CLOSE COMPANY LOANS WRITTEN OFF",
+      "closeCompanyLoansWrittenOff": {
         "grossAmount": 12321.22,
         "customerReference": "write off"
       }
-    ]
 }
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-{
-  "dividendsForeign": [
-    {
-      "type": "FOREIGN DIVIDEND",
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "foreignTaxCreditRelief": true,
-      "taxableAmount": 2321.22
-    },
-    {
-    "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
-    "countryCode": "GER",
-    "amountBeforeTax": 1232.22,
-    "taxTakenOff": 22.22,
-    "specialWitholdingTax": 22.22,
-    "foreignTaxCreditRelief": true,
-    "taxableAmount": 2321.22
-    }
-  ],
-  "dividendsUk": [
-    {
-      "type": "UK DIVIDEND",
-      "customerReference": "myref",
-      "amount": 1232.23
-    },
-    {
-      "type": "STOCK DIVIDEND",
-      "grossAmount": 12321.22,
-      "customerReference": "my divs"
-    },
-    {
-      "type": "REDEEMABLE SHARES",
-      "grossAmount": 12321.22,
-      "customerReference": "my shares"
-    },
-    {
-      "type": "BONUS ISSUES OF SECURITIES",
-      "grossAmount": 12321.22,
-      "customerReference": "my secs"
-    },
-    {
-      "type": "CLOSE COMPANY LOANS WRITTEN OFF",
-      "grossAmount": 12321.22,
-      "customerReference": "write off"
-    }
-  ]
-}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_dividends__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/dividends/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update dividends income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "dividends": [
-      {
-        "type": "UK DIVIDEND",
-        "customerReference": "myref",
+    "ukDividend": {
+      "customerReference": "myref",
         "amount": 1232.23
       },
-      {
-        "type": "FOREIGN DIVIDEND",
+    "foreignDividend": {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -707,8 +514,7 @@
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
       },
-      {
-        "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
+    "dividendIncomeReceivedWhilstAbroad": {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -716,82 +522,24 @@
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
       },
-      {
-        "type": "STOCK DIVIDEND",
+    "stockDividend": {
         "grossAmount": 12321.22,
         "customerReference": "my divs"
       },
-      {
-        "type": "REDEEMABLE SHARES",
+    "redeemableShares": {
         "grossAmount": 12321.22,
         "customerReference": "my shares"
       },
-      {
-        "type": "BONUS ISSUES OF SECURITIES",
+        "bonusIssuesOfSecurities": {
         "grossAmount": 12321.22,
         "customerReference": "my secs"
       },
-      {
-        "type": "CLOSE COMPANY LOANS WRITTEN OFF",
+      "closeCompanyLoansWrittenOff": {
         "grossAmount": 12321.22,
         "customerReference": "write off"
       }
-    ]
 }
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-{
-  "dividendsForeign": [
-    {
-      "type": "FOREIGN DIVIDEND",
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "foreignTaxCreditRelief": true,
-      "taxableAmount": 2321.22
-    },
-    {
-    "type": "DIVIDEND INCOME RECEIVED WHILST ABROAD",
-    "countryCode": "GER",
-    "amountBeforeTax": 1232.22,
-    "taxTakenOff": 22.22,
-    "specialWitholdingTax": 22.22,
-    "foreignTaxCreditRelief": true,
-    "taxableAmount": 2321.22
-    }
-  ],
-  "dividendsUk": [
-    {
-      "type": "UK DIVIDEND",
-      "customerReference": "myref",
-      "amount": 1232.23
-    },
-    {
-      "type": "STOCK DIVIDEND",
-      "grossAmount": 12321.22,
-      "customerReference": "my divs"
-    },
-    {
-      "type": "REDEEMABLE SHARES",
-      "grossAmount": 12321.22,
-      "customerReference": "my shares"
-    },
-    {
-      "type": "BONUS ISSUES OF SECURITIES",
-      "grossAmount": 12321.22,
-      "customerReference": "my secs"
-    },
-    {
-      "type": "CLOSE COMPANY LOANS WRITTEN OFF",
-      "grossAmount": 12321.22,
-      "customerReference": "write off"
-    }
-  ]
-}</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_dividends__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_dividends__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
@@ -804,9 +552,7 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/pensions/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_pensions__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/pensions/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of pensions income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "pensions": [
-      {
-        "type": "FOREIGN PENSIONS",
+  "foreignPensions":{
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -814,8 +560,7 @@
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
       },
-      {
-        "type": "OVERSEAS PENSION CONTRIBUTIONS",
+   "overseasPensionContributions": {
         "customerReference" : "myref",
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
@@ -824,39 +569,6 @@
         "dblTaxationArticle": "ABC123",
         "dblTaxationTreaty": "Treaty Name"
       }
-    ]
-}
-
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-
-{
-  "foreignPensions": [
-    {
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "foreignTaxCreditRelief": true,
-      "taxableAmount": 2321.22
-    }
-  ]
-},
-{
- "overseasPensionContributions": [
-    {
-      "customerReference" : "myref",
-      "exemptEmployersPensionContribs": 689.00,
-      "migrantMemReliefQopsRefNo": "ER3223423",
-      "dblTaxationRelief": 4232.00,
-      "dblTaxationCountryCode": "GER",
-      "dblTaxationArticle": "ABC123",
-      "dblTaxationTreaty": "Treaty Name"
-    }
-  ]
 }
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
@@ -865,9 +577,7 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_pensions__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/pensions/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update pensions income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "pensions": [
-      {
-        "type": "FOREIGN PENSIONS",
+  "foreignPensions":{
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -875,8 +585,7 @@
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
       },
-      {
-        "type": "OVERSEAS PENSION CONTRIBUTIONS",
+   "overseasPensionContributions": {
         "customerReference" : "myref",
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
@@ -885,39 +594,6 @@
         "dblTaxationArticle": "ABC123",
         "dblTaxationTreaty": "Treaty Name"
       }
-    ]
-}
-
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-
-{
-  "foreignPensions": [
-    {
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "foreignTaxCreditRelief": true,
-      "taxableAmount": 2321.22
-    }
-  ]
-},
-{
- "overseasPensionContributions": [
-    {
-      "customerReference" : "myref",
-      "exemptEmployersPensionContribs": 689.00,
-      "migrantMemReliefQopsRefNo": "ER3223423",
-      "dblTaxationRelief": 4232.00,
-      "dblTaxationCountryCode": "GER",
-      "dblTaxationArticle": "ABC123",
-      "dblTaxationTreaty": "Treaty Name"
-    }
-  ]
 }
 </code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_pensions__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_pensions__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
@@ -932,14 +608,11 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/other/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_other__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of other income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "other": [
-      {
-        "type": "BUSINESS RECEIPTS",
+    "businessReceipts":{
         "grossAmount": 12321.22,
         "taxYear": "2017-18"
       },
-      {
-        "type": "ALL OTHER INCOME RECEIVED WHILST ABROAD",
+    "allOtherIncomeReceivedWhilstAbroad":{
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -949,66 +622,19 @@
         "residentialFinancialCostAmount": 200.25,
         "broughtFwdResidentialFinancialCostAmount": 100.25
       },
-      {
-        "type": "OVERSEAS INCOME AND GAINS",
+    "overseasIncomeAndGains":{
         "gainAmount" : 1232.22
       },
-      {
-        "type": "CHARGEABLE FOREIGN BENEFITS AND GIFTS",
+    "chargeableForeignBenefitsAndGifts":{
         "transactionBenefit": 100.22,
         "protectedForeignIncomeSourceBenefit": 111.22,
         "protectedForeignIncomeOnwardGift": 111.23,
         "benefitReceivedAsASettler": 111.22,
         "onwardGiftReceivedAsASettler": 111.22
       },
-      {
-        "type": "OMITTED FOREIGN INCOME",
+    "omittedForeignIncome":{
         "amount": 12321.22
       }
-    ]
-}
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-{
-  "other": [
-    {
-      "type": "BUSINESS RECEIPTS",
-      "grossAmount": 12321.22,
-      "taxYear": "2017-18"
-    },
-    {
-      "type": "OVERSEAS INCOME AND GAINS",
-      "gainAmount" : 1232.22
-    },
-    {
-      "type": "OMITTED FOREIGN INCOME",
-      "amount": 12321.22
-    }
-    ],
-  "chargeableForeignBenefitsAndGifts": [
-    {
-    "transactionBenefit": 100.22,
-    "protectedForeignIncomeSourceBenefit": 111.22,
-    "protectedForeignIncomeOnwardGift": 111.23,
-    "benefitReceivedAsASettler": 111.22,
-    "onwardGiftReceivedAsASettler": 111.22,
-    }
-    ]
-  "allOtherIncomeReceivedWhilstAbroad": [
-    {
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "foreignTaxCreditRelief": true,
-      "taxableAmount": 2321.22,
-      "residentialFinancialCostAmount": 200.25,
-      "broughtFwdResidentialFinancialCostAmount": 100.25
-    }
-  ]
 }
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
@@ -1017,14 +643,11 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_other__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update other income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "other": [
-      {
-        "type": "BUSINESS RECEIPTS",
+    "businessReceipts":{
         "grossAmount": 12321.22,
         "taxYear": "2017-18"
       },
-      {
-        "type": "ALL OTHER INCOME RECEIVED WHILST ABROAD",
+    "allOtherIncomeReceivedWhilstAbroad":{
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -1034,66 +657,19 @@
         "residentialFinancialCostAmount": 200.25,
         "broughtFwdResidentialFinancialCostAmount": 100.25
       },
-      {
-        "type": "OVERSEAS INCOME AND GAINS",
+    "overseasIncomeAndGains":{
         "gainAmount" : 1232.22
       },
-      {
-        "type": "CHARGEABLE FOREIGN BENEFITS AND GIFTS",
+    "chargeableForeignBenefitsAndGifts":{
         "transactionBenefit": 100.22,
         "protectedForeignIncomeSourceBenefit": 111.22,
         "protectedForeignIncomeOnwardGift": 111.23,
         "benefitReceivedAsASettler": 111.22,
         "onwardGiftReceivedAsASettler": 111.22
       },
-      {
-        "type": "OMITTED FOREIGN INCOME",
+    "omittedForeignIncome":{
         "amount": 12321.22
       }
-    ]
-}
-
-// Front End Review
-// Objects are too diverse and would require excessive guidance
-// Alternative proposed:
-
-{
-  "other": [
-    {
-      "type": "BUSINESS RECEIPTS",
-      "grossAmount": 12321.22,
-      "taxYear": "2017-18"
-    },
-    {
-      "type": "OVERSEAS INCOME AND GAINS",
-      "gainAmount" : 1232.22
-    },
-    {
-      "type": "OMITTED FOREIGN INCOME",
-      "amount": 12321.22
-    }
-    ],
-  "chargeableForeignBenefitsAndGifts": [
-    {
-    "transactionBenefit": 100.22,
-    "protectedForeignIncomeSourceBenefit": 111.22,
-    "protectedForeignIncomeOnwardGift": 111.23,
-    "benefitReceivedAsASettler": 111.22,
-    "onwardGiftReceivedAsASettler": 111.22,
-    }
-    ]
-  "allOtherIncomeReceivedWhilstAbroad": [
-    {
-      "countryCode": "GER",
-      "amountBeforeTax": 1232.22,
-      "taxTakenOff": 22.22,
-      "specialWitholdingTax": 22.22,
-      "foreignTaxCreditRelief": true,
-      "taxableAmount": 2321.22,
-      "residentialFinancialCostAmount": 200.25,
-      "broughtFwdResidentialFinancialCostAmount": 100.25
-    }
-  ]
 }
 </code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_other__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_other__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"

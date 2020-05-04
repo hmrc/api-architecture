@@ -1,7 +1,7 @@
 #%RAML 1.0
 title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-04 09:59
+version: 2020-05-04 10:42
 documentation:
   - title: CIS
     content: |
@@ -116,7 +116,7 @@ uses:
             200:
               body:
                 application/json:
-                  example: !include examples/sl_deductions_position.json
+                  example: !include examples/sl_deduction_override.json
         put:
           displayName: Create/update Student Loans submission
           description: Create/update Student Loans submission
@@ -125,7 +125,7 @@ uses:
             200:
           body:
             application/json:
-              example: !include examples/sl_deductions_position.json
+              example: !include examples/sl_deduction_override.json
         delete:
           displayName: Delete Student Loans submission
           description: Delete Student Loans submission

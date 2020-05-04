@@ -1,8 +1,5 @@
 {
-  "reliefs": [
-    {
-      "type": "FOREIGN TAX CREDIT RELIEF CGT",
-      "amount" : 123.22
-    }
-  ]
+  "foreignTaxCreditRelief":{
+    "amount" : 123.22
+  }
 }
