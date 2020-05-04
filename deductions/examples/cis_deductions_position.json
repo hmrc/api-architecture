@@ -12,7 +12,7 @@
         "deductionToDate": "2019-05-05",
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
-        "submissionDate": "2019-04-03,
+        "submissionDate": "2019-04-03",
         "submittedBy": "contractor"
       },
       {
@@ -21,7 +21,7 @@
         "deductionToDate": "2019-06-05",
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
-        "submissionDate": "2019-05-03,
+        "submissionDate": "2019-05-03",
         "submittedBy": "contractor"
       },
       {
@@ -30,7 +30,7 @@
         "deductionToDate": "2019-07-05",
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
-        "submissionDate": "2020-01-14,
+        "submissionDate": "2020-01-14",
         "submittedBy": "customer"
       },
       {
@@ -45,7 +45,6 @@
     ]
   },
   {
-    "submissionId": null,
     "fromDate": "2019-04-06" ,
     "toDate": "2020-04-05",
     "contractorName": "Taylor Wimpey",
@@ -57,7 +56,7 @@
         "deductionToDate": "2019-08-05",
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
-        "submissionDate": "2019-08-05,
+        "submissionDate": "2019-08-05",
         "submittedBy": "contractor"
       },
       {
@@ -66,7 +65,7 @@
         "deductionToDate": "2019-10-05",
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
-        "submissionDate": "2019-08-05,
+        "submissionDate": "2019-08-05",
         "submittedBy": "contractor"
       }
     ]

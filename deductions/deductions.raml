@@ -1,7 +1,7 @@
 #%RAML 1.0
 title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-04 12:27
+version: 2020-05-04 15:29
 documentation:
   - title: CIS
     content: |
@@ -47,8 +47,8 @@ uses:
         nino: base-types.Nino
       /current-position:
         get:
-          displayName: List current position of CIS deductions.
-          description: List current position of CIS deductions.
+          displayName: List current position of CIS deductions. **[DES-1572]**
+          description: List current position of CIS deductions. **[DES-1572]**
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           queryParameters:
             fromDate:
@@ -75,11 +75,14 @@ uses:
                   example: !include examples/cis_deductions_position_blended.json
       /amendments:
         post:
-          displayName: Create CIS deductions amendments for a Contractor & Tax Year
-          description: Create CIS deductions amendments for a Contractor & Tax Year
+          displayName: Create CIS deductions amendments for a Contractor & Tax Year **[DES-1569]**
+          description: Create CIS deductions amendments for a Contractor & Tax Year **[DES-1569]**
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
             200:
+              body:
+                application/json:
+                  example: !include examples/cis_deductions_amendments_response.json
           body:
             application/json:
               example: !include examples/cis_deductions_amendments_post.json
@@ -87,8 +90,8 @@ uses:
           uriParameters:
             submissionId: base-types.SubmissionId  #TODO check that regex is correct
           put:
-            displayName: Update CIS deductions amendments for a Contractor & Tax Year
-            description: Update CIS deductions amendments for a Contractor & Tax Year
+            displayName: Update CIS deductions amendments for a Contractor & Tax Year **[DES-1571]**
+            description: Update CIS deductions amendments for a Contractor & Tax Year **[DES-1571]**
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
             responses:
               200:
@@ -96,8 +99,8 @@ uses:
               application/json:
                 example: !include examples/cis_deductions_amendments_put.json
           delete:
-            displayName: Delete CIS deductions amendments for a Contractor & Tax Year
-            description: Delete CIS deductions amendments for a Contractor & Tax Year
+            displayName: Delete CIS deductions amendments for a Contractor & Tax Year **[DES-1570]**
+            description: Delete CIS deductions amendments for a Contractor & Tax Year **[DES-1570]**
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino]
             responses:
               204:
