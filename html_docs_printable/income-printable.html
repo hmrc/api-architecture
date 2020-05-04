@@ -204,9 +204,8 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><span class="parent">/income/insurance-policies/{nino}</span>/{taxYear} <span class="methods"><span class="badge badge_get">get</span> <span class="badge badge_put">put</span> <span class="badge badge_delete">delete</span></span></h4></div><div class="modal" tabindex="0" id="income_insurance_policies__nino___taxyear__get"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Insurance Policies income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__get_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "insurance-policies": [
-      {
-        "type": "LIFE INSURANCE",
+  "lifeInsurance":
+       {
         "event": "Death of spouse",
         "customerReference":"custref",
         "gainAmount": 15422.00,
@@ -215,26 +214,26 @@
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
       },
-      {
-        "type": "CAPITAL REDEMPTION",
+  "capitalRedemption":
+       {
         "event": "Chips Cashed In",
         "customerReference":"custref",
         "gainAmount": 15422.00,
         "yearsHeld": 14,
+        "taxPaid": 123,
         "yearsHeldSinceLastGain": 3
       },
+  "lifeAnnuity":
       {
-        "type": "LIFE ANNUITY",
         "event": &#39;event&#39;,
         "customerReference":"custref",
         "gainAmount": 532.00,
         "taxPaid": 44.44,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
       },
+  "voidedIsas":
       {
-        "type": "VOIDED ISAS",
         "customerReference":"custref",
         "event": &#39;event&#39;,
         "gainAmount": 532.00,
@@ -243,14 +242,13 @@
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
       },
+  "foreignPolicies":
       {
-        "type": "FOREIGN POLICIES",
         "customerReference":"custref",
         "gainAmount": 532.00,
         "taxPaid": 33.00,
         "yearsHeld": 14
       }
-    ]
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
@@ -258,9 +256,8 @@
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
 }</code></pre></div></div></div></div></div></div></div><div class="modal" tabindex="0" id="income_insurance_policies__nino___taxyear__put"><div><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Insurance Policies income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__put_request" data-toggle="tab">Request</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "insurance-policies": [
-      {
-        "type": "LIFE INSURANCE",
+  "lifeInsurance":
+       {
         "event": "Death of spouse",
         "customerReference":"custref",
         "gainAmount": 15422.00,
@@ -269,26 +266,26 @@
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
       },
-      {
-        "type": "CAPITAL REDEMPTION",
+  "capitalRedemption":
+       {
         "event": "Chips Cashed In",
         "customerReference":"custref",
         "gainAmount": 15422.00,
         "yearsHeld": 14,
+        "taxPaid": 123,
         "yearsHeldSinceLastGain": 3
       },
+  "lifeAnnuity":
       {
-        "type": "LIFE ANNUITY",
         "event": &#39;event&#39;,
         "customerReference":"custref",
         "gainAmount": 532.00,
         "taxPaid": 44.44,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
       },
+  "voidedIsas":
       {
-        "type": "VOIDED ISAS",
         "customerReference":"custref",
         "event": &#39;event&#39;,
         "gainAmount": 532.00,
@@ -297,14 +294,13 @@
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
       },
+  "foreignPolicies":
       {
-        "type": "FOREIGN POLICIES",
         "customerReference":"custref",
         "gainAmount": 532.00,
         "taxPaid": 33.00,
         "yearsHeld": 14
       }
-    ]
 }</code></pre></div></div></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{

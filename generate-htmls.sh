@@ -6,6 +6,7 @@ do
     echo ${f}
         for g in `ls *.raml | cut -d"." -f1`
         do
+            sed -i "s/version:/version:$(date '+%Y-%m-%d %H:%M')/" ${g}.raml
             npx raml2html --theme raml2html-printable-theme --input ${g}.raml --output ${g}-printable.html
             cp *printable.html ../html_docs_printable
             npx raml2html --theme raml2html-default-theme --input ${g}.raml --output ${g}-compact.html

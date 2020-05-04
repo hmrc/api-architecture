@@ -1,7 +1,5 @@
 {
-  "propertiesAnnual": [
-    {
-      "type": "FOREIGN FHL EEA",
+  "foreignFhlEea" :{
       "adjustments": {
         "privateUseAdjustment": 100.25,
         "balancingCharge": 100.25,
@@ -14,8 +12,7 @@
         "electricChargePointAllowance": 100.25
       }
     },
-    {
-      "type": "FOREIGN PROPERTY",
+  "foreignProperty":{
       "adjustments": {
         "privateUseAdjustment": 100.25,
         "balancingCharge": 100.25
@@ -29,5 +26,4 @@
         "structureAndBuildingAllowance": 100.25
       }
     }
-  ]
 }
