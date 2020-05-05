@@ -45,6 +45,7 @@
     ]
   },
   {
+    "submissionId": null,
     "fromDate": "2019-04-06" ,
     "toDate": "2020-04-05",
     "contractorName": "Taylor Wimpey",
@@ -65,7 +66,7 @@
         "deductionToDate": "2019-10-05",
         "costOfMaterials": 35.00,
         "grossAmountPaid": 1457.00,
-        "submissionDate": "2019-08-05",
+        "submissionDate": "2019-08-05,
         "submittedBy": "contractor"
       }
     ]
