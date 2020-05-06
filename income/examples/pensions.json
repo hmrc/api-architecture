@@ -1,13 +1,16 @@
 {
-  "foreignPensions":{
+  "foreignPension":[
+    {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
         "specialWitholdingTax": 22.22,
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
-      },
-   "overseasPensionContributions": {
+      }
+  ],
+   "overseasPensionContributions": [
+     {
         "customerReference" : "myref",
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
@@ -16,4 +19,5 @@
         "dblTaxationArticle": "ABC123",
         "dblTaxationTreaty": "Treaty Name"
       }
+   ]
 }

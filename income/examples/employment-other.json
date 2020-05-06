@@ -1,5 +1,5 @@
 {
-  "shareOption":
+  "shareOption": [
       {
         "employerName": "Company Ltd",
         "empRef" : "AB1321/123",
@@ -16,8 +16,9 @@
         "profitOnOptionExercised": 1232.33,
         "employersNicPaid": 2312.22,
         "taxableAmount" : 2132.22
-      },
-    "sharesAwardedOrReceived":
+      }
+  ],
+    "sharesAwardedOrReceived": [
        {
         "employerName": "Company Ltd",
         "empRef" : "AB1321/123",
@@ -33,7 +34,8 @@
         "amountPaidForSharesOnAward": 123.22,
         "marketValueAfterRestrictionsLifted": 1232.22,
         "taxableAmount": 12321.22
-       },
+       }
+    ],
   "disability":
     {
       "customerReference": "cust ref",

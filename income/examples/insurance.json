@@ -1,5 +1,5 @@
 {
-  "lifeInsurance":
+  "lifeInsurance": [
        {
         "event": "Death of spouse",
         "customerReference":"custref",
@@ -8,8 +8,9 @@
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
-      },
-  "capitalRedemption":
+      }
+  ],
+  "capitalRedemption": [
        {
         "event": "Chips Cashed In",
         "customerReference":"custref",
@@ -17,8 +18,9 @@
         "yearsHeld": 14,
         "taxPaid": 123,
         "yearsHeldSinceLastGain": 3
-      },
-  "lifeAnnuity":
+      }
+  ],
+  "lifeAnnuity": [
       {
         "event": 'event',
         "customerReference":"custref",
@@ -26,8 +28,9 @@
         "taxPaid": 44.44,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
-      },
-  "voidedIsas":
+      }
+  ],
+  "voidedIsa": [
       {
         "customerReference":"custref",
         "event": 'event',
@@ -36,12 +39,14 @@
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
         "deficiencyRelief": 0
-      },
-  "foreignPolicies":
+      }
+  ],
+  "foreign": [
       {
         "customerReference":"custref",
         "gainAmount": 532.00,
         "taxPaid": 33.00,
         "yearsHeld": 14
       }
+  ]
 }

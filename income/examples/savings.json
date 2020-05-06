@@ -5,13 +5,14 @@
         "grossAmount": 1455.0,
         "netAmount": 123.22
       },
-  "foreignInterest":   //TODO missing from IBD Swagger?
+  "foreignInterest": [
       {
         "amountBeforeTax": 1232.22,
         "countryCode": "GER",
         "taxTakenOff": 22.22,
         "specialWitholdingTax": 22.22,
         "taxableAmount": 2321.22,
-        "foreignTaxCreditRelief": true //TODO check this is correct
+        "foreignTaxCreditRelief": true
       }
+  ]
 }

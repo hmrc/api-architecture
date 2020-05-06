@@ -1,16 +1,20 @@
 {
-  "undergraduate":{
+  "undergraduate":[
+    {
     "payrollId": "123123ABC",
       "payrollId": "123123ABC",
       "employerRef": "12321/1232",
       "employerName": "Wibble Inc",
       "deductionAmount": 1322.22
-    },
-  "postgraduate":{
+    }
+  ],
+  "postgraduate":[
+    {
       "payrollId": "123123ABC",
       "employerRef": "12321/1232",
       "employerName": "Wibble Inc",
       "deductionAmount": 1322.22
-    },
+    }
+  ]
 }
 

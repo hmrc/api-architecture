@@ -1,9 +1,11 @@
 {
-    "businessReceipts":{
+    "businessReceipts":
+      {
         "grossAmount": 12321.22,
         "taxYear": "2017-18"
       },
-    "allOtherIncomeReceivedWhilstAbroad":{
+    "allOtherIncomeReceivedWhilstAbroad":[
+       {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
@@ -12,18 +14,22 @@
         "taxableAmount": 2321.22,
         "residentialFinancialCostAmount": 200.25,
         "broughtFwdResidentialFinancialCostAmount": 100.25
-      },
-    "overseasIncomeAndGains":{
+       }
+    ],
+    "overseasIncomeAndGains":
+     {
         "gainAmount" : 1232.22
-      },
-    "chargeableForeignBenefitsAndGifts":{
+     },
+    "chargeableForeignBenefitsAndGifts":
+     {
         "transactionBenefit": 100.22,
         "protectedForeignIncomeSourceBenefit": 111.22,
         "protectedForeignIncomeOnwardGift": 111.23,
         "benefitReceivedAsASettler": 111.22,
         "onwardGiftReceivedAsASettler": 111.22
-      },
-    "omittedForeignIncome":{
+     },
+    "omittedForeignIncome":
+     {
         "amount": 12321.22
-      }
+     }
 }

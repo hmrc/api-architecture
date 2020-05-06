@@ -3,36 +3,40 @@
       "customerReference": "myref",
         "amount": 1232.23
       },
-    "foreignDividend": {
+    "foreignDividend": [
+      {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
         "specialWitholdingTax": 22.22,
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
-      },
-    "dividendIncomeReceivedWhilstAbroad": {
+      }
+    ],
+    "dividendIncomeReceivedWhilstAbroad": [
+      {
         "countryCode": "GER",
         "amountBeforeTax": 1232.22,
         "taxTakenOff": 22.22,
         "specialWitholdingTax": 22.22,
         "foreignTaxCreditRelief": true,
         "taxableAmount": 2321.22
-      },
+      }
+    ],
     "stockDividend": {
         "grossAmount": 12321.22,
         "customerReference": "my divs"
       },
     "redeemableShares": {
-        "grossAmount": 12321.22,
-        "customerReference": "my shares"
-      },
-        "bonusIssuesOfSecurities": {
-        "grossAmount": 12321.22,
-        "customerReference": "my secs"
-      },
-      "closeCompanyLoansWrittenOff": {
-        "grossAmount": 12321.22,
-        "customerReference": "write off"
-      }
+      "grossAmount": 12321.22,
+      "customerReference": "my shares"
+    },
+      "bonusIssuesOfSecurities": {
+      "grossAmount": 12321.22,
+      "customerReference": "my secs"
+    },
+    "closeCompanyLoansWrittenOff": {
+      "grossAmount": 12321.22,
+      "customerReference": "write off"
+    }
 }
