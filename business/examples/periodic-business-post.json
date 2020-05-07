@@ -40,7 +40,9 @@
           },
           "foreignTaxCreditRelief": 122.22,
           "premiumsOfLeaseGrantAmount": 100.25,
-          "otherPropertyIncomeAmount": 100.25
+          "otherPropertyIncomeAmount": 100.25,
+          "foreignTaxPaidOrDeducted": 44.21,
+          "specialWitholdingTaxOrUkTaxPaid": 23.78
         },
         "expenses": {
           "premisesRunningCostsAmount": 100.25,
