@@ -1,29 +1,29 @@
 {
   "lifeInsurance": [
        {
-        "event": "Death of spouse",
-        "customerReference":"custref",
-        "gainAmount": 15422.00,
-        "taxPaid": 1542.00,
-        "yearsHeld": 14,
-        "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
-      }
+         "customerReference":"custref",
+         "event": "Death of spouse",
+         "gainAmount": 15422.00,
+         "taxPaid": 1542.00,
+         "yearsHeld": 14,
+         "yearsHeldSinceLastGain": 3,
+         "deficiencyRelief": 0
+       }
   ],
   "capitalRedemption": [
        {
-        "event": "Chips Cashed In",
-        "customerReference":"custref",
-        "gainAmount": 15422.00,
-        "yearsHeld": 14,
-        "taxPaid": 123,
-        "yearsHeldSinceLastGain": 3
-      }
+         "customerReference":"custref",
+         "event": "Chips Cashed In",
+         "gainAmount": 15422.00,
+         "yearsHeld": 14,
+         "taxPaid": 123,
+         "yearsHeldSinceLastGain": 3
+       }
   ],
   "lifeAnnuity": [
       {
-        "event": 'event',
         "customerReference":"custref",
+        "event": 'event',
         "gainAmount": 532.00,
         "taxPaid": 44.44,
         "yearsHeld": 14,
@@ -38,7 +38,6 @@
         "taxPaid": 23.22,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
       }
   ],
   "foreign": [

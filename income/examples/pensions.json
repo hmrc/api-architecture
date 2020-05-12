@@ -17,7 +17,8 @@
         "dblTaxationRelief": 4232.00,
         "dblTaxationCountryCode": "GER",
         "dblTaxationArticle": "ABC123",
-        "dblTaxationTreaty": "Treaty Name"
+        "dblTaxationTreaty": "Treaty Name",
+        "sf74reference": "SF74/123456"
       }
    ]
 }

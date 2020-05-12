@@ -2,10 +2,8 @@
 {
   "foreignFhlEea": {
     "fromDate": "2019-04-06",
-    "toDate": "2019-0706",
-    "countries": [
+    "toDate": "2019-07-06",
       {
-        "countryCode": "GER",
         "income": {
           "rentAmount": 200.22,
           "taxDeducted": 22.22
@@ -18,11 +16,8 @@
           "costOfServicesAmount": 100.25,
           "travelCostsAmount": 100.25,
           "otherAmount": 100.25,
-          "consolidatedExpenseAmount": 100.25
-          //optional replaces all other expenses
         }
       }
-    ]
   }
 }
 
@@ -54,8 +49,6 @@
           "residentialFinancialCostAmount": 200.25,
           "broughtFwdResidentialFinancialCostAmount": 100.25,
           "otherAmount": 100.25,
-          "consolidatedExpenseAmount": 100.25
-          //optional replaces all other expenses
         }
       }
     ]

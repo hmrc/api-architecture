@@ -1,16 +1,26 @@
-[
-  {
-    "foreignProperty": {
+{
+  "foreignProperty": [
+    {
       "submissionId": "12",
-      "fromDate": "2019-06-04",
-      "toDate": "2019-05-07"
-    }
-  },
-  {
-    "foreignFhlEea": {
+      "startDate": "2019-06-04",
+      "endDate": "2019-05-07"
+    },
+    {
       "submissionId": "13",
-      "fromDate": "2019-06-07",
-      "toDate": "2019-05-10"
+      "startDate": "2019-06-07",
+      "endDate": "2019-05-10"
     }
-  }
-]
+  ],
+  "foreignFhlEea": [
+    {
+      "submissionId": "10",
+      "startDate": "2019-06-04",
+      "endDate": "2019-05-07"
+    },
+    {
+      "submissionId": "11",
+      "startDate": "2019-06-07",
+      "endDate": "2019-05-10"
+    }
+  ]
+}

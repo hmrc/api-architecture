@@ -170,57 +170,52 @@ pre code {
 .required {
   color: #f00;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT API documentation <small>version 2020-05-07 14:07</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="investment"><a href="#investment">Investment</a></h3><table class="table"><thead><tr><th align="left">Investment Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">VCT Subscriptions</td><td align="left">SA101</td><td align="left">AOR Box 1</td></tr><tr><td align="left">EIS Subscriptions</td><td align="left">SA101</td><td align="left">AOR Box 2</td></tr><tr><td align="left">Community Investment</td><td align="left">SA101</td><td align="left">AOR Box 3</td></tr><tr><td align="left">Seed Enterprise Investment</td><td align="left">SA101</td><td align="left">AOR Box 10</td></tr><tr><td align="left">Social Enterprise Investment</td><td align="left">SA101</td><td align="left">AOR Box 11</td></tr></tbody></table><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Non Deductable Loan Interest</td><td align="left">SA101</td><td align="left">AOR Box 12</td></tr><tr><td align="left">Payroll Giving</td><td align="left">SA101</td><td align="left">Other Information box 6</td></tr><tr><td align="left">Qualifying Distribution Redemption Of Shares and Securities</td><td align="left">SA101</td><td align="left">AOR box 9</td></tr><tr><td align="left">Post Cessation Trade Relief and Certain Other Losses</td><td align="left">SA101</td><td align="left">AOR box 6</td></tr><tr><td align="left">Maintenance Payments</td><td align="left">SA101</td><td align="left">AOR box 7</td></tr><tr><td align="left">Annual Payments Made</td><td align="left">SA101</td><td align="left"></td></tr><tr><td align="left">Qualifying Loan Interest Payments</td><td align="left">SA101</td><td align="left"></td></tr></tbody></table><h3 id="foreign"><a href="#foreign">Foreign</a></h3><table class="table"><thead><tr><th align="left">Foreign Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Tax Credit Relief</td><td align="left">SA106</td><td align="left">Box 2</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="reliefs" class="panel-title">/reliefs</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_reliefs_investment__nino___taxyear_"><span class="parent">/reliefs/investment/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#reliefs_investment__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#reliefs_investment__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#reliefs_investment__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_reliefs_investment__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#reliefs_investment__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of Investment Reliefs</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#reliefs_investment__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update Investment Reliefs submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#reliefs_investment__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete Investment Reliefs submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="reliefs_investment__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/reliefs/investment/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Investment Reliefs</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#reliefs_investment__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="reliefs_investment__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT API documentation <small>version 2020-05-12 12:26</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="investment"><a href="#investment">Investment</a></h3><table class="table"><thead><tr><th align="left">Investment Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">VCT Subscriptions</td><td align="left">SA101</td><td align="left">AOR Box 1</td></tr><tr><td align="left">EIS Subscriptions</td><td align="left">SA101</td><td align="left">AOR Box 2</td></tr><tr><td align="left">Community Investment</td><td align="left">SA101</td><td align="left">AOR Box 3</td></tr><tr><td align="left">Seed Enterprise Investment</td><td align="left">SA101</td><td align="left">AOR Box 10</td></tr><tr><td align="left">Social Enterprise Investment</td><td align="left">SA101</td><td align="left">AOR Box 11</td></tr></tbody></table><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Non Deductable Loan Interest</td><td align="left">SA101</td><td align="left">AOR Box 12</td></tr><tr><td align="left">Payroll Giving</td><td align="left">SA101</td><td align="left">Other Information box 6</td></tr><tr><td align="left">Qualifying Distribution Redemption Of Shares and Securities</td><td align="left">SA101</td><td align="left">AOR box 9</td></tr><tr><td align="left">Post Cessation Trade Relief and Certain Other Losses</td><td align="left">SA101</td><td align="left">AOR box 6</td></tr><tr><td align="left">Maintenance Payments</td><td align="left">SA101</td><td align="left">AOR box 7</td></tr><tr><td align="left">Annual Payments Made</td><td align="left">SA101</td><td align="left"></td></tr><tr><td align="left">Qualifying Loan Interest Payments</td><td align="left">SA101</td><td align="left"></td></tr></tbody></table><h3 id="foreign"><a href="#foreign">Foreign</a></h3><table class="table"><thead><tr><th align="left">Foreign Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Tax Credit Relief</td><td align="left">SA106</td><td align="left">Box 2</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="reliefs" class="panel-title">/reliefs</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_reliefs_investment__nino___taxyear_"><span class="parent">/reliefs/investment/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#reliefs_investment__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#reliefs_investment__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#reliefs_investment__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_reliefs_investment__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#reliefs_investment__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of Investment Reliefs</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#reliefs_investment__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update Investment Reliefs submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#reliefs_investment__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete Investment Reliefs submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="reliefs_investment__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/reliefs/investment/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Investment Reliefs</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#reliefs_investment__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="reliefs_investment__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "vctSubscription":[
     {
-        "customerReference": "Cust ref",
-        "name": "VCT Fund X",
-        "knowledgeIntensive": null,
-        "uniqueInvestmentRef": null,
-        "dateOfInvestment": "2018-04-16",
-        "amountInvested": 23312.00,
-        "reliefClaimed": 1334.00
+      "uniqueInvestmentRef": null,
+      "name": "VCT Fund X",
+      "dateOfInvestment": "2018-04-16",
+      "amountInvested": 23312.00,
+      "reliefClaimed": 1334.00
       }
   ],
   "eisSubscription":[
     {
-        "customerReference": "Cust ref",
-        "name": "EIS Fund X",
-        "knowledgeIntensive": true,
-        "uniqueInvestmentRef": "XTAL",
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 23312.00,
-        "reliefClaimed": 43432.00
-      }
+      "uniqueInvestmentRef": "XTAL",
+      "name": "EIS Fund X",
+      "knowledgeIntensive": true,
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 23312.00,
+      "reliefClaimed": 43432.00
+    }
   ],
   "communityInvestment": [
     {
-        "customerReference": "Cust ref",
-        "name": "CI X",
-        "knowledgeIntensive": null,
-        "uniqueInvestmentRef": null,
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 6442.00,
-        "reliefClaimed": 2344.00
-      }
+      "uniqueInvestmentRef": null,
+      "name": "CI X",
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 6442.00,
+      "reliefClaimed": 2344.00
+    }
   ],
   "seedEnterpriseInvestment": [
     {
-        "customerReference": "Cust ref",
-        "companyName": "Company Inc",
-        "uniqueInvestmentRef": "123412/1A",
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 123123.22
-      }
+      "uniqueInvestmentRef": "123412/1A",
+      "companyName": "Company Inc",
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 123123.22,
+      "reliefClaimed": 3432.00
+    }
   ],
   "socialEnterpriseInvestment": [
     {
-        "socialEnterpriseName": "SE Inc",
-        "customerReference": "Cust ref",
-        "uniqueInvestmentRef": "123412/1A",
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 123123.22
-      }
+      "uniqueInvestmentRef": "123412/1A",
+      "socialEnterpriseName": "SE Inc",
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 123123.22,
+      "reliefClaimed": 3432.00
+    }
   ]
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
   "code": "FORMAT_STATUS"
@@ -233,54 +228,49 @@ pre code {
 }</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="reliefs_investment__nino___taxyear__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/reliefs/investment/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Investment Reliefs submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#reliefs_investment__nino___taxyear__put_request" data-toggle="tab">Request</a></li><li><a href="#reliefs_investment__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="reliefs_investment__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "vctSubscription":[
     {
-        "customerReference": "Cust ref",
-        "name": "VCT Fund X",
-        "knowledgeIntensive": null,
-        "uniqueInvestmentRef": null,
-        "dateOfInvestment": "2018-04-16",
-        "amountInvested": 23312.00,
-        "reliefClaimed": 1334.00
+      "uniqueInvestmentRef": null,
+      "name": "VCT Fund X",
+      "dateOfInvestment": "2018-04-16",
+      "amountInvested": 23312.00,
+      "reliefClaimed": 1334.00
       }
   ],
   "eisSubscription":[
     {
-        "customerReference": "Cust ref",
-        "name": "EIS Fund X",
-        "knowledgeIntensive": true,
-        "uniqueInvestmentRef": "XTAL",
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 23312.00,
-        "reliefClaimed": 43432.00
-      }
+      "uniqueInvestmentRef": "XTAL",
+      "name": "EIS Fund X",
+      "knowledgeIntensive": true,
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 23312.00,
+      "reliefClaimed": 43432.00
+    }
   ],
   "communityInvestment": [
     {
-        "customerReference": "Cust ref",
-        "name": "CI X",
-        "knowledgeIntensive": null,
-        "uniqueInvestmentRef": null,
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 6442.00,
-        "reliefClaimed": 2344.00
-      }
+      "uniqueInvestmentRef": null,
+      "name": "CI X",
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 6442.00,
+      "reliefClaimed": 2344.00
+    }
   ],
   "seedEnterpriseInvestment": [
     {
-        "customerReference": "Cust ref",
-        "companyName": "Company Inc",
-        "uniqueInvestmentRef": "123412/1A",
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 123123.22
-      }
+      "uniqueInvestmentRef": "123412/1A",
+      "companyName": "Company Inc",
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 123123.22,
+      "reliefClaimed": 3432.00
+    }
   ],
   "socialEnterpriseInvestment": [
     {
-        "socialEnterpriseName": "SE Inc",
-        "customerReference": "Cust ref",
-        "uniqueInvestmentRef": "123412/1A",
-        "dateOfInvestment": "2020-12-12",
-        "amountInvested": 123123.22
-      }
+      "uniqueInvestmentRef": "123412/1A",
+      "socialEnterpriseName": "SE Inc",
+      "dateOfInvestment": "2020-12-12",
+      "amountInvested": 123123.22,
+      "reliefClaimed": 3432.00
+    }
   ]
 }</code></pre></div></div><div class="tab-pane" id="reliefs_investment__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
   "code": "FORMAT_STATUS"

@@ -170,7 +170,7 @@ pre code {
 .required {
   color: #f00;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT API documentation <small>version 2020-05-07 14:07</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="insurance_policies"><a href="#insurance_policies">Insurance Policies</a></h3><table class="table"><thead><tr><th align="left">Insurance Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Life Insurance Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Life Annuity Contracts</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Capital Redemption Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Voided ISAs</td><td align="left">SA101</td><td align="left">AOI boxes 8 - 11</td></tr><tr><td align="left">Foreign Policies</td><td align="left">SA106</td><td align="left">boxes 43 - 45</td></tr></tbody></table><h3 id="savings"><a href="#savings">Savings</a></h3><table class="table"><thead><tr><th align="left">Savings Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">BBSI</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Securities</td><td align="left">SA101</td><td align="left">AOI boxes 1-3</td></tr><tr><td align="left">Foreign Interest</td><td align="left">SA106</td><td align="left">A- F Interest / savings</td></tr></tbody></table><h3 id="employment___other"><a href="#employment___other">Employment - Other</a></h3><table class="table"><thead><tr><th align="left">Employment - Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Share Options</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Shares Awarded or Received</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Disability</td><td align="left">SA101</td><td align="left">ASE Box 10</td></tr><tr><td align="left">Foreign Service</td><td align="left">SA101</td><td align="left">ASE box 10</td></tr></tbody></table><h3 id="foreign"><a href="#foreign">Foreign</a></h3><table class="table"><thead><tr><th align="left">Foreign Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Earnings</td><td align="left">SA101</td><td align="left">ASE Box 12</td></tr><tr><td align="left">Unremittable Foreign Income</td><td align="left">SA106</td><td align="left">box 1</td></tr></tbody></table><h3 id="dividends"><a href="#dividends">Dividends</a></h3><table class="table"><thead><tr><th align="left">Divdend Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">UK Dividends</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Foreign Dividends</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Dividend Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Stock Dividends</td><td align="left">SA101</td><td align="left">AOI Box 12</td></tr><tr><td align="left">Bonus Issue of Securities</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Redeemable Shares</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Close Company Loans Written Off</td><td align="left">SA101</td><td align="left">AOI Boxy 13.1</td></tr></tbody></table><h3 id="pensions"><a href="#pensions">Pensions</a></h3><table class="table"><thead><tr><th align="left">Pension Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Pensions</td><td align="left">SA106</td><td align="left">A - F Pensions</td></tr><tr><td align="left">Overseas Pension Contributions</td><td align="left">SA101</td><td align="left">ASE box 14</td></tr></tbody></table><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Business Receipts</td><td align="left">SA101</td><td align="left">AOI Box 14 - 15</td></tr><tr><td align="left">All Other Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Other Income</td></tr><tr><td align="left">Overseas Income and Gains</td><td align="left">SA106</td><td align="left">Box 41</td></tr><tr><td align="left">Chargeable Foreign Benefits and Gifts</td><td align="left">SA106</td><td align="left">Box 42</td></tr><tr><td align="left">Omitted Foreign Income</td><td align="left">SA106</td><td align="left">Box 46</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="income" class="panel-title">/income</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_savings__nino___taxyear_"><span class="parent">/income/savings/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#income_savings__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#income_savings__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#income_savings__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_income_savings__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_savings__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of savings income</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_savings__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update savings income submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_savings__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete savings income submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_savings__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/savings/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of savings income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#income_savings__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="income_savings__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT API documentation <small>version 2020-05-12 12:26</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="insurance_policies"><a href="#insurance_policies">Insurance Policies</a></h3><table class="table"><thead><tr><th align="left">Insurance Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Life Insurance Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Life Annuity Contracts</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Capital Redemption Policies</td><td align="left">SA101</td><td align="left">AOI boxes 4-7, 11</td></tr><tr><td align="left">Voided ISAs</td><td align="left">SA101</td><td align="left">AOI boxes 8 - 11</td></tr><tr><td align="left">Foreign Policies</td><td align="left">SA106</td><td align="left">boxes 43 - 45</td></tr></tbody></table><h3 id="savings"><a href="#savings">Savings</a></h3><table class="table"><thead><tr><th align="left">Savings Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">BBSI</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Securities</td><td align="left">SA101</td><td align="left">AOI boxes 1-3</td></tr><tr><td align="left">Foreign Interest</td><td align="left">SA106</td><td align="left">A- F Interest / savings</td></tr></tbody></table><h3 id="employment___other"><a href="#employment___other">Employment - Other</a></h3><table class="table"><thead><tr><th align="left">Employment - Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Share Options</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Shares Awarded or Received</td><td align="left">SA101</td><td align="left">ASE Box 1</td></tr><tr><td align="left">Disability</td><td align="left">SA101</td><td align="left">ASE Box 10</td></tr><tr><td align="left">Foreign Service</td><td align="left">SA101</td><td align="left">ASE box 10</td></tr></tbody></table><h3 id="foreign"><a href="#foreign">Foreign</a></h3><table class="table"><thead><tr><th align="left">Foreign Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Earnings</td><td align="left">SA101</td><td align="left">ASE Box 12</td></tr><tr><td align="left">Unremittable Foreign Income</td><td align="left">SA106</td><td align="left">box 1</td></tr></tbody></table><h3 id="dividends"><a href="#dividends">Dividends</a></h3><table class="table"><thead><tr><th align="left">Divdend Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">UK Dividends</td><td align="left">SA100</td><td align="left"></td></tr><tr><td align="left">Foreign Dividends</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Dividend Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Dividends</td></tr><tr><td align="left">Stock Dividends</td><td align="left">SA101</td><td align="left">AOI Box 12</td></tr><tr><td align="left">Bonus Issue of Securities</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Redeemable Shares</td><td align="left">SA101</td><td align="left">AOI Box 13</td></tr><tr><td align="left">Close Company Loans Written Off</td><td align="left">SA101</td><td align="left">AOI Boxy 13.1</td></tr></tbody></table><h3 id="pensions"><a href="#pensions">Pensions</a></h3><table class="table"><thead><tr><th align="left">Pension Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Foreign Pensions</td><td align="left">SA106</td><td align="left">A - F Pensions</td></tr><tr><td align="left">Overseas Pension Contributions</td><td align="left">SA101</td><td align="left">ASE box 14</td></tr></tbody></table><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Other Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Business Receipts</td><td align="left">SA101</td><td align="left">AOI Box 14 - 15</td></tr><tr><td align="left">All Other Income Received Whilst Abroad</td><td align="left">SA106</td><td align="left">A - F Other Income</td></tr><tr><td align="left">Overseas Income and Gains</td><td align="left">SA106</td><td align="left">Box 41</td></tr><tr><td align="left">Chargeable Foreign Benefits and Gifts</td><td align="left">SA106</td><td align="left">Box 42</td></tr><tr><td align="left">Omitted Foreign Income</td><td align="left">SA106</td><td align="left">Box 46</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="income" class="panel-title">/income</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_savings__nino___taxyear_"><span class="parent">/income/savings/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#income_savings__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#income_savings__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#income_savings__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_income_savings__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_savings__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of savings income</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_savings__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update savings income submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_savings__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete savings income submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_savings__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/savings/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of savings income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_savings__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#income_savings__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_savings__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="income_savings__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "securities":
       {
         "taxTakenOff": 100.0,
@@ -227,29 +227,29 @@ pre code {
 }</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_insurance_policies__nino___taxyear_"><span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#income_insurance_policies__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#income_insurance_policies__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#income_insurance_policies__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_income_insurance_policies__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_insurance_policies__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of Insurance Policies income</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_insurance_policies__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update Insurance Policies income submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_insurance_policies__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete Insurance Policies income submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_insurance_policies__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of Insurance Policies income</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#income_insurance_policies__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="income_insurance_policies__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "lifeInsurance": [
        {
-        "event": "Death of spouse",
-        "customerReference":"custref",
-        "gainAmount": 15422.00,
-        "taxPaid": 1542.00,
-        "yearsHeld": 14,
-        "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
-      }
+         "customerReference":"custref",
+         "event": "Death of spouse",
+         "gainAmount": 15422.00,
+         "taxPaid": 1542.00,
+         "yearsHeld": 14,
+         "yearsHeldSinceLastGain": 3,
+         "deficiencyRelief": 0
+       }
   ],
   "capitalRedemption": [
        {
-        "event": "Chips Cashed In",
-        "customerReference":"custref",
-        "gainAmount": 15422.00,
-        "yearsHeld": 14,
-        "taxPaid": 123,
-        "yearsHeldSinceLastGain": 3
-      }
+         "customerReference":"custref",
+         "event": "Chips Cashed In",
+         "gainAmount": 15422.00,
+         "yearsHeld": 14,
+         "taxPaid": 123,
+         "yearsHeldSinceLastGain": 3
+       }
   ],
   "lifeAnnuity": [
       {
-        "event": &#39;event&#39;,
         "customerReference":"custref",
+        "event": &#39;event&#39;,
         "gainAmount": 532.00,
         "taxPaid": 44.44,
         "yearsHeld": 14,
@@ -264,7 +264,6 @@ pre code {
         "taxPaid": 23.22,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
       }
   ],
   "foreign": [
@@ -284,29 +283,29 @@ pre code {
 }</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_insurance_policies__nino___taxyear__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income/insurance-policies/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Insurance Policies income submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_insurance_policies__nino___taxyear__put_request" data-toggle="tab">Request</a></li><li><a href="#income_insurance_policies__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_insurance_policies__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "lifeInsurance": [
        {
-        "event": "Death of spouse",
-        "customerReference":"custref",
-        "gainAmount": 15422.00,
-        "taxPaid": 1542.00,
-        "yearsHeld": 14,
-        "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
-      }
+         "customerReference":"custref",
+         "event": "Death of spouse",
+         "gainAmount": 15422.00,
+         "taxPaid": 1542.00,
+         "yearsHeld": 14,
+         "yearsHeldSinceLastGain": 3,
+         "deficiencyRelief": 0
+       }
   ],
   "capitalRedemption": [
        {
-        "event": "Chips Cashed In",
-        "customerReference":"custref",
-        "gainAmount": 15422.00,
-        "yearsHeld": 14,
-        "taxPaid": 123,
-        "yearsHeldSinceLastGain": 3
-      }
+         "customerReference":"custref",
+         "event": "Chips Cashed In",
+         "gainAmount": 15422.00,
+         "yearsHeld": 14,
+         "taxPaid": 123,
+         "yearsHeldSinceLastGain": 3
+       }
   ],
   "lifeAnnuity": [
       {
-        "event": &#39;event&#39;,
         "customerReference":"custref",
+        "event": &#39;event&#39;,
         "gainAmount": 532.00,
         "taxPaid": 44.44,
         "yearsHeld": 14,
@@ -321,7 +320,6 @@ pre code {
         "taxPaid": 23.22,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
-        "deficiencyRelief": 0
       }
   ],
   "foreign": [
@@ -617,7 +615,8 @@ pre code {
         "dblTaxationRelief": 4232.00,
         "dblTaxationCountryCode": "GER",
         "dblTaxationArticle": "ABC123",
-        "dblTaxationTreaty": "Treaty Name"
+        "dblTaxationTreaty": "Treaty Name",
+        "sf74reference": "SF74/123456"
       }
    ]
 }
@@ -646,7 +645,8 @@ pre code {
         "dblTaxationRelief": 4232.00,
         "dblTaxationCountryCode": "GER",
         "dblTaxationArticle": "ABC123",
-        "dblTaxationTreaty": "Treaty Name"
+        "dblTaxationTreaty": "Treaty Name",
+        "sf74reference": "SF74/123456"
       }
    ]
 }
