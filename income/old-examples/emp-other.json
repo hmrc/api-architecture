@@ -3,7 +3,7 @@
     {
       "type": "SHARE OPTIONS",
       "employerName": "wibble",
-      "empRef" : "AB1321/123",
+      "employerRef" : "AB1321/123",
       "schemePlanType": "Wibble",
       "dateOfOptionGrant": "2019-11-20",
       "dateOfEvent": "2019-11-20",
@@ -21,7 +21,7 @@
     {
       "type": "SHARES AWARDED OR RECEIVED",
       "employerName": "Wibble",
-      "empRef" : "AB1321/123",
+      "employerRef" : "AB1321/123",
       "schemePlanType": "Wibble",
       "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
       "noOfShareSecuritiesAwarded": 11,
@@ -57,7 +57,7 @@
     {
       "type": "SHARE OPTIONS",
       "employerName": "wibble",
-      "empRef" : "AB1321/123",
+      "employerRef" : "AB1321/123",
       "schemePlanType": "Wibble",
       "dateOfOptionGrant": "2019-11-20",
       "dateOfEvent": "2019-11-20",
@@ -77,7 +77,7 @@
   "sharesAwardedOrReceived": [
     {
       "employerName": "Wibble",
-      "empRef" : "AB1321/123",
+      "employerRef" : "AB1321/123",
       "schemePlanType": "Wibble",
       "dateSharesCeasedToBeSubjectToPlan": "2019-11-10",
       "noOfShareSecuritiesAwarded": 11,
