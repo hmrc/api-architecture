@@ -15,7 +15,7 @@
           "professionalFeesAmount": 100.25,
           "costOfServicesAmount": 100.25,
           "travelCostsAmount": 100.25,
-          "otherAmount": 100.25,
+          "otherAmount": 100.25
         }
       }
   }
@@ -24,7 +24,7 @@
 {
   "foreignProperty": {
     "fromDate": "2019-04-06",
-    "toDate": "2019-0706",
+    "toDate": "2019-07-06",
     "countries": [
       {
         "countryCode": "GER",
@@ -33,7 +33,7 @@
             "rentAmount": 100.25,
             "taxDeducted": 100.25
           },
-          "foreignTaxCreditRelief": 122.22,
+          "foreignTaxCreditRelief": true,
           "premiumsOfLeaseGrantAmount": 100.25,
           "otherPropertyIncomeAmount": 100.25,
           "foreignTaxPaidOrDeducted": 44.21,
@@ -48,7 +48,7 @@
           "costOfServicesAmount": 100.25,
           "residentialFinancialCostAmount": 200.25,
           "broughtFwdResidentialFinancialCostAmount": 100.25,
-          "otherAmount": 100.25,
+          "otherAmount": 100.25
         }
       }
     ]

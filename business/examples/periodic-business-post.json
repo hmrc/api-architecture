@@ -1,8 +1,8 @@
 {
   "foreignFhlEea":
   {
-    "dateFrom": "2019-04-06",
-    "dateTo"  : "2019-07-06"
+    "fromDate": "2019-04-06",
+    "toDate"  : "2019-07-06"
       {
         "income": {
           "rentAmount" : 200.22,
@@ -25,8 +25,8 @@
 {
   "foreignFhlEea":
   {
-    "dateFrom": "2019-04-06",
-    "dateTo"  : "2019-07-06",
+    "fromDate": "2019-04-06",
+    "toDate"  : "2019-07-06",
     "countries": [
       {
         "income": {
@@ -45,8 +45,8 @@
 {
   "foreignProperty":
   {
-    "dateFrom": "2019-04-06",
-    "dateTo"  : "2019-07-06",
+    "fromDate": "2019-04-06",
+    "toDate"  : "2019-07-06",
     "countries" : [
       {
         "countryCode": "GER",
@@ -55,7 +55,7 @@
             "rentAmount": 100.25,
             "taxDeducted": 100.25
           },
-          "foreignTaxCreditRelief": 122.22,
+          "foreignTaxCreditRelief": true,
           "premiumsOfLeaseGrantAmount": 100.25,
           "otherPropertyIncomeAmount": 100.25,
           "foreignTaxPaidOrDeducted": 44.21,
@@ -80,8 +80,8 @@
 {
   "foreignProperty":
   {
-    "dateFrom": "2019-04-06",
-    "dateTo"  : "2019-07-06",
+    "fromDate": "2019-04-06",
+    "toDate"  : "2019-07-06",
     "countries" : [
       {
         "countryCode": "GER",
@@ -90,7 +90,7 @@
             "rentAmount": 100.25,
             "taxDeducted": 100.25
           },
-          "foreignTaxCreditRelief": 122.22,
+          "foreignTaxCreditRelief": true,
           "premiumsOfLeaseGrantAmount": 100.25,
           "otherPropertyIncomeAmount": 100.25,
           "foreignTaxPaidOrDeducted": 44.21,

@@ -17,7 +17,8 @@
          "gainAmount": 15422.00,
          "yearsHeld": 14,
          "taxPaid": 123,
-         "yearsHeldSinceLastGain": 3
+         "yearsHeldSinceLastGain": 3,
+         "deficiencyRelief": 0
        }
   ],
   "lifeAnnuity": [
@@ -28,6 +29,7 @@
         "taxPaid": 44.44,
         "yearsHeld": 14,
         "yearsHeldSinceLastGain": 3,
+        "deficiencyRelief": 0
       }
   ],
   "voidedIsa": [
@@ -37,7 +39,7 @@
         "gainAmount": 532.00,
         "taxPaid": 23.22,
         "yearsHeld": 14,
-        "yearsHeldSinceLastGain": 3,
+        "yearsHeldSinceLastGain": 3
       }
   ],
   "foreign": [

@@ -15,10 +15,10 @@
         "exemptEmployersPensionContribs": 689.00,
         "migrantMemReliefQopsRefNo": "ER3223423",
         "dblTaxationRelief": 4232.00,
-        "dblTaxationCountryCode": "GER",
+        "dblTaxationCountry": "ESP",
         "dblTaxationArticle": "ABC123",
         "dblTaxationTreaty": "Treaty Name",
-        "sf74reference": "SF74/123456"
+        "sf74Reference": "SF74/123456"
       }
    ]
 }

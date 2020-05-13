@@ -6,7 +6,7 @@
         "schemePlanType": "Wibble",
         "dateOfOptionGrant": "2019-11-20",
         "dateOfEvent": "2019-11-20",
-        "optionNotExercisedButConsiderationReceived": "??",
+        "optionNotExercisedButConsiderationReceived": true,
         "amountOfConsiderationReceived": 23122.22,
         "noOfSharesAcquired": 1,
         "classOfSharesAcquired": "FIRST",

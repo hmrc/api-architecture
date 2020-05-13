@@ -28,7 +28,7 @@
         "rentAmount": 100.25,
         "taxDeducted": 100.25
        },
-        "foreignTaxCreditRelief": 122.22,
+        "foreignTaxCreditRelief": true,
         "premiumsOfLeaseGrantAmount": 100.25,
         "otherPropertyIncomeAmount": 100.25,
         "foreignTaxPaidOrDeducted": 44.21,
