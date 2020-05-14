@@ -24,19 +24,19 @@
       }
     ],
     "stockDividend": {
-        "grossAmount": 12321.22,
-        "customerReference": "my divs"
+      "customerReference": "my divs",
+      "grossAmount": 12321.22
       },
     "redeemableShares": {
-      "grossAmount": 12321.22,
-      "customerReference": "my shares"
+      "customerReference": "my shares",
+      "grossAmount": 12321.22
     },
       "bonusIssuesOfSecurities": {
-      "grossAmount": 12321.22,
-      "customerReference": "my secs"
+        "customerReference": "my secs",
+        "grossAmount": 12321.22
     },
     "closeCompanyLoansWrittenOff": {
-      "grossAmount": 12321.22,
-      "customerReference": "write off"
+      "customerReference": "write off",
+      "grossAmount": 12321.22
     }
 }

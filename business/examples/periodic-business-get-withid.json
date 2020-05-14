@@ -1,9 +1,7 @@
-
 {
+  "fromDate": "2019-04-06",
+  "toDate": "2019-07-06",
   "foreignFhlEea": {
-    "fromDate": "2019-04-06",
-    "toDate": "2019-07-06",
-      {
         "income": {
           "rentAmount": 200.22,
           "taxDeducted": 22.22
@@ -17,15 +15,8 @@
           "travelCostsAmount": 100.25,
           "otherAmount": 100.25
         }
-      }
-  }
-}
-
-{
-  "foreignProperty": {
-    "fromDate": "2019-04-06",
-    "toDate": "2019-07-06",
-    "countries": [
+      },
+  "foreignProperty": [
       {
         "countryCode": "GER",
         "income": {
@@ -52,5 +43,5 @@
         }
       }
     ]
-  }
 }
+

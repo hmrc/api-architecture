@@ -1,6 +1,6 @@
+// Detailed expenses example
 {
-  "foreignFhlEea":
-  {
+  "foreignFhlEea": {
     "income": {
       "rentAmount": 200.22,
       "taxDeducted": 22.22
@@ -14,38 +14,64 @@
       "travelCostsAmount": 100.25,
       "otherAmount": 100.25
     }
-  }
-}
-
-
-{
+  },
   "foreignProperty": [
-  {
-    "countryCode": "FRA",
-    "income":
-      {
-      "rentIncome": {
-        "rentAmount": 100.25,
-        "taxDeducted": 100.25
-       },
+    {
+      "countryCode": "GER",
+      "income": {
+        "rentIncome": {
+          "rentAmount": 100.25,
+          "taxDeducted": 100.25
+        },
         "foreignTaxCreditRelief": true,
         "premiumsOfLeaseGrantAmount": 100.25,
         "otherPropertyIncomeAmount": 100.25,
         "foreignTaxPaidOrDeducted": 44.21,
         "specialWitholdingTaxOrUkTaxPaid": 23.78
       },
-    "expenses":
-     {
-       "premisesRunningCostsAmount": 100.25,
-       "repairsAndMaintenanceAmount": 100.25 ,
-       "financialCostsAmount": 200.25,
-       "professionalFeesAmount": 100.25,
-       "travelCostsAmount": 100.25,
-       "costOfServicesAmount": 100.25,
-       "residentialFinancialCostAmount": 200.25,
-       "broughtFwdResidentialFinancialCostAmount": 100.25,
-       "otherAmount": 100.25
-     }
+      "expenses": {
+        "premisesRunningCostsAmount": 100.25,
+        "repairsAndMaintenanceAmount": 100.25 ,
+        "financialCostsAmount": 200.25,
+        "professionalFeesAmount": 100.25,
+        "travelCostsAmount": 100.25,
+        "costOfServicesAmount": 100.25,
+        "residentialFinancialCostAmount": 200.25,
+        "broughtFwdResidentialFinancialCostAmount": 100.25,
+        "otherAmount": 100.25
+      }
+    }
+  ]
+}
+
+// Consoldated expenses example
+{
+  "foreignFhlEea": {
+    "income": {
+      "rentAmount": 200.22,
+      "taxDeducted": 22.22
+    },
+    "expenses": {
+      "consolidatedExpenseAmount": 1000.25
+    }
+  },
+  "foreignProperty": [
+    {
+      "countryCode": "GER",
+      "income": {
+        "rentIncome": {
+          "rentAmount": 100.25,
+          "taxDeducted": 100.25
+        },
+        "foreignTaxCreditRelief": true,
+        "premiumsOfLeaseGrantAmount": 100.25,
+        "otherPropertyIncomeAmount": 100.25,
+        "foreignTaxPaidOrDeducted": 44.21,
+        "specialWitholdingTaxOrUkTaxPaid": 23.78
+      },
+      "expenses": {
+        "consolidatedExpenseAmount": 1000.25
+      }
     }
   ]
 }

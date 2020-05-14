@@ -1,26 +1,14 @@
-{
-  "foreignProperty": [
-    {
+[
+  {
+    "foreignProperty": {
       "submissionId": "4557ecb5-fd32-48cc-81f5-e6acd1099f3c",
       "fromDate": "2019-06-04",
       "toDate": "2019-05-07"
     },
-    {
-      "submissionId": "5457ecb5-fd32-48cc-81f5-e6acd1099f3c",
-      "fromDate": "2019-06-07",
-      "toDate": "2019-05-10"
-    }
-  ],
-  "foreignFhlEea": [
-    {
-      "submissionId": "4557ecb5-fd32-48cc-81f5-e6acd1099f3c",
-      "fromDate": "2019-06-04",
-      "toDate": "2019-05-07"
-    },
-    {
+    "foreignFhlEea": {
       "submissionId": "4557ecb5-fd32-46cc-81f5-e6acd1099f3c",
       "fromDate": "2019-06-07",
       "toDate": "2019-05-10"
     }
-  ]
-}
+  }
+]

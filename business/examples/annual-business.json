@@ -13,7 +13,7 @@
       }
     },
   "foreignProperty": [
-    {
+     {
       "countryCode": "GER",
       "adjustments": {
         "privateUseAdjustment": 100.25,

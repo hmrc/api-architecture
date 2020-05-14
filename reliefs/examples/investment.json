@@ -1,7 +1,7 @@
 {
   "vctSubscription":[
     {
-      "uniqueInvestmentRef": null,
+      "uniqueInvestmentRef": "VCTREF",
       "name": "VCT Fund X",
       "dateOfInvestment": "2018-04-16",
       "amountInvested": 23312.00,
@@ -20,7 +20,7 @@
   ],
   "communityInvestment": [
     {
-      "uniqueInvestmentRef": null,
+      "uniqueInvestmentRef": "CIREF",
       "name": "CI X",
       "dateOfInvestment": "2020-12-12",
       "amountInvested": 6442.00,
