@@ -1,7 +1,7 @@
 #%RAML 1.0
 title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-14 09:04
+version: 2020-05-14 13:10
 documentation:
   - title: Expenses
     content: |
@@ -37,7 +37,7 @@ uses:
             200:
               body:
                 application/json:
-                  example: !include examples/expenses.json.json
+                  example: !include examples/expenses.json
         put:
           displayName: Create/update other expenses submission
           description: Create/update other expenses submission

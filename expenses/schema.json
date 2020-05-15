@@ -1,0 +1,156 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/employment_override_response",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title" : "Employment Override Response Schema",
+  "type" : "object",
+  "additionalProperties": false,
+  "required": [ "submissionAcceptedDate", "employments"],
+  "examples": [
+    {
+      "submissionAcceptedDate" : "2020-05-14T13:18:08Z",
+      "employments":[
+        {
+          "employer":{
+            "ern":"123/AX12342"
+          },
+          "pay":204.22
+        }
+      ]
+    },
+    {
+      "submissionAcceptedDate" : "2020-05-14T13:18:08Z",
+      "employments":[
+        {
+          "employer": {
+            "ern": "123/AX12335",
+            "name": "Wibble Inc",
+            "closeCompany": false
+          },
+          "pay": 204.22,
+          "taxDeducted": 122.22,
+          "payrollId": "Ab12312",
+          "tipsAndOtherPayments": 123.22,
+          "companyDirector": true,
+          "directorshipCeasedDate": "2020-01-01"
+        }
+      ]
+    },
+    {
+      "submissionAcceptedDate" : "2020-05-14T13:18:08Z",
+      "employments":[
+        {
+          "employer": {
+            "ern": "123/AX12345",
+            "closeCompany": true
+          },
+          "pay": 204.22,
+          "taxDeducted": 122.22,
+          "payrollId": "Ab12312",
+          "tipsAndOtherPayments": 123.22,
+          "companyDirector": true,
+          "directorshipCeasedDate": "2020-01-01"
+        },
+        {
+          "employer":{
+            "ern":"123/AX12344",
+            "name": "Freds Haulage"
+          },
+          "pay":204.22
+        }
+      ]
+    }
+
+  ],
+  "properties": {
+    "submissionAcceptedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 compliant timestamp, relating to when the submission was accepted by HMRC"
+    },
+    "employments": {
+      "$ref": "#employments"
+    }
+  },
+  "definitions" : {
+    "employerReference" : {
+      "$id" : "#employerReference",
+      "description" : "Definition of an ERN",
+      "type" : "string",
+      "pattern" : "^([0-9]{3})/([A-Z]{1,2}([0-9]{5}))$"
+    },
+    "moneyPositive" : {
+      "$id" : "#moneyPositive",
+      "description" : "Definition of a positive money value",
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "minimum" : 0,
+      "maximum" : 99999999.99
+    },
+    "freeFormString" : {
+      "$id" : "#freeFormString",
+      "description" : "Definition of a free form string such as an employer name",
+      "type" : "string",
+      "maxLength" : 75
+    },
+    "employer" : {
+      "$id" : "#employer",
+      "type" : "object",
+      "description" : "Object describing an employer",
+      "required" : [
+        "ern"
+      ],
+      "additionalProperties" : false,
+      "properties" : {
+        "ern" : {
+          "$ref" : "#employerReference"
+        },
+        "name" : {
+          "$ref" : "#freeFormString"
+        },
+        "closeCompany" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "employment": {
+      "$id": "#employment",
+      "type": "object",
+      "description": "An object representing an employment",
+      "minProperties": 2,
+      "required": ["employer"],
+      "additionalProperties": false,
+      "properties": {
+        "employer": {
+          "$ref": "#employer"
+        },
+        "pay": {
+          "$ref": "#moneyPositive"
+        },
+        "taxDeducted" : {
+          "$ref" : "#moneyPositive"
+        },
+        "payrollId" : {
+          "$ref" : "#freeFormString"
+        },
+        "tipsAndOtherPayments" : {
+          "$ref" : "#moneyPositive"
+        },
+        "companyDirector" : {
+          "type" : "boolean"
+        },
+        "directorshipCeasedDate" : {
+          "type" : "string",
+          "format" : "date"
+        }
+      }
+    },
+    "employments": {
+      "$id": "#employments",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#employment"
+      }
+    }
+  }
+}
