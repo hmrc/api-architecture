@@ -28,7 +28,7 @@
 | #	| Type       	| Parameter Name	| Description	| Type |	Format	| M/O	| Min | Max	| Validation	|Comments |
 |---|---------------|---|---|---|---|---|---|---|---|---|
 | I1 |Path Parameter	| Nino	    | National Insurance number, in the format AA999999A. For example: TC663795B	| String |	\^((?!(BG\|GB\|KN\|NK\|NT\|TN\|ZZ)\|(D\|F\|I\|Q\|U\|V)\[A-Z\]\|\[A-Z\](D\|F\|I\|O\|Q\|U\|V))\[A-Z\]{2})\[0-9\]{6}\[A-D\] | M	| 	|   |  	| See BVRs E1	|  |
-| I2| Path Parameter    | Tax Year  |The tax year the submission relates to (YYYY-YY for example 2019-20 for the 19/20 tax year). For example: 2017-18 | Date in the format YYYY-YY |\^[0-9]{4}-[0-9]{2}$|M|---|---|---|---|
+| I2| Path Parameter    | Tax Year  |The tax year the submission relates to (YYYY-YY for example 2019-20 for the 19/20 tax year). For example: 2017-18 | Date in the format YYYY-YY |\^[0-9]{4}-[0-9]{2}$|M| | | | |
 		
 
 
