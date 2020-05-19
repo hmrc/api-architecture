@@ -1,9 +1,10 @@
 {
-    "businessReceipts":
+    "businessReceipts": [
       {
         "grossAmount": 12321.22,
         "taxYear": "2017-18"
-      },
+      }
+    ],
     "allOtherIncomeReceivedWhilstAbroad":[
        {
         "countryCode": "GER",

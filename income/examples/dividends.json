@@ -1,8 +1,4 @@
 {
-    "ukDividend": {
-      "customerReference": "myref",
-        "amount": 1232.23
-      },
     "foreignDividend": [
       {
         "countryCode": "GER",

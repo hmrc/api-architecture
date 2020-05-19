@@ -1,0 +1,458 @@
+<h1 id="requirement-specification-amend-savings-income">Requirement Specification: Amend savings income</h1>
+<h2 id="references">References</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th style="text-align: left;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: left;"><a href="https://drive.google.com/drive/folders/1pdOum0Oqh-hMckdh0bYcTy6xcjmQKdYb">Follow link to Additional information work package</a></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: left;"><a href="https://confluence.tools.tax.service.gov.uk/display/MTE/3rd+Party+HTTP+Error+Response+Standards">3rd Party HTTP Error Response Standards</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="api-summary">API Summary</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Endpoint</td>
+<td>Amend savings income</td>
+</tr>
+<tr class="even">
+<td>Method</td>
+<td>PUT</td>
+</tr>
+<tr class="odd">
+<td>URI</td>
+<td>/income/savings/{nino}/{taxYear}</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td>This endpoint allows a developer to provide or amend savings income for securities or foreign interest. A National Insurance number and tax year must be provided.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="business-requirements">Business Requirements</h2>
+<h3 id="request-details">Request Details</h3>
+<h4 id="vendor-supplied-request-path-query-parameters">(Vendor Supplied) Request Path / Query Parameters</h4>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 33%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Type</th>
+<th>Parameter Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Format</th>
+<th>M/O</th>
+<th>Min</th>
+<th>Max</th>
+<th>Validation</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I1</td>
+<td>Path Parameter</td>
+<td>Nino</td>
+<td>National Insurance number, in the format AA999999A. For example: TC663795B</td>
+<td>String</td>
+<td>^((?!(BG|GB|KN|NK|NT|TN|ZZ)|(D|F|I|Q|U|V)[A-Z]|[A-Z](D|F|I|O|Q|U|V))[A-Z]{2})[0-9]{6}[A-D]</td>
+<td>M</td>
+<td></td>
+<td></td>
+<td></td>
+<td>See BVRs E1</td>
+</tr>
+<tr class="even">
+<td>I2</td>
+<td>Path Parameter</td>
+<td>Tax Year</td>
+<td>The tax year the submission relates to (YYYY-YY for example 2019-20 for the 19/20 tax year). For example: 2017-18</td>
+<td>Date in the format YYYY-YY</td>
+<td>^[0-9]{4}-[0-9]{2}$</td>
+<td>M</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vendor-supplied-request-body">(Vendor Supplied) Request Body</h4>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th style="text-align: left;">Field Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Type</th>
+<th>Format</th>
+<th>M/O</th>
+<th>Min</th>
+<th>Max</th>
+<th style="text-align: left;">Validation</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I3</td>
+<td style="text-align: left;">securitiesItems</td>
+<td style="text-align: left;">The container that holds the key value for securities</td>
+<td style="text-align: left;">Object</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I3.1</td>
+<td style="text-align: left;">taxTakenOff</td>
+<td style="text-align: left;">The amount of tax deducted from Gilt Edge interest. The value must be between 0 and 99999999999.99 up to 2 decimal places. For example: 5000.99</td>
+<td style="text-align: left;">Number</td>
+<td>(2dp) &gt;=0.00</td>
+<td>O</td>
+<td>0.00</td>
+<td>99999999999.99</td>
+<td style="text-align: left;">FORMAT_VALUE</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I3.2</td>
+<td style="text-align: left;">grossAmount</td>
+<td style="text-align: left;">The gross amount of Gilt Edge interest including tax deducted. The value must be between 0 and 99999999999.99 up to 2 decimal places.For example: 5000.99</td>
+<td style="text-align: left;">Number</td>
+<td>(2dp) &gt;= 0.00</td>
+<td>O</td>
+<td>0.00</td>
+<td>99999999999.99</td>
+<td style="text-align: left;">FORMAT_VALUE</td>
+<td>if there is an entry in “taxTakenOf” then “grossAmount” is mandatory If the interest did not have tax taken off, put this amount in “grossAmount”. Do not fill in boxes “taxTakenOff”</td>
+</tr>
+<tr class="even">
+<td>I3.3</td>
+<td style="text-align: left;">netAmount</td>
+<td style="text-align: left;">The amount of Gilt Edge interest after tax has been deducted. The value must be between 0 and 99999999999.99 up to 2 decimal places. For example: 5000.99</td>
+<td style="text-align: left;">Number</td>
+<td>(2dp) &gt;= 0.00</td>
+<td>O</td>
+<td>0.00</td>
+<td>9999999999.99 FORMAT_VALUE</td>
+<td style="text-align: left;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I4</td>
+<td style="text-align: left;">foreignInterestItems</td>
+<td style="text-align: left;">Financial details about foreign interest income</td>
+<td style="text-align: left;">Array</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I4.1</td>
+<td style="text-align: left;">foreignInterest</td>
+<td style="text-align: left;">he container that holds the key value for foreign interest</td>
+<td style="text-align: left;">Object</td>
+<td>O</td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I4.2</td>
+<td style="text-align: left;">amountBeforeTax</td>
+<td style="text-align: left;">The total amount of income, in UK pounds, before any foreign tax has been deducted. The value must be between 0 and 99999999999.99 up to 2 decimal places. For example: 5000.99</td>
+<td style="text-align: left;">Number</td>
+<td>(2dp) &gt;= 0.00</td>
+<td>O</td>
+<td>0.00</td>
+<td>99999999999.99</td>
+<td style="text-align: left;">FORMAT_VALUE</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I4.3</td>
+<td style="text-align: left;">countryCode</td>
+<td style="text-align: left;">A three-letter code that represents a country name. The value must in a ISO 3166-1 Alpha-3 format. For example: FRA</td>
+<td style="text-align: left;">String</td>
+<td>ISO 3166-1 alpha-3</td>
+<td>M</td>
+<td>^[A-Z]{3}$</td>
+<td>FORMAT_COUNTRY_CODE</td>
+<td style="text-align: left;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I4.4</td>
+<td style="text-align: left;">taxTakenOff</td>
+<td style="text-align: left;">The total amount of foreign tax taken off your income. The value must be greater than 0 and up to 99999999999.99. For example: 5000.99</td>
+<td style="text-align: left;">Number</td>
+<td>(2dp) &gt; 0.00</td>
+<td>O</td>
+<td>1</td>
+<td>99999999999.99</td>
+<td style="text-align: left;">FORMAT_VALUE</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I4.5</td>
+<td style="text-align: left;">specialWithholdingTax</td>
+<td style="text-align: left;">The total amount of income (in UK pounds) before deducting any Special Withholding Tax (SWT). The value must be between 1 and 99999999999.99 up to 2 decimal places. For example: 5000.99</td>
+<td style="text-align: left;">Number</td>
+<td>(2dp) &gt; 0.00</td>
+<td>O</td>
+<td>1</td>
+<td>99999999999.99</td>
+<td style="text-align: left;">FORMAT_VALUE</td>
+<td>Casey Price the below probably can go in the service guide - its more explanatory. I think the description works as it is? Reword this information Special Withholding Tax Where SWT is deducted you’re treated as having paid, in the year of deduction, an equivalent amount of Income Tax in the UK. This can be set against your UK tax liability of that year, including the remittance basis charge, or repaid to you if the amount exceeds that liability.6 Apr 2020</td>
+</tr>
+<tr class="odd">
+<td>I4.6</td>
+<td style="text-align: left;">taxableAmount</td>
+<td style="text-align: left;">The total taxable amount on dividends. The value must be between 0 and 99999999999.99 up to 2 decimal places. For example: 5000.99</td>
+<td style="text-align: left;">Number</td>
+<td>(2dp) &gt;= 0.00</td>
+<td>O</td>
+<td>0.00</td>
+<td>99999999999.99</td>
+<td style="text-align: left;">FORMAT_VALUE</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I4.7</td>
+<td style="text-align: left;">foreignTaxCreditRelief</td>
+<td style="text-align: left;">A boolean indicating whether foreign tax credit relief has been claimed. The value must be true or false For example: false</td>
+<td style="text-align: left;">Boolean</td>
+<td>true | false</td>
+<td>O</td>
+<td>Covered by the RULE_INCORRECT_OR_EMPTY_BODY_SUBMITTED scenario. Should only be thrown when a .format is called against the body</td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returned-to-vendor-response-body">(Returned to Vendor) Response Body</h4>
+<p>N/A</p>
+<h4 id="returned-to-vendor-response-hateoas-links">(Returned to Vendor) Response HATEOAS Links</h4>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th style="text-align: left;">Endpoints that should be linked to</th>
+<th style="text-align: left;">Rules for the Links being present</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L1</td>
+<td style="text-align: left;">See <insert_link></td>
+<td style="text-align: left;">The links should be present for successful response</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returned-to-vendor-response-headers">(Returned to Vendor) Response Headers</h4>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 13%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th style="text-align: left;">Header Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Type</th>
+<th>Format</th>
+<th>Required</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>H1</td>
+<td style="text-align: left;">X-CorrelationId</td>
+<td style="text-align: left;">Unique ID for operation tracking String, 36 characters. Format: ^[A-Za-z0-9-]{36}$ For example: a1e8057e-fbbc-47a8-a8b4-78d9f015c253</td>
+<td style="text-align: left;">String</td>
+<td>^[A-Za-z0-9-]{36}$</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="error-details">Error Details</h4>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 2%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 37%" />
+<col style="width: 11%" />
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th style="text-align: left;">HTTP Status Code</th>
+<th style="text-align: left;">Error Code</th>
+<th style="text-align: left;">Documentation Scenario</th>
+<th>Error Message</th>
+<th>Paths</th>
+<th style="text-align: center;">Frontend</th>
+<th style="text-align: center;">Backend</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E1</td>
+<td style="text-align: left;">400 (Bad Request)</td>
+<td style="text-align: left;">FORMAT_NINO</td>
+<td style="text-align: left;">The format of the supplied NINO field is not valid</td>
+<td>The provided NINO is invalid</td>
+<td></td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr class="even">
+<td>E2</td>
+<td style="text-align: left;">400 (Bad Request)</td>
+<td style="text-align: left;">FORMAT_TAX_YEAR</td>
+<td style="text-align: left;">The tax year is not a valid date</td>
+<td>The format of the supplied tax year is not valid</td>
+<td></td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr class="odd">
+<td>E3</td>
+<td style="text-align: left;">400 (Bad Request)</td>
+<td style="text-align: left;">RULE_ TAX_YEAR_NOT_SUPPORTED</td>
+<td style="text-align: left;">The supplied tax year could not be found</td>
+<td>The provided tax year is invalid</td>
+<td></td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr class="even">
+<td>E4</td>
+<td style="text-align: left;">400 (Bad Request)</td>
+<td style="text-align: left;">FORMAT_VALUE</td>
+<td style="text-align: left;">One or more values have been added with the incorrect format</td>
+<td></td>
+<td>include paths to failing fields (see example below)</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr class="odd">
+<td>E5</td>
+<td style="text-align: left;">400 (Bad Request)</td>
+<td style="text-align: left;">FORMAT_COUNTRY_CODE</td>
+<td style="text-align: left;">The provided country code is not valid</td>
+<td>The provided country code is not valid</td>
+<td></td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Y</td>
+</tr>
+<tr class="even">
+<td>E6</td>
+<td style="text-align: left;">400 (Bad Request)</td>
+<td style="text-align: left;">RULE_INCORRECT_OR_EMPTY_BODY_SUBMITTED</td>
+<td style="text-align: left;">An empty or non-matching body was submitted</td>
+<td>An empty or non-matching body was submitted</td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>E7</td>
+<td style="text-align: left;">404 (Not Found)</td>
+<td style="text-align: left;">MATCHING_RESOURCE_NOT_FOUND</td>
+<td style="text-align: left;">The supplied income source could not be found Matching resource not found</td>
+<td></td>
+<td>Y</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>E8</td>
+<td style="text-align: left;">403 (Forbidden)</td>
+<td style="text-align: left;">CLIENT_OR_AGENT_NOT_AUTHORISED</td>
+<td style="text-align: left;">The client or agent is not authorised. This because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf</td>
+<td>The client or agent is not authorised</td>
+<td></td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Y</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://confluence.tools.tax.service.gov.uk/pages/viewpage.action?pageId=101667731">Common technical errors (Error Scenarios)</a> applied across all 3rd party APIs.</p>
+<p><strong>Example multi-field validation error</strong></p>
+<pre><code>{
+  &quot;code&quot;: &quot;INVALID_REQUEST&quot;,
+  &quot;message&quot;: &quot;Invalid request&quot;,
+  &quot;errors&quot;: [
+    {
+     &quot;code&quot;: &quot;FORMAT_VALUE&quot;,
+     &quot;message&quot;: &quot;The field should be a positive value greater than 0 and no greater than 99999999999.99&quot;,
+     &quot;paths&quot;: [&quot;securities/grossAmount&quot;, &quot;securities/taxAmount&quot;]
+    },
+    {
+     &quot;code&quot;: &quot;FORMAT_VALUE&quot;,
+     &quot;message&quot;: &quot;The field should be between 0 and 99999999999.99&quot;,
+     &quot;paths&quot;: [&quot;securitiesItems/0/amountBeforeTax&quot;, &quot;securitiesItems/1/amountBeforeTax&quot;]
+     },
+  ]}</code></pre>
