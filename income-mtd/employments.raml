@@ -1,0 +1,78 @@
+    /{nino}:
+      uriParameters:
+        nino: types.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  types.TaxYear
+        get:
+          displayName: List of Employments income
+          description: List of Employments income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/employments-get-list.json
+        /{employmentId}:
+          uriParameters:
+            employmentId:  types.EmploymentId
+          get:
+            displayName: Employment income detail
+            description: Employment income detail
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    type: !include schemas/employments-get-detail-sch.json
+                    examples:
+                      example-1:
+                        description: Default Example
+                        value: !include examples/employments-get-detail.json
+          put:
+            displayName: Create/update Employment income submission
+            description: Create/update Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              200:
+            body:
+              application/json:
+                type: !include schemas/employments-put-detail-sch.json
+                example: !include examples/employments-put-detail.json
+          delete:
+            displayName: Delete Employment income submission
+            description: Delete Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              204:
+    /other:
+      /{nino}:
+        uriParameters:
+          nino: types.Nino
+        /{taxYear}:
+          uriParameters:
+            taxYear:  types.TaxYear
+          get:
+            displayName: List of Other Employments income
+            description: List of Other Employments income
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/Other employments-other.json
+          put:
+            displayName: Create/update Other Employments income submission
+            description: Create/update Other Employments income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              200:
+            body:
+              application/json:
+                example: !include examples/Other employments-other.json
+          delete:
+            displayName: Delete Other Employments income submission
+            description: Delete Other Employments income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              204:

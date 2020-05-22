@@ -1,0 +1,195 @@
+#%RAML 1.0
+title: DRAFT
+baseUri: https://api.service.hmrc.gov.uk
+version: 2020-05-19 15:04
+documentation:
+  - title: Insurance Policies
+    content: !include docs/insurance-policies.md
+  - title: Savings
+    content: !include docs/savings.md
+  - title: Employments - Other
+    content: !include docs/employments-other.md
+  - title: Foreign
+    content: !include docs/foreign.md
+  - title: Dividends
+    content: !include docs/dividends.md
+  - title: Pensions
+    content: !include docs/pensions.md
+  - title: Other
+    content: !include docs/other.md
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/income:
+  /savings:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of savings income
+          description: List of savings income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/savings.json
+        put:
+          displayName: Create/update savings income submission
+          description: Create/update savings income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/savings.json
+        delete:
+          displayName: Delete savings income submission
+          description: Delete savings income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /insurance-policies:
+    /{nino}:
+      uriParameters:
+          nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of Insurance Policies income
+          description: List of Insurance Policies income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/insurance.json
+        put:
+          displayName: Create/update Insurance Policies income submission
+          description: Create/update Insurance Policies income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/insurance.json
+        delete:
+          displayName: Delete Insurance Policies income submission
+          description: Delete Insurance Policies income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /employment:
+    /other:
+      /{nino}:
+        uriParameters:
+            nino: baseTypes.Nino
+        /{taxYear}:
+          uriParameters:
+            taxYear:  baseTypes.TaxYear
+          get:
+            displayName: List of Other Employment income
+            description: List of Other Employment income
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/employment-other.json
+          put:
+            displayName: Create/update Other Employment income submission
+            description: Create/update Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+            responses:
+              200:
+            body:
+              application/json:
+                example: !include examples/employment-other.json
+          delete:
+            displayName: Delete Other Employment income submission
+            description: Delete Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              204:
+  /foreign:
+    /{nino}:
+      uriParameters:
+          nino: baseTypes.Nino
+
+  /dividends:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of dividends income
+          description: List of dividends income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/dividends.json
+        put:
+          displayName: Create/update dividends income submission
+          description: Create/update dividends income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/dividends.json
+        delete:
+          displayName: Delete dividends income submission
+          description: Delete dividends income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /pensions:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of pensions income
+          description: List of pensions income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/pensions.json
+        put:
+          displayName: Create/update pensions income submission
+          description: Create/update pensions income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/pensions.json
+        delete:
+          displayName: Delete pensions income submission
+          description: Delete pensions income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /other:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+

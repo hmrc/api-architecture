@@ -1,0 +1,38 @@
+{
+    "foreignDividend": [
+      {
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      }
+    ],
+    "dividendIncomeReceivedWhilstAbroad": [
+      {
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      }
+    ],
+    "stockDividend": {
+      "customerReference": "my divs",
+      "grossAmount": 12321.22
+      },
+    "redeemableShares": {
+      "customerReference": "my shares",
+      "grossAmount": 12321.22
+    },
+      "bonusIssuesOfSecurities": {
+        "customerReference": "my secs",
+        "grossAmount": 12321.22
+    },
+    "closeCompanyLoansWrittenOff": {
+      "customerReference": "write off",
+      "grossAmount": 12321.22
+    }
+}

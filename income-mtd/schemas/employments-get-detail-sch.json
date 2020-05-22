@@ -1,0 +1,186 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Employment_Response",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title" : "Get Employment Response",
+  "type": "object",
+  "additionalProperties": false,
+  "minProperties": 5,
+  "required": [
+    "employer",
+    "employment",
+    "submittedOn",
+    "source"
+  ],
+  "properties": {
+    "submittedOn": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["CUSTOMER", "EMPLOYER"]
+    },
+    "employer": {
+      "$ref": "#/definitions/employer"
+    },
+    "employment": {
+      "$ref": "#/definitions/employment"
+    },
+    "pay": {
+      "$ref": "#/definitions/pay"
+    },
+    "deductions": {
+      "$ref": "#/definitions/deductions"
+    },
+    "benefits": {
+      "$ref": "#/definitions/benefits"
+    },
+    "expenses": {
+      "$ref": "#/definitions/expenses"
+    }
+  },
+  "definitions": {
+    "employerRef": {
+      "id": "#employerRef",
+      "type": "string",
+      "pattern": "^([0-9]{3})\/([^ ].{0,10})$"
+    },
+    "employerName": {
+      "id": "#employerName",
+      "type": "string",
+      "pattern": "^.{0,74}$"
+    },
+    "moneyPositive" : {
+      "$id" : "#moneyPositive",
+      "description" : "Definition of a positive money value",
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "minimum" : 0,
+      "maximum" : 99999999.99
+    },
+    "payrollId": {
+      "id": "#payrollId",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9]{0,74}$"
+    },
+    "employer": {
+      "id" : "#employer",
+      "type": "object",
+      "properties": {
+        "employerRef": { "$ref":  "#/definitions/employerRef"},
+        "employerName": { "$ref":  "#/definitions/employerName"}
+      },
+      "additionalProperties": false,
+      "required": [ "employerName", "employerRef"]
+    },
+    "employment": {
+      "id" : "#employment",
+      "type": "object",
+      "properties": {
+        "payrollId": { "$ref": "#/definitions/payrollId"},
+        "companyDirector": { "type":  "boolean"},
+        "closeCompany": { "type":  "boolean"},
+        "directorshipCeaseDate": { "type":  "string", "format": "date"}
+      },
+      "additionalProperties": false,
+      "required": [],
+      "minProperties": 1
+    },
+    "pay": {
+      "id": "#pay",
+      "type": "object",
+      "properties": {
+        "grossAmountPaidYtd": {"$ref": "#/definitions/moneyPositive"},
+        "taxTakenOffYtd": {"$ref": "#/definitions/moneyPositive"},
+        "tipsAndOtherPayments": {"$ref": "#/definitions/moneyPositive"},
+        "payFrequency": {"type":  "string", "enum": ["MONTHLY", "WEEKLY", "ANNUALLY"]},
+        "occupationalPension" : { "type": "boolean" },
+        "paymentDate": {
+          "type":  "string",
+          "format": "date"
+        },
+        "taxWeekNo": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 52
+        },
+        "taxMonthNo":{
+          "type": "number",
+          "minimum": 1,
+          "maximum": 13
+        }
+      },
+      "additionalProperties": false,
+      "required": [],
+      "minProperties": 1
+    },
+    "studentLoans": {
+      "id": "#studentLoans",
+      "type": "object",
+      "properties": {
+        "uglDeductionAmount": { "$ref": "#moneyPositive"},
+        "pglDeductionAmount": { "$ref": "#moneyPositive"}
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
+    "deductions": {
+      "id": "#deductions",
+      "type": "object",
+      "properties": {
+        "studentLoans": { "$ref": "#/definitions/studentLoans" }
+      },
+      "additionalProperties": false,
+      "minProperties": 1,
+      "required": []
+    },
+    "benefits": {
+      "id": "#benefits",
+      "type": "object",
+      "properties": {
+        "companyCarsAndVans": {
+          "$ref": "#moneyPositive"
+        },
+        "fuelForCompanyCarsAndVans": {
+          "$ref": "#moneyPositive"
+        },
+        "privateMedicalAndDentalInsurance": {
+          "$ref": "#moneyPositive"
+        },
+        "vouchersCreditCardsAndExcessMileageAllowance": {
+          "$ref": "#moneyPositive"
+        },
+        "goodsAndOtherAssetsProvidedByEmployer": {
+          "$ref": "#moneyPositive"
+        },
+        "accommodationProvidedByYourEmployer": {
+          "$ref": "#moneyPositive"
+        },
+        "otherBenefits": {
+          "$ref": "#moneyPositive"
+        },
+        "expensesPaymentsReceivedAndBalancingCharges": {
+          "$ref": "#moneyPositive"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1,
+      "required": []
+    },
+    "expenses": {
+      "id": "#expenses",
+      "type": "object",
+      "properties": {
+        "businessTravelCosts": { "$ref": "#moneyPositive"},
+        "professionalFees": { "$ref": "#moneyPositive"},
+        "fixedRate": { "$ref": "#moneyPositive"},
+        "otherAndCapitalAllowances": { "$ref": "#moneyPositive"}
+      },
+      "additionalProperties": false,
+      "minProperties": 1,
+      "required": []
+    }
+
+
+  }
+}
