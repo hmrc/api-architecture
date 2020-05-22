@@ -29,16 +29,6 @@
       "pglDeductionAmount": 1232.22
     }
   },
-  "expenses": {
-    "businessTravelCosts": 122.22,   // TBC
-    "jobExpenses": 124.22,
-    "flatRateJobExpenses": 124.22,
-    "professionalSubscriptions": 124.22,
-    "hotelAndMealExpenses": 124.22,
-    "otherAndCapitalAllowances": 123.12,
-    "vehicleExpenses": 124.22,
-    "mileageAllowanceRelief": 124.22
-  },
   "benefits": {
     "accommodation": 124.22,
     "assets": 124.22,
