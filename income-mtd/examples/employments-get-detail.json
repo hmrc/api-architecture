@@ -79,20 +79,22 @@
       "taxTakenOff": 123.00
     }
   ],
-  "lumpSums": [
-    "pensionLumpSum": [
+  "lumpSums": {
+     "compensationAndLumpSumsUpto30kExemption": 123.00,
+     "compensationAndLumpSumsAbove30kExemption": 123.00,
+     "pensionLumpSums": [
       {
         "payeTaxReferenceOfLumpSumProvider": "123/XX12345",
         "taxableLumpSumTreatedAsPension": 123.00,
         "taxTakenOff": 123.00
       }
     ],
-    "taxableLumpSumAfterTheEndofJob": [
+    "taxableLumpSumsAfterTheEndofJob": [
       {
-      "payeTaxReferenceOfLumpSumProvider": "123/XX12345",
-      "grossAmountPaid": 123.00,
-      "taxTakenOff": 123.00,
-      "taxIncludedInEmploymentIncome": true
+        "payeTaxReferenceOfLumpSumProvider": "123/XX12345",
+        "grossAmountPaid": 123.00,
+        "taxTakenOff": 123.00,
+        "taxIncludedInEmploymentIncome": true
       }
     ],
     "EmployerFinancedRetirementBenefitsScheme": [
@@ -112,20 +114,16 @@
         "taxIncludedInEmploymentIncome": true
       }
     ],
-    "compensationAndLumpSumsUpto30kexemption":
-    {
-      "grossAmountPaid": 123.00
-    },
-    "compensationAndLumpSumsAbove30kexemption":
-    {
-      "grossAmountPaid":
-    }
+  {
+  "ignoreEmployment": true
+  }
+]
 }
 
 // # 44 Foreign tax for which tax credit relief not claimed ??
 // # 35-36 Class 2 and Class 4 National Insurance Contributions (NICs) - no class 2 details
-// Expenses - check for employment before submitting; include employment expenses in /expenses API?, cumulative/YTD totals?
-
+//
+Expenses - check for employment before submitting; include employment expenses in /expenses API?, cumulative/YTD totals?
 
 
 
