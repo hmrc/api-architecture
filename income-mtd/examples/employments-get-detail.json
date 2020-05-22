@@ -1,6 +1,7 @@
 {
   "submittedOn": "2019-04-04T01:01:01Z",
   "source": "CUSTOMER",
+  "dateIgnored": "2020-01-01T01:01:01Z",
   "employer": {
     "employerRef": "123/XX12345",
     "employerName": "Company Ltd"

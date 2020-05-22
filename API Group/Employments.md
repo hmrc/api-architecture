@@ -3,7 +3,7 @@
 ## Decisions
 
 | Ref  | Decision                                                     | Rationale                                                    |
-| :--: | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| :---: | :----------------------------------------------------------- | :----------------------------------------------------------- |
 |  1   | Customers will need to access each employment individually   | Overrides are considered a replacement, this would mean that either the customer would need to submit all fields across all employments even if they were only changing one field this will create a poor customer journey |
 |  2   | Each employment will be assigned a ITSD specific (unique) reference | Historic problems with encoding employer references drives us to avoid using it with payroll id as the unique identifier, therefore when an employment is created in the sub domain a unique id will be assigned to it |
 |  3   | Customers will need to list their employments first via a GET API | As a consequence of decision 1 we will need to allow customers to retrieve their Ids before they can interact at employment level. |
@@ -19,7 +19,7 @@
 ## Issues
 
 | Ref  | Description                                                  | Assigned To                             | Resolution                                                   |
-| :--: | :----------------------------------------------------------- | :-------------------------------------- | :----------------------------------------------------------- |
+| :---: | :----------------------------------------------------------- | :-------------------------------------- | :----------------------------------------------------------- |
 |  1   | If we allow a customer to create an employment via their 3pp do we create an inconsistent view of employments, does the ISS need to be informed etc. | Heidi Griffiths                         |                                                              |
 |  2   | How does a customer "delete" a pre-pop employment if they don't believe its valid | Group                                   | Customer will be able to submit an ignore override for the tax year. They cannot delete an RTI employment. |
 |  3   | Student Loans can be updated via 3pp and Student Loans service. Student loans service will only provide the updated deduction not the whole employment how is this being managed from a technical perspective | Ashleigh Carr, Jon Elliott, Tim Simpson |                                                              |
