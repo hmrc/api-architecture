@@ -13,3 +13,4 @@ JSONSchema.NetJSONSchema.Net
 JSON Schema Generator
 
 https://jsonschema.net/
+K
