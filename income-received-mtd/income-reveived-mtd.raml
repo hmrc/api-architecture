@@ -122,6 +122,15 @@ uses:
                   body:
                     application/json:
                       example: !include examples/employments-get-detail.json
+            put:
+              displayName: Update an Employment
+              description: Update an Employment
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/employments-put-detail.json
         /custom:
           post:
             displayName: Create a new custom Employment
