@@ -1,0 +1,103 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/View_Employments",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "View Customer Employments",
+  "description": "View a list of employments associated with the customer, the list may contain employments that the customer has added via their third party software, these are clearly marked.",
+  "type": "object",
+  "required": [ "employments"],
+  "additionalProperties": false,
+  "properties": {
+    "employments": {
+      "description": "A list of employment objects",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/employment"
+      },
+      "additionalItems": false,
+      "minItems": 1
+    }
+  },
+  "definitions": {
+    "employmentId": {
+      "id": "#employmentId",
+      "description": "Unique identifier of the employment",
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "format": "uuid"
+    },
+    "employerRef": {
+      "description": "The unique reference for the employer",
+      "id": "#employerRef",
+      "type": "string",
+      "pattern": "^([0-9]{3})/([^ ].{0,10})$"
+    },
+    "employerName": {
+      "description": "The name of the employer",
+      "id": "#employerName",
+      "type": "string",
+      "pattern": "^.{0,74}$"
+    },
+    "payrollId": {
+      "description": "Unique identifier of the employment within the employer",
+      "id": "#payrollId",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9]{0,74}$"
+    },
+    "employment": {
+      "description": "An object representing an employment",
+      "id": "#employment",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "employmentId",
+        "employerName",
+        "employerRef"
+      ],
+      "properties": {
+        "employmentId": {
+          "$ref": "#/definitions/employmentId"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "payrollId": {
+          "$ref": "#/definitions/payrollId"
+        },
+        "customerAdded": {
+          "const": true
+        },
+        "dateIgnored": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "employments": [
+        {
+          "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+          "employerName" : "Wibble Inc",
+          "employerRef"  : "123/XX12345",
+          "customerAdded": true
+        },
+        {
+          "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84473",
+          "employerName" : "Wibble Inc",
+          "employerRef"  : "123/XX12345",
+          "payrollId"    : "12344323434323"
+        },
+        {
+          "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84474",
+          "employerName" : "The Galactic Empire",
+          "employerRef"  : "123/XX12346",
+          "dateIgnored"  : "2020-01-01T01:01:01Z"
+        }
+      ]
+    }
+  ]
+}

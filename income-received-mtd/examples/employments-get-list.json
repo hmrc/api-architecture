@@ -1,0 +1,22 @@
+{
+  "employments": [
+    {
+      "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName" : "ACME Inc",
+      "employerRef"  : "123/XX12345",
+      "customerAdded": true
+    },
+    {
+      "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84473",
+      "employerName" : "ACME Inc",
+      "employerRef"  : "123/XX12345",
+      "payrollId"    : "12344323434323"
+    },
+    {
+      "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84474",
+      "employerName" : "The Galactic Empire",
+      "employerRef"  : "123/XX12346",
+      "dateIgnored"  : "2020-01-01T01:01:01Z"
+    }
+  ]
+}
