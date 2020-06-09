@@ -1,78 +1,104 @@
     /{nino}:
       uriParameters:
-        nino: types.Nino
+          nino: baseTypes.Nino
       /{taxYear}:
         uriParameters:
-          taxYear:  types.TaxYear
+          taxYear:  baseTypes.TaxYear
         get:
-          displayName: List of Employments income
-          description: List of Employments income
+          displayName: List of active employments for the tax year
+          description: List of active employments for the tax year
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
               body:
                 application/json:
                   example: !include examples/employments-get-list.json
-        /{employmentId}:
-          uriParameters:
-            employmentId:  types.EmploymentId
-          get:
-            displayName: Employment income detail
-            description: Employment income detail
+          /{employmentId}:
+            uriParameters:
+              employmentId:  baseTypes.EmploymentId
+            get:
+              displayName: Get Employment detail
+              description: Get Employment detail
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+              queryParameters:
+                view:
+                  displayName: Specify the type of view that you want to see, either HMRC, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+                  description: Specify the type of view that you want to see, either HMRC, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+                  example: LATEST
+                  required: false
+              responses:
+                200:
+                  body:
+                    application/json:
+                      example: !include examples/employments-get-detail.json
+            put:
+              displayName: Update an Employment
+              description: Update an Employment
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/employments-put-detail.json
+        /custom:
+          post:
+            displayName: Create a new custom Employment
+            description: Create a new custom Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             responses:
               200:
                 body:
                   application/json:
-                    type: !include schemas/employments-get-detail-sch.json
-                    examples:
-                      example-1:
-                        description: Default Example
-                        value: !include examples/employments-get-detail.json
-          put:
-            displayName: Create/update Employment income submission
-            description: Create/update Employment income submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-            responses:
-              200:
+                    example: !include examples/employments-custom-post-resp.json
             body:
               application/json:
-                type: !include schemas/employments-put-detail-sch.json
-                example: !include examples/employments-put-detail.json
-          delete:
-            displayName: Delete Employment income submission
-            description: Delete Employment income submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-            responses:
-              204:
+                example: !include examples/employments-custom-post.json
+          /{employmentId}:
+            uriParameters:
+              employmentId:  baseTypes.EmploymentId
+            put:
+              displayName: Create/update a custom Employment
+              description: Create/update a custom Employment
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/employments-custom-put.json
+            delete:
+              displayName: Delete a custom Employment
+              description: Delete a custom Employment
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+              responses:
+                204:
     /other:
       /{nino}:
         uriParameters:
-          nino: types.Nino
+            nino: baseTypes.Nino
         /{taxYear}:
           uriParameters:
-            taxYear:  types.TaxYear
+            taxYear:  baseTypes.TaxYear
           get:
-            displayName: List of Other Employments income
-            description: List of Other Employments income
+            displayName: List of Other Employment income
+            description: List of Other Employment income
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             responses:
               200:
                 body:
                   application/json:
-                    example: !include examples/Other employments-other.json
+                    example: !include examples/employments-other.json
           put:
-            displayName: Create/update Other Employments income submission
-            description: Create/update Other Employments income submission
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            displayName: Create/update Other Employment income submission
+            description: Create/update Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             responses:
               200:
             body:
               application/json:
-                example: !include examples/Other employments-other.json
+                example: !include examples/employments-other.json
           delete:
-            displayName: Delete Other Employments income submission
-            description: Delete Other Employments income submission
+            displayName: Delete Other Employment income submission
+            description: Delete Other Employment income submission
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             responses:
               204:
