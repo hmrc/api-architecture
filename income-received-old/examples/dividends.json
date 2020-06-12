@@ -34,14 +34,5 @@
     "closeCompanyLoansWrittenOff": {
       "customerReference": "write off",
       "grossAmount": 12321.22
-    },
-//  Refactored from existing SA Monolith /self-assessment/ni/{nino}/dividends/{taxYear}
-//  START:
-    "ukDividends": {
-      "grossAmount": 1000.50
-    },
-    "otherUkDividends" {
-      "grossAmount": 2000.35
     }
-//  END
 }

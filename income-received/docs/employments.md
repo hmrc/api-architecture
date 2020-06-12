@@ -1,7 +1,7 @@
 | Employments                     | Source | Boxes      |
 |:--------------------------------|:-------|:-----------|
-| Employment                      |  SA102 |            |
-| Expenses                      |  SA102 |            |
-| Benefits                      |  SA102 |            |
+| Pay                    |  SA102 |            |
+| Lump sums                   |  SA102 |            |
+| Benefits (in kind)                    |  SA102 |            |
 | Deductions                      |  SA102 |            |
 

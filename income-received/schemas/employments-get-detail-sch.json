@@ -7,9 +7,6 @@
   "oneOf": [
     {
       "$ref": "#/definitions/employmentView"
-    },
-    {
-      "$ref": "#/definitions/employmentViewHistory"
     }
   ],
   "definitions": {
@@ -31,7 +28,7 @@
         "payrollId": {
           "id": "#payrollId",
           "type": "string",
-          "pattern": "^[a-zA-Z0-9]{0,74}$"
+          "pattern": "^[a-zA-Z0-9]{0,35}$"
         },
         "companyDirector": {
           "type": "boolean"
@@ -60,7 +57,7 @@
         "employer": {
           "type": "object",
           "additionalProperties": false,
-          "required": [ "employerName" ],
+          "required": [ "employerRef" ],
           "properties": {
             "employerRef": {
               "type": "string",
@@ -77,6 +74,8 @@
           "oneOf": [
             {
               "required": [
+                "taxablePayToDate",
+                "totalTaxToDate",
                 "payFrequency",
                 "paymentDate",
                 "taxWeekNo"
@@ -89,6 +88,8 @@
             },
             {
               "required": [
+                "taxablePayToDate",
+                "totalTaxToDate",
                 "payFrequency",
                 "paymentDate",
                 "taxMonthNo"
@@ -105,7 +106,10 @@
               "$ref": "#/definitions/moneyPositive"
             },
             "totalTaxToDate": {
-              "$ref": "#/definitions/moneyPositive"
+              "type":"number",
+              "minimum" : -999999999.99,
+              "maximum" : 999999999.99,
+              "multipleOf": 0.01,
             },
             "tipsAndOtherPayments": {
               "$ref": "#/definitions/moneyPositive"
@@ -229,7 +233,7 @@
             }
           }
         },
-        "benefits": {
+        "benefitsInKind": {
           "type": "object",
           "additionalProperties": false,
           "minProperties": 1,
@@ -483,193 +487,6 @@
         },
         "employment": {
           "$ref": "#/definitions/employment"
-        }
-      }
-    },
-    "employmentViewHistory": {
-      "type" : "object",
-      "oneOf": [
-        {
-          "allOf":[
-            {
-              "not": {
-                "required":["source"]
-              }
-            },
-            {
-              "not": {
-                "required": [
-                  "customerAdded"
-                ]
-              }
-            },
-            {
-              "not": {
-                "required": [
-                  "dateIgnored"
-                ]
-              }
-            },
-            {
-              "required": [
-                "submittedOn",
-                "employment",
-                "history"
-              ]
-            }
-          ]
-        },
-        {
-          "allOf":[
-            {
-              "not": {
-                "required":["source"]
-              }
-            },
-            {
-              "not": {
-                "required": [
-                  "customerAdded"
-                ]
-              }
-            },
-            {
-              "required": [
-                "submittedOn",
-                "employment",
-                "dateIgnored",
-                "history"
-              ]
-            }
-          ]
-        },
-        {
-          "allOf":[
-            {
-              "not": {
-                "required":["source"]
-              }
-            },
-            {
-              "not": {
-                "required": [
-                  "dateIgnored"
-                ]
-              }
-            },
-            {
-              "required": [
-                "submittedOn",
-                "employment",
-                "customerAdded",
-                "history"
-              ]
-            }
-          ]
-        },
-        {
-          "allOf": [
-            {
-              "not": {
-                "required": [
-                  "customerAdded"
-                ]
-              }
-            },
-            {
-              "not": {
-                "required": [
-                  "dateIgnored"
-                ]
-              }
-            },
-            {
-              "required": [
-                "submittedOn",
-                "source",
-                "employment",
-                "history"
-              ]
-            }
-          ]
-        },
-        {
-          "allOf": [
-            {
-              "not": {
-                "required" : ["customerAdded"]
-              }
-            },
-            {
-              "required": [
-                "submittedOn",
-                "source",
-                "employment",
-                "dateIgnored",
-                "history"
-              ]
-            }
-          ]
-        },
-        {
-          "allOf": [
-            {
-              "not": {
-                "required" : ["dateIgnored"]
-              }
-            },
-            {
-              "required": [
-                "submittedOn",
-                "source",
-                "employment",
-                "customerAdded",
-                "history"
-              ]
-            }
-          ]
-        }
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "source": {
-          "type" : "string",
-          "enum": ["CUSTOMER", "HMRC HELD"]
-        },
-        "submittedOn": {
-          "type" : "string",
-          "format" : "date-time"
-        },
-        "customerAdded": {
-          "type" : "string",
-          "format" : "date-time"
-        },
-        "dateIgnored": {
-          "type" : "string",
-          "format" : "date-time"
-        },
-        "deletedOn": {
-          "type" : "string",
-          "format" : "date-time"
-        },
-        "employment": {
-          "$ref" : "#/definitions/employment"
-        },
-        "history": {
-          "type" : "array",
-          "additionalItems": false,
-          "items": {
-            "properties": {
-              "submittedOn": {
-                "type" : "string",
-                "format" : "date-time"
-              },
-              "employment": {
-                "$ref" : "#/definitions/employment"
-              },
-              "additionalProperties": false
-            }
-          }
         }
       }
     }

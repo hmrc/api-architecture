@@ -1,22 +1,22 @@
 {
   "submittedOn": "2019-04-04T01:01:01Z",
-  "dateIgnored": "2019-04-04T01:01:01Z",
+  "source": "CUSTOMER",
   "employment": {
     "payrollId": "124432423423",
     "companyDirector": false,
     "closeCompany": false,
     "directorshipCeasedDate": "2020-01-01",
     "startDate": "2019-01-01",
-    "dateEmploymentEnded": "2020-01-01",
-    "occPen": false,
+    "cessationDate": "2020-01-01",
+    "occupationalPension": false,
     "disguisedRemuneration": false,
     "employer": {
       "employerRef": "123/XX12345",
       "employerName": "wibble"
     },
     "pay": {
-      "taxablePayToDate": 1234.15,
-      "totalTaxToDate": 12.22,
+      "grossAmountPaidYtd": 1234.15,
+      "taxTakenOffYtd": 12.22,
       "tipsAndOtherPayments": 10000,
       "payFrequency": "CALENDAR MONTHLY",
       "paymentDate": "2020-05-12",
@@ -49,7 +49,7 @@
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
