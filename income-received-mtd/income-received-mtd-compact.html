@@ -242,20 +242,95 @@ pre code {
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_employments__nino___taxyear_"><span class="parent">/income-received/employments/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#income_received_employments__nino___taxyear__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_income_received_employments__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_employments__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of active employments for the tax year</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income-received/employments/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of active employments for the tax year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_employments__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_employments__nino___taxyear_"><span class="parent">/income-received/employments/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#income_received_employments__nino___taxyear__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_income_received_employments__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_employments__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of active employments for the tax year</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income-received/employments/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of active employments for the tax year</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_employments__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/View_Employments",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "View Customer Employments",
+  "description": "View a list of employments associated with the customer, the list may contain employments that the customer has added via their third party software, these are clearly marked.",
+  "type": "object",
+  "required": [ "employments"],
+  "additionalProperties": false,
+  "properties": {
+    "employments": {
+      "description": "A list of employment objects",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/employment"
+      },
+      "additionalItems": false,
+      "minItems": 1
+    }
+  },
+  "definitions": {
+    "employmentId": {
+      "id": "#employmentId",
+      "description": "Unique identifier of the employment",
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "format": "uuid"
+    },
+    "employerRef": {
+      "description": "The unique reference for the employer",
+      "id": "#employerRef",
+      "type": "string",
+      "pattern": "^([0-9]{3})/([^ ].{0,10})$"
+    },
+    "employerName": {
+      "description": "The name of the employer",
+      "id": "#employerName",
+      "type": "string",
+      "pattern": "^.{0,74}$"
+    },
+    "payrollId": {
+      "description": "Unique identifier of the employment within the employer",
+      "id": "#payrollId",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9]{0,74}$"
+    },
+    "employment": {
+      "description": "An object representing an employment",
+      "id": "#employment",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "employmentId",
+        "employerName",
+        "employerRef"
+      ],
+      "properties": {
+        "employmentId": {
+          "$ref": "#/definitions/employmentId"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "payrollId": {
+          "$ref": "#/definitions/payrollId"
+        },
+        "customerAdded": {
+          "const": true
+        },
+        "dateIgnored": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}</code></pre><p><strong>Examples</strong>:</p><div class="examples"><p><strong>example-1</strong>:<br>A customer added employment</p><pre><code>{
   "employments": [
     {
       "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
       "employerName" : "ACME Inc",
       "employerRef"  : "123/XX12345",
       "customerAdded": true
-    },
-    {
-      "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84473",
-      "employerName" : "ACME Inc",
-      "employerRef"  : "123/XX12345",
-      "payrollId"    : "12344323434323"
-    },
+    }
+  ]
+}</code></pre><p><strong>example-2</strong>:<br>A pre-populated employment</p><pre><code>Can not resolve examples/employments-get-list-prepop.json</code></pre><p><strong>example-3</strong>:<br>An ignored employment</p><pre><code>{
+  "employments": [
     {
       "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84474",
       "employerName" : "The Galactic Empire",
@@ -269,13 +344,1042 @@ pre code {
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_employments__nino___taxyear__custom"><span class="parent">/income-received/employments/{nino}/{taxYear}</span>/custom</a> <span class="methods"><a href="#income_received_employments__nino___taxyear__custom_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_income_received_employments__nino___taxyear__custom" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_employments__nino___taxyear__custom_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new custom Employment</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear__custom_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/income-received/employments/{nino}/{taxYear}</span>/custom</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new custom Employment</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear__custom_post_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear__custom_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear__custom_post_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_employments__nino___taxyear___employmentid_"><span class="parent">/income-received/employments/{nino}/{taxYear}</span>/{employmentId}</a> <span class="methods"><a href="#income_received_employments__nino___taxyear___employmentid__get"><span class="badge badge_get">get</span></a> <a href="#income_received_employments__nino___taxyear___employmentid__put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel_income_received_employments__nino___taxyear___employmentid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_employments__nino___taxyear___employmentid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get Employment detail</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_received_employments__nino___taxyear___employmentid__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update an Employment</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear___employmentid__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income-received/employments/{nino}/{taxYear}</span>/{employmentId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get Employment detail</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear___employmentid__get_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear___employmentid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear___employmentid__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li><li><strong>employmentId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the Employment</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>1234-1234-1234-1234</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>view</strong>: <em>(string)</em><p>Specify the type of view that you want to see, either HMRC, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>LATEST</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_employments__nino___taxyear___employmentid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Employment_Response",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get Employment Response",
+  "description": "A view of the low level details of a customers employment, this view is created by blending data from various sources based on set of precedence rules.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "viewDetails",
+    "employment"
+  ],
+  "properties": {
+    "viewDetails": {
+      "$ref": "#/definitions/viewDetails"
+    },
+    "employment": {
+      "$ref": "#/definitions/employment"
+    }
+  },
+  "definitions": {
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "description": "Definition of a positive money value",
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0,
+      "maximum": 99999999.99
+    },
+    "viewDetails": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "viewType"
+      ],
+      "minProperties": 2,
+      "properties": {
+        "viewType": {
+          "type": "string",
+          "enum": [
+            "HMRC",
+            "CUSTOMER",
+            "LATEST"
+          ]
+        },
+        "lastHMRCChangeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "customerOverrideDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "employment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startDate"
+      ],
+      "properties": {
+        "payrollId": {
+          "id": "#payrollId",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{0,74}$"
+        },
+        "companyDirector": {
+          "type": "boolean"
+        },
+        "closeCompany": {
+          "type": "boolean"
+        },
+        "directorshipCeasedDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "cessationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "occupationalPension": {
+          "type": "boolean"
+        },
+        "disguisedRemuneration": {
+          "type": "boolean"
+        },
+        "dateIgnored": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "employerRef"
+          ],
+          "properties": {
+            "employerRef": {
+              "type": "string",
+              "pattern": "^([0-9]{3})/([^ ].{0,10})$"
+            },
+            "employerName": {
+              "type": "string",
+              "pattern": "^.{0,74}$"
+            }
+          }
+        },
+        "pay": {
+          "type": "object",
+          "additionalProperties": false,
+          "oneOf": [
+            {
+              "required": [
+                "payFrequency",
+                "paymentDate",
+                "taxWeekNo"
+              ],
+              "not": {
+                "required": [
+                  "taxMonthNo"
+                ]
+              }
+            },
+            {
+              "required": [
+                "payFrequency",
+                "paymentDate",
+                "taxMonthNo"
+              ],
+              "not": {
+                "required": [
+                  "taxWeekNo"
+                ]
+              }
+            }
+          ],
+          "properties": {
+            "grossAmountPaidYtd": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxTakenOffYtd": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "tipsAndOtherPayments": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "payFrequency": {
+              "type": "string",
+              "enum": [
+                "WEEKLY",
+                "FORTNIGHTLY",
+                "FOUR WEEKLY",
+                "CALENDAR MONTHLY",
+                "QUARTERLY",
+                "BI-ANNUALLY",
+                "ONE-OFF",
+                "IRREGULAR",
+                "ANNUALLY"
+              ]
+            },
+            "paymentDate": {
+              "type": "string",
+              "format": "date"
+            },
+            "taxWeekNo": {
+              "type": "number",
+              "minimum": 1,
+              "maxumum": 52
+            },
+            "taxMonthNo": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 13
+            }
+          }
+        },
+        "lumpSums": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "taxableLumpSumsAndCertainIncome": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "$ref": "#moneyPositive"
+                },
+                "taxPaid": {
+                  "$ref": "#moneyPositive"
+                },
+                "taxTakenOffInEmployment": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1,
+              "required": []
+            },
+            "benefitFromEmployerFinancedRetirementScheme": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "$ref": "#moneyPositive"
+                },
+                "exemptAmount": {
+                  "$ref": "#moneyPositive"
+                },
+                "taxPaid": {
+                  "$ref": "#moneyPositive"
+                },
+                "taxTakenOffInEmployment": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1
+            },
+            "redundancyCompensationPaymentsOverExemption": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "$ref": "#moneyPositive"
+                },
+                "taxPaid": {
+                  "$ref": "#moneyPositive"
+                },
+                "taxTakenOffInEmployment": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1
+            },
+            "redundancyCompensationPaymentsUnderExemption": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "$ref": "#moneyPositive"
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1
+            }
+          }
+        },
+        "deductions": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "studentLoans": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "uglDeductionAmount": {
+                  "$ref": "#moneyPositive"
+                },
+                "pglDeductionAmount": {
+                  "$ref": "#moneyPositive"
+                }
+              }
+            }
+          }
+        },
+        "benefits": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "accommodation": {
+              "$ref": "#moneyPositive"
+            },
+            "assets": {
+              "$ref": "#moneyPositive"
+            },
+            "assetTransfer": {
+              "$ref": "#moneyPositive"
+            },
+            "beneficialLoan": {
+              "$ref": "#moneyPositive"
+            },
+            "car": {
+              "$ref": "#moneyPositive"
+            },
+            "carFuel": {
+              "$ref": "#moneyPositive"
+            },
+            "educationalServices": {
+              "$ref": "#moneyPositive"
+            },
+            "entertaining": {
+              "$ref": "#moneyPositive"
+            },
+            "expenses": {
+              "$ref": "#moneyPositive"
+            },
+            "medicalInsurance": {
+              "$ref": "#moneyPositive"
+            },
+            "telephone": {
+              "$ref": "#moneyPositive"
+            },
+            "service": {
+              "$ref": "#moneyPositive"
+            },
+            "taxableExpenses": {
+              "$ref": "#moneyPositive"
+            },
+            "van": {
+              "$ref": "#moneyPositive"
+            },
+            "vanFuel": {
+              "$ref": "#moneyPositive"
+            },
+            "mileage": {
+              "$ref": "#moneyPositive"
+            },
+            "nonQualifyingRelocationExpenses": {
+              "$ref": "#moneyPositive"
+            },
+            "nurseryPlaces": {
+              "$ref": "#moneyPositive"
+            },
+            "otherItems": {
+              "$ref": "#moneyPositive"
+            },
+            "paymentsOnEmployeesBehalf": {
+              "$ref": "#moneyPositive"
+            },
+            "personalIncidentalExpenses": {
+              "$ref": "#moneyPositive"
+            },
+            "qualifyingRelocationExpenses": {
+              "$ref": "#moneyPositive"
+            },
+            "employerProvidedProfessionalSubscriptions": {
+              "$ref": "#moneyPositive"
+            },
+            "employerProvidedServices": {
+              "$ref": "#moneyPositive"
+            },
+            "incomeTaxPaidByDirector": {
+              "$ref": "#moneyPositive"
+            },
+            "travelAndSubsistence": {
+              "$ref": "#moneyPositive"
+            },
+            "vouchersAndCreditCards": {
+              "$ref": "#moneyPositive"
+            },
+            "nonCash": {
+              "$ref": "#moneyPositive"
+            }
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "viewDetails": {
+        "viewType": "LATEST",
+        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
+        "customerOverrideDate": "2019-04-04T01:01:01Z"
+      },
+      "employment": {
+        "payrollId": "124432423423",
+        "companyDirector": false,
+        "closeCompany": false,
+        "directorshipCeasedDate": "2020-01-01",
+        "startDate": "2019-01-01",
+        "cessationDate": "2020-01-01",
+        "occupationalPension": false,
+        "disguisedRemuneration": false,
+        "employer": {
+          "employerRef": "123/XX12345",
+          "employerName": "wibble"
+        },
+        "pay": {
+          "grossAmountPaidYtd": 1234.15,
+          "taxTakenOffYtd": 12.22,
+          "tipsAndOtherPayments": 10000.0,
+          "payFrequency": "CALENDAR MONTHLY",
+          "paymentDate": "2020-05-12",
+          "taxWeekNo": 52
+        },
+        "lumpSums": {
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        },
+        "deductions": {
+          "studentLoans": {
+            "uglDeductionAmount": 1232.22,
+            "pglDeductionAmount": 1232.22
+          }
+        },
+        "benefits": {
+          "accommodation": 124.22,
+          "assets": 124.22,
+          "assetTransfer": 124.22,
+          "beneficialLoan": 124.22,
+          "car": 124.22,
+          "carFuel": 124.22,
+          "educationalServices": 124.22,
+          "entertaining": 124.22,
+          "expenses": 124.22,
+          "medicalInsurance": 124.22,
+          "telephone": 124.22,
+          "service": 124.22,
+          "taxableExpenses": 124.22,
+          "van": 124.22,
+          "vanFuel": 124.22,
+          "mileage": 124.22,
+          "nonQualifyingRelocationExpenses": 124.22,
+          "nurseryPlaces": 124.22,
+          "otherItems": 124.22,
+          "paymentsOnEmployeesBehalf": 124.22,
+          "personalIncidentalExpenses": 124.22,
+          "qualifyingRelocationExpenses": 124.22,
+          "employerProvidedProfessionalSubscriptions": 124.22,
+          "employerProvidedServices": 124.22,
+          "incomeTaxPaidByDirector": 124.22,
+          "travelAndSubsistence": 124.22,
+          "vouchersAndCreditCards": 124.22,
+          "nonCash": 124.22
+        }
+      }
+    },
+    {
+      "viewDetails": {
+        "viewType": "HMRC",
+        "lastHMRCChangeDate": "2019-04-04T01:01:01Z"
+      },
+      "employment": {
+        "payrollId": "124432423423",
+        "companyDirector": false,
+        "closeCompany": false,
+        "directorshipCeasedDate": "2020-01-01",
+        "startDate": "2019-01-01",
+        "cessationDate": "2020-01-01",
+        "occupationalPension": false,
+        "disguisedRemuneration": false,
+        "employer": {
+          "employerRef": "123/XX12345",
+          "employerName": "wibble"
+        },
+        "pay": {
+          "grossAmountPaidYtd": 1234.15,
+          "taxTakenOffYtd": 12.22,
+          "tipsAndOtherPayments": 10000.0,
+          "payFrequency": "CALENDAR MONTHLY",
+          "paymentDate": "2020-05-12",
+          "taxWeekNo": 52
+        },
+        "lumpSums": {
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        },
+        "deductions": {
+          "studentLoans": {
+            "uglDeductionAmount": 1232.22,
+            "pglDeductionAmount": 1232.22
+          }
+        },
+        "benefits": {
+          "accommodation": 124.22,
+          "assets": 124.22,
+          "assetTransfer": 124.22,
+          "beneficialLoan": 124.22,
+          "car": 124.22,
+          "carFuel": 124.22,
+          "educationalServices": 124.22,
+          "entertaining": 124.22,
+          "expenses": 124.22,
+          "medicalInsurance": 124.22,
+          "telephone": 124.22,
+          "service": 124.22,
+          "taxableExpenses": 124.22,
+          "van": 124.22,
+          "vanFuel": 124.22,
+          "mileage": 124.22,
+          "nonQualifyingRelocationExpenses": 124.22,
+          "nurseryPlaces": 124.22,
+          "otherItems": 124.22,
+          "paymentsOnEmployeesBehalf": 124.22,
+          "personalIncidentalExpenses": 124.22,
+          "qualifyingRelocationExpenses": 124.22,
+          "employerProvidedProfessionalSubscriptions": 124.22,
+          "employerProvidedServices": 124.22,
+          "incomeTaxPaidByDirector": 124.22,
+          "travelAndSubsistence": 124.22,
+          "vouchersAndCreditCards": 124.22,
+          "nonCash": 124.22
+        }
+      }
+    },
+    {
+      "viewDetails": {
+        "viewType": "LATEST",
+        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
+        "customerOverrideDate": "2019-04-04T01:01:01Z"
+      },
+      "employment": {
+        "payrollId": "124432423423",
+        "companyDirector": false,
+        "closeCompany": false,
+        "directorshipCeasedDate": "2020-01-01",
+        "startDate": "2019-01-01",
+        "cessationDate": "2020-01-01",
+        "occupationalPension": false,
+        "disguisedRemuneration": false,
+        "employer": {
+          "employerRef": "123/XX12345",
+          "employerName": "wibble"
+        },
+        "pay": {
+          "grossAmountPaidYtd": 1234.15,
+          "taxTakenOffYtd": 12.22,
+          "tipsAndOtherPayments": 10000.0,
+          "payFrequency": "CALENDAR MONTHLY",
+          "paymentDate": "2020-05-12",
+          "taxWeekNo": 52
+        },
+        "lumpSums": {
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        },
+        "deductions": {
+          "studentLoans": {
+            "uglDeductionAmount": 1232.22,
+            "pglDeductionAmount": 1232.22
+          }
+        },
+        "benefits": {
+          "accommodation": 124.22,
+          "assets": 124.22,
+          "assetTransfer": 124.22,
+          "beneficialLoan": 124.22,
+          "car": 124.22,
+          "carFuel": 124.22,
+          "educationalServices": 124.22,
+          "entertaining": 124.22,
+          "expenses": 124.22,
+          "medicalInsurance": 124.22,
+          "telephone": 124.22,
+          "service": 124.22,
+          "taxableExpenses": 124.22,
+          "van": 124.22,
+          "vanFuel": 124.22,
+          "mileage": 124.22,
+          "nonQualifyingRelocationExpenses": 124.22,
+          "nurseryPlaces": 124.22,
+          "otherItems": 124.22,
+          "paymentsOnEmployeesBehalf": 124.22,
+          "personalIncidentalExpenses": 124.22,
+          "qualifyingRelocationExpenses": 124.22,
+          "employerProvidedProfessionalSubscriptions": 124.22,
+          "employerProvidedServices": 124.22,
+          "incomeTaxPaidByDirector": 124.22,
+          "travelAndSubsistence": 124.22,
+          "vouchersAndCreditCards": 124.22,
+          "nonCash": 124.22
+        }
+      }
+    },
+    {
+      "viewDetails": {
+        "viewType": "LATEST",
+        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
+        "customerOverrideDate": "2019-04-04T01:01:01Z"
+      },
+      "employment": {
+        "payrollId": "124432423423",
+        "companyDirector": false,
+        "closeCompany": false,
+        "directorshipCeasedDate": "2020-01-01",
+        "startDate": "2019-01-01",
+        "cessationDate": "2020-01-01",
+        "occupationalPension": false,
+        "disguisedRemuneration": false,
+        "employer": {
+          "employerRef": "123/XX12345",
+          "employerName": "wibble"
+        },
+        "pay": {
+          "grossAmountPaidYtd": 1234.15,
+          "taxTakenOffYtd": 12.22,
+          "tipsAndOtherPayments": 10000.0,
+          "payFrequency": "CALENDAR MONTHLY",
+          "paymentDate": "2020-05-12",
+          "taxWeekNo": 52
+        },
+        "lumpSums": {
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        },
+        "deductions": {
+          "studentLoans": {
+            "uglDeductionAmount": 1232.22,
+            "pglDeductionAmount": 1232.22
+          }
+        },
+        "benefits": {
+          "accommodation": 124.22,
+          "assets": 124.22,
+          "assetTransfer": 124.22,
+          "beneficialLoan": 124.22,
+          "car": 124.22,
+          "carFuel": 124.22,
+          "educationalServices": 124.22,
+          "entertaining": 124.22,
+          "expenses": 124.22,
+          "medicalInsurance": 124.22,
+          "telephone": 124.22,
+          "service": 124.22,
+          "taxableExpenses": 124.22,
+          "van": 124.22,
+          "vanFuel": 124.22,
+          "mileage": 124.22,
+          "nonQualifyingRelocationExpenses": 124.22,
+          "nurseryPlaces": 124.22,
+          "otherItems": 124.22,
+          "paymentsOnEmployeesBehalf": 124.22,
+          "personalIncidentalExpenses": 124.22,
+          "qualifyingRelocationExpenses": 124.22,
+          "employerProvidedProfessionalSubscriptions": 124.22,
+          "employerProvidedServices": 124.22,
+          "incomeTaxPaidByDirector": 124.22,
+          "travelAndSubsistence": 124.22,
+          "vouchersAndCreditCards": 124.22,
+          "nonCash": 124.22
+        }
+      }
+    },
+    {
+      "viewDetails": {
+        "viewType": "LATEST",
+        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
+        "customerOverrideDate": "2019-04-04T01:01:01Z"
+      },
+      "employment": {
+        "payrollId": "124432423423",
+        "companyDirector": false,
+        "closeCompany": false,
+        "directorshipCeasedDate": "2020-01-01",
+        "startDate": "2019-01-01",
+        "cessationDate": "2020-01-01",
+        "occupationalPension": false,
+        "disguisedRemuneration": false,
+        "dateIgnored": "2019-04-04T01:01:01Z",
+        "employer": {
+          "employerRef": "123/XX12345",
+          "employerName": "wibble"
+        },
+        "pay": {
+          "grossAmountPaidYtd": 1234.15,
+          "taxTakenOffYtd": 12.22,
+          "tipsAndOtherPayments": 10000.0,
+          "payFrequency": "CALENDAR MONTHLY",
+          "lastPaymentDate": "2020-05-12",
+          "taxWeekNo": 52
+        },
+        "lumpSums": {
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        },
+        "deductions": {
+          "studentLoans": {
+            "uglDeductionAmount": 1232.22,
+            "pglDeductionAmount": 1232.22
+          }
+        },
+        "benefits": {
+          "accommodation": 124.22,
+          "assets": 124.22,
+          "assetTransfer": 124.22,
+          "beneficialLoan": 124.22,
+          "car": 124.22,
+          "carFuel": 124.22,
+          "educationalServices": 124.22,
+          "entertaining": 124.22,
+          "expenses": 124.22,
+          "medicalInsurance": 124.22,
+          "telephone": 124.22,
+          "service": 124.22,
+          "taxableExpenses": 124.22,
+          "van": 124.22,
+          "vanFuel": 124.22,
+          "mileage": 124.22,
+          "nonQualifyingRelocationExpenses": 124.22,
+          "nurseryPlaces": 124.22,
+          "otherItems": 124.22,
+          "paymentsOnEmployeesBehalf": 124.22,
+          "personalIncidentalExpenses": 124.22,
+          "qualifyingRelocationExpenses": 124.22,
+          "employerProvidedProfessionalSubscriptions": 124.22,
+          "employerProvidedServices": 124.22,
+          "incomeTaxPaidByDirector": 124.22,
+          "travelAndSubsistence": 124.22,
+          "vouchersAndCreditCards": 124.22,
+          "nonCash": 124.22
+        }
+      }
+    }
+  ]
+}
+</code></pre><p><strong>Example</strong>:</p><div class="examples"><p><strong>emample1</strong>:<br></p><pre><code>{
+  "viewDetails":{
+    "viewType":"LATEST",
+    "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
+    "customerOverrideDate": "2019-04-04T01:01:01Z"
+  },
+  "employment":{
+    "payrollId":"124432423423",
+    "companyDirector":false,
+    "closeCompany":false,
+    "directorshipCeasedDate":"2020-01-01",
+    "startDate":"2019-01-01",
+    "cessationDate":"2020-01-01",
+    "occupationalPension":false,
+    "disguisedRemuneration":false,
+    "employer":{
+      "employerRef":"123/XX12345",
+      "employerName":"wibble"
+    },
+    "pay":{
+      "grossAmountPaidYtd":1234.15,
+      "taxTakenOffYtd":12.22,
+      "tipsAndOtherPayments":10000.0,
+      "payFrequency":"CALENDAR MONTHLY",
+      "paymentDate":"2020-05-12",
+      "taxWeekNo":52
+    },
+    "lumpSums":{
+      "taxableLumpSumsAndCertainIncome":{
+        "amount":123.00,
+        "taxPaid":123.00,
+        "taxTakenOffInEmployment":true
+      },
+      "benefitFromEmployerFinancedRetirementScheme":{
+        "amount":123.00,
+        "exemptAmount":123.00,
+        "taxPaid":123.00,
+        "taxTakenOffInEmployment":true
+      },
+      "redundancyCompensationPaymentsOverExemption":{
+        "amount":123.00,
+        "taxPaid":123.00,
+        "taxTakenOffInEmployment":true
+      },
+      "redundancyCompensationPaymentsUnderExemption":{
+        "amount":123.00
+      }
+    },
+    "deductions":{
+      "studentLoans":{
+        "uglDeductionAmount":1232.22,
+        "pglDeductionAmount":1232.22
+      }
+    },
+    "benefits":{
+      "accommodation":124.22,
+      "assets":124.22,
+      "assetTransfer":124.22,
+      "beneficialLoan":124.22,
+      "car":124.22,
+      "carFuel":124.22,
+      "educationalServices":124.22,
+      "entertaining":124.22,
+      "expenses":124.22,
+      "medicalInsurance":124.22,
+      "telephone":124.22,
+      "service":124.22,
+      "taxableExpenses":124.22,
+      "van":124.22,
+      "vanFuel":124.22,
+      "mileage":124.22,
+      "nonQualifyingRelocationExpenses":124.22,
+      "nurseryPlaces":124.22,
+      "otherItems":124.22,
+      "paymentsOnEmployeesBehalf":124.22,
+      "personalIncidentalExpenses":124.22,
+      "qualifyingRelocationExpenses":124.22,
+      "employerProvidedProfessionalSubscriptions":124.22,
+      "employerProvidedServices":124.22,
+      "incomeTaxPaidByDirector":124.22,
+      "travelAndSubsistence":124.22,
+      "vouchersAndCreditCards":124.22,
+      "nonCash":0.00
+    }
+  }
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear___employmentid__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income-received/employments/{nino}/{taxYear}</span>/{employmentId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update an Employment</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear___employmentid__put_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear___employmentid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear___employmentid__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li><li><strong>employmentId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the Employment</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>1234-1234-1234-1234</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "employment": {
+    "payrollId": "124432423423",
+    "companyDirector": false,
+    "closeCompany": false,
+    "directorshipCeasedDate": "2020-01-01",
+    "startDate": "2019-01-01",
+    "cessationDate": "2020-01-01",
+    "occupationalPension": false,
+    "disguisedRemuneration": false,
+    "employer": {
+      "employerName": "wibble"
+    },
+    "pay": {
+      "grossAmountPaidYtd": 1234.15,
+      "taxTakenOffYtd": 12.22,
+      "tipsAndOtherPayments": 10000.00,
+      "payFrequency": "CALENDAR MONTHLY",
+      "paymentDate": "2020-05-12",
+      "taxWeekNo": 52
+    },
+    "lumpSums": {
+      "taxableLumpSumsAndCertainIncome": {
+        "amount": 123.0,
+        "taxPaid": 123.0,
+        "taxTakenOffInEmployment": true
+      },
+      "benefitFromEmployerFinancedRetirementScheme": {
+        "amount": 123.0,
+        "exemptAmount": 123.0,
+        "taxPaid": 123.0,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsOverExemption": {
+        "amount": 123.0,
+        "taxPaid": 123.0,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsUnderExemption": {
+        "amount": 123.0
+      }
+    },
+    "deductions": {
+      "studentLoans": {
+        "uglDeductionAmount": 1232.22,
+        "pglDeductionAmount": 1232.22
+      }
+    },
+    "benefits": {
+      "accommodation": 124.22,
+      "assets": 124.22,
+      "assetTransfer": 124.22,
+      "beneficialLoan": 124.22,
+      "car": 124.22,
+      "carFuel": 124.22,
+      "educationalServices": 124.22,
+      "entertaining": 124.22,
+      "expenses": 124.22,
+      "medicalInsurance": 124.22,
+      "telephone": 124.22,
+      "service": 124.22,
+      "taxableExpenses": 124.22,
+      "van": 124.22,
+      "vanFuel": 124.22,
+      "mileage": 124.22,
+      "nonQualifyingRelocationExpenses": 124.22,
+      "nurseryPlaces": 124.22,
+      "otherItems": 124.22,
+      "paymentsOnEmployeesBehalf": 124.22,
+      "personalIncidentalExpenses": 124.22,
+      "qualifyingRelocationExpenses": 124.22,
+      "employerProvidedProfessionalSubscriptions": 124.22,
+      "employerProvidedServices": 124.22,
+      "incomeTaxPaidByDirector": 124.22,
+      "travelAndSubsistence": 124.22,
+      "vouchersAndCreditCards": 124.22,
+      "nonCash": 124.22
+    }
+}
+</code></pre></div></div><div class="tab-pane" id="income_received_employments__nino___taxyear___employmentid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_employments__nino___taxyear__custom"><span class="parent">/income-received/employments/{nino}/{taxYear}</span>/custom</a> <span class="methods"><a href="#income_received_employments__nino___taxyear__custom_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_income_received_employments__nino___taxyear__custom" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_employments__nino___taxyear__custom_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a new custom Employment</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear__custom_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/income-received/employments/{nino}/{taxYear}</span>/custom</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a new custom Employment</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear__custom_post_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear__custom_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear__custom_post_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Customer_Defined_Employment",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer Defined Employment",
+  "description": "Object representing a customer defined employment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["employerName", "startDate"],
+  "properties": {
+    "employerRef": { "type": "string","pattern": "^([0-9]{3})/([^ ].{0,10})$"},
+    "employerName": { "type" : "string", "pattern": "^.{0,74}$"},
+    "startDate": { "type": "string", "format": "date" },
+    "cessationDate": { "type": "string", "format": "date" },
+    "payrollId": { "type": "string", "pattern": "^[a-zA-Z0-9]{0,74}$" }
+  },
+  "examples": [
+    {
+      "employerRef": "123/AB12334",
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01",
+      "cessationDate":  "2020-06-01",
+      "payrollId": "123213112312"
+    },
+    {
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01"
+    }
+  ]
+}</code></pre><p><strong>Examples</strong>:</p><div class="examples"><p><strong>example-1</strong>:<br>Full request</p><pre><code>{
   "employerRef": "123/AB12334",
   "employerName":  "ACME Corp",
   "startDate": "2020-01-01",
   "cessationDate":  "2020-06-01",
   "payrollId": "123213112312"
-}</code></pre></div></div><div class="tab-pane" id="income_received_employments__nino___taxyear__custom_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+}</code></pre><p><strong>example-2</strong>:<br>Minimum request</p><pre><code>{
+  "employerName":  "ACME Corp",
+  "startDate": "2020-01-01"
+}</code></pre></div></div><div class="tab-pane" id="income_received_employments__nino___taxyear__custom_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Customer_Defined_Employment",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer Defined Employment",
+  "description": "Object representing a customer defined employment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["employerName", "startDate"],
+  "properties": {
+    "employerRef": { "type": "string","pattern": "^([0-9]{3})/([^ ].{0,10})$"},
+    "employerName": { "type" : "string", "pattern": "^.{0,74}$"},
+    "startDate": { "type": "string", "format": "date" },
+    "cessationDate": { "type": "string", "format": "date" },
+    "payrollId": { "type": "string", "pattern": "^[a-zA-Z0-9]{0,74}$" }
+  },
+  "examples": [
+    {
+      "employerRef": "123/AB12334",
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01",
+      "cessationDate":  "2020-06-01",
+      "payrollId": "123213112312"
+    },
+    {
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01"
+    }
+  ]
+}</code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
   "employmentId: "1234-1234-1234-1234"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
   "code": "FORMAT_TAX_YEAR"
@@ -283,13 +1387,35 @@ pre code {
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"
-}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_employments__nino___taxyear__custom__employmentid_"><span class="parent">/income-received/employments/{nino}/{taxYear}/custom</span>/{employmentId}</a> <span class="methods"><a href="#income_received_employments__nino___taxyear__custom__employmentid__put"><span class="badge badge_put">put</span></a> <a href="#income_received_employments__nino___taxyear__custom__employmentid__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_income_received_employments__nino___taxyear__custom__employmentid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_employments__nino___taxyear__custom__employmentid__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update a custom Employment</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_received_employments__nino___taxyear__custom__employmentid__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a custom Employment</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear__custom__employmentid__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income-received/employments/{nino}/{taxYear}/custom</span>/{employmentId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update a custom Employment</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear__custom__employmentid__put_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear__custom__employmentid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear__custom__employmentid__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li><li><strong>employmentId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the Employment</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>1234-1234-1234-1234</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  "employerRef": "123/AB12334",
-  "employerName":  "ACME Corp",
-  "startDate": "2020-01-01",
-  "cessationDate":  "2020-06-01",
-  "payrollId": "123213112312"
-}</code></pre></div></div><div class="tab-pane" id="income_received_employments__nino___taxyear__custom__employmentid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_employments__nino___taxyear__custom__employmentid_"><span class="parent">/income-received/employments/{nino}/{taxYear}/custom</span>/{employmentId}</a> <span class="methods"><a href="#income_received_employments__nino___taxyear__custom__employmentid__put"><span class="badge badge_put">put</span></a> <a href="#income_received_employments__nino___taxyear__custom__employmentid__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_income_received_employments__nino___taxyear__custom__employmentid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_employments__nino___taxyear__custom__employmentid__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update a custom Employment</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_received_employments__nino___taxyear__custom__employmentid__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a custom Employment</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_employments__nino___taxyear__custom__employmentid__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income-received/employments/{nino}/{taxYear}/custom</span>/{employmentId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update a custom Employment</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_employments__nino___taxyear__custom__employmentid__put_request" data-toggle="tab">Request</a></li><li><a href="#income_received_employments__nino___taxyear__custom__employmentid__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_employments__nino___taxyear__custom__employmentid__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li><li><strong>employmentId</strong>: <em><span class="required">required</span>(string)</em><p>Unique identifier of the Employment</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>1234-1234-1234-1234</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Customer_Defined_Employment",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer Defined Employment",
+  "description": "Object representing a customer defined employment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["employerName", "startDate"],
+  "properties": {
+    "employerRef": { "type": "string","pattern": "^([0-9]{3})/([^ ].{0,10})$"},
+    "employerName": { "type" : "string", "pattern": "^.{0,74}$"},
+    "startDate": { "type": "string", "format": "date" },
+    "cessationDate": { "type": "string", "format": "date" },
+    "payrollId": { "type": "string", "pattern": "^[a-zA-Z0-9]{0,74}$" }
+  },
+  "examples": [
+    {
+      "employerRef": "123/AB12334",
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01",
+      "cessationDate":  "2020-06-01",
+      "payrollId": "123213112312"
+    },
+    {
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01"
+    }
+  ]
+}</code></pre><p><strong>Media type</strong>: examples</p><p><strong>Type</strong>: any</p></div><div class="tab-pane" id="income_received_employments__nino___taxyear__custom__employmentid__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
   "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
   "code": "MATCHING_RESOURCE_NOT_FOUND"

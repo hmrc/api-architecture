@@ -12,47 +12,75 @@
             200:
               body:
                 application/json:
-                  example: !include examples/employments-get-list.json
-          /{employmentId}:
-            uriParameters:
-              employmentId:  baseTypes.EmploymentId
-            get:
-              displayName: Get Employment detail
-              description: Get Employment detail
-              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-              queryParameters:
-                view:
-                  displayName: Specify the type of view that you want to see, either HMRC, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
-                  description: Specify the type of view that you want to see, either HMRC, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
-                  example: LATEST
-                  required: false
-              responses:
-                200:
-                  body:
-                    application/json:
-                      example: !include examples/employments-get-detail.json
-            put:
-              displayName: Update an Employment
-              description: Update an Employment
-              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
-              responses:
-                200:
-              body:
-                application/json:
-                  example: !include examples/employments-put-detail.json
+                  type: !include schemas/employments-get-list-sch.json
+                  examples:
+                    example-1:
+                      description: A customer added employment
+                      value: !include examples/employments-get-list-cust.json
+                    example-2:
+                      description: A pre-populated employment
+                      value: !include examples/employments-get-list-prepop.json
+                    example-3:
+                      description: An ignored employment
+                      value: !include examples/employments-get-list-ignored.json
+        /{employmentId}:
+          uriParameters:
+            employmentId:  baseTypes.EmploymentId
+          get:
+            displayName: Get Employment detail
+            description: Get Employment detail
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            queryParameters:
+              view:
+                displayName: Specify the type of view that you want to see, either HMRC, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+                description: Specify the type of view that you want to see, either HMRC, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+                example: LATEST
+                required: false
+            responses:
+              200:
+                body:
+                  application/json:
+                    type: !include schemas/employments-get-detail-sch.json
+                    examples:
+                      example-1:
+                        description: Customer view
+                        value: !include examples/employments-get-detail-cust.json
+                      example-2:
+                        description: HMRC view
+                        value: !include examples/employments-get-detail-hmrc.json
+                      example-3:
+                        description: Latest view
+                        value: !include examples/employments-get-detail-latest.json
+          put:
+            displayName: Update an Employment
+            description: Update an Employment
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+            body:
+              application/json:
+                example: !include examples/employments-put-detail.json
+            responses:
+              200:
         /custom:
           post:
             displayName: Create a new custom Employment
             description: Create a new custom Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            body:
+              application/json:
+                type: !include schemas/employments-custom-post-sch.json
+                examples:
+                  example-1:
+                    description: Full request
+                    value: !include examples/employments-custom-post-req-full.json
+                  example-2:
+                    description: Minimum request
+                    value: !include examples/employments-custom-post-req-min.json
             responses:
               200:
                 body:
                   application/json:
+                    type: !include schemas/employments-custom-put-sch.json
                     example: !include examples/employments-custom-post-resp.json
-            body:
-              application/json:
-                example: !include examples/employments-custom-post.json
           /{employmentId}:
             uriParameters:
               employmentId:  baseTypes.EmploymentId
@@ -60,11 +88,18 @@
               displayName: Create/update a custom Employment
               description: Create/update a custom Employment
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
-              responses:
-                200:
               body:
                 application/json:
-                  example: !include examples/employments-custom-put.json
+                  type: !include schemas/employments-custom-put-sch.json
+                examples:
+                  example-1:
+                    description: Full request
+                    value: !include examples/employments-custom-post-req-full.json
+                  example-2:
+                    description: Minimum request
+                    value: !include examples/employments-custom-post-req-min.json
+              responses:
+                200:
             delete:
               displayName: Delete a custom Employment
               description: Delete a custom Employment
