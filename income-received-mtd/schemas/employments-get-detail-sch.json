@@ -4,19 +4,14 @@
   "title": "Get Employment Response",
   "description": "A view of the low level details of a customers employment, this view is created by blending data from various sources based on set of precedence rules.",
   "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "viewDetails",
-    "employment"
-  ],
-  "properties": {
-    "viewDetails": {
-      "$ref": "#/definitions/viewDetails"
+  "oneOf": [
+    {
+      "$ref": "#/definitions/employmentView"
     },
-    "employment": {
-      "$ref": "#/definitions/employment"
+    {
+      "$ref": "#/definitions/employmentViewHistory"
     }
-  },
+  ],
   "definitions": {
     "moneyPositive": {
       "$id": "#moneyPositive",
@@ -26,37 +21,11 @@
       "minimum": 0,
       "maximum": 99999999.99
     },
-    "viewDetails": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "viewType"
-      ],
-      "minProperties": 2,
-      "properties": {
-        "viewType": {
-          "type": "string",
-          "enum": [
-            "HMRC",
-            "CUSTOMER",
-            "LATEST"
-          ]
-        },
-        "lastHMRCChangeDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "customerOverrideDate": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
     "employment": {
       "type": "object",
-      "additionalProperties": false,
       "required": [
-        "startDate"
+        "employer",
+        "pay"
       ],
       "properties": {
         "payrollId": {
@@ -82,22 +51,16 @@
           "type": "string",
           "format": "date"
         },
-        "occupationalPension": {
+        "occPen": {
           "type": "boolean"
         },
         "disguisedRemuneration": {
           "type": "boolean"
         },
-        "dateIgnored": {
-          "type": "string",
-          "format": "date-time"
-        },
         "employer": {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "employerRef"
-          ],
+          "required": [ "employerName" ],
           "properties": {
             "employerRef": {
               "type": "string",
@@ -111,7 +74,6 @@
         },
         "pay": {
           "type": "object",
-          "additionalProperties": false,
           "oneOf": [
             {
               "required": [
@@ -139,10 +101,10 @@
             }
           ],
           "properties": {
-            "grossAmountPaidYtd": {
+            "taxablePayToDate": {
               "$ref": "#/definitions/moneyPositive"
             },
-            "taxTakenOffYtd": {
+            "totalTaxToDate": {
               "$ref": "#/definitions/moneyPositive"
             },
             "tipsAndOtherPayments": {
@@ -169,12 +131,12 @@
             "taxWeekNo": {
               "type": "number",
               "minimum": 1,
-              "maxumum": 52
+              "maxumum": 56
             },
             "taxMonthNo": {
               "type": "number",
               "minimum": 1,
-              "maximum": 13
+              "maximum": 12
             }
           }
         },
@@ -359,438 +321,357 @@
           }
         }
       }
-    }
-  },
-  "examples": [
-    {
-      "viewDetails": {
-        "viewType": "LATEST",
-        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
-        "customerOverrideDate": "2019-04-04T01:01:01Z"
-      },
-      "employment": {
-        "payrollId": "124432423423",
-        "companyDirector": false,
-        "closeCompany": false,
-        "directorshipCeasedDate": "2020-01-01",
-        "startDate": "2019-01-01",
-        "cessationDate": "2020-01-01",
-        "occupationalPension": false,
-        "disguisedRemuneration": false,
-        "employer": {
-          "employerRef": "123/XX12345",
-          "employerName": "wibble"
+    },
+    "employmentView": {
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "allOf":[
+            {
+              "not": {
+                "required":["source"]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "customerAdded"
+                ]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "dateIgnored"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "employment"
+              ]
+            }
+          ]
         },
-        "pay": {
-          "grossAmountPaidYtd": 1234.15,
-          "taxTakenOffYtd": 12.22,
-          "tipsAndOtherPayments": 10000.0,
-          "payFrequency": "CALENDAR MONTHLY",
-          "paymentDate": "2020-05-12",
-          "taxWeekNo": 52
+        {
+          "allOf":[
+            {
+              "not": {
+                "required":["source"]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "customerAdded"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "employment",
+                "dateIgnored"
+              ]
+            }
+          ]
         },
-        "lumpSums": {
-          "taxableLumpSumsAndCertainIncome": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "benefitFromEmployerFinancedRetirementScheme": {
-            "amount": 123.00,
-            "exemptAmount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsOverExemption": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsUnderExemption": {
-            "amount": 123.00
-          }
+        {
+          "allOf":[
+            {
+              "not": {
+                "required":["source"]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "dateIgnored"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "employment",
+                "customerAdded"
+              ]
+            }
+          ]
         },
-        "deductions": {
-          "studentLoans": {
-            "uglDeductionAmount": 1232.22,
-            "pglDeductionAmount": 1232.22
-          }
+        {
+          "allOf": [
+            {
+              "not": {
+                "required": [
+                  "customerAdded"
+                ]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "dateIgnored"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "source",
+                "employment"
+              ]
+            }
+          ]
         },
-        "benefits": {
-          "accommodation": 124.22,
-          "assets": 124.22,
-          "assetTransfer": 124.22,
-          "beneficialLoan": 124.22,
-          "car": 124.22,
-          "carFuel": 124.22,
-          "educationalServices": 124.22,
-          "entertaining": 124.22,
-          "expenses": 124.22,
-          "medicalInsurance": 124.22,
-          "telephone": 124.22,
-          "service": 124.22,
-          "taxableExpenses": 124.22,
-          "van": 124.22,
-          "vanFuel": 124.22,
-          "mileage": 124.22,
-          "nonQualifyingRelocationExpenses": 124.22,
-          "nurseryPlaces": 124.22,
-          "otherItems": 124.22,
-          "paymentsOnEmployeesBehalf": 124.22,
-          "personalIncidentalExpenses": 124.22,
-          "qualifyingRelocationExpenses": 124.22,
-          "employerProvidedProfessionalSubscriptions": 124.22,
-          "employerProvidedServices": 124.22,
-          "incomeTaxPaidByDirector": 124.22,
-          "travelAndSubsistence": 124.22,
-          "vouchersAndCreditCards": 124.22,
-          "nonCash": 124.22
+        {
+          "allOf": [
+            {
+              "not": {
+                "required" : ["customerAdded"]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "source",
+                "employment",
+                "dateIgnored"
+              ]
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "not": {
+                "required" : ["dateIgnored"]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "source",
+                "employment",
+                "customerAdded"
+              ]
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "CUSTOMER",
+            "HMRC HELD"
+          ]
+        },
+        "customerAdded": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateIgnored": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "employment": {
+          "$ref": "#/definitions/employment"
         }
       }
     },
-    {
-      "viewDetails": {
-        "viewType": "HMRC",
-        "lastHMRCChangeDate": "2019-04-04T01:01:01Z"
-      },
-      "employment": {
-        "payrollId": "124432423423",
-        "companyDirector": false,
-        "closeCompany": false,
-        "directorshipCeasedDate": "2020-01-01",
-        "startDate": "2019-01-01",
-        "cessationDate": "2020-01-01",
-        "occupationalPension": false,
-        "disguisedRemuneration": false,
-        "employer": {
-          "employerRef": "123/XX12345",
-          "employerName": "wibble"
+    "employmentViewHistory": {
+      "type" : "object",
+      "oneOf": [
+        {
+          "allOf":[
+            {
+              "not": {
+                "required":["source"]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "customerAdded"
+                ]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "dateIgnored"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "employment",
+                "history"
+              ]
+            }
+          ]
         },
-        "pay": {
-          "grossAmountPaidYtd": 1234.15,
-          "taxTakenOffYtd": 12.22,
-          "tipsAndOtherPayments": 10000.0,
-          "payFrequency": "CALENDAR MONTHLY",
-          "paymentDate": "2020-05-12",
-          "taxWeekNo": 52
+        {
+          "allOf":[
+            {
+              "not": {
+                "required":["source"]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "customerAdded"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "employment",
+                "dateIgnored",
+                "history"
+              ]
+            }
+          ]
         },
-        "lumpSums": {
-          "taxableLumpSumsAndCertainIncome": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "benefitFromEmployerFinancedRetirementScheme": {
-            "amount": 123.00,
-            "exemptAmount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsOverExemption": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsUnderExemption": {
-            "amount": 123.00
-          }
+        {
+          "allOf":[
+            {
+              "not": {
+                "required":["source"]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "dateIgnored"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "employment",
+                "customerAdded",
+                "history"
+              ]
+            }
+          ]
         },
-        "deductions": {
-          "studentLoans": {
-            "uglDeductionAmount": 1232.22,
-            "pglDeductionAmount": 1232.22
-          }
+        {
+          "allOf": [
+            {
+              "not": {
+                "required": [
+                  "customerAdded"
+                ]
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "dateIgnored"
+                ]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "source",
+                "employment",
+                "history"
+              ]
+            }
+          ]
         },
-        "benefits": {
-          "accommodation": 124.22,
-          "assets": 124.22,
-          "assetTransfer": 124.22,
-          "beneficialLoan": 124.22,
-          "car": 124.22,
-          "carFuel": 124.22,
-          "educationalServices": 124.22,
-          "entertaining": 124.22,
-          "expenses": 124.22,
-          "medicalInsurance": 124.22,
-          "telephone": 124.22,
-          "service": 124.22,
-          "taxableExpenses": 124.22,
-          "van": 124.22,
-          "vanFuel": 124.22,
-          "mileage": 124.22,
-          "nonQualifyingRelocationExpenses": 124.22,
-          "nurseryPlaces": 124.22,
-          "otherItems": 124.22,
-          "paymentsOnEmployeesBehalf": 124.22,
-          "personalIncidentalExpenses": 124.22,
-          "qualifyingRelocationExpenses": 124.22,
-          "employerProvidedProfessionalSubscriptions": 124.22,
-          "employerProvidedServices": 124.22,
-          "incomeTaxPaidByDirector": 124.22,
-          "travelAndSubsistence": 124.22,
-          "vouchersAndCreditCards": 124.22,
-          "nonCash": 124.22
+        {
+          "allOf": [
+            {
+              "not": {
+                "required" : ["customerAdded"]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "source",
+                "employment",
+                "dateIgnored",
+                "history"
+              ]
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "not": {
+                "required" : ["dateIgnored"]
+              }
+            },
+            {
+              "required": [
+                "submittedOn",
+                "source",
+                "employment",
+                "customerAdded",
+                "history"
+              ]
+            }
+          ]
         }
-      }
-    },
-    {
-      "viewDetails": {
-        "viewType": "LATEST",
-        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
-        "customerOverrideDate": "2019-04-04T01:01:01Z"
-      },
-      "employment": {
-        "payrollId": "124432423423",
-        "companyDirector": false,
-        "closeCompany": false,
-        "directorshipCeasedDate": "2020-01-01",
-        "startDate": "2019-01-01",
-        "cessationDate": "2020-01-01",
-        "occupationalPension": false,
-        "disguisedRemuneration": false,
-        "employer": {
-          "employerRef": "123/XX12345",
-          "employerName": "wibble"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type" : "string",
+          "enum": ["CUSTOMER", "HMRC HELD"]
         },
-        "pay": {
-          "grossAmountPaidYtd": 1234.15,
-          "taxTakenOffYtd": 12.22,
-          "tipsAndOtherPayments": 10000.0,
-          "payFrequency": "CALENDAR MONTHLY",
-          "paymentDate": "2020-05-12",
-          "taxWeekNo": 52
+        "submittedOn": {
+          "type" : "string",
+          "format" : "date-time"
         },
-        "lumpSums": {
-          "taxableLumpSumsAndCertainIncome": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "benefitFromEmployerFinancedRetirementScheme": {
-            "amount": 123.00,
-            "exemptAmount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsOverExemption": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsUnderExemption": {
-            "amount": 123.00
+        "customerAdded": {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "dateIgnored": {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "deletedOn": {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "employment": {
+          "$ref" : "#/definitions/employment"
+        },
+        "history": {
+          "type" : "array",
+          "additionalItems": false,
+          "items": {
+            "properties": {
+              "submittedOn": {
+                "type" : "string",
+                "format" : "date-time"
+              },
+              "employment": {
+                "$ref" : "#/definitions/employment"
+              },
+              "additionalProperties": false
+            }
           }
-        },
-        "deductions": {
-          "studentLoans": {
-            "uglDeductionAmount": 1232.22,
-            "pglDeductionAmount": 1232.22
-          }
-        },
-        "benefits": {
-          "accommodation": 124.22,
-          "assets": 124.22,
-          "assetTransfer": 124.22,
-          "beneficialLoan": 124.22,
-          "car": 124.22,
-          "carFuel": 124.22,
-          "educationalServices": 124.22,
-          "entertaining": 124.22,
-          "expenses": 124.22,
-          "medicalInsurance": 124.22,
-          "telephone": 124.22,
-          "service": 124.22,
-          "taxableExpenses": 124.22,
-          "van": 124.22,
-          "vanFuel": 124.22,
-          "mileage": 124.22,
-          "nonQualifyingRelocationExpenses": 124.22,
-          "nurseryPlaces": 124.22,
-          "otherItems": 124.22,
-          "paymentsOnEmployeesBehalf": 124.22,
-          "personalIncidentalExpenses": 124.22,
-          "qualifyingRelocationExpenses": 124.22,
-          "employerProvidedProfessionalSubscriptions": 124.22,
-          "employerProvidedServices": 124.22,
-          "incomeTaxPaidByDirector": 124.22,
-          "travelAndSubsistence": 124.22,
-          "vouchersAndCreditCards": 124.22,
-          "nonCash": 124.22
-        }
-      }
-    },
-    {
-      "viewDetails": {
-        "viewType": "LATEST",
-        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
-        "customerOverrideDate": "2019-04-04T01:01:01Z"
-      },
-      "employment": {
-        "payrollId": "124432423423",
-        "companyDirector": false,
-        "closeCompany": false,
-        "directorshipCeasedDate": "2020-01-01",
-        "startDate": "2019-01-01",
-        "cessationDate": "2020-01-01",
-        "occupationalPension": false,
-        "disguisedRemuneration": false,
-        "employer": {
-          "employerRef": "123/XX12345",
-          "employerName": "wibble"
-        },
-        "pay": {
-          "grossAmountPaidYtd": 1234.15,
-          "taxTakenOffYtd": 12.22,
-          "tipsAndOtherPayments": 10000.0,
-          "payFrequency": "CALENDAR MONTHLY",
-          "paymentDate": "2020-05-12",
-          "taxWeekNo": 52
-        },
-        "lumpSums": {
-          "taxableLumpSumsAndCertainIncome": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "benefitFromEmployerFinancedRetirementScheme": {
-            "amount": 123.00,
-            "exemptAmount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsOverExemption": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsUnderExemption": {
-            "amount": 123.00
-          }
-        },
-        "deductions": {
-          "studentLoans": {
-            "uglDeductionAmount": 1232.22,
-            "pglDeductionAmount": 1232.22
-          }
-        },
-        "benefits": {
-          "accommodation": 124.22,
-          "assets": 124.22,
-          "assetTransfer": 124.22,
-          "beneficialLoan": 124.22,
-          "car": 124.22,
-          "carFuel": 124.22,
-          "educationalServices": 124.22,
-          "entertaining": 124.22,
-          "expenses": 124.22,
-          "medicalInsurance": 124.22,
-          "telephone": 124.22,
-          "service": 124.22,
-          "taxableExpenses": 124.22,
-          "van": 124.22,
-          "vanFuel": 124.22,
-          "mileage": 124.22,
-          "nonQualifyingRelocationExpenses": 124.22,
-          "nurseryPlaces": 124.22,
-          "otherItems": 124.22,
-          "paymentsOnEmployeesBehalf": 124.22,
-          "personalIncidentalExpenses": 124.22,
-          "qualifyingRelocationExpenses": 124.22,
-          "employerProvidedProfessionalSubscriptions": 124.22,
-          "employerProvidedServices": 124.22,
-          "incomeTaxPaidByDirector": 124.22,
-          "travelAndSubsistence": 124.22,
-          "vouchersAndCreditCards": 124.22,
-          "nonCash": 124.22
-        }
-      }
-    },
-    {
-      "viewDetails": {
-        "viewType": "LATEST",
-        "lastHMRCChangeDate": "2019-04-04T01:01:01Z",
-        "customerOverrideDate": "2019-04-04T01:01:01Z"
-      },
-      "employment": {
-        "payrollId": "124432423423",
-        "companyDirector": false,
-        "closeCompany": false,
-        "directorshipCeasedDate": "2020-01-01",
-        "startDate": "2019-01-01",
-        "cessationDate": "2020-01-01",
-        "occupationalPension": false,
-        "disguisedRemuneration": false,
-        "dateIgnored": "2019-04-04T01:01:01Z",
-        "employer": {
-          "employerRef": "123/XX12345",
-          "employerName": "wibble"
-        },
-        "pay": {
-          "grossAmountPaidYtd": 1234.15,
-          "taxTakenOffYtd": 12.22,
-          "tipsAndOtherPayments": 10000.0,
-          "payFrequency": "CALENDAR MONTHLY",
-          "lastPaymentDate": "2020-05-12",
-          "taxWeekNo": 52
-        },
-        "lumpSums": {
-          "taxableLumpSumsAndCertainIncome": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "benefitFromEmployerFinancedRetirementScheme": {
-            "amount": 123.00,
-            "exemptAmount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsOverExemption": {
-            "amount": 123.00,
-            "taxPaid": 123.00,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsUnderExemption": {
-            "amount": 123.00
-          }
-        },
-        "deductions": {
-          "studentLoans": {
-            "uglDeductionAmount": 1232.22,
-            "pglDeductionAmount": 1232.22
-          }
-        },
-        "benefits": {
-          "accommodation": 124.22,
-          "assets": 124.22,
-          "assetTransfer": 124.22,
-          "beneficialLoan": 124.22,
-          "car": 124.22,
-          "carFuel": 124.22,
-          "educationalServices": 124.22,
-          "entertaining": 124.22,
-          "expenses": 124.22,
-          "medicalInsurance": 124.22,
-          "telephone": 124.22,
-          "service": 124.22,
-          "taxableExpenses": 124.22,
-          "van": 124.22,
-          "vanFuel": 124.22,
-          "mileage": 124.22,
-          "nonQualifyingRelocationExpenses": 124.22,
-          "nurseryPlaces": 124.22,
-          "otherItems": 124.22,
-          "paymentsOnEmployeesBehalf": 124.22,
-          "personalIncidentalExpenses": 124.22,
-          "qualifyingRelocationExpenses": 124.22,
-          "employerProvidedProfessionalSubscriptions": 124.22,
-          "employerProvidedServices": 124.22,
-          "incomeTaxPaidByDirector": 124.22,
-          "travelAndSubsistence": 124.22,
-          "vouchersAndCreditCards": 124.22,
-          "nonCash": 124.22
         }
       }
     }
-  ]
+  }
 }

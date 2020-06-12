@@ -1,0 +1,30 @@
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: List of other expenses
+          description: List of other expenses
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/other.json
+        put:
+          displayName: Create/update other expenses submission
+          description: Create/update other expenses submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/other.json
+        delete:
+          displayName: Delete other expenses submission
+          description: Delete other expenses submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:

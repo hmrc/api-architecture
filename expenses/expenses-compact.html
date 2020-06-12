@@ -170,7 +170,235 @@ pre code {
 .required {
   color: #f00;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT API documentation <small>version 2020-05-19 15:04</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="expenses"><a href="#expenses">Expenses</a></h3><table class="table"><thead><tr><th align="left">Expenses Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Payments to Trade Unions for Death Benefits</td><td align="left">SA101</td><td align="left">AOR Box 8</td></tr><tr><td align="left">Patent Royalties</td><td align="left">SA101</td><td align="left">ASE Box 15</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="expenses" class="panel-title">/expenses</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_expenses_other__nino___taxyear_"><span class="parent">/expenses/other/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#expenses_other__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#expenses_other__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#expenses_other__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_expenses_other__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#expenses_other__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of other expenses</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#expenses_other__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update other expenses submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#expenses_other__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete other expenses submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="expenses_other__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/expenses/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of other expenses</p></div><ul class="nav nav-tabs"><li class="active"><a href="#expenses_other__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#expenses_other__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="expenses_other__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="expenses_other__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>DRAFT API documentation <small>version 2020-05-19 15:04</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="other"><a href="#other">Other</a></h3><table class="table"><thead><tr><th align="left">Expenses Type</th><th align="left">Source</th><th align="left">Boxes</th></tr></thead><tbody><tr><td align="left">Payments to Trade Unions for Death Benefits</td><td align="left">SA101</td><td align="left">AOR Box 8</td></tr><tr><td align="left">Patent Royalties</td><td align="left">SA101</td><td align="left">ASE Box 15</td></tr></tbody></table></div><div class="panel panel-default"><div class="panel-heading"><h3 id="expenses" class="panel-title">/expenses</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_expenses_employments__nino___taxyear_"><span class="parent">/expenses/employments/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#expenses_employments__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#expenses_employments__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#expenses_employments__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_expenses_employments__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#expenses_employments__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Details of annual employment expenses submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#expenses_employments__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update annual employment expenses submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#expenses_employments__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete annual employment expenses submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="expenses_employments__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/expenses/employments/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Details of annual employment expenses submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#expenses_employments__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#expenses_employments__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="expenses_employments__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Query Parameters</h3><ul><li><strong>view</strong>: <em>(string)</em><p>Specify the type of view that you want to see, either HMRC HELD, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>LATEST</code></pre></div></li></ul></div><div class="tab-pane" id="expenses_employments__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/View_Employment_Expenses_Response",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "View Employment Expenses Response",
+  "type": "object",
+  "description": "A view of the expenses a customer has declared in relation to the their activities as an employee.",
+  "additionalProperties": false,
+  "required": [
+    "submittedOn",
+    "totalExpenses",
+    "expenses"
+  ],
+  "properties": {
+    "submittedOn":{
+      "type":"string",
+      "foramt":"date-time"
+    },
+    "dateIgnored": {
+      "type": "string",
+      "format": "date-time",
+      "description": "An ISO-8601 compliant date-time representing when the customer requested the data set was ignored."
+    },
+    "source":{
+      "type":"string",
+      "enum":["CUSTOMER","HMRC HELD", "LATEST"]
+    },
+    "totalExpenses": {
+      "$ref": "#/definitions/moneyPositive"
+    },
+    "expenses": {
+      "$ref": "#/definitions/expenses"
+    }
+  },
+  "definitions": {
+    "moneyPositive": {
+      "id": "#moneyPostive",
+      "description": "Total of all itemised expenses",
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 9999999.99,
+      "multipleOf": 0.01
+    },
+    "expenses": {
+      "id": "#expenses",
+      "type": "object",
+      "description": "itemised expenses",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "businessTravelCosts": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "jobExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "flatRateJobExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "professionalSubscriptions": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "hotelAndMealExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "otherAndCapitalAllowances": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "vehicleExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "mileageAllowanceRelief": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    }
+  }
+}</code></pre><p><strong>Examples</strong>:</p><div class="examples"><p><strong>example-1</strong>:<br>Customer view</p><pre><code>{
+  "submittedOn": "2019-04-04T01:01:01Z",
+  "totalExpenses": 1232.22,
+  "expenses": {
+    "businessTravelCosts": 122.22,
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
+}</code></pre><p><strong>example-2</strong>:<br>HMRC view</p><pre><code>{
+  "submittedOn": "2019-04-04T01:01:01Z",
+  "totalExpenses": 1232.22,
+  "expenses": {
+    "businessTravelCosts": 122.22,
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
+}</code></pre><p><strong>example-3</strong>:<br>Latest view</p><pre><code>{
+  "submittedOn": "2019-04-04T01:01:01Z",
+  "source": "CUSTOMER",
+  "totalExpenses": 1232.22,
+  "expenses": {
+    "businessTravelCosts": 122.22,
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
+}</code></pre><p><strong>example-4</strong>:<br>Ignored Expenses</p><pre><code>{
+  "submittedOn": "2019-04-04T01:01:01Z",
+  "source": "CUSTOMER",
+  "totalExpenses": 1232.22,
+  "expenses": {
+    "businessTravelCosts": 122.22,
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/502" target="_blank">502</a></h2></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="expenses_employments__nino___taxyear__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/expenses/employments/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update annual employment expenses submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#expenses_employments__nino___taxyear__put_request" data-toggle="tab">Request</a></li><li><a href="#expenses_employments__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="expenses_employments__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: 401</p><p><strong>Type</strong>: any</p><p><strong>Media type</strong>: 404</p><p><strong>Type</strong>: any</p><p><strong>Media type</strong>: 502</p><p><strong>Type</strong>: any</p><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Employment_Response",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get Employment Response",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/definitions/ignore"},
+    { "$ref": "#/definitions/expenses"}
+  ],
+
+  "definitions": {
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "description": "Definition of a positive money value",
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0,
+      "maximum": 99999999.99
+    },
+    "ignore": {
+      "type": "object",
+      "properties": {
+        "ignoreExpenses": {
+          "const": true
+        }
+      },
+      "additionalProperties": false,
+      "required": ["ignoreExpenses"]
+    },
+    "expenses": {
+      "type": "object",
+      "properties": {
+        "businessTravelCosts": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "jobExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "flatRateJobExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "professionalSubscriptions": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "hotelAndMealExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "otherAndCapitalAllowances": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "vehicleExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "mileageAllowanceRelief": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    }
+  }
+}</code></pre><p><strong>Examples</strong>:</p><div class="examples"><p><strong>example-1</strong>:<br>Put expenses</p><pre><code>{
+  "expenses": {
+    "businessTravelCosts": 122.22,
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
+}</code></pre><p><strong>example-2</strong>:<br>Ignore expenses</p><pre><code>{
+  "ignoreExpenses": true
+}</code></pre></div></div><div class="tab-pane" id="expenses_employments__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="expenses_employments__nino___taxyear__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/expenses/employments/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete annual employment expenses submission</p></div><ul class="nav nav-tabs"><li class="active"><a href="#expenses_employments__nino___taxyear__delete_request" data-toggle="tab">Request</a></li><li><a href="#expenses_employments__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="expenses_employments__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="expenses_employments__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_STATUS"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No tax calculations could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/502" target="_blank">502</a></h2></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_expenses_other__nino___taxyear_"><span class="parent">/expenses/other/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#expenses_other__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#expenses_other__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#expenses_other__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_expenses_other__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#expenses_other__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of other expenses</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#expenses_other__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update other expenses submission</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#expenses_other__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete other expenses submission</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="expenses_other__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/expenses/other/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of other expenses</p></div><ul class="nav nav-tabs"><li class="active"><a href="#expenses_other__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#expenses_other__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="expenses_other__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2017-18</code></pre></div></li></ul></div><div class="tab-pane" id="expenses_other__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: any</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
     "paymentsToTradeUnionsForDeathBenefits": {
       "customerReference": "myref",
       "expenseAmount": 1223.22
@@ -178,7 +406,17 @@ pre code {
     "patentRoyaltiesPayments":{
       "customerReference": "myref",
       "expenseAmount": 1223.22
-    }
+    },
+  {
+    "businessTravelCosts": 122.22,   // TBC
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
 }</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
   "code": "FORMAT_STATUS"
 }</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
@@ -195,7 +433,17 @@ pre code {
     "patentRoyaltiesPayments":{
       "customerReference": "myref",
       "expenseAmount": 1223.22
-    }
+    },
+  {
+    "businessTravelCosts": 122.22,   // TBC
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
 }</code></pre></div></div><div class="tab-pane" id="expenses_other__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
   "code": "FORMAT_STATUS"
 }</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{

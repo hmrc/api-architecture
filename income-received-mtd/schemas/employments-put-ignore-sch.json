@@ -1,0 +1,14 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/ignore_employment_schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ignore Employment",
+  "description": "This schema allows a customer to mark an employment as ignored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ignoreEmployment"],
+  "properties":{
+    "ignoreEmployment":{
+      "type": "boolean"
+    }
+  }
+}

@@ -4,19 +4,52 @@
   "title": "View Customer Employments",
   "description": "View a list of employments associated with the customer, the list may contain employments that the customer has added via their third party software, these are clearly marked.",
   "type": "object",
-  "required": [ "employments"],
-  "additionalProperties": false,
-  "properties": {
-    "employments": {
-      "description": "A list of employment objects",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/employment"
+  "oneOf": [
+    {
+      "properties": {
+        "employments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/hmrcEmployment"
+          }
+        },
+        "customerDeclaredEmployments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/customerEmployment"
+          }
+        }
       },
-      "additionalItems": false,
-      "minItems": 1
+      "required": ["employments"],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "employments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/hmrcEmploymentHistory"
+          }
+        },
+        "customerDeclaredEmployments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/customerEmploymentHistory"
+          }
+        }
+      },
+      "required": ["employments"],
+      "additionalProperties": false
     }
-  },
+  ],
   "definitions": {
     "employmentId": {
       "id": "#employmentId",
@@ -43,33 +76,67 @@
       "type": "string",
       "pattern": "^[a-zA-Z0-9]{0,74}$"
     },
-    "employment": {
-      "description": "An object representing an employment",
-      "id": "#employment",
+    "hmrcEmployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["employmentId","employerName"],
+      "properties": {
+        "employmentId": {
+          "$ref": "#/definitions/employmentId"
+        },
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "payrollId": {
+          "$ref": "#/definitions/payrollId"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "cessationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateIgnored": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "customerEmployment": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "employmentId",
         "employerName",
-        "employerRef"
+        "submittedOn"
       ],
       "properties": {
         "employmentId": {
           "$ref": "#/definitions/employmentId"
         },
-        "employerRef": {
-          "$ref": "#/definitions/employerRef"
-        },
         "employerName": {
           "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
         },
         "payrollId": {
           "$ref": "#/definitions/payrollId"
         },
-        "customerAdded": {
-          "const": true
+        "startDate": {
+          "type": "string",
+          "format": "date"
         },
-        "dateIgnored": {
+        "cessationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "submittedOn": {
           "type": "string",
           "format": "date-time"
         }

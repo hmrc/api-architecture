@@ -1,29 +1,46 @@
 {
+  "submittedOn": "2019-04-04T01:01:01Z",
+  "dateIgnored": "2019-04-04T01:01:01Z",
   "employment": {
+    "payrollId": "124432423423",
+    "companyDirector": false,
+    "closeCompany": false,
+    "directorshipCeasedDate": "2020-01-01",
+    "startDate": "2019-01-01",
+    "dateEmploymentEnded": "2020-01-01",
+    "occPen": false,
+    "disguisedRemuneration": false,
+    "employer": {
+      "employerRef": "123/XX12345",
+      "employerName": "wibble"
+    },
     "pay": {
-      "grossAmountPaidYtd": 1234.15,
-      "taxTakenOffYtd": 12.22,
-      "tipsAndOtherPayments": 10000.0
+      "taxablePayToDate": 1234.15,
+      "totalTaxToDate": 12.22,
+      "tipsAndOtherPayments": 10000,
+      "payFrequency": "CALENDAR MONTHLY",
+      "paymentDate": "2020-05-12",
+      "taxWeekNo": 52
     },
     "lumpSums": {
       "taxableLumpSumsAndCertainIncome": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
+        "amount": 123,
+        "taxPaid": 123,
         "taxTakenOffInEmployment": true
       },
       "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123.0,
-        "exemptAmount": 123.0,
-        "taxPaid": 123.0,
+        "amount": 123,
+        "exemptAmount": 123,
+        "taxPaid": 123,
         "taxTakenOffInEmployment": true
       },
       "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
+        "amount": 123,
+        "taxPaid": 123,
         "taxTakenOffInEmployment": true
       },
       "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123.0
+        "amount": 123
       }
     },
     "deductions": {

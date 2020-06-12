@@ -1,0 +1,30 @@
+    /{nino}:
+      uriParameters:
+        nino: types.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  types.TaxYear
+        get:
+          displayName: List of Foreign income
+          description: List of Foreign income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/foreign.json
+        put:
+          displayName: Create/update Foreign income submission
+          description: Create/update Foreign income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/foreign.json
+        delete:
+          displayName: Delete Foreign income submission
+          description: Delete Foreign income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
