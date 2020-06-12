@@ -50,8 +50,8 @@
                         description: Latest view
                         value: !include examples/employments-get-detail-latest.json
           put:
-            displayName: Update an Employment
-            description: Update an Employment
+            displayName: Create/Update an override for an HRMC held Employment
+            description: Create/Update an override for an HRMC held Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             body:
               application/json:
@@ -63,10 +63,20 @@
               401:
               422:
               502:
+          delete:
+            displayName: Delete an override for an HRMC held Employment
+            description: Delete an override for an HRMC held Employment
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+            responses:
+              204:
+              400:
+              401:
+              422:
+              502:
           /ignore:
             put:
-              displayName: Ignore Employment Toggle
-              description: Update an Employment
+              displayName: Ignore an HRMC held Employment (toggle)
+              description: Ignore an HRMC held Employment (toggle)
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
               body:
                 application/json:
