@@ -1,4 +1,4 @@
-.*
+.scalafmt.conf
 
 !.scalafmt.conf
 !.gitignore

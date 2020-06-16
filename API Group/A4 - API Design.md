@@ -212,6 +212,7 @@ N/A
 | 400           | Invalid Request - the request body or parameters are invalid |
 | 401           | The request cannot be authorised                             |
 | 403           | Forbidden - this response is returned if the employment id supplied does not relate to a customer added emploment. |
+| 404           | If the employment does not exist.                            |
 | 422           | Invalid Request - validation / BVR failure                   |
 | 502           | Internal Error                                               |
 
@@ -308,7 +309,7 @@ A customer can opt to ignore an employment, this should be consider as an instru
 
 #### 2.1.1 URI
 
-**PUT** */income/employments/{taxableEntityId}/{taxYear}/ignore*
+**PUT** */income/employments/{taxableEntityId}/{taxYear}/{employmentId}/ignore*
 
 #### 2.1.2 Path Parameters
 
@@ -316,6 +317,7 @@ A customer can opt to ignore an employment, this should be consider as an instru
 | --------------- | -------------------------------------------- | -------- |
 | taxableEntityId | Unique identifier of the customer            | AB123456 |
 | taxYear         | The tax year to which the employment applies | 2019-20  |
+| employmentId    | Unique id employment.                        |          |
 
 #### 2.1.3 Query Parameters
 
@@ -399,7 +401,7 @@ N/A
 
 ## 3. Viewing a Customers Employments
 
-### 3.1 View Customer Emploments
+### 3.1 View Customer Employments
 
 This operation will provide the customer with a list of the active employments for the tax year. 
 
@@ -980,7 +982,7 @@ N/A
         "payrollId": {
           "id": "#payrollId",
           "type": "string",
-          "pattern": "^[a-zA-Z0-9]{0,74}$"
+          "pattern": "^[a-zA-Z0-9]{0,35}$"
         },
         "companyDirector": {
           "type": "boolean"
@@ -1009,7 +1011,7 @@ N/A
         "employer": {
           "type": "object",
           "additionalProperties": false,
-          "required": [ "employerName" ],
+          "required": [ "employerRef" ],
           "properties": {
             "employerRef": {
               "type": "string",
@@ -1026,6 +1028,8 @@ N/A
           "oneOf": [
             {
               "required": [
+                "taxablePayToDate",
+                "totalTaxToDate",
                 "payFrequency",
                 "paymentDate",
                 "taxWeekNo"
@@ -1038,6 +1042,8 @@ N/A
             },
             {
               "required": [
+                "taxablePayToDate",
+                "totalTaxToDate",                
                 "payFrequency",
                 "paymentDate",
                 "taxMonthNo"
@@ -1054,7 +1060,10 @@ N/A
               "$ref": "#/definitions/moneyPositive"
             },
             "totalTaxToDate": {
-              "$ref": "#/definitions/moneyPositive"
+              "type":"number",
+              "minimum" : -999999999.99,
+              "maximum" : 999999999.99,
+              "multipleOf": 0.01,
             },
             "tipsAndOtherPayments": {
               "$ref": "#/definitions/moneyPositive"
@@ -1178,7 +1187,7 @@ N/A
             }
           }
         },
-        "benefits": {
+        "benefitsInKind": {
           "type": "object",
           "additionalProperties": false,
           "minProperties": 1,
@@ -1683,7 +1692,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -1773,7 +1782,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -1861,7 +1870,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -1949,7 +1958,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -2038,7 +2047,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -2129,7 +2138,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -2212,7 +2221,7 @@ N/A
             "pglDeductionAmount": 1232.22
           }
         },
-        "benefits": {
+        "benefitsInKind": {
           "accommodation": 124.22,
           "assets": 124.22,
           "assetTransfer": 124.22,
@@ -2303,7 +2312,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -2420,7 +2429,10 @@ N/A
               "$ref": "#/definitions/moneyPositive"
             },
             "taxTakenOffYtd": {
-              "$ref": "#/definitions/moneyPositive"
+              "type":"number",
+              "minimum" : -999999999.99,
+              "maximum" : 999999999.99,
+              "multipleOf": 0.01,
             },
             "tipsAndOtherPayments": {
               "$ref": "#/definitions/moneyPositive"
@@ -2516,7 +2528,7 @@ N/A
             }
           }
         },
-        "benefits": {
+        "benefitsInKind": {
           "type": "object",
           "additionalProperties": false,
           "minProperties": 1,
@@ -2659,7 +2671,7 @@ N/A
             "pglDeductionAmount": 1232.22
           }
         },
-        "benefits": {
+        "benefitsInKind": {
           "accommodation": 124.22,
           "assets": 124.22,
           "assetTransfer": 124.22,
@@ -2734,7 +2746,7 @@ N/A
         "pglDeductionAmount": 1232.22
       }
     },
-    "benefits": {
+    "benefitsInKind": {
       "accommodation": 124.22,
       "assets": 124.22,
       "assetTransfer": 124.22,
@@ -3124,20 +3136,20 @@ The submitted on date represents the latest change date within an HMRC system.
 
 ```json
 {
-   "submittedOn": "2019-04-04T01:01:01Z",
-   "dateIgnored": "2019-04-04T01:01:01Z",
-   "totalExpenses": 1232.22,
-   "expenses": {
-     "businessTravelCosts": 122.22,
-     "jobExpenses": 124.22,
-     "flatRateJobExpenses": 124.22,
-     "professionalSubscriptions": 124.22,
-     "hotelAndMealExpenses": 124.22,
-     "otherAndCapitalAllowances": 123.12,
-     "vehicleExpenses": 124.22,
-     "mileageAllowanceRelief": 124.22
-   }
- }
+  "submittedOn": "2019-04-04T01:01:01Z",
+  "dateIgnored": "2019-04-04T01:01:01Z",
+  "totalExpenses": 1232.22,
+  "expenses": {
+    "businessTravelCosts": 122.22,
+    "jobExpenses": 124.22,
+    "flatRateJobExpenses": 124.22,
+    "professionalSubscriptions": 124.22,
+    "hotelAndMealExpenses": 124.22,
+    "otherAndCapitalAllowances": 123.12,
+    "vehicleExpenses": 124.22,
+    "mileageAllowanceRelief": 124.22
+  }
+}
 ```
 
 
@@ -3436,58 +3448,153 @@ N/A
 
 #### 6.1.9 Response Examples
 
+##### 6.1.9.1 Without History
+
 ```json
 {
-  "pensionSavingsTaxCharges": {
-    "pensionSchemeTaxReference": [
-        "00123456RA",
+   "submittedOn": "timestamp", //mandatory
+  "pensionSavingsTaxCharges": { //Optional
+    "pensionSchemeTaxReference": [ //Mandatory at least 1
+        "00123456RA",//10 characters (8 digits 2 alpha)
         "00654321RA"
     ],
-    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": 123.00,
-    "benefitInExcessOfLifetimeAllowance": 123.00,
-    "lifetimeAllowanceTaxPaid": 123.00
+    //must provide at least 1 of the 2 objects below
+    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": { 
+      "amount": 1213.00, //mandatory
+      "taxPaid": 123.00 //optional
     },
-  "pensionSchemeOverseasTransfers": {
-    "overseasSchemeProvider": [
+    "benefitInExcessOfLifetimeAllowance": { 
+      "amount": 1213.00, //mandatory
+      "taxPaid": 123.00  //optional
+    }
+    },
+  "pensionSchemeOverseasTransfers": { //Optional
+    "overseasSchemeProvider": [ //Mandatory at least 1
        {
-       "providerName": "Overseas Pensions Plc",
-       "providerAddress": "111 Main Street, George Town, Grand Cayman", 
-       "providerCountryCode": "CYM"
+       "providerName": "Overseas Pensions Plc",  //Max Length 105, any character
+       "providerAddress": "111 Main Street, George Town, Grand Cayman",  //Max Length 250 any character Action on Toby, Andy, Vinay to confirm acceptable character sets for their tier. 
+       "providerCountryCode": "CYM"//ISO 3 char country codes
        }
      ],
-    "transferCharge": 123.00,
-    "transferChargeTaxPaid": 123.00
+    "transferCharge": 123.00, //Mandatory
+    "transferChargeTaxPaid": 123.00 //Optional
     },
-   "pensionSchemeUnauthorisedPayments": {
-   "pensionSchemeTaxReference": [
-        "00123456RA",
+   "pensionSchemeUnauthorisedPayments": { //Optional
+   "pensionSchemeTaxReference": [ //Mandatory at least 1
+        "00123456RA", //10 characters (8 digits 2 alpha)
         "00654321RA"
      ],
-      "amountSurcharge":  123.00,
-      "amountNoSurcharge": 123.00,
-      "foreignTaxPaid": 123.00
+     //At least one of surcharge / noSurcharge
+     "surcharge": {
+       "amount": 123.00, //Mandatory
+       "foreignTaxPaid": 123.00 //Optional
+     },
+     "noSurcharge": { 
+       "amount": 123.00, //Mandatory
+       "foreignTaxPaid" : 213.00 //Optional
+     }
+
    },
-    "pensionContributions": {
-    "pensionSchemeTaxReference": [
-        "00123456RA",
+    "pensionContributions": { //Optional
+    "pensionSchemeTaxReference": [ //Mandatory at least 1
+        "00123456RA", //10 characters (8 digits 2 alpha)
         "00654321RA"
     ],
-     "inExcessOfTheAnnualAllowance": 123.00,
-     "annualAllowanceTaxPaid": 123.00
+     "inExcessOfTheAnnualAllowance": 123.00, //Mandatory
+     "annualAllowanceTaxPaid": 123.00 //Optional
   },
-  "overseasPensionContributions": {
-    "overseasSchemeProvider": [
+  "overseasPensionContributions": { //Optional
+    "overseasSchemeProvider": [ //Mandatory at least 1 -- see earlier definitions. 
       {
        "providerName": "Overseas Pensions Plc",
        "providerAddress": "111 Main Street, George Town, Grand Cayman", 
        "providerCountryCode": "CYM"
       }
      ],
-    "shortServiceRefund": 123.00,
-    "shortServiceRefundTaxPaid": 123.00
+    "shortServiceRefund": 123.00, //Mandatory 99999999999.99
+    "shortServiceRefundTaxPaid": 123.00 //Optional
    }
 }
 ```
+
+##### 6.1.9.2 With History Empty
+
+```json
+{
+  "submittedOn": "timestamp", //mandatory
+  "deletedOn": timestamp //optional
+  "pensionSavingsTaxCharges": { //Optional
+    "pensionSchemeTaxReference": [ //Mandatory at least 1
+        "00123456RA",//10 characters (8 digits 2 alpha)
+        "00654321RA"
+    ],
+    //must provide at least 1 of the 2 objects below
+    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": { 
+      "amount": 1213.00, //mandatory
+      "taxPaid": 123.00 //optional
+    },
+    "benefitInExcessOfLifetimeAllowance": { 
+      "amount": 1213.00, //mandatory
+      "taxPaid": 123.00  //optional
+    }
+    },
+  "pensionSchemeOverseasTransfers": { //Optional
+    "overseasSchemeProvider": [ //Mandatory at least 1
+       {
+       "providerName": "Overseas Pensions Plc",  //Max Length 105, any character
+       "providerAddress": "111 Main Street, George Town, Grand Cayman",  //Max Length 250 any character Action on Toby, Andy, Vinay to confirm acceptable character sets for their tier. 
+       "providerCountryCode": "CYM"//ISO 3 char country codes
+       }
+     ],
+    "transferCharge": 123.00, //Mandatory
+    "transferChargeTaxPaid": 123.00 //Optional
+    },
+   "pensionSchemeUnauthorisedPayments": { //Optional
+   "pensionSchemeTaxReference": [ //Mandatory at least 1
+        "00123456RA", //10 characters (8 digits 2 alpha)
+        "00654321RA"
+     ],
+     //At least one of surcharge / noSurcharge
+     "surcharge": {
+       "amount": 123.00, //Mandatory
+       "foreignTaxPaid": 123.00 //Optional
+     },
+     "noSurcharge": { 
+       "amount": 123.00, //Mandatory
+       "foreignTaxPaid" : 213.00 //Optional
+     }
+
+   },
+    "pensionContributions": { //Optional
+    "pensionSchemeTaxReference": [ //Mandatory at least 1
+        "00123456RA", //10 characters (8 digits 2 alpha)
+        "00654321RA"
+    ],
+     "inExcessOfTheAnnualAllowance": 123.00, //Mandatory
+     "annualAllowanceTaxPaid": 123.00 //Optional
+  },
+  "overseasPensionContributions": { //Optional
+    "overseasSchemeProvider": [ //Mandatory at least 1 -- see earlier definitions. 
+      {
+       "providerName": "Overseas Pensions Plc",
+       "providerAddress": "111 Main Street, George Town, Grand Cayman", 
+       "providerCountryCode": "CYM"
+      }
+     ],
+    "shortServiceRefund": 123.00, //Mandatory 99999999999.99
+    "shortServiceRefundTaxPaid": 123.00 //Optional
+  },
+  "history":[ ]
+}
+```
+
+##### 6.1.9.3 With History 
+
+```json
+//todo
+```
+
+
 
 #### 6.1.10 Response Headers
 
@@ -3683,40 +3790,67 @@ N/A
 
 #### 7.1.9 Response Examples
 
+##### 7.1.9.1 No History
+
 ```json
 {
-  "statePension": {
-      "annualAmount": 123.00,
-      "lumpSumAmount": 123.00, 
-      "lumpSumTaxPaid": 123.00
-  },
-  "incapacityBenefit": {  
-      "amount": 123.00,
-      "taxPaid": 123.00
-  },
-   "employmentSupportAllowance": {  
-       "amount": 123.00
-  },
-   "jobseekersAllowance": {
-        "amount": 123.00
-  },
-    "bereavementAllowance": { 
-        "amount":  123.00
-  },
-    "widowedParentsAllowance": {
-      "amount":  123.00
-  },
-    "industrialDeathBenefit": {
-      "amount":  123.00
-  },
-    "carersAllowance": {
-      "amount":  123.00
-  },
-    "otherStatutoryBenefits": {
-      "amount": 123.00
-  }          
+  "submittedOn":"timestamp",
+	"pensionReliefs": { //Mandatory at least 1 child node
+    "regularPensionContributions:": 123.00, //99999999999.99
+    "oneOffPensionContributionsPaid": 123.00,
+    "retirementAnnuityPayments": 123.00,
+    "paymentToEmployersSchemeNoTaxRelief": 123.00,
+    "overseasPensionSchemeContributions": 123.00
+   }  
 }
 ```
+
+##### 7.1.9.2 With Empty History
+
+```json
+{
+  "submittedOn":"timestamp",
+  "deletedOn":"timestamp",//optional
+	"pensionReliefs": { //Mandatory at least 1 child node
+    "regularPensionContributions:": 123.00, //99999999999.99
+    "oneOffPensionContributionsPaid": 123.00,
+    "retirementAnnuityPayments": 123.00,
+    "paymentToEmployersSchemeNoTaxRelief": 123.00,
+    "overseasPensionSchemeContributions": 123.00
+   },
+  "history":[]
+}
+```
+
+##### 7.1.9.3 With History
+
+```json
+{
+  "submittedOn":"timestamp",
+  "deletedOn":"timestamp",//optional
+	"pensionReliefs": { //Mandatory at least 1 child node
+    "regularPensionContributions:": 123.00, //99999999999.99
+    "oneOffPensionContributionsPaid": 123.00,
+    "retirementAnnuityPayments": 123.00,
+    "paymentToEmployersSchemeNoTaxRelief": 123.00,
+    "overseasPensionSchemeContributions": 123.00
+   },
+  "history":[
+    {
+      "submittedOn":"timestamp",
+      "pensionReliefs": { //Mandatory at least 1 child node
+        "regularPensionContributions:": 123.00, //99999999999.99
+        "oneOffPensionContributionsPaid": 123.00,
+        "retirementAnnuityPayments": 123.00,
+        "paymentToEmployersSchemeNoTaxRelief": 123.00,
+        "overseasPensionSchemeContributions": 123.00
+   }     
+    }
+  ]
+}
+```
+
+
 
 #### 7.1.10 Response Headers
 
@@ -3852,23 +3986,121 @@ N/A
 
 
 
-## Appendix A
+## State Benefits
+
+### Retrieve State Benefits:
+
+#### URI:
+
+*/income/state-benefits/{taxableEntityId}/{taxYear}*/
+
+
+
+#### Response Body
+
+```json
+{
+  "submittedOn": "timestamp",
+  
+  "statePension": { //Optional
+      "annualAmount": 123.00, //Mandatory
+    
+  },
+  "statePensionLumpSum":{  //behaves like an employment only 1 allowed ever
+      "empRef": "123/av123421C", //not editable
+    	"startDate": "date", //??
+    	"endDate" : "date", //??
+      "lumpSumAmount": 123.00, //Optional
+      "lumpSumTaxPaid": 123.00 //Optional //Check if mandatory when lump sum amount is present. 
+  },
+  "incapacityBenefit": {  //Is this still required ? 
+      "amountYTD": 123.00, 
+      "taxPaid": 123.00
+  },
+   "employmentSupportAllowance": {  //Move to the employments model - need to consider how this is "viewed"
+     																//has an emp ref, will need to be in ISS as an employment and follow the rest of the employment pattern, including ignoring the esa. 
+     	 "empRef": "123/av123421C", //not editable
+     	 "startDate": "date",       //not editable
+     	"endDate": "date", //optional //not editable
+        "amount": 123.00 
+  },
+   "jobseekersAllowance": { //Same as ESA 
+     	 "empRef": "123/av123421C", //not editable
+     	 "startDate": "date",       //not editable
+     	  "endDate": "date", //optional //not editable
+        "amount": 123.00      
+
+  },
+    "bereavementAllowance": { //Prepop
+        "amount":  123.00
+  },
+    "widowedParentsAllowance": { //Prepop
+      "amount":  123.00
+  },
+    "industrialDeathBenefit": { //Prepop
+      "amount":  123.00
+  },
+    "carersAllowance": { //Prepop
+      "amount":  123.00
+  },
+    "otherStatutoryBenefits": { //Prepop
+      "amount": 123.00
+  }          
+}
+```
+
+
+
+## Appendix A 
+
+### Data Item Traceability
+
+| Employment Data Item                                         | RTI Data Item                                                | NPS Data Item |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
+| employment.payrollId                                         | Item 35 (Optional 35 characters)                             |               |
+| employment.closeCompanyDirector                              | N/A                                                          |               |
+| employment.directorshipCeasedDate                            | N/A                                                          |               |
+| employment.startDate                                         | Item 24 (Optional 8 characters)                              |               |
+| employment.cessationDate                                     | Item 41 (Optional 8 characters)                              |               |
+| employment.occupationalPension                               | Item 145 (Optional)                                          |               |
+| employment.disguisedRemuneration                             | N/A                                                          |               |
+| employment.employer.employerRef                              | Item 2 (Mandatory 10 characters)                             |               |
+| employment.employer.employerName                             | N/A                                                          |               |
+| employment.pay.taxablePayToDate                              | Item 41A (Mandatory 11 characters)                           |               |
+| employment.pay.totalTaxToDate                                | Item 41B (Mandatory 11 characters)                           |               |
+| employment.pay.tipsAndOtherPayments                          | N/A                                                          |               |
+| employment.pay.payFrequency                                  | Item 42 (Mandatory represented as a codelist)                |               |
+| employment.pay.paymentDate                                   | Item 43 (Mandatory 8 characters)                             |               |
+| employment.pay.taxWeekNo                                     | Item 44 (Optional 2 characters (1 - 56 )) is this 01 etc?    |               |
+| employment.pay.taxMonthNo                                    | Item 45 (Optional 2 characters (1-12)) is this 01 etc ?      |               |
+| employment.lumpSums.taxableLumpSumsAndCertainIncome          | The amount of taxable lump sum and tax paid is not shown separately on RTI, it will be shown in RTI Data Items 41A and 41B (Taxable Pay to Date in this employment and Total tax to date in this employment). Not sure how we would know that these data items relate to a taxable lump sum. |               |
+| employment.lumpSums.benefitFromEmployerFinancedRetirementScheme | The amount of benefit from an employer financed retirement scheme income and tax paid is not shown separately on RTI, it will be provided in RTI Data Items 41A and 41B. Not sure how we would know these data items relate to a benefit from employer financed retirement scheme without knowing the EMPREF of the scheme |               |
+| employment.lumpSums.benefitFromEmployerFinancedRetirementScheme.exemptAmount | Item 58A                                                     |               |
+| employment.lumpSums.redunancyCompensationPaymentsUnderException.amount | Item 58A                                                     |               |
+| employment.deductions.studentLoans.uglDeductionAmount        | RTI Data Item 41C Optional but becomes mandatory once an amount has been submitted for the tax year. [Total student loans repayment recovered in year to date in this employment] |               |
+| employment.deductions.studentLoans.pglDeductionAmount        | RTI Data Item 194 Optional but becomes mandatory once an amount has been submitted for the tax year. [Total postgraduate loan repayment recovered in year in this employment] |               |
+
+
+
+## Appendix B
 
 ### Change Log:
 
 | Version | Date       | Author      | Comments                                                     |
 | ------- | ---------- | ----------- | ------------------------------------------------------------ |
-| 1.0     | 20/05/2020 | Jon Elliot  | Initial version looking at Employments retrieval             |
-| 1.1     | 21/05/2020 | Jon Elliot  | Refined the retrieval of employments by expanding the data fields |
-| 1.2     | 22/05/2020 | Jon Elliot  | Added new issues from design session, updated schemata for list employments and get employment. Added delete operation. Added dateIgnored to represent the date the customer requested HMRC ignored a customer. |
+| 1.0     | 20/05/2020 | Jon Elliott | Initial version looking at Employments retrieval             |
+| 1.1     | 21/05/2020 | Jon Elliott | Refined the retrieval of employments by expanding the data fields |
+| 1.2     | 22/05/2020 | Jon Elliott | Added new issues from design session, updated schemata for list employments and get employment. Added delete operation. Added dateIgnored to represent the date the customer requested HMRC ignored a customer. |
 | 1.3     | 22/05/2020 | Toby Porter | Added Lump Sums, Pensions, Annuities & NICs                  |
 | 1.4     | 26/05/2020 | Toby Porter | Subsumed occ pensions & annuities into main objects; removed Lump Sums pending further requirements analysis |
 | 1.5     | 28/05/2020 | Toby Porter | Added lump sums that are linked to an employment             |
 | 1.6     | 02/06/2020 | Jon Elliott | Support added for block level submission data.               |
 | 1.7     | 08/06/2020 | Jon Elliott | Updates to document structure, merged pensions in, added ability to manage customer based employments added in expenses. |
 | 1.8     | 10/06/2020 | Jon Elliott | Added API to manage ignoring of employments, updated schemas to represent historical data and aligned to latest field name changes. |
+| 1.9     | 12/10/2020 | Jon Elliott | Updated Benefits field to benefits in kind (Product Owner Request), Updated employment schema in line with RTI Data items, Added Appendix to document field mappings (RTI) |
+| 1.10    | 12/10/2020 | Jon Elliott | Added employmentId to ignoring an employment                 |
 
-## Appendix B
+## Appendix C
 
 ### RAID Log
 

@@ -1,8 +1,0 @@
-{
-  "name": "api-architecture",
-  "version": "0.0.1",
-  "dependencies": {
-    "raml2html": "^7.5.0",
-    "raml2html-printable-theme": "1.0.1"
-  }
-}
