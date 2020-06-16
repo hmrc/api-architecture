@@ -14,3 +14,4 @@ Early stage RAML > HTML designs for APIs
 | [income-received]( https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/income-received/income-received-printable.html)       | DRAFT  |
 | [obligations](     https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/obligations/obligations-printable.html)      | DRAFT  |
 | [reliefs](         https://htmlpreview.github.io/?https://github.com/hmrc/api-architecture/blob/master/reliefs/reliefs-printable.html)       | DRAFT  |
+
