@@ -1,0 +1,42 @@
+#%RAML 1.0
+title: DRAFT
+baseUri: https://api.service.hmrc.gov.uk
+version: 2020-05-19 15:04
+documentation:
+  - title: Insurance Policies
+    content: !include docs/insurance-policies.md
+  - title: Savings
+    content: !include docs/savings.md
+  - title: Employments
+    content: !include docs/employments.md
+  - title: Employments - Other
+    content: !include docs/employments-other.md
+  - title: Foreign
+    content: !include docs/foreign.md
+  - title: Dividends
+    content: !include docs/dividends.md
+  - title: Pensions
+    content: !include docs/pensions.md
+  - title: Other
+    content: !include docs/other.md
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/income-received:
+  /savings:
+    !include savings.raml
+  /insurance-policies:
+    !include insurance-policies.raml
+  /employments:
+    !include employments.raml
+  /foreign:
+    !include foreign.raml
+  /dividends:
+    !include dividends.raml
+  /pensions:
+    !include pensions.raml
+  /other:
+    !include other.raml

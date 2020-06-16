@@ -1,0 +1,327 @@
+#%RAML 1.0
+title: DRAFT
+baseUri: https://api.service.hmrc.gov.uk
+version: 2020-06-09 11:26
+documentation:
+  - title: Insurance Policies
+    content: |
+     | Insurance Type                | Source | Boxes               |
+     |:----------------------------|:-------|:--------------------|
+     | Life Insurance Policies     | SA101  | AOI boxes 4-7, 11   |
+     | Life Annuity Contracts      | SA101  | AOI boxes 4-7, 11   |
+     | Capital Redemption Policies | SA101  | AOI boxes 4-7, 11   |
+     | Voided ISAs                 | SA101  | AOI boxes 8 - 11    |
+     | Foreign Policies            | SA106  | boxes 43 - 45       |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Insurance Policies | /income/insurance-policies/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Savings
+    content: |
+     | Savings Type                | Source | Boxes                   |
+     |:----------------------------|:-------|:------------------------|
+     | BBSI                        | SA100  |                         |
+     | Securities                  | SA101  | AOI boxes 1-3           |
+     | Foreign Interest            | SA106  | A- F Interest / savings |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Savings | /income/savings/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Employment - Other
+    content: |
+     | Employment - Other Type                    | Source | Boxes      |
+     |:--------------------------------|:-------|:-----------|
+     | Share Options                   | SA101  | ASE Box 1  |
+     | Shares Awarded or Received      | SA101  | ASE Box 1  |
+     | Disability                      | SA101  | ASE Box 10 |
+     | Foreign Service                 | SA101  | ASE box 10 |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Other Employment | /income/employment/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Foreign
+    content: |
+     | Foreign Type                    | Source | Boxes      |
+     |:--------------------------------|:-------|:-----------|
+     | Foreign Earnings                | SA101  | ASE Box 12 |
+     | Unremittable Foreign Income     | SA106  | box 1      |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Foreign | /income/foreign/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Dividends
+    content: |
+     | Divdend Type                             | Source | Boxes           |
+     |:-----------------------------------------|:-------|:----------------|
+     | Foreign Dividends                        | SA106  | A - F Dividends |
+     | Dividend Income Received Whilst Abroad   | SA106  | A - F Dividends |
+     | Stock Dividends                          | SA101  | AOI Box 12      |
+     | Bonus Issue of Securities                | SA101  | AOI Box 13      |
+     | Redeemable Shares                        | SA101  | AOI Box 13      |
+     | Close Company Loans Written Off          | SA101  | AOI Box 13.1   |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Dividends | /income/dividends/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Pensions
+    content: |
+     | Pension Type                    | Source | Boxes          |
+     |:--------------------------------|:-------|:---------------|
+     | Foreign Pensions                | SA106  | A - F Pensions |
+     | Overseas Pension Contributions  | SA101  | ASE box 14     |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Pensions | /income/pensions/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+  - title: Other
+    content: |
+     | Other Type                            | Source | Boxes              |
+     |:----------------------------------------|:-------|:-------------------|
+     | Business Receipts                       | SA101  | AOI Box 14 - 15    |
+     | All Other Income Received Whilst Abroad | SA106  | A - F Other Income |
+     | Overseas Income and Gains               | SA106  | Box 41             |
+     | Chargeable Foreign Benefits and Gifts   | SA106  | Box 42             |
+     | Omitted Foreign Income                  | SA106  | Box 46             |
+#  - title: Resource Model
+#    content: |
+#      | Income Type | Endpoints | Methods   |
+#      |-----------|-----------|-----------|
+#      | Other | /income/other/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
+#      ___
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/income-received:
+  /savings:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of savings income
+          description: List of savings income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/savings.json
+        put:
+          displayName: Create/update savings income submission
+          description: Create/update savings income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/savings.json
+        delete:
+          displayName: Delete savings income submission
+          description: Delete savings income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /insurance-policies:
+    /{nino}:
+      uriParameters:
+          nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of Insurance Policies income
+          description: List of Insurance Policies income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/insurance.json
+        put:
+          displayName: Create/update Insurance Policies income submission
+          description: Create/update Insurance Policies income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/insurance.json
+        delete:
+          displayName: Delete Insurance Policies income submission
+          description: Delete Insurance Policies income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /employment:
+    /other:
+      /{nino}:
+        uriParameters:
+            nino: baseTypes.Nino
+        /{taxYear}:
+          uriParameters:
+            taxYear:  baseTypes.TaxYear
+          get:
+            displayName: List of Other Employment income
+            description: List of Other Employment income
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/employment-other.json
+          put:
+            displayName: Create/update Other Employment income submission
+            description: Create/update Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+            responses:
+              200:
+            body:
+              application/json:
+                example: !include examples/employment-other.json
+          delete:
+            displayName: Delete Other Employment income submission
+            description: Delete Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              204:
+  /foreign:
+    /{nino}:
+      uriParameters:
+          nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of Foreign income
+          description: List of Foreign income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/foreign.json
+        put:
+          displayName: Create/update Foreign income submission
+          description: Create/update Foreign income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/foreign.json
+        delete:
+          displayName: Delete Foreign income submission
+          description: Delete Foreign income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /dividends:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of dividends income
+          description: List of dividends income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/dividends.json
+        put:
+          displayName: Create/update dividends income submission
+          description: Create/update dividends income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/dividends.json
+        delete:
+          displayName: Delete dividends income submission
+          description: Delete dividends income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /pensions:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of pensions income
+          description: List of pensions income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/pensions.json
+        put:
+          displayName: Create/update pensions income submission
+          description: Create/update pensions income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/pensions.json
+        delete:
+          displayName: Delete pensions income submission
+          description: Delete pensions income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:
+  /other:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of other income
+          description: List of other income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/other.json
+        put:
+          displayName: Create/update other income submission
+          description: Create/update other income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/other.json
+        delete:
+          displayName: Delete other income submission
+          description: Delete other income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:

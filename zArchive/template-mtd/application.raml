@@ -1,0 +1,60 @@
+#%RAML 1.0
+---
+title: Income (MTD)
+description: This is a spec for the Income API
+version: draft
+
+protocols: [ HTTPS ]
+baseUri: https://api.service.hmrc.gov.uk/
+
+documentation:
+#  - title: Insurance Policies
+#    content: !include docs/insurance-policies.md
+#  - title: Savings
+#    content: !include docs/savings.md
+  - title: Employments
+    content: !include docs/employments.md
+  - title: Employments - Other
+    content: !include docs/employments-other.md
+#  - title: Foreign
+#    content: !include docs/foreign.md
+#  - title: Dividends
+#    content: !include docs/dividends.md
+#  - title: Pensions
+#    content: !include docs/pensions.md
+#  - title: Other
+#    content: !include docs/other.md
+# - title: Overview
+#   content: !include docs/overview.md
+# - title: Versioning
+#   content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/versioning.md
+# - title: Errors
+#   content: !include docs/errors.md
+# - title: Changelog
+#   content: !include docs/changelog.md
+# - title: Support
+#   content: !include docs/support.md
+# - title: Testing
+#   content: !include docs/testing.md
+
+mediaType: application/json
+
+uses:
+  sec: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml
+  annotations: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml
+  #types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
+  types: ../generic/types/common/base-types.raml
+  errors: errors.raml
+  headers: headers.raml
+  queryParameters: queryParameters.raml
+
+#'/individuals/income-received':
+
+'/income':
+#  /foreign: !include foreign.raml
+#  /dividends: !include dividends.raml
+#  /pensions: !include pensions.raml
+#  /savings: !include savings.raml
+#  /other: !include other.raml
+#  /insurance-policies: !include insurance-policies.raml
+  /employments: !include employments.raml

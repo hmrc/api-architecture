@@ -1,0 +1,178 @@
+    /{nino}:
+      uriParameters:
+          nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  baseTypes.TaxYear
+        get:
+          displayName: List of active employments for the tax year
+          description: List of active employments for the tax year
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  type: !include schemas/employments-get-list-sch.json
+                  examples:
+                    example-1:
+                      description: List of Employments
+                      value: !include examples/employments-get-list.json
+              400:
+              401:
+              422:
+              502:
+        /{employmentId}:
+          uriParameters:
+            employmentId:  baseTypes.EmploymentId
+          get:
+            displayName: Get Employment detail
+            description: Get Employment detail
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            queryParameters:
+              view:
+                displayName: Specify the type of view that you want to see, either HMRC HELD, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+                description: Specify the type of view that you want to see, either HMRC HELD, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+                example: LATEST
+                required: false
+            responses:
+              200:
+                body:
+                  application/json:
+                    type: !include schemas/employments-get-detail-sch.json
+                    examples:
+                      example-1:
+                        description: Customer view
+                        value: !include examples/employments-get-detail-cust.json
+                      example-2:
+                        description: HMRC view
+                        value: !include examples/employments-get-detail-hmrc.json
+                      example-3:
+                        description: Latest view
+                        value: !include examples/employments-get-detail-latest.json
+          put:
+            displayName: Create/Update an override for an HRMC held Employment
+            description: Create/Update an override for an HRMC held Employment
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+            body:
+              application/json:
+                type: !include schemas/employments-put-detail-sch.json
+                example: !include examples/employments-put-detail.json
+            responses:
+              200:
+              400:
+              401:
+              422:
+              502:
+          delete:
+            displayName: Delete an override for an HRMC held Employment
+            description: Delete an override for an HRMC held Employment
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+            responses:
+              204:
+              400:
+              401:
+              422:
+              502:
+          /ignore:
+            put:
+              displayName: Ignore an HRMC held Employment (toggle)
+              description: Ignore an HRMC held Employment (toggle)
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+              body:
+                application/json:
+                  type: !include schemas/employments-put-ignore-sch.json
+                  example: !include examples/employments-put-ignore.json
+              responses:
+                200:
+                400:
+                401:
+                422:
+                502:
+        /custom:
+          post:
+            displayName: Create a new custom Employment
+            description: Create a new custom Employment
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            body:
+              application/json:
+                type: !include schemas/employments-custom-post-sch.json
+                examples:
+                  example-1:
+                    description: Full request
+                    value: !include examples/employments-custom-post-req-full.json
+                  example-2:
+                    description: Minimum request
+                    value: !include examples/employments-custom-post-req-min.json
+            responses:
+              201:
+                body:
+                  application/json:
+                    example: !include examples/employments-custom-post-resp.json
+              400:
+              401:
+              422:
+              502:
+          /{employmentId}:
+            uriParameters:
+              employmentId:  baseTypes.EmploymentId
+            put:
+              displayName: Create/update a custom Employment
+              description: Create/update a custom Employment
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+              body:
+                application/json:
+                  type: !include schemas/employments-custom-put-sch.json
+                examples:
+                  example-1:
+                    description: Full request
+                    value: !include examples/employments-custom-put-full.json
+                  example-2:
+                    description: Minimum request
+                    value: !include examples/employments-custom-put-min.json
+              responses:
+                200:
+                400:
+                401:
+                422:
+                502:
+            delete:
+              displayName: Delete a custom Employment
+              description: Delete a custom Employment
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+              responses:
+                204:
+                400:
+                401:
+                422:
+                502:
+    /other:
+      /{nino}:
+        uriParameters:
+            nino: baseTypes.Nino
+        /{taxYear}:
+          uriParameters:
+            taxYear:  baseTypes.TaxYear
+          get:
+            displayName: List of Other Employment income
+            description: List of Other Employment income
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/employments-other.json
+          put:
+            displayName: Create/update Other Employment income submission
+            description: Create/update Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
+            responses:
+              200:
+            body:
+              application/json:
+                example: !include examples/employments-other.json
+          delete:
+            displayName: Delete Other Employment income submission
+            description: Delete Other Employment income submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            responses:
+              204:

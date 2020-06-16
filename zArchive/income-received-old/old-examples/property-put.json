@@ -1,0 +1,12 @@
+{
+  "properties": [
+    {
+      "income": {
+        ... //todo
+      },
+      "expenses": {
+        ... //todo
+      }
+    }
+  ]
+}

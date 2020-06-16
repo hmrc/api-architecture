@@ -1,0 +1,146 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/View_Employments",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "View Customer Employments",
+  "description": "View a list of employments associated with the customer, the list may contain employments that the customer has added via their third party software, these are clearly marked.",
+  "type": "object",
+  "oneOf": [
+    {
+      "properties": {
+        "employments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/hmrcEmployment"
+          }
+        },
+        "customerDeclaredEmployments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/customerEmployment"
+          }
+        }
+      },
+      "required": ["employments"],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "employments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/hmrcEmploymentHistory"
+          }
+        },
+        "customerDeclaredEmployments": {
+          "type": "array",
+          "additionalItems": false,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/customerEmploymentHistory"
+          }
+        }
+      },
+      "required": ["employments"],
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "employmentId": {
+      "id": "#employmentId",
+      "description": "Unique identifier of the employment",
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "format": "uuid"
+    },
+    "employerRef": {
+      "description": "The unique reference for the employer",
+      "id": "#employerRef",
+      "type": "string",
+      "pattern": "^([0-9]{3})/([^ ].{0,10})$"
+    },
+    "employerName": {
+      "description": "The name of the employer",
+      "id": "#employerName",
+      "type": "string",
+      "pattern": "^.{0,74}$"
+    },
+    "payrollId": {
+      "description": "Unique identifier of the employment within the employer",
+      "id": "#payrollId",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9]{0,74}$"
+    },
+    "hmrcEmployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["employmentId","employerName"],
+      "properties": {
+        "employmentId": {
+          "$ref": "#/definitions/employmentId"
+        },
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "payrollId": {
+          "$ref": "#/definitions/payrollId"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "cessationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateIgnored": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "customerEmployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "employmentId",
+        "employerName",
+        "submittedOn"
+      ],
+      "properties": {
+        "employmentId": {
+          "$ref": "#/definitions/employmentId"
+        },
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "payrollId": {
+          "$ref": "#/definitions/payrollId"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "cessationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

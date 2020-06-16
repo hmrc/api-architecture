@@ -1,0 +1,40 @@
+{
+  "employments": [
+    {
+      "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName": "Wibble Inc"
+    },
+    {
+      "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName": "Wibble Inc",
+      "employerRef": "123/AB12343"
+    },
+    {
+      "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName": "Wibble Inc",
+      "employerRef": "123/AB12343",
+      "startDate": "2000-01-01",
+      "cessationDate": "2001-01-01"
+    },
+    {
+      "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName": "Wibble Inc",
+      "dateIgnored": "2020-03-03T01:01:01Z"
+    }
+  ],
+  "customerDeclaredEmployments": [
+    {
+      "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName": "Wibble Inc",
+      "submittedOn": "2020-03-03T01:01:01Z"
+    },
+    {
+      "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName": "Wibble Inc",
+      "employerRef": "123/AB12343",
+      "startDate": "2000-01-01",
+      "cessationDate": "2001-01-01",
+      "submittedOn": "2020-03-03T01:01:01Z"
+    }
+  ]
+}

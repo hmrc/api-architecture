@@ -1,0 +1,10 @@
+{
+  "employments": [
+    {
+      "employmentId" : "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerName" : "ACME Inc",
+      "employerRef"  : "123/XX12345",
+      "customerAdded": true
+    }
+  ]
+}

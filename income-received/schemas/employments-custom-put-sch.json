@@ -1,0 +1,29 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Customer_Defined_Employment",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer Defined Employment",
+  "description": "Object representing a customer defined employment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["employerName", "startDate"],
+  "properties": {
+    "employerRef": { "type": "string","pattern": "^([0-9]{3})/([^ ].{0,10})$"},
+    "employerName": { "type" : "string", "pattern": "^.{0,74}$"},
+    "startDate": { "type": "string", "format": "date" },
+    "cessationDate": { "type": "string", "format": "date" },
+    "payrollId": { "type": "string", "pattern": "^[a-zA-Z0-9]{0,74}$" }
+  },
+  "examples": [
+    {
+      "employerRef": "123/AB12334",
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01",
+      "cessationDate":  "2020-06-01",
+      "payrollId": "123213112312"
+    },
+    {
+      "employerName":  "ACME Corp",
+      "startDate": "2020-01-01"
+    }
+  ]
+}

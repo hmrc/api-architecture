@@ -1,0 +1,66 @@
+{
+  "employment": {
+    "pay": {
+      "grossAmountPaidYtd": 1234.15,
+      "taxTakenOffYtd": 12.22,
+      "tipsAndOtherPayments": 10000.0
+    },
+    "lumpSums": {
+      "taxableLumpSumsAndCertainIncome": {
+        "amount": 123.0,
+        "taxPaid": 123.0,
+        "taxTakenOffInEmployment": true
+      },
+      "benefitFromEmployerFinancedRetirementScheme": {
+        "amount": 123.0,
+        "exemptAmount": 123.0,
+        "taxPaid": 123.0,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsOverExemption": {
+        "amount": 123.0,
+        "taxPaid": 123.0,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsUnderExemption": {
+        "amount": 123.0
+      }
+    },
+    "deductions": {
+      "studentLoans": {
+        "uglDeductionAmount": 1232.22,
+        "pglDeductionAmount": 1232.22
+      }
+    },
+    "benefitsInKind": {
+      "accommodation": 124.22,
+      "assets": 124.22,
+      "assetTransfer": 124.22,
+      "beneficialLoan": 124.22,
+      "car": 124.22,
+      "carFuel": 124.22,
+      "educationalServices": 124.22,
+      "entertaining": 124.22,
+      "expenses": 124.22,>
+      "medicalInsurance": 124.22,
+      "telephone": 124.22,
+      "service": 124.22,
+      "taxableExpenses": 124.22,
+      "van": 124.22,
+      "vanFuel": 124.22,
+      "mileage": 124.22,
+      "nonQualifyingRelocationExpenses": 124.22,
+      "nurseryPlaces": 124.22,
+      "otherItems": 124.22,
+      "paymentsOnEmployeesBehalf": 124.22,
+      "personalIncidentalExpenses": 124.22,
+      "qualifyingRelocationExpenses": 124.22,
+      "employerProvidedProfessionalSubscriptions": 124.22,
+      "employerProvidedServices": 124.22,
+      "incomeTaxPaidByDirector": 124.22,
+      "travelAndSubsistence": 124.22,
+      "vouchersAndCreditCards": 124.22,
+      "nonCash": 124.22
+    }
+  }
+}

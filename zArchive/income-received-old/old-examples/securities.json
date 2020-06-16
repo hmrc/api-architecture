@@ -1,0 +1,28 @@
+{
+  "securities": [
+    {
+      "type": "GILT-EDGED",
+      "customerReference": "GTGBP2Y:GOV UK Gilt 2 Year Yield",
+      "grossAmount": 1455.00,
+      "taxTakenOff": 100.00
+     },
+    {
+      "type": "OTHER-UK",
+      "customerReference": "Misc",
+      "grossAmount": 56.00,
+      "taxTakenOff": 5.03
+    },
+    {
+      "type": "DEEPLY DISCOUNTED",
+      "customerReference": "Discounted Sec ORCL",
+      "grossAmount": 6743.00,
+      "taxTakenOff": 128.00
+    },
+    {
+      "type": "ACCRUED INTEREST",
+      "customerReference": "Interest Accrued 2019 Acc",
+      "grossAmount": 5422.00,
+      "taxTakenOff": 45.00
+    }
+  ]
+}

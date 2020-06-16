@@ -1,0 +1,24 @@
+{
+  "foreignPension":[
+    {
+        "countryCode": "GER",
+        "amountBeforeTax": 1232.22,
+        "taxTakenOff": 22.22,
+        "specialWitholdingTax": 22.22,
+        "foreignTaxCreditRelief": true,
+        "taxableAmount": 2321.22
+      }
+  ],
+   "overseasPensionContributions": [
+     {
+        "customerReference" : "myref",
+        "exemptEmployersPensionContribs": 689.00,
+        "migrantMemReliefQopsRefNo": "ER3223423",
+        "dblTaxationRelief": 4232.00,
+        "dblTaxationCountry": "ESP",
+        "dblTaxationArticle": "ABC123",
+        "dblTaxationTreaty": "Treaty Name",
+        "sf74Reference": "SF74/123456"
+      }
+   ]
+}
