@@ -1,1 +1,0 @@
-You can find the changelog in the [individual-losses-api](https://github.com/hmrc/individual-losses-api/wiki/Changelog) GitHub wiki.
