@@ -11,10 +11,11 @@
     "expenses"
   ],
   "properties": {
-    "submittedOn":{
-      "type":"string",
-      "foramt":"date-time"
-    },
+// #NRfFE - Not Required for Front End
+//    "submittedOn":{
+//      "type":"string",
+//      "foramt":"date-time"
+//    },
     "dateIgnored": {
       "type": "string",
       "format": "date-time",

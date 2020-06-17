@@ -1,5 +1,6 @@
 {
-  "submittedOn": "2019-04-04T01:01:01Z",
+  // #NRfFE - Not Required for Front End
+  //"submittedOn": "2019-04-04T01:01:01Z",
   "source": "CUSTOMER",
   "totalExpenses": 1232.22,
   "expenses": {
