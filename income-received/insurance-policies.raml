@@ -12,16 +12,14 @@
             200:
               body:
                 application/json:
-                  example: !include examples/Insurance Policies.json
-        put:
-          displayName: Insurance PUT
+                  example: !include examples/insurance.json
           description: Create/update Insurance Policies income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             200:
           body:
             application/json:
-              example: !include examples/Insurance Policies.json
+              example: !include examples/insurance.json
         delete:
           displayName: Insurance DELETE
           description: Delete Insurance Policies income submission
