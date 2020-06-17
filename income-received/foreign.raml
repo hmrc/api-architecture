@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  types.TaxYear
         get:
-          displayName: List of Foreign income
+          displayName: Foreign GET (list)
           description: List of Foreign income
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -14,7 +14,7 @@
                 application/json:
                   example: !include examples/foreign.json
         put:
-          displayName: Create/update Foreign income submission
+          displayName: Foreign PUT
           description: Create/update Foreign income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
           responses:
@@ -23,7 +23,7 @@
             application/json:
               example: !include examples/foreign.json
         delete:
-          displayName: Delete Foreign income submission
+          displayName: Foreign DELETE
           description: Delete Foreign income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:

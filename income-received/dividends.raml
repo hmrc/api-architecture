@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  types.TaxYear
         get:
-          displayName: List of dividends income
+          displayName: Dividends GET (list)
           description: List of dividends income
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -14,7 +14,7 @@
                 application/json:
                   example: !include examples/dividends.json
         put:
-          displayName: Create/update dividends income submission
+          displayName: Dividends PUT
           description: Create/update dividends income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -23,7 +23,7 @@
             application/json:
               example: !include examples/dividends.json
         delete:
-          displayName: Delete dividends income submission
+          displayName: Dividends DELETE
           description: Delete dividends income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:

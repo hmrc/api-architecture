@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  types.TaxYear
         get:
-          displayName: List of pensions income
+          displayName: Pensions GET (list)
           description: List of pensions income
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -14,7 +14,7 @@
                 application/json:
                   example: !include examples/pensions.json
         put:
-          displayName: Create/update pensions income submission
+          displayName: Pensions PUT
           description: Create/update pensions income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -23,7 +23,7 @@
             application/json:
               example: !include examples/pensions.json
         delete:
-          displayName: Delete pensions income submission
+          displayName: Pensions DELETE
           description: Delete pensions income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:

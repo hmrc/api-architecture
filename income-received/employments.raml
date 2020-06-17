@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  baseTypes.TaxYear
         get:
-          displayName: List of active employments for the tax year
+          displayName: Employments GET (list)
           description: List of active employments for the tax year
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -25,7 +25,7 @@
           uriParameters:
             employmentId:  baseTypes.EmploymentId
           get:
-            displayName: Get Employment detail
+            displayName: Employments GET (detail)
             description: Get Employment detail
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             queryParameters:
@@ -50,7 +50,7 @@
                         description: Latest view
                         value: !include examples/employments-get-detail-latest.json
           put:
-            displayName: Create/Update an override for an HRMC held Employment
+            displayName: Employments PUT
             description: Create/Update an override for an HRMC held Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             body:
@@ -64,7 +64,7 @@
               422:
               502:
           delete:
-            displayName: Delete an override for an HRMC held Employment
+            displayName: Employments DELETE
             description: Delete an override for an HRMC held Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             responses:
@@ -75,7 +75,7 @@
               502:
           /ignore:
             put:
-              displayName: Ignore an HRMC held Employment (toggle)
+              displayName: Employments Ignore PUT
               description: Ignore an HRMC held Employment (toggle)
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
               body:
@@ -90,7 +90,7 @@
                 502:
         /custom:
           post:
-            displayName: Create a new custom Employment
+            displayName: Employments Custom POST
             description: Create a new custom Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             body:
@@ -116,7 +116,7 @@
             uriParameters:
               employmentId:  baseTypes.EmploymentId
             put:
-              displayName: Create/update a custom Employment
+              displayName: Employments Custom PUT
               description: Create/update a custom Employment
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
               body:
@@ -136,7 +136,7 @@
                 422:
                 502:
             delete:
-              displayName: Delete a custom Employment
+              displayName: Employments Custom DELETE
               description: Delete a custom Employment
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
               responses:
@@ -153,7 +153,7 @@
           uriParameters:
             taxYear:  baseTypes.TaxYear
           get:
-            displayName: List of Other Employment income
+            displayName: Other Employment GET (list)
             description: List of Other Employment income
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             responses:
@@ -162,7 +162,7 @@
                   application/json:
                     example: !include examples/employments-other.json
           put:
-            displayName: Create/update Other Employment income submission
+            displayName: Other Employment PUT
             description: Create/update Other Employment income submission
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             responses:
@@ -171,7 +171,7 @@
               application/json:
                 example: !include examples/employments-other.json
           delete:
-            displayName: Delete Other Employment income submission
+            displayName: Other Employment DELETE
             description: Delete Other Employment income submission
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             responses:

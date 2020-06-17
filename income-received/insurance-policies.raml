@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  types.TaxYear
         get:
-          displayName: List of Insurance Policies income
+          displayName: Insurance GET (list)
           description: List of Insurance Policies income
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -14,7 +14,7 @@
                 application/json:
                   example: !include examples/Insurance Policies.json
         put:
-          displayName: Create/update Insurance Policies income submission
+          displayName: Insurance PUT
           description: Create/update Insurance Policies income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -23,7 +23,7 @@
             application/json:
               example: !include examples/Insurance Policies.json
         delete:
-          displayName: Delete Insurance Policies income submission
+          displayName: Insurance DELETE
           description: Delete Insurance Policies income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:

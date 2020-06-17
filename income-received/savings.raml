@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  types.TaxYear
         get:
-          displayName: List of savings income
+          displayName: Savings GET (list)
           description: List of savings income
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -14,7 +14,7 @@
                 application/json:
                   example: !include examples/savings.json
         put:
-          displayName: Create/update savings income submission
+          displayName: Savings PUT
           description: Create/update savings income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -23,7 +23,7 @@
             application/json:
               example: !include examples/savings.json
         delete:
-          displayName: Delete savings income submission
+          displayName: Savings DELETE
           description: Delete savings income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:

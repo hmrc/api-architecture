@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  types.TaxYear
         get:
-          displayName: List of other income
+          displayName: Other GET (list)
           description: List of other income
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -14,7 +14,7 @@
                 application/json:
                   example: !include examples/other.json
         put:
-          displayName: Create/update other income submission
+          displayName: Other PUT
           description: Create/update other income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -23,7 +23,7 @@
             application/json:
               example: !include examples/other.json
         delete:
-          displayName: Delete other income submission
+          displayName: Other DELETE
           description: Delete other income submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
