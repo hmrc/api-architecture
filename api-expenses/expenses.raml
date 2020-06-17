@@ -1,0 +1,20 @@
+#%RAML 1.0
+title: Expenses
+baseUri: https://api.service.hmrc.gov.uk/individuals/
+version: 2020-06-17 18:19
+documentation:
+  - title: Employments
+    content: !include docs/employments.md
+  - title: Other
+    content: !include docs/other.md
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/expenses:
+  /employments:
+    !include employments.raml
+  /other:
+    !include other.raml

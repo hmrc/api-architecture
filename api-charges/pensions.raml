@@ -1,0 +1,32 @@
+    /{nino}:
+      uriParameters:
+        nino: types.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  types.TaxYear
+        get:
+          displayName: Pensions GET
+          description: Details for Pension Charge submisson
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  type: !include schemas/pensions_sch.json
+                  example: !include examples/pensions.json
+        put:
+          displayName: Pensions PUT
+          description: Create/update Pension Charges submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          body:
+            application/json:
+              type: !include schemas/pensions_sch.json
+              example: !include examples/pensions.json
+          responses:
+            200:
+        delete:
+          displayName: Pensions DELETE
+          description: Delete Pension Charges submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:

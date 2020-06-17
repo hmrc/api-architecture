@@ -1,0 +1,142 @@
+#%RAML 1.0
+title: Business
+baseUri: https://api.service.hmrc.gov.uk/individuals/
+version: 2020-06-17 18:26
+documentation:
+  - title: Property - Periodic Submission
+    content: |
+       | Property Type    | Source | Boxes       |
+       |:----------------|:-------|:-------------|
+       | UK FHL          | SA105  |              |
+       | UK NON-FHL      | SA105  |              |
+       | Foreign FHL-EEA | SA106  |              |
+       | Foreign Property| SA106  |              |
+  - title: Property - Annual Submission
+    content: |
+     | Property Type                    | Source | Boxes           |
+     |:--------------------------------|:-------|:----------------|
+     | UK FHL                          |        |                 |
+     | UK NON FHL                      |        |                 |
+     | FOREIGN FHL EEA                 | SA106  |                 |
+     | FOREIGN PROPERTY                | SA106  |                 |
+  - title: Business Details
+    content: |
+     | Property Type                    | Source | Boxes           |
+     |:--------------------------------|:-------|:----------------|
+     | Self-employment                          |        |                 |
+     | UK Property                 |        |                 |
+     | Foreign Property                     |        |                 |
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/business:
+  /property:
+    /{nino}:
+      /{incomeSourceId}:
+        uriParameters:
+          incomeSourceId: baseTypes.IncomeSourceId
+        /period:
+          get:
+            displayName: Property Inc/Exp GET (list)
+            description: List of Periodic Property Inc/Exp submissions
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/periodic-business-get.json
+          post:
+            displayName: Property Inc/Exp POST
+            description: Create/update Periodic Property Inc/Exp submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            body:
+              application/json:
+                example: !include examples/periodic-business-post.json
+            responses:
+              201:
+                body:
+                  application/json:
+                    example: !include examples/periodic-business-post-resp.json
+          /{submissionId}:
+            uriParameters:
+              submissionId: baseTypes.SubmissionId
+            get:
+              displayName: Property Inc/Exp GET (detail)
+              description: List of Periodic Property Inc/Exp submissions
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+                  body:
+                    application/json:
+                      example: !include examples/periodic-business-get-withid.json
+            put:
+              displayName: Property Inc/Exp PUT
+              description: Create/update Periodic Property Inc/Exp submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/periodic-business-put.json
+        /annual:
+          /{taxYear}:
+            uriParameters:
+              taxYear: baseTypes.TaxYear
+            get:
+              displayName: Property Inc/Exp GET
+              description: List of Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+                  body:
+                    application/json:
+                      example: !include examples/annual-business.json
+            put:
+              displayName: Property Inc/Exp PUT
+              description: Create/update Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/annual-business.json
+            delete:
+              displayName: Property Inc/Exp DELETE
+              description: Delete Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+              responses:
+                204:
+  /details:
+      /{nino}:
+        uriParameters:
+          nino: baseTypes.Nino
+        get:
+          displayName: Businesses GET (list)
+          description: List businesses
+          is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
+          queryParameters:
+            typeOfBusiness:
+              displayName: uk-property | foreign-property
+              description: uk-property | foreign-property
+              example: uk-property
+              required: false
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/all-business-list.json
+        /{businessId}:
+          uriParameters:
+            businessId: baseTypes.BusinessId
+          get:
+            displayName: Businesses GET (detail)
+            description: Retrieve business detail
+            is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/prop-business-details.json

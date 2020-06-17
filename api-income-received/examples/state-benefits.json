@@ -1,0 +1,43 @@
+{   // N.B. Still WIP
+  "statePension": {
+    "annualAmount": 123.00
+  },
+  "statePensionLumpSum":{
+    "empRef": "123/av123421C",
+    "startDate": "date",
+    "endDate" : "date",
+    "lumpSumAmount": 123.00,
+    "lumpSumTaxPaid": 123.00
+  },
+  "incapacityBenefit": {
+    "amountYTD": 123.00,
+    "taxPaid": 123.00
+  },
+  "employmentSupportAllowance": {
+    "empRef": "123/av123421C",
+    "startDate": "date",
+    "endDate": "date",
+    "amount": 123.00
+  },
+  "jobseekersAllowance": {
+    "empRef": "123/av123421C",
+    "startDate": "date",
+    "endDate": "date",
+    "amount": 123.00
+  },
+  "bereavementAllowance": {
+    "amount":  123.00
+  },
+  "widowedParentsAllowance": {
+    "amount":  123.00
+  },
+  "industrialDeathBenefit": {
+    "amount":  123.00
+  },
+  "carersAllowance": {
+    "amount":  123.00
+  },
+  "otherStatutoryBenefits": {
+    "amount": 123.00
+  }
+}

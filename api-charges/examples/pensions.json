@@ -1,0 +1,56 @@
+{
+  "pensionSavingsTaxCharges": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
+    },
+    "benefitInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
+    }
+  },
+  "pensionSchemeOverseasTransfers": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "transferCharge": 123.0,
+    "transferChargeTaxPaid": 123.0
+  },
+  "pensionSchemeUnauthorisedPayments": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "surcharge": {
+      "amount": 123.0,
+      "foreignTaxPaid": 123.0
+    }
+  },
+  "pensionContributions": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "inExcessOfTheAnnualAllowance": 123.0,
+    "annualAllowanceTaxPaid": 123.0
+  },
+  "overseasPensionContributions": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "shortServiceRefund": 123.0,
+    "shortServiceRefundTaxPaid": 123.0
+  }
+}

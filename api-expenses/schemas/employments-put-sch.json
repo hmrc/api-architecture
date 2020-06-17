@@ -1,0 +1,61 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Employment_Response",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get Employment Response",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/definitions/ignore"},
+    { "$ref": "#/definitions/expenses"}
+  ],
+  "definitions": {
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "description": "Definition of a positive money value",
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0,
+      "maximum": 99999999.99
+    },
+    "ignore": {
+      "type": "object",
+      "properties": {
+        "ignoreExpenses": {
+          "const": true
+        }
+      },
+      "additionalProperties": false,
+      "required": ["ignoreExpenses"]
+    },
+    "expenses": {
+      "type": "object",
+      "properties": {
+        "businessTravelCosts": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "jobExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "flatRateJobExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "professionalSubscriptions": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "hotelAndMealExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "otherAndCapitalAllowances": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "vehicleExpenses": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "mileageAllowanceRelief": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    }
+  }
+}

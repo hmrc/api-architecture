@@ -1,0 +1,51 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Pension_Reliefs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get Pension Reliefs",
+  "description": "A view of pensions reliefs",
+  "type": "object",
+  "oneOf": [
+    {"$ref": "#/definitions/submission"},
+  ],
+  "definitions": {
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "deletedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pensionReliefs": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "regularPensionContributions": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "oneOffPensionContributionsPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "retirementAnnuityPayments": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "paymentToEmployersSchemeNoTaxRelief": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "overseasPensionSchemeContributions": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          }
+        }
+      }
+    },
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.00,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    }
+  }
+}

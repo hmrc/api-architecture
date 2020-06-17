@@ -1,0 +1,30 @@
+    /{nino}:
+      uriParameters:
+        nino: types.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear:  types.TaxYear
+        get:
+          displayName: State Benefits GET (list)
+          description: List of State Benefits income
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/state-benefits.json
+        put:
+          displayName: State Benefits PUT
+          description: Create/update State Benefits income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              example: !include examples/state-benefits.json
+        delete:
+          displayName: State Benefits DELETE
+          description: Delete State Benefits income submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+          responses:
+            204:

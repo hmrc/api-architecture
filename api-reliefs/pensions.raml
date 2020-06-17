@@ -1,0 +1,32 @@
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: Pensions GET
+          description: List of Pension Reliefs
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  type: !include schemas/pensions_sch.json
+                  example: !include examples/pensions.json
+        put:
+          displayName: Pensions PUT
+          description: Create/update Pension reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              type: !include schemas/pensions_sch.json
+              example: !include examples/pensions.json
+        delete:
+          displayName: Pensions DELETE
+          description: Delete Pension reliefs submission
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:

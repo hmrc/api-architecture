@@ -1,0 +1,491 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Pension_Charges",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get Pension Charges",
+  "description": "A view of pensions charges",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/submission"
+    },
+    {
+      "$ref": "#/definitions/submissionWithHistory"
+    }
+  ],
+  "definitions": {
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": ["pensionSavingsTaxCharges"]
+        },
+        {
+          "required": ["pensionSchemeOverseasTransfers"]
+        },
+        {
+          "required": ["pensionSchemeUnauthorisedPayments"]
+        },
+        {
+          "required": ["pensionContributions"]
+        },
+        {
+          "required": ["overseasPensionContributions"]
+        }
+      ],
+      "properties": {
+        "pensionSavingsTaxCharges": {
+          "$ref": "#/definitions/pensionSavingsTaxChargesType"
+        },
+        "pensionSchemeOverseasTransfers": {
+          "$ref": "#/definitions/pensionSchemeOverseasTransfersType"
+        },
+        "pensionSchemeUnauthorisedPayments": {
+          "$ref": "#/definitions/pensionSchemeUnauthorisedPaymentsType"
+        },
+        "pensionContributions": {
+          "$ref": "#/definitions/pensionContributionsType"
+        },
+        "overseasPensionContributions": {
+          "$ref": "#/definitions/overseasPensionContributionsType"
+        }
+      }
+    },
+    "pensionSavingsTaxChargesType": {
+      "type" : "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance"],
+          "not": {"required": ["benefitInExcessOfLifetimeAllowance"]}},
+        {
+          "required": ["pensionSchemeTaxReference", "benefitInExcessOfLifetimeAllowance"],
+          "not": {"required": ["lumpSumBenefitTakenInExcessOfLifetimeAllowance"]}
+        },
+        {"required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance","benefitInExcessOfLifetimeAllowance"]}
+      ],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+          "type" : "object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["amount"]
+        },
+        "benefitInExcessOfLifetimeAllowance": {
+          "type" : "object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["amount"]
+        }
+      }
+    },
+    "pensionSchemeOverseasTransfersType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overseasSchemeProvider","transferCharge"],
+      "properties": {
+        "overseasSchemeProvider": {
+          "$ref": "#/definitions/overseasSchemeProvider"
+        },
+        "transferCharge": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "transferChargeTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "pensionSchemeUnauthorisedPaymentsType": {
+      "type" : "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": ["pensionSchemeTaxReference","surcharge"],
+          "not": { "required": ["noSurcharge"]}
+        },
+        {
+          "required": ["pensionSchemeTaxReference","noSurcharge"],
+          "not": { "required": ["surcharge"]}
+        },
+        {
+          "required": ["pensionSchemeTaxReference","surcharge","noSurcharge"]
+        }
+      ],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "surcharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "amount"],
+          "properties": {
+            "amount": {
+              "$ref" : "#/definitions/moneyPositive"
+            },
+            "foreignTaxPaid": {
+              "$ref" : "#/definitions/moneyPositive"
+            }
+          }
+        },
+        "noSurcharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "amount"],
+          "properties": {
+            "amount": {
+              "$ref" : "#/definitions/moneyPositive"
+            },
+            "foreignTaxPaid": {
+              "$ref" : "#/definitions/moneyPositive"
+            }
+          }
+        }
+      }
+    },
+    "pensionContributionsType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pensionSchemeTaxReference","inExcessOfTheAnnualAllowance"],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "inExcessOfTheAnnualAllowance": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "annualAllowanceTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "overseasPensionContributionsType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overseasSchemeProvider", "shortServiceRefund"],
+      "properties": {
+        "overseasSchemeProvider": {
+          "$ref": "#/definitions/overseasSchemeProvider"
+        },
+        "shortServiceRefund": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "shortServiceRefundTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "pensionSchemeTaxReference": {
+      "type": "array",
+      "items" : {
+        "type": "string",
+        "pattern": "^[0-9]{8}[A-Z]{2}$"
+      },
+      "additionalItems": false,
+      "minItems": 1
+    },
+    "schemeProvider": {
+      "type": "object",
+      "properties": {
+        "providerName": {
+          "type": "string",
+          "maxLength": 105,
+          "minLength": 1
+        },
+        "providerAddress": {
+          "type": "string",
+          "maxLength": 250,
+          "minLength": 1
+        },
+        "providerCountryCode": {
+          "$ref": "#/definitions/countryCodes"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["providerName","providerAddress","providerCountryCode"]
+    },
+    "overseasSchemeProvider": {
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/schemeProvider"
+      }
+    },
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.00,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    },
+    "countryCodes": {
+      "type": "string",
+      "enum": [
+        "ABW",
+        "AFG",
+        "AGO",
+        "AIA",
+        "ALA",
+        "ALB",
+        "AND",
+        "ANT",
+        "ARE",
+        "ARG",
+        "ARM",
+        "ASM",
+        "ATA",
+        "ATF",
+        "ATG",
+        "AUS",
+        "AUT",
+        "AZE",
+        "BDI",
+        "BEL",
+        "BEN",
+        "BFA",
+        "BGD",
+        "BGR",
+        "BHR",
+        "BHS",
+        "BIH",
+        "BLM",
+        "BLR",
+        "BLZ",
+        "BMU",
+        "BOL",
+        "BRA",
+        "BRB",
+        "BRN",
+        "BTN",
+        "BVT",
+        "BWA",
+        "CAF",
+        "CAN",
+        "CCK",
+        "CHE",
+        "CHL",
+        "CHN",
+        "CIV",
+        "CMR",
+        "COD",
+        "COG",
+        "COK",
+        "COL",
+        "COM",
+        "CPV",
+        "CRI",
+        "CUB",
+        "CXR",
+        "CYM",
+        "CYP",
+        "CZE",
+        "DEU",
+        "DJI",
+        "DMA",
+        "DNK",
+        "DOM",
+        "DZA",
+        "ECU",
+        "EGY",
+        "ERI",
+        "ESH",
+        "ESP",
+        "EST",
+        "ETH",
+        "FIN",
+        "FJI",
+        "FLK",
+        "FRA",
+        "FRO",
+        "FSM",
+        "GAB",
+        "GBR",
+        "GEO",
+        "GGY",
+        "GHA",
+        "GIB",
+        "GIN",
+        "GLP",
+        "GMB",
+        "GNB",
+        "GNQ",
+        "GRC",
+        "GRD",
+        "GRL",
+        "GTM",
+        "GUF",
+        "GUM",
+        "GUY",
+        "HKG",
+        "HMD",
+        "HND",
+        "HRV",
+        "HTI",
+        "HUN",
+        "IDN",
+        "IMN",
+        "IND",
+        "IOT",
+        "IRL",
+        "IRN",
+        "IRQ",
+        "ISL",
+        "ISR",
+        "ITA",
+        "JAM",
+        "JEY",
+        "JOR",
+        "JPN",
+        "KAZ",
+        "KEN",
+        "KGZ",
+        "KHM",
+        "KIR",
+        "KNA",
+        "KOR",
+        "KWT",
+        "LAO",
+        "LBN",
+        "LBR",
+        "LBY",
+        "LCA",
+        "LIE",
+        "LKA",
+        "LSO",
+        "LTU",
+        "LUX",
+        "LVA",
+        "MAC",
+        "MAF",
+        "MAR",
+        "MCO",
+        "MDA",
+        "MDG",
+        "MDV",
+        "MEX",
+        "MHL",
+        "MKD",
+        "MLI",
+        "MLT",
+        "MMR",
+        "MNE",
+        "MNG",
+        "MNP",
+        "MOZ",
+        "MRT",
+        "MSR",
+        "MTQ",
+        "MUS",
+        "MWI",
+        "MYS",
+        "MYT",
+        "NAM",
+        "NCL",
+        "NER",
+        "NFK",
+        "NGA",
+        "NIC",
+        "NIU",
+        "NLD",
+        "NOR",
+        "NPL",
+        "NRU",
+        "NZL",
+        "OMN",
+        "PAK",
+        "PAN",
+        "PCN",
+        "PER",
+        "PHL",
+        "PLW",
+        "PNG",
+        "POL",
+        "PRI",
+        "PRK",
+        "PRT",
+        "PRY",
+        "PSE",
+        "PYF",
+        "QAT",
+        "REU",
+        "ROU",
+        "RUS",
+        "RWA",
+        "SAU",
+        "SDN",
+        "SEN",
+        "SGP",
+        "SGS",
+        "SHN",
+        "SJM",
+        "SLB",
+        "SLE",
+        "SLV",
+        "SMR",
+        "SOM",
+        "SPM",
+        "SRB",
+        "STP",
+        "SUR",
+        "SVK",
+        "SVN",
+        "SWE",
+        "SWZ",
+        "SYC",
+        "SYR",
+        "TCA",
+        "TCD",
+        "TGO",
+        "THA",
+        "TJK",
+        "TKL",
+        "TKM",
+        "TLS",
+        "TON",
+        "TTO",
+        "TUN",
+        "TUR",
+        "TUV",
+        "TWN",
+        "TZA",
+        "UGA",
+        "UKR",
+        "UMI",
+        "URY",
+        "USA",
+        "UZB",
+        "VAT",
+        "VCT",
+        "VEN",
+        "VGB",
+        "VIR",
+        "VNM",
+        "VUT",
+        "WLF",
+        "WSM",
+        "YEM",
+        "ZAF",
+        "ZMB",
+        "ZWE"
+      ]
+    }
+  }
+}

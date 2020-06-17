@@ -3444,7 +3444,565 @@ N/A
 
 #### 6.1.8 Response Schema
 
-//todo
+```json
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Pension_Charges",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get Pension Charges",
+  "description": "A view of pensions charges",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/submission"
+    },
+    {
+      "$ref": "#/definitions/submissionWithHistory"
+    }
+  ],
+  "definitions": {
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["submittedOn"],
+      "anyOf": [
+        {
+          "required": ["pensionSavingsTaxCharges"]
+        },
+        {
+          "required": ["pensionSchemeOverseasTransfers"]
+        },
+        {
+          "required": ["pensionSchemeUnauthorisedPayments"]
+        },
+        {
+          "required": ["pensionContributions"]
+        },
+        {
+          "required": ["overseasPensionContributions"]
+        }
+      ],
+      "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deletedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pensionSavingsTaxCharges": {
+          "$ref": "#/definitions/pensionSavingsTaxChargesType"
+        },
+        "pensionSchemeOverseasTransfers": {
+          "$ref": "#/definitions/pensionSchemeOverseasTransfersType"
+        },
+        "pensionSchemeUnauthorisedPayments": {
+          "$ref": "#/definitions/pensionSchemeUnauthorisedPaymentsType"
+        },
+        "pensionContributions": {
+          "$ref": "#/definitions/pensionContributionsType"
+        },
+        "overseasPensionContributions": {
+          "$ref": "#/definitions/overseasPensionContributionsType"
+        }
+      }
+    },
+    "submissionWithHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["submittedOn", "history"],
+      "anyOf": [
+        {
+          "required": ["pensionSavingsTaxCharges"]
+        },
+        {
+          "required": ["pensionSchemeOverseasTransfers"]
+        },
+        {
+          "required": ["pensionSchemeUnauthorisedPayments"]
+        },
+        {
+          "required": ["pensionContributions"]
+        },
+        {
+          "required": ["overseasPensionContributions"]
+        }
+      ],
+      "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deletedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pensionSavingsTaxCharges": {
+          "$ref": "#/definitions/pensionSavingsTaxChargesType"
+        },
+        "pensionSchemeOverseasTransfers": {
+          "$ref": "#/definitions/pensionSchemeOverseasTransfersType"
+        },
+        "pensionSchemeUnauthorisedPayments": {
+          "$ref": "#/definitions/pensionSchemeUnauthorisedPaymentsType"
+        },
+        "pensionContributions": {
+          "$ref": "#/definitions/pensionContributionsType"
+        },
+        "overseasPensionContributions": {
+          "$ref": "#/definitions/overseasPensionContributionsType"
+        },
+        "history": {
+          "$ref": "#/definitions/historyType"
+        }
+      }
+    },
+    "historyType": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/submission"
+      }
+    },
+    "pensionSavingsTaxChargesType": {
+      "type" : "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance"],
+          "not": {"required": ["benefitInExcessOfLifetimeAllowance"]}},
+        {
+          "required": ["pensionSchemeTaxReference", "benefitInExcessOfLifetimeAllowance"],
+          "not": {"required": ["lumpSumBenefitTakenInExcessOfLifetimeAllowance"]}
+        },
+        {"required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance","benefitInExcessOfLifetimeAllowance"]}
+      ],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+          "type" : "object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["amount"]
+        },
+        "benefitInExcessOfLifetimeAllowance": {
+          "type" : "object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["amount"]
+        }
+      }
+    },
+    "pensionSchemeOverseasTransfersType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overseasSchemeProvider","transferCharge"],
+      "properties": {
+        "overseasSchemeProvider": {
+          "$ref": "#/definitions/overseasSchemeProvider"
+        },
+        "transferCharge": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "transferChargeTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "pensionSchemeUnauthorisedPaymentsType": {
+      "type" : "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": ["pensionSchemeTaxReference","surcharge"],
+          "not": { "required": ["noSurcharge"]}
+        },
+        {
+          "required": ["pensionSchemeTaxReference","noSurcharge"],
+          "not": { "required": ["surcharge"]}
+        },
+        {
+          "required": ["pensionSchemeTaxReference","surcharge","noSurcharge"]
+        }
+      ],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "surcharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "amount"],
+          "properties": {
+            "amount": {
+              "$ref" : "#/definitions/moneyPositive"
+            },
+            "foreignTaxPaid": {
+              "$ref" : "#/definitions/moneyPositive"
+            }
+          }
+        },
+        "noSurcharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "amount"],
+          "properties": {
+            "amount": {
+              "$ref" : "#/definitions/moneyPositive"
+            },
+            "foreignTaxPaid": {
+              "$ref" : "#/definitions/moneyPositive"
+            }
+          }
+        }
+      }
+    },
+    "pensionContributionsType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pensionSchemeTaxReference","inExcessOfTheAnnualAllowance"],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "inExcessOfTheAnnualAllowance": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "annualAllowanceTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "overseasPensionContributionsType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overseasSchemeProvider", "shortServiceRefund"],
+      "properties": {
+        "overseasSchemeProvider": {
+          "$ref": "#/definitions/overseasSchemeProvider"
+        },
+        "shortServiceRefund": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "shortServiceRefundTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "pensionSchemeTaxReference": {
+      "type": "array",
+      "items" : {
+        "type": "string",
+        "pattern": "^[0-9]{8}[A-Z]{2}$"
+      },
+      "additionalItems": false,
+      "minItems": 1
+    },
+    "schemeProvider": {
+      "type": "object",
+      "properties": {
+        "providerName": {
+          "type": "string",
+          "maxLength": 105,
+          "minLength": 1
+        },
+        "providerAddress": {
+          "type": "string",
+          "maxLength": 250,
+          "minLength": 1
+        },
+        "providerCountryCode": {
+          "$ref": "#/definitions/countryCodes"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["providerName","providerAddress","providerCountryCode"]
+    },
+    "overseasSchemeProvider": {
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/schemeProvider"
+      }
+    },
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.00,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    },
+    "countryCodes": {
+      "type": "string",
+      "enum": [
+        "ABW",
+        "AFG",
+        "AGO",
+        "AIA",
+        "ALA",
+        "ALB",
+        "AND",
+        "ANT",
+        "ARE",
+        "ARG",
+        "ARM",
+        "ASM",
+        "ATA",
+        "ATF",
+        "ATG",
+        "AUS",
+        "AUT",
+        "AZE",
+        "BDI",
+        "BEL",
+        "BEN",
+        "BFA",
+        "BGD",
+        "BGR",
+        "BHR",
+        "BHS",
+        "BIH",
+        "BLM",
+        "BLR",
+        "BLZ",
+        "BMU",
+        "BOL",
+        "BRA",
+        "BRB",
+        "BRN",
+        "BTN",
+        "BVT",
+        "BWA",
+        "CAF",
+        "CAN",
+        "CCK",
+        "CHE",
+        "CHL",
+        "CHN",
+        "CIV",
+        "CMR",
+        "COD",
+        "COG",
+        "COK",
+        "COL",
+        "COM",
+        "CPV",
+        "CRI",
+        "CUB",
+        "CXR",
+        "CYM",
+        "CYP",
+        "CZE",
+        "DEU",
+        "DJI",
+        "DMA",
+        "DNK",
+        "DOM",
+        "DZA",
+        "ECU",
+        "EGY",
+        "ERI",
+        "ESH",
+        "ESP",
+        "EST",
+        "ETH",
+        "FIN",
+        "FJI",
+        "FLK",
+        "FRA",
+        "FRO",
+        "FSM",
+        "GAB",
+        "GBR",
+        "GEO",
+        "GGY",
+        "GHA",
+        "GIB",
+        "GIN",
+        "GLP",
+        "GMB",
+        "GNB",
+        "GNQ",
+        "GRC",
+        "GRD",
+        "GRL",
+        "GTM",
+        "GUF",
+        "GUM",
+        "GUY",
+        "HKG",
+        "HMD",
+        "HND",
+        "HRV",
+        "HTI",
+        "HUN",
+        "IDN",
+        "IMN",
+        "IND",
+        "IOT",
+        "IRL",
+        "IRN",
+        "IRQ",
+        "ISL",
+        "ISR",
+        "ITA",
+        "JAM",
+        "JEY",
+        "JOR",
+        "JPN",
+        "KAZ",
+        "KEN",
+        "KGZ",
+        "KHM",
+        "KIR",
+        "KNA",
+        "KOR",
+        "KWT",
+        "LAO",
+        "LBN",
+        "LBR",
+        "LBY",
+        "LCA",
+        "LIE",
+        "LKA",
+        "LSO",
+        "LTU",
+        "LUX",
+        "LVA",
+        "MAC",
+        "MAF",
+        "MAR",
+        "MCO",
+        "MDA",
+        "MDG",
+        "MDV",
+        "MEX",
+        "MHL",
+        "MKD",
+        "MLI",
+        "MLT",
+        "MMR",
+        "MNE",
+        "MNG",
+        "MNP",
+        "MOZ",
+        "MRT",
+        "MSR",
+        "MTQ",
+        "MUS",
+        "MWI",
+        "MYS",
+        "MYT",
+        "NAM",
+        "NCL",
+        "NER",
+        "NFK",
+        "NGA",
+        "NIC",
+        "NIU",
+        "NLD",
+        "NOR",
+        "NPL",
+        "NRU",
+        "NZL",
+        "OMN",
+        "PAK",
+        "PAN",
+        "PCN",
+        "PER",
+        "PHL",
+        "PLW",
+        "PNG",
+        "POL",
+        "PRI",
+        "PRK",
+        "PRT",
+        "PRY",
+        "PSE",
+        "PYF",
+        "QAT",
+        "REU",
+        "ROU",
+        "RUS",
+        "RWA",
+        "SAU",
+        "SDN",
+        "SEN",
+        "SGP",
+        "SGS",
+        "SHN",
+        "SJM",
+        "SLB",
+        "SLE",
+        "SLV",
+        "SMR",
+        "SOM",
+        "SPM",
+        "SRB",
+        "STP",
+        "SUR",
+        "SVK",
+        "SVN",
+        "SWE",
+        "SWZ",
+        "SYC",
+        "SYR",
+        "TCA",
+        "TCD",
+        "TGO",
+        "THA",
+        "TJK",
+        "TKL",
+        "TKM",
+        "TLS",
+        "TON",
+        "TTO",
+        "TUN",
+        "TUR",
+        "TUV",
+        "TWN",
+        "TZA",
+        "UGA",
+        "UKR",
+        "UMI",
+        "URY",
+        "USA",
+        "UZB",
+        "VAT",
+        "VCT",
+        "VEN",
+        "VGB",
+        "VIR",
+        "VNM",
+        "VUT",
+        "WLF",
+        "WSM",
+        "YEM",
+        "ZAF",
+        "ZMB",
+        "ZWE"
+      ]
+    }
+  }
+}
+```
 
 #### 6.1.9 Response Examples
 
@@ -3452,68 +4010,61 @@ N/A
 
 ```json
 {
-   "submittedOn": "timestamp", //mandatory
-  "pensionSavingsTaxCharges": { //Optional
-    "pensionSchemeTaxReference": [ //Mandatory at least 1
-        "00123456RA",//10 characters (8 digits 2 alpha)
-        "00654321RA"
+  "submittedOn": "2020-03-03T01:01:01Z",
+  "pensionSavingsTaxCharges": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
     ],
-    //must provide at least 1 of the 2 objects below
-    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": { 
-      "amount": 1213.00, //mandatory
-      "taxPaid": 123.00 //optional
+    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
     },
-    "benefitInExcessOfLifetimeAllowance": { 
-      "amount": 1213.00, //mandatory
-      "taxPaid": 123.00  //optional
+    "benefitInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
     }
-    },
-  "pensionSchemeOverseasTransfers": { //Optional
-    "overseasSchemeProvider": [ //Mandatory at least 1
-       {
-       "providerName": "Overseas Pensions Plc",  //Max Length 105, any character
-       "providerAddress": "111 Main Street, George Town, Grand Cayman",  //Max Length 250 any character Action on Toby, Andy, Vinay to confirm acceptable character sets for their tier. 
-       "providerCountryCode": "CYM"//ISO 3 char country codes
-       }
-     ],
-    "transferCharge": 123.00, //Mandatory
-    "transferChargeTaxPaid": 123.00 //Optional
-    },
-   "pensionSchemeUnauthorisedPayments": { //Optional
-   "pensionSchemeTaxReference": [ //Mandatory at least 1
-        "00123456RA", //10 characters (8 digits 2 alpha)
-        "00654321RA"
-     ],
-     //At least one of surcharge / noSurcharge
-     "surcharge": {
-       "amount": 123.00, //Mandatory
-       "foreignTaxPaid": 123.00 //Optional
-     },
-     "noSurcharge": { 
-       "amount": 123.00, //Mandatory
-       "foreignTaxPaid" : 213.00 //Optional
-     }
-
-   },
-    "pensionContributions": { //Optional
-    "pensionSchemeTaxReference": [ //Mandatory at least 1
-        "00123456RA", //10 characters (8 digits 2 alpha)
-        "00654321RA"
-    ],
-     "inExcessOfTheAnnualAllowance": 123.00, //Mandatory
-     "annualAllowanceTaxPaid": 123.00 //Optional
   },
-  "overseasPensionContributions": { //Optional
-    "overseasSchemeProvider": [ //Mandatory at least 1 -- see earlier definitions. 
+  "pensionSchemeOverseasTransfers": {
+    "overseasSchemeProvider": [
       {
-       "providerName": "Overseas Pensions Plc",
-       "providerAddress": "111 Main Street, George Town, Grand Cayman", 
-       "providerCountryCode": "CYM"
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
       }
-     ],
-    "shortServiceRefund": 123.00, //Mandatory 99999999999.99
-    "shortServiceRefundTaxPaid": 123.00 //Optional
-   }
+    ],
+    "transferCharge": 123.0,
+    "transferChargeTaxPaid": 123.0
+  },
+  "pensionSchemeUnauthorisedPayments": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "surcharge": {
+      "amount": 123.0,
+      "foreignTaxPaid": 123.0
+    }
+  },
+  "pensionContributions": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "inExcessOfTheAnnualAllowance": 123.0,
+    "annualAllowanceTaxPaid": 123.0
+  },
+  "overseasPensionContributions": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "shortServiceRefund": 123.0,
+    "shortServiceRefundTaxPaid": 123.0
+  }
 }
 ```
 
@@ -3521,77 +4072,184 @@ N/A
 
 ```json
 {
-  "submittedOn": "timestamp", //mandatory
-  "deletedOn": timestamp //optional
-  "pensionSavingsTaxCharges": { //Optional
-    "pensionSchemeTaxReference": [ //Mandatory at least 1
-        "00123456RA",//10 characters (8 digits 2 alpha)
-        "00654321RA"
+  "submittedOn": "2020-03-03T01:01:01Z",
+  "pensionSavingsTaxCharges": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
     ],
-    //must provide at least 1 of the 2 objects below
-    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": { 
-      "amount": 1213.00, //mandatory
-      "taxPaid": 123.00 //optional
+    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
     },
-    "benefitInExcessOfLifetimeAllowance": { 
-      "amount": 1213.00, //mandatory
-      "taxPaid": 123.00  //optional
+    "benefitInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
     }
-    },
-  "pensionSchemeOverseasTransfers": { //Optional
-    "overseasSchemeProvider": [ //Mandatory at least 1
-       {
-       "providerName": "Overseas Pensions Plc",  //Max Length 105, any character
-       "providerAddress": "111 Main Street, George Town, Grand Cayman",  //Max Length 250 any character Action on Toby, Andy, Vinay to confirm acceptable character sets for their tier. 
-       "providerCountryCode": "CYM"//ISO 3 char country codes
-       }
-     ],
-    "transferCharge": 123.00, //Mandatory
-    "transferChargeTaxPaid": 123.00 //Optional
-    },
-   "pensionSchemeUnauthorisedPayments": { //Optional
-   "pensionSchemeTaxReference": [ //Mandatory at least 1
-        "00123456RA", //10 characters (8 digits 2 alpha)
-        "00654321RA"
-     ],
-     //At least one of surcharge / noSurcharge
-     "surcharge": {
-       "amount": 123.00, //Mandatory
-       "foreignTaxPaid": 123.00 //Optional
-     },
-     "noSurcharge": { 
-       "amount": 123.00, //Mandatory
-       "foreignTaxPaid" : 213.00 //Optional
-     }
-
-   },
-    "pensionContributions": { //Optional
-    "pensionSchemeTaxReference": [ //Mandatory at least 1
-        "00123456RA", //10 characters (8 digits 2 alpha)
-        "00654321RA"
-    ],
-     "inExcessOfTheAnnualAllowance": 123.00, //Mandatory
-     "annualAllowanceTaxPaid": 123.00 //Optional
   },
-  "overseasPensionContributions": { //Optional
-    "overseasSchemeProvider": [ //Mandatory at least 1 -- see earlier definitions. 
+  "pensionSchemeOverseasTransfers": {
+    "overseasSchemeProvider": [
       {
-       "providerName": "Overseas Pensions Plc",
-       "providerAddress": "111 Main Street, George Town, Grand Cayman", 
-       "providerCountryCode": "CYM"
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
       }
-     ],
-    "shortServiceRefund": 123.00, //Mandatory 99999999999.99
-    "shortServiceRefundTaxPaid": 123.00 //Optional
+    ],
+    "transferCharge": 123.0,
+    "transferChargeTaxPaid": 123.0
   },
-  "history":[ ]
+  "pensionSchemeUnauthorisedPayments": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "surcharge": {
+      "amount": 123.0,
+      "foreignTaxPaid": 123.0
+    }
+  },
+  "pensionContributions": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "inExcessOfTheAnnualAllowance": 123.0,
+    "annualAllowanceTaxPaid": 123.0
+  },
+  "overseasPensionContributions": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "shortServiceRefund": 123.0,
+    "shortServiceRefundTaxPaid": 123.0
+  },
+  "history": []
 }
 ```
 
 ##### 6.1.9.3 With History 
 
 ```json
-//todo
+{
+  "submittedOn": "2020-03-03T01:01:01Z",
+  "pensionSavingsTaxCharges": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
+    },
+    "benefitInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
+    }
+  },
+  "pensionSchemeOverseasTransfers": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "transferCharge": 123.0,
+    "transferChargeTaxPaid": 123.0
+  },
+  "pensionSchemeUnauthorisedPayments": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "surcharge": {
+      "amount": 123.0,
+      "foreignTaxPaid": 123.0
+    }
+  },
+  "pensionContributions": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "inExcessOfTheAnnualAllowance": 123.0,
+    "annualAllowanceTaxPaid": 123.0
+  },
+  "overseasPensionContributions": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "shortServiceRefund": 123.0,
+    "shortServiceRefundTaxPaid": 123.0
+  },
+  "history": [
+    {
+      "submittedOn": "2020-03-03T01:01:01Z",
+      "pensionSavingsTaxCharges": {
+        "pensionSchemeTaxReference": [
+          "00123456RA",
+          "00654321RA"
+        ],
+        "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+          "amount": 1213.0,
+          "taxPaid": 123.0
+        },
+        "benefitInExcessOfLifetimeAllowance": {
+          "amount": 1213.0,
+          "taxPaid": 123.0
+        }
+      },
+      "pensionSchemeOverseasTransfers": {
+        "overseasSchemeProvider": [
+          {
+            "providerName": "Overseas Pensions Plc",
+            "providerAddress": "111 Main Street, George Town, Grand Cayman",
+            "providerCountryCode": "CYM"
+          }
+        ],
+        "transferCharge": 123.0,
+        "transferChargeTaxPaid": 123.0
+      },
+      "pensionSchemeUnauthorisedPayments": {
+        "pensionSchemeTaxReference": [
+          "00123456RA",
+          "00654321RA"
+        ],
+        "surcharge": {
+          "amount": 123.0,
+          "foreignTaxPaid": 123.0
+        }
+      },
+      "pensionContributions": {
+        "pensionSchemeTaxReference": [
+          "00123456RA",
+          "00654321RA"
+        ],
+        "inExcessOfTheAnnualAllowance": 123.0,
+        "annualAllowanceTaxPaid": 123.0
+      },
+      "overseasPensionContributions": {
+        "overseasSchemeProvider": [
+          {
+            "providerName": "Overseas Pensions Plc",
+            "providerAddress": "111 Main Street, George Town, Grand Cayman",
+            "providerCountryCode": "CYM"
+          }
+        ],
+        "shortServiceRefund": 123.0,
+        "shortServiceRefundTaxPaid": 123.0
+      }
+    }
+  ]
+}
 ```
 
 
@@ -3631,20 +4289,534 @@ N/A
 
 #### 6.2.5 Request Schema
 
-//TODO
-
 ```json
-
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Submit_Pension_Charges",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Submit Pension Charges",
+  "description": "Customer provided pension charges",
+  "type": "object",
+  "additionalProperties": false,
+  "minProperties": 1,
+  "properties": {
+    "pensionSavingsTaxCharges": {
+      "$ref": "#/definitions/pensionSavingsTaxChargesType"
+    },
+    "pensionSchemeOverseasTransfers": {
+      "$ref": "#/definitions/pensionSchemeOverseasTransfersType"
+    },
+    "pensionSchemeUnauthorisedPayments": {
+      "$ref": "#/definitions/pensionSchemeUnauthorisedPaymentsType"
+    },
+    "pensionContributions": {
+      "$ref": "#/definitions/pensionContributionsType"
+    },
+    "overseasPensionContributions": {
+      "$ref": "#/definitions/overseasPensionContributionsType"
+    }
+  },
+  "definitions": {
+    "pensionSavingsTaxChargesType": {
+      "type" : "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance"],
+          "not": {"required": ["benefitInExcessOfLifetimeAllowance"]}},
+        {
+          "required": ["pensionSchemeTaxReference", "benefitInExcessOfLifetimeAllowance"],
+          "not": {"required": ["lumpSumBenefitTakenInExcessOfLifetimeAllowance"]}
+        },
+        {"required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance","benefitInExcessOfLifetimeAllowance"]}
+      ],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+          "type" : "object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["amount"]
+        },
+        "benefitInExcessOfLifetimeAllowance": {
+          "type" : "object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "required": ["amount"]
+        }
+      }
+    },
+    "pensionSchemeOverseasTransfersType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overseasSchemeProvider","transferCharge"],
+      "properties": {
+        "overseasSchemeProvider": {
+          "$ref": "#/definitions/overseasSchemeProvider"
+        },
+        "transferCharge": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "transferChargeTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "pensionSchemeUnauthorisedPaymentsType": {
+      "type" : "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": ["pensionSchemeTaxReference","surcharge"],
+          "not": { "required": ["noSurcharge"]}
+        },
+        {
+          "required": ["pensionSchemeTaxReference","noSurcharge"],
+          "not": { "required": ["surcharge"]}
+        },
+        {
+          "required": ["pensionSchemeTaxReference","surcharge","noSurcharge"]
+        }
+      ],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "surcharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "amount"],
+          "properties": {
+            "amount": {
+              "$ref" : "#/definitions/moneyPositive"
+            },
+            "foreignTaxPaid": {
+              "$ref" : "#/definitions/moneyPositive"
+            }
+          }
+        },
+        "noSurcharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "amount"],
+          "properties": {
+            "amount": {
+              "$ref" : "#/definitions/moneyPositive"
+            },
+            "foreignTaxPaid": {
+              "$ref" : "#/definitions/moneyPositive"
+            }
+          }
+        }
+      }
+    },
+    "pensionContributionsType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pensionSchemeTaxReference","inExcessOfTheAnnualAllowance"],
+      "properties": {
+        "pensionSchemeTaxReference": {
+          "$ref" : "#/definitions/pensionSchemeTaxReference"
+        },
+        "inExcessOfTheAnnualAllowance": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "annualAllowanceTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "overseasPensionContributionsType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overseasSchemeProvider", "shortServiceRefund"],
+      "properties": {
+        "overseasSchemeProvider": {
+          "$ref": "#/definitions/overseasSchemeProvider"
+        },
+        "shortServiceRefund": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "shortServiceRefundTaxPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "pensionSchemeTaxReference": {
+      "type": "array",
+      "items" : {
+        "type": "string",
+        "pattern": "^[0-9]{8}[A-Z]{2}$"
+      },
+      "additionalItems": false,
+      "minItems": 1
+    },
+    "schemeProvider": {
+      "type": "object",
+      "properties": {
+        "providerName": {
+          "type": "string",
+          "maxLength": 105,
+          "minLength": 1
+        },
+        "providerAddress": {
+          "type": "string",
+          "maxLength": 250,
+          "minLength": 1
+        },
+        "providerCountryCode": {
+          "$ref": "#/definitions/countryCodes"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["providerName","providerAddress","providerCountryCode"]
+    },
+    "overseasSchemeProvider": {
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/schemeProvider"
+      }
+    },
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.00,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    },
+    "countryCodes": {
+      "type": "string",
+      "enum": [
+        "ABW",
+        "AFG",
+        "AGO",
+        "AIA",
+        "ALA",
+        "ALB",
+        "AND",
+        "ANT",
+        "ARE",
+        "ARG",
+        "ARM",
+        "ASM",
+        "ATA",
+        "ATF",
+        "ATG",
+        "AUS",
+        "AUT",
+        "AZE",
+        "BDI",
+        "BEL",
+        "BEN",
+        "BFA",
+        "BGD",
+        "BGR",
+        "BHR",
+        "BHS",
+        "BIH",
+        "BLM",
+        "BLR",
+        "BLZ",
+        "BMU",
+        "BOL",
+        "BRA",
+        "BRB",
+        "BRN",
+        "BTN",
+        "BVT",
+        "BWA",
+        "CAF",
+        "CAN",
+        "CCK",
+        "CHE",
+        "CHL",
+        "CHN",
+        "CIV",
+        "CMR",
+        "COD",
+        "COG",
+        "COK",
+        "COL",
+        "COM",
+        "CPV",
+        "CRI",
+        "CUB",
+        "CXR",
+        "CYM",
+        "CYP",
+        "CZE",
+        "DEU",
+        "DJI",
+        "DMA",
+        "DNK",
+        "DOM",
+        "DZA",
+        "ECU",
+        "EGY",
+        "ERI",
+        "ESH",
+        "ESP",
+        "EST",
+        "ETH",
+        "FIN",
+        "FJI",
+        "FLK",
+        "FRA",
+        "FRO",
+        "FSM",
+        "GAB",
+        "GBR",
+        "GEO",
+        "GGY",
+        "GHA",
+        "GIB",
+        "GIN",
+        "GLP",
+        "GMB",
+        "GNB",
+        "GNQ",
+        "GRC",
+        "GRD",
+        "GRL",
+        "GTM",
+        "GUF",
+        "GUM",
+        "GUY",
+        "HKG",
+        "HMD",
+        "HND",
+        "HRV",
+        "HTI",
+        "HUN",
+        "IDN",
+        "IMN",
+        "IND",
+        "IOT",
+        "IRL",
+        "IRN",
+        "IRQ",
+        "ISL",
+        "ISR",
+        "ITA",
+        "JAM",
+        "JEY",
+        "JOR",
+        "JPN",
+        "KAZ",
+        "KEN",
+        "KGZ",
+        "KHM",
+        "KIR",
+        "KNA",
+        "KOR",
+        "KWT",
+        "LAO",
+        "LBN",
+        "LBR",
+        "LBY",
+        "LCA",
+        "LIE",
+        "LKA",
+        "LSO",
+        "LTU",
+        "LUX",
+        "LVA",
+        "MAC",
+        "MAF",
+        "MAR",
+        "MCO",
+        "MDA",
+        "MDG",
+        "MDV",
+        "MEX",
+        "MHL",
+        "MKD",
+        "MLI",
+        "MLT",
+        "MMR",
+        "MNE",
+        "MNG",
+        "MNP",
+        "MOZ",
+        "MRT",
+        "MSR",
+        "MTQ",
+        "MUS",
+        "MWI",
+        "MYS",
+        "MYT",
+        "NAM",
+        "NCL",
+        "NER",
+        "NFK",
+        "NGA",
+        "NIC",
+        "NIU",
+        "NLD",
+        "NOR",
+        "NPL",
+        "NRU",
+        "NZL",
+        "OMN",
+        "PAK",
+        "PAN",
+        "PCN",
+        "PER",
+        "PHL",
+        "PLW",
+        "PNG",
+        "POL",
+        "PRI",
+        "PRK",
+        "PRT",
+        "PRY",
+        "PSE",
+        "PYF",
+        "QAT",
+        "REU",
+        "ROU",
+        "RUS",
+        "RWA",
+        "SAU",
+        "SDN",
+        "SEN",
+        "SGP",
+        "SGS",
+        "SHN",
+        "SJM",
+        "SLB",
+        "SLE",
+        "SLV",
+        "SMR",
+        "SOM",
+        "SPM",
+        "SRB",
+        "STP",
+        "SUR",
+        "SVK",
+        "SVN",
+        "SWE",
+        "SWZ",
+        "SYC",
+        "SYR",
+        "TCA",
+        "TCD",
+        "TGO",
+        "THA",
+        "TJK",
+        "TKL",
+        "TKM",
+        "TLS",
+        "TON",
+        "TTO",
+        "TUN",
+        "TUR",
+        "TUV",
+        "TWN",
+        "TZA",
+        "UGA",
+        "UKR",
+        "UMI",
+        "URY",
+        "USA",
+        "UZB",
+        "VAT",
+        "VCT",
+        "VEN",
+        "VGB",
+        "VIR",
+        "VNM",
+        "VUT",
+        "WLF",
+        "WSM",
+        "YEM",
+        "ZAF",
+        "ZMB",
+        "ZWE"
+      ]
+    }
+  }
+}
 ```
 
 
 
 #### 6.2.6 Request Examples
 
-//TODO
-
 ```json
-
+{
+  "pensionSavingsTaxCharges": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
+    },
+    "benefitInExcessOfLifetimeAllowance": {
+      "amount": 1213.0,
+      "taxPaid": 123.0
+    }
+  },
+  "pensionSchemeOverseasTransfers": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "transferCharge": 123.0,
+    "transferChargeTaxPaid": 123.0
+  },
+  "pensionSchemeUnauthorisedPayments": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "surcharge": {
+      "amount": 123.0,
+      "foreignTaxPaid": 123.0
+    }
+  },
+  "pensionContributions": {
+    "pensionSchemeTaxReference": [
+      "00123456RA",
+      "00654321RA"
+    ],
+    "inExcessOfTheAnnualAllowance": 123.0,
+    "annualAllowanceTaxPaid": 123.0
+  },
+  "overseasPensionContributions": {
+    "overseasSchemeProvider": [
+      {
+        "providerName": "Overseas Pensions Plc",
+        "providerAddress": "111 Main Street, George Town, Grand Cayman",
+        "providerCountryCode": "CYM"
+      }
+    ],
+    "shortServiceRefund": 123.0,
+    "shortServiceRefundTaxPaid": 123.0
+  }
+}
 ```
 
 
@@ -3785,7 +4957,108 @@ N/A
 #### 7.1.8 Response Schema
 
 ```json
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Get_Pension_Reliefs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get Pension Reliefs",
+  "description": "A view of pensions reliefs",
+  "type": "object",
+  "oneOf": [
+    {"$ref": "#/definitions/submission"},
+    {"$ref": "#/definitions/submissionWithHistory"}
+  ],
+  "definitions": {
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pensionReliefs","submittedOn"],
+      "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deletedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pensionReliefs": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "regularPensionContributions": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "oneOffPensionContributionsPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "retirementAnnuityPayments": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "paymentToEmployersSchemeNoTaxRelief": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "overseasPensionSchemeContributions": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          }
+        }
+      }
+    },
+    "submissionWithHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pensionReliefs","submittedOn", "history"],
 
+      "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deletedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pensionReliefs": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "regularPensionContributions": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "oneOffPensionContributionsPaid": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "retirementAnnuityPayments": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "paymentToEmployersSchemeNoTaxRelief": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "overseasPensionSchemeContributions": {
+              "$ref": "#/definitions/moneyPositive"
+            }
+          }
+        },
+        "history": {
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/submission"
+          }
+        }
+      }
+    },
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.00,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    }
+  }
+}
 ```
 
 #### 7.1.9 Response Examples
@@ -3829,7 +5102,7 @@ N/A
   "submittedOn":"timestamp",
   "deletedOn":"timestamp",//optional
 	"pensionReliefs": { //Mandatory at least 1 child node
-    "regularPensionContributions:": 123.00, //99999999999.99
+    "regularPensionContributions": 123.00, //99999999999.99
     "oneOffPensionContributionsPaid": 123.00,
     "retirementAnnuityPayments": 123.00,
     "paymentToEmployersSchemeNoTaxRelief": 123.00,
@@ -3888,13 +5161,64 @@ N/A
 #### 7.2.5 Request Schema
 
 ```json
-
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/Submit_Pension_Reliefs",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Submit Pension Reliefs",
+  "description": "Submit pensions reliefs",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pensionReliefs"
+  ],
+  "properties": {
+    "pensionReliefs": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "regularPensionContributions": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "oneOffPensionContributionsPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "retirementAnnuityPayments": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "paymentToEmployersSchemeNoTaxRelief": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "overseasPensionSchemeContributions": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    }
+  }
+}
 ```
 
 #### 7.2.6 Request Examples
 
 ```json
-
+{
+  "pensionReliefs": {
+    "regularPensionContributions": 123.00, 
+    "oneOffPensionContributionsPaid": 123.00,
+    "retirementAnnuityPayments": 123.00,
+    "paymentToEmployersSchemeNoTaxRelief": 123.00,
+    "overseasPensionSchemeContributions": 123.00,
+   }
+}
 ```
 
 #### 7.2.7 Response Status Code
@@ -3986,17 +5310,220 @@ N/A
 
 
 
-## State Benefits
+## 8 State Benefits
 
-### Retrieve State Benefits:
+### 8.1 View State Benefits
 
-#### URI:
+#### 8.1.1 URI
 
-*/income/state-benefits/{taxableEntityId}/{taxYear}*/
+**GET** */income/state-benefits/{taxableEntityId}/{taxYear}*/
 
+#### 8.1.2 Path Parameters
 
+| Parameter       | Description                                  | Example  |
+| --------------- | -------------------------------------------- | -------- |
+| taxableEntityId | Unique identifier of the customer            | AB123456 |
+| taxYear         | The tax year to which the employment applies | 2019-20  |
 
-#### Response Body
+#### 8.1.3 Query Parameters
+
+N/A
+
+#### 8.1.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.1.5 Request Schema
+
+N/A
+
+#### 8.1.6 Request Examples
+
+N/A
+
+#### 8.1.7 Response Status Code
+
+#### 8.1.8 Response Schema
+
+N/A
+
+#### 8.1.9 Response Examples
+
+N/A
+
+#### 8.1.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+|               |             |
+
+#### 8.1.11 ITSD Components Impacted
+
+- ISS
+
+### 8.2 Get State Benefit Details
+
+#### 8.2.1 URI
+
+**GET** */income/state-benefits/{taxableEntityId}/{taxYear}*/*{stateBenefitId}*
+
+#### 8.2.2 Path Parameters
+
+| Parameter       | Description                                  | Example                              |
+| --------------- | -------------------------------------------- | ------------------------------------ |
+| taxableEntityId | Unique identifier of the customer            | AB123456                             |
+| taxYear         | The tax year to which the employment applies | 2019-20                              |
+| stateBenefitId  | Unique identifier of the state benefit       | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+
+#### 8.2.3 Query Parameters
+
+N/A
+
+#### 8.2.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.2.5 Request Schema
+
+N/A
+
+#### 8.2.6 Request Examples
+
+N/A
+
+#### 8.2.7 Response Status Code
+
+#### 8.2.8 Response Schema
+
+N/A
+
+#### 8.2.9 Response Examples
+
+N/A
+
+#### 8.2.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 8.2.11 ITSD Components Impacted
+
+- View Service
+- IBD Store
+
+### 8.3 Override State Benefits
+
+#### 8.3.1 URI
+
+**PUT** */income/state-benefits/{taxableEntityId}/{taxYear}/{stateBenefitId}*
+
+#### 8.3.2 Path Parameters
+
+| Parameter       | Description                                  | Example                              |
+| --------------- | -------------------------------------------- | ------------------------------------ |
+| taxableEntityId | Unique identifier of the customer            | AB123456                             |
+| taxYear         | The tax year to which the employment applies | 2019-20                              |
+| stateBenefitId  | Unique identifier of the state benefit       | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+
+#### 8.3.3 Query Parameters
+
+N/A
+
+#### 8.3.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.3.5 Request Schema
+
+N/A
+
+#### 8.3.6 Request Examples
+
+N/A
+
+#### 8.3.7 Response Status Code
+
+#### 8.3.8 Response Schema
+
+N/A
+
+#### 8.3.9 Response Examples
+
+N/A
+
+#### 8.3.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 8.3.11 ITSD Components Impacted
+
+- IBD Store
+
+### 8.4 Delete State Benefits
+
+#### 8.4.1 URI
+
+**DELETE** */income/state-benefits/{taxableEntityId}/{taxYear}/{stateBenefitId}*
+
+#### 8.4.2 Path Parameters
+
+| Parameter       | Description                                  | Example                              |
+| --------------- | -------------------------------------------- | ------------------------------------ |
+| taxableEntityId | Unique identifier of the customer            | AB123456                             |
+| taxYear         | The tax year to which the employment applies | 2019-20                              |
+| stateBenefitId  | Unique identifier of the state benefit       | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+
+#### 8.4.3 Query Parameters
+
+N/A
+
+#### 8.4.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.4.5 Request Schema
+
+N/A
+
+#### 8.4.6 Request Examples
+
+N/A
+
+#### 8.4.7 Response Status Code
+
+#### 8.4.8 Response Schema
+
+N/A
+
+#### 8.4.9 Response Examples
+
+N/A
+
+#### 8.4.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 8.4.11 ITSD Components Impacted
+
+- IBD Store
+
+---
+
+#### WiP
 
 ```json
 {
@@ -4049,6 +5576,8 @@ N/A
 }
 ```
 
+---
+
 
 
 ## Appendix A 
@@ -4097,8 +5626,9 @@ N/A
 | 1.6     | 02/06/2020 | Jon Elliott | Support added for block level submission data.               |
 | 1.7     | 08/06/2020 | Jon Elliott | Updates to document structure, merged pensions in, added ability to manage customer based employments added in expenses. |
 | 1.8     | 10/06/2020 | Jon Elliott | Added API to manage ignoring of employments, updated schemas to represent historical data and aligned to latest field name changes. |
-| 1.9     | 12/10/2020 | Jon Elliott | Updated Benefits field to benefits in kind (Product Owner Request), Updated employment schema in line with RTI Data items, Added Appendix to document field mappings (RTI) |
-| 1.10    | 12/10/2020 | Jon Elliott | Added employmentId to ignoring an employment                 |
+| 1.9     | 12/06/2020 | Jon Elliott | Updated Benefits field to benefits in kind (Product Owner Request), Updated employment schema in line with RTI Data items, Added Appendix to document field mappings (RTI) |
+| 1.10    | 12/06/2020 | Jon Elliott | Added employmentId to ignoring an employment                 |
+| 1.11    | 17/06/2020 | Jon Elliott | Added Pension Charges and Reliefs concerns, added placeholders for State Benefits. |
 
 ## Appendix C
 

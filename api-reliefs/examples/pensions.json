@@ -1,0 +1,9 @@
+{
+  "pensionReliefs": {
+    "regularPensionContributions:": 123.00,
+    "oneOffPensionContributionsPaid": 123.00,
+    "retirementAnnuityPayments": 123.00,
+    "paymentToEmployersSchemeNoTaxRelief": 123.00,
+    "overseasPensionSchemeContributions": 123.00
+  }
+}
