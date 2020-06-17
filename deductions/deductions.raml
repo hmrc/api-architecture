@@ -1,7 +1,7 @@
 #%RAML 1.0
 title: DRAFT
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-19 15:04
+version: 2020-06-17 12:42
 documentation:
   - title: CIS
     content: |
@@ -47,7 +47,7 @@ uses:
         nino: base-types.Nino
       /current-position:
         get:
-          displayName: List current position of CIS deductions. **[DES-1572]**
+          displayName: List CIS deductions
           description: List current position of CIS deductions. **[DES-1572]**
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           queryParameters:
@@ -75,7 +75,7 @@ uses:
                   example: !include examples/cis_deductions_position_blended.json
       /amendments:
         post:
-          displayName: Create CIS deductions amendments for a Contractor & Tax Year **[DES-1569]**
+          displayName: Create CIS deductions
           description: Create CIS deductions amendments for a Contractor & Tax Year **[DES-1569]**
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
@@ -90,7 +90,7 @@ uses:
           uriParameters:
             submissionId: base-types.SubmissionId  #TODO check that regex is correct
           put:
-            displayName: Update CIS deductions amendments for a Contractor & Tax Year **[DES-1571]**
+            displayName: Update CIS deductions
             description: Update CIS deductions amendments for a Contractor & Tax Year **[DES-1571]**
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
             responses:
@@ -99,7 +99,7 @@ uses:
               application/json:
                 example: !include examples/cis_deductions_amendments_put.json
           delete:
-            displayName: Delete CIS deductions amendments for a Contractor & Tax Year **[DES-1570]**
+            displayName: Delete CIS deductions
             description: Delete CIS deductions amendments for a Contractor & Tax Year **[DES-1570]**
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino]
             responses:
