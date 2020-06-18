@@ -8,7 +8,7 @@ Early stage RAML > HTML designs for APIs
 ## API Prototype Status
 
 | API              | API Design Status | Status Updated |
-|:------------------|:-----------------:|:------------:|
+|:------------------|:-----------------|:------------:|
 | business         |  [![Generic badge](https://img.shields.io/badge/property-stable-green.svg)](https://github.com/hmrc/api-architecture/)   | 2020-06-18 |
 | business-details |  [![Generic badge](https://img.shields.io/badge/business-stable-green.svg)](https://github.com/hmrc/api-architecture/)   | 2020-06-18 |
 | charges          |  [![Generic badge](https://img.shields.io/badge/pensions-new-blue.svg)](https://github.com/hmrc/api-architecture/)       | 2020-06-18 |
