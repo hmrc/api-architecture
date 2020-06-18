@@ -1,19 +1,13 @@
 #%RAML 1.0
-title: DRAFT
-baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-19 15:04
+title: Disclosures
+baseUri: https://api.service.hmrc.gov.uk/individuals
+version: 2020-06-18 08:37
 documentation:
   - title: Disclosures
     content: |
      | Disclosure Type                    | Source | Boxes                     |
      |:--------------------------------|:-------|:--------------------------|
      | Tax Avoidance                   | SA101  | Tax Avoidance Box 19 - 20 |
-#  - title: Resource Model
-#    content: |
-#      | Dosclosure Type | Endpoints | Methods   |
-#      |-----------|-----------|-----------|
-#      | Tax Avoidance | /disclosures/{nino}/{taxYear} | [GET] [PUT] [DELETE] |
-#      ___
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -28,7 +22,7 @@ uses:
       uriParameters:
         taxYear: baseTypes.TaxYear
       get:
-        displayName: List of Disclosures
+        displayName: Disclosures GET
         description: List of Disclosures
         is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
         responses:
@@ -37,7 +31,7 @@ uses:
               application/json:
                 example: !include examples/disclosures.json
       put:
-        displayName: Create/update Disclosures submission
+        displayName: Disclosures PUT
         description: Create/update Disclosures submission
         is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
         responses:
@@ -46,7 +40,7 @@ uses:
           application/json:
             example: !include examples/disclosures.json
       delete:
-        displayName: Delete Disclosures submission
+        displayName: Disclosures DELETE
         description: Delete Disclosures submission
         is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
         responses:

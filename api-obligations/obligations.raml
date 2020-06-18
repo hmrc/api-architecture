@@ -1,19 +1,13 @@
 #%RAML 1.0
-title: DRAFT Obligations by Regime
+title: Obligations
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-19 15:04
+version: 2020-06-18 08:46
 documentation:
   - title: Obligations
     content: |
      | Obligation Type                    | Source | Boxes |
      |:--------------------------------|:-------|:-----------|
      | Income Tax                      |   | |
-#  - title: Resource Model
-#    content: |
-#      | Endpoints |
-#      ------------
-#      | /obligations/{nino}/income-tax [GET] |
-#      ___
 uses:
   genericErrors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
@@ -27,7 +21,7 @@ uses:
       nino: baseTypes.Nino
     /income-tax:
       get:
-        displayName: List income tax obligations for the party
+        displayName: Obligations GET
         description: List income tax obligations for the party
         is: [genericErrors.internalServerError,
              genericErrors.notFound,
@@ -41,7 +35,7 @@ uses:
              obligationErrors.ruleStartDateNotSupported,
              obligationErrors.rangeDateTooLong,
              genericErrors.missingStartDate,
-             genericErrors.missingEndDate, |
+             genericErrors.missingEndDate,
              obligationQueryParameters.obligations-regime,
              genericQueryParameters.startEndDateRange,
              genericHeaders.standardHeaders]

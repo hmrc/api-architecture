@@ -1,7 +1,7 @@
 #%RAML 1.0
-title: DRAFT Business Details
-baseUri: https://api.service.hmrc.gov.uk
-version: 2020-05-19 15:04
+title: Business Details
+baseUri: https://api.service.hmrc.gov.uk/individuals
+version: 2020-06-18 08:08
 documentation:
 - title: Assumptions
   content: ' <ol>
@@ -14,13 +14,6 @@ documentation:
    | Details Type                    | Source | Boxes                     |
    |:--------------------------------|:-------|:--------------------------|
    | Business Details                   |   |  |
-#- title: Resource Model
-#  content: |
-#    | Type | Endpoints | Methods   |
-#    |-----------|-----------|-----------|
-#    | Business | /business-details/{partyIdentifier} | [GET] |
-#    | Business | /business-details/{partyIdentifier}/{id} |[PUT] [DELETE] |
-#    ___
 uses:
   genericErrors: ../generic/traits/errors.raml
 /business-details:
@@ -32,7 +25,7 @@ uses:
         pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$
         example: TC663795B
     get:
-      displayName: List all businesses
+      displayName: Businesses GET (list)
       description: List all businesses
       is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
       queryParameters:
@@ -53,7 +46,7 @@ uses:
           type: string
           example: XGIS00000001319
       get:
-        displayName: Retrieve businesses detail
+        displayName: Businesses GET (details)
         description: Retrieve businesses detail
         is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
         responses:

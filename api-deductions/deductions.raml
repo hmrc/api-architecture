@@ -1,7 +1,7 @@
 #%RAML 1.0
-title: DRAFT
-baseUri: https://api.service.hmrc.gov.uk
-version: 2020-06-17 12:42
+title: Deductions
+baseUri: https://api.service.hmrc.gov.uk/individuals
+version: 2020-06-18 08:34
 documentation:
   - title: CIS
     content: |
@@ -47,7 +47,7 @@ uses:
         nino: base-types.Nino
       /current-position:
         get:
-          displayName: List CIS deductions
+          displayName: CIS GET
           description: List current position of CIS deductions. **[DES-1572]**
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           queryParameters:
@@ -75,7 +75,7 @@ uses:
                   example: !include examples/cis_deductions_position_blended.json
       /amendments:
         post:
-          displayName: Create CIS deductions
+          displayName: CIS POST
           description: Create CIS deductions amendments for a Contractor & Tax Year **[DES-1569]**
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
           responses:
@@ -90,7 +90,7 @@ uses:
           uriParameters:
             submissionId: base-types.SubmissionId  #TODO check that regex is correct
           put:
-            displayName: Update CIS deductions
+            displayName: CIS PUT
             description: Update CIS deductions amendments for a Contractor & Tax Year **[DES-1571]**
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino,errors.formatStartDate,errors.formatEndDate,errors.ruleTaxYearRangeExceeded]
             responses:
@@ -99,7 +99,7 @@ uses:
               application/json:
                 example: !include examples/cis_deductions_amendments_put.json
           delete:
-            displayName: Delete CIS deductions
+            displayName: CIS DELETE
             description: Delete CIS deductions amendments for a Contractor & Tax Year **[DES-1570]**
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatnino]
             responses:
@@ -112,7 +112,7 @@ uses:
         uriParameters:
           taxYear: base-types.TaxYear
         get:
-          displayName: List of Student Loans deductions
+          displayName: Student Loans GET
           description: List of Student Loans deductions
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
@@ -121,7 +121,7 @@ uses:
                 application/json:
                   example: !include examples/sl_deduction_override.json
         put:
-          displayName: Create/update Student Loans submission
+          displayName: Student Loans PUT
           description: Create/update Student Loans submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
           responses:
@@ -130,7 +130,7 @@ uses:
             application/json:
               example: !include examples/sl_deduction_override.json
         delete:
-          displayName: Delete Student Loans submission
+          displayName: Student Loans DELETE
           description: Delete Student Loans submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
@@ -143,7 +143,7 @@ uses:
         uriParameters:
           taxYear: base-types.TaxYear
         get:
-          displayName: List of other deductions
+          displayName: Other GET
           description: List of other deductions
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
@@ -152,7 +152,7 @@ uses:
                 application/json:
                   example: !include examples/other_deductions.json
         put:
-          displayName: Create/update other deductions submission
+          displayName: Other PUT
           description: Create/update other deductions submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
           responses:
@@ -161,7 +161,7 @@ uses:
             application/json:
               example: !include examples/other_deductions.json
         delete:
-          displayName: Delete other deductions submission
+          displayName: Other DELETE
           description: Delete other deductions submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
