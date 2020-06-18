@@ -19,7 +19,9 @@ Early stage RAML > HTML designs for APIs
 | obligations      |  [![Generic badge](https://img.shields.io/badge/property-stable-green.svg)](https://github.com/hmrc/api-architecture/)   | 20-06-18 |            
 | reliefs          |  [![Generic badge](https://img.shields.io/badge/obligations-stable-green.svg)](https://github.com/hmrc/api-architecture/) [![Generic badge](https://img.shields.io/badge/other-stable-green.svg)](https://github.com/hmrc/api-architecture/) [![Generic badge](https://img.shields.io/badge/foreign-stable-green.svg)](https://github.com/hmrc/api-architecture/) [![Generic badge](https://img.shields.io/badge/pensions-new-blue.svg)](https://github.com/hmrc/api-architecture/)     | 20-06-18 |
 
-| Key   | Definition     |
+### Key
+
+| Status   | Definition     |
 |:------|:---------------|
 | stable  | Design defined and aligned with backend |    
 | new     | Draft, some open issues, subject to change |    
