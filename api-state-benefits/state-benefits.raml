@@ -1,0 +1,94 @@
+#%RAML 1.0
+title: State Pension & Benefits
+baseUri: https://api.service.hmrc.gov.uk/income-received
+version: 2020-06-25 14:54
+documentation:
+  - title: State Pension & Benefits
+    content: !include docs/benefits.md
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/state-benefits:
+  uriParameters:
+    taxYear:  types.TaxYear
+  get:
+    displayName: Benefits GET
+    description: Details for Pension Charge submisson
+    is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+    responses:
+      200:
+        body:
+          application/json:
+            type: !include schemas/benefits_sch_GET.json
+            examples:
+              example-1:
+                description: Customer view
+                value: !include examples/benefits_full_GET.json
+              example-2:
+                description: HMRC view
+                value: !include examples/benefits_min_GET.json
+  put:
+    displayName: Benefits PUT
+    description: Create/update Pension Charges submission
+    is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+    body:
+      application/json:
+        type: !include schemas/benefits_sch.json
+        example: !include examples/benefits_full_GET.json
+    responses:
+      200:
+  delete:
+    displayName: Benefits DELETE
+    description: Delete Pension Charges submission
+    is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+    responses:
+      204:
+  /custom:
+    post
+      displayName: Custom Benefit POST
+      description: Create customer declared Benefit
+      is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+      body:
+        application/json:
+          type: !include schemas/benefits_sch_POST.json
+          examples:
+            example-1:
+              description: Customer view
+              value: !include examples/benefits_full_POST.json
+            example-2:
+              description: HMRC view
+              value: !include examples/benefits_min_POST.json
+      responses:
+        201:
+          body:
+            application/json:
+              example: !include examples/benefits_custom_POST_resp.json
+        400:
+        401:
+        422:
+    /{benefitId}:
+      put: // N.B. shouldn't this be an update as we cannot "upsert" on only update
+        displayName: Custom Benefit PUT
+        description: Amend a customer created Benefit
+        is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+        body:
+          application/json:
+            type: !include schemas/benefits_custom_sch_PUT.json
+            examples:
+              example-1:
+                description: Full request
+                value: !include examples/benefits_full_PUT.json
+              example-2:
+                description: Minimum request
+                value: !include examples/benefits_min_PUT.json
+        responses:
+          200:
+      delete:
+        displayName: Custom Benefit DELETE
+        description: Delete customer created Benefit
+        is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+        responses:
+          204:
