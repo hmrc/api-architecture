@@ -8,45 +8,25 @@
     {
       "properties": {
         "stateBenefits": {
-          "type": "array",
+          "type": "object",
           "additionalItems": false,
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/hmrcBenefit"
+            "$ref": "#/definitions/incapacityBenefit"
           }
         },
         "customerAddedStateBenefits": {
-          "type": "array",
+          "type": "object",
           "additionalItems": false,
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/customerBenefit"
+            "$ref": "#/definitions/incapacityBenefit"
           }
         }
       },
-      "required": ["employments"],
-      "additionalProperties": false
-    },
-    {
-      "properties": {
-        "stateBenefits": {
-          "type": "array",
-          "additionalItems": false,
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/hmrcBenefitHistory"
-          }
-        },
-        "customerAddedStateBenefits": {
-          "type": "array",
-          "additionalItems": false,
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/customerBenefitHistory"
-          }
-        }
-      },
-      "required": ["stateBenefits"],
+      "required": [
+        "stateBenefits"
+      ],
       "additionalProperties": false
     }
   ],
@@ -66,21 +46,56 @@
       "type": "string",
       "format": "date"
     },
-    "moneyZeroToPositive" : {
-      "$id" : "#moneyPositive",
-      "description" : "Definition of a positive money value",
-      "type" : "number",
-      "multipleOf" : 0.01,
-      "minimum" : 0,
-      "maximum" : 99999999.99
+    "dateIgnored": {
+      "type": "string",
+      "format": "date-time",
+      "description": "An ISO-8601 compliant date-time representing when the customer requested the data set was ignored."
     },
-    "stateBenefits": {
+    "moneyZeroToPositive": {
+      "$id": "#moneyZeroToPositive",
+      "description": "Definition of zero to positive money value",
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0,
+      "maximum": 99999999.99
+    },
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "description": "Definition of a positive money value",
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0.01,
+      "maximum": 99999999.99
+    },
+    "incapacityBenefit": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["benefitId","startDate", "amount","taxPaid"]
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount",
+        "taxPaid"
+      ],
       "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
         "benefitId": {
           "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
         }
+      }
     }
+  }
 }

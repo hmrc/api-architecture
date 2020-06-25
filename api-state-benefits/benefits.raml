@@ -4,7 +4,7 @@
       /{taxYear}:
         uriParameters:
           taxYear:  types.TaxYear
-        GET:
+        get:
           displayName: Benefits GET
           description: Details for Pension Charge submisson
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
@@ -15,12 +15,12 @@
                   type: !include schemas/benefits_sch_GET.json
                   examples:
                     example-1:
-                      description: Customer view
+                      description: Full data
                       value: !include examples/benefits_full_GET.json
                     example-2:
-                      description: HMRC view
+                      description: Min data
                       value: !include examples/benefits_min_GET.json
-        PUT:
+        put:
           displayName: Benefits PUT
           description: Create/update Pension Charges submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
@@ -30,14 +30,14 @@
               example: !include examples/benefits_full_GET.json
           responses:
             200:
-        DELETE:
+        delete:
           displayName: Benefits DELETE
           description: Delete Pension Charges submission
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
             204:
         /custom:
-          POST:
+          post:
             displayName: Custom Benefit POST
             description: Create customer declared Benefit
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
@@ -46,10 +46,10 @@
                 type: !include schemas/benefits_sch_POST.json
                 examples:
                   example-1:
-                    description: Customer view
+                    description: Full data
                     value: !include examples/benefits_full_POST.json
                   example-2:
-                    description: HMRC view
+                    description: Min data
                     value: !include examples/benefits_min_POST.json
             responses:
               201:
@@ -60,7 +60,7 @@
               401:
               422:
           /{benefitId}:
-            PUT: // N.B. shouldn't this be an update as we cannot "upsert" on only update
+            put: // N.B. shouldn't this be an update as we cannot "upsert" on only update
               displayName: Custom Benefit PUT
               description: Amend a customer created Benefit
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
@@ -76,7 +76,7 @@
                       value: !include examples/benefits_min_PUT.json
               responses:
                 200:
-            DELETE:
+            delete:
               displayName: Custom Benefit DELETE
               description: Delete customer created Benefit
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
