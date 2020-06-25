@@ -4,9 +4,14 @@
   "title": "Get State Benefits",
   "description": "View a list of State Benefits & Pensions associated with the customer, the list may contain Benefits that the customer has added via their third party software, these are clearly marked.",
   "type": "object",
-  "items": {
-    "$ref": "#stateBenefits",
-    "$ref": "#customerAddedStateBenefits"
+  "minItems": 1,
+  "properties": {
+    "stateBenefits": {
+      "$ref": "#/definitions/stateBenefits"
+    },
+    "customerAddedStateBenefits": {
+      "$ref": "#/definitions/customerAddedStateBenefits"
+    }
   },
   "definitions": {
     "benefitId": {
@@ -60,6 +65,9 @@
         "dateIgnored": {
           "$ref": "#/definitions/dateIgnored"
         },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
         "benefitId": {
           "$ref": "#/definitions/benefitId"
         },
@@ -80,6 +88,17 @@
     "stateBenefits": {
       "type": "object",
       "additionalProperties": false,
+      "minItems": 1,
+      "properties": {
+        "incapacityBenefit":  {
+          "$ref": "#/definitions/incapacityBenefit"
+        }
+      }
+    },
+    "customerAddedStateBenefits": {
+      "type": "object",
+      "additionalProperties": false,
+      "minItems": 1,
       "properties": {
         "incapacityBenefit":  {
           "$ref": "#/definitions/incapacityBenefit"
