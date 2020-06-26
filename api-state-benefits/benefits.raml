@@ -5,7 +5,7 @@
         uriParameters:
           taxYear:  types.TaxYear
         get:
-          displayName: Benefits GET
+          displayName: List all Benefits GET
           description: Details for Pension Charge submisson
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
           responses:
@@ -20,22 +20,26 @@
                     example-2:
                       description: Min data
                       value: !include examples/benefits_min_GET.json
-        put:
-          displayName: Benefits PUT
-          description: Create/update Pension Charges submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-          body:
-            application/json:
-              type: !include schemas/benefits_sch.json
-              example: !include examples/benefits_full_GET.json
-          responses:
-            200:
-        delete:
-          displayName: Benefits DELETE
-          description: Delete Pension Charges submission
-          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
-          responses:
-            204:
+        /{benefitId}:
+          uriParameters:
+            benefitId:  types.BenefitId
+          put:
+            displayName: Ignore State Benefit PUT
+            description: Toggle ignore flag for a State Benefit
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
+            body:
+              application/json:
+                type: !include schemas/benefits_sch_ignore_PUT.json
+                examples:
+                  example-1:
+                    description: Ignore
+                    value: !include examples/benefits_ignore_PUT.json
+                  example-2:
+                    description: Un-ignore
+                    value: !include examples/benefits_unignore_PUT.json
+
+            responses:
+              200:
         /custom:
           post:
             displayName: Custom Benefit POST
@@ -43,7 +47,7 @@
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
             body:
               application/json:
-                type: !include schemas/benefits_sch_POST.json
+                type: !include schemas/benefits_sch_custom_POST.json
                 examples:
                   example-1:
                     description: Full data
@@ -60,13 +64,15 @@
               401:
               422:
           /{benefitId}:
-            put: // N.B. shouldn't this be an update as we cannot "upsert" on only update
+            uriParameters:
+              benefitId:  types.BenefitId
+            put:
               displayName: Custom Benefit PUT
               description: Amend a customer created Benefit
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate,errors.formatTaxYear]
               body:
                 application/json:
-                  type: !include schemas/benefits_custom_sch_PUT.json
+                  type: !include schemas/benefits_sch_custom_PUT.json
                   examples:
                     example-1:
                       description: Full request

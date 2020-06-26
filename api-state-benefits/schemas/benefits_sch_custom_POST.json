@@ -1,0 +1,20 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/custom_benefit_schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ignore Benefit",
+  "description": "This schema allows a customer to create a Custom Benefit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["benefitType", "startDate"],
+  "properties":{
+    "benefitType":{
+      "type": "string"
+    },
+    "startDate":{
+      "type": "string"
+    },
+    "endDate":{
+      "type": "string"
+    }
+  }
+}
