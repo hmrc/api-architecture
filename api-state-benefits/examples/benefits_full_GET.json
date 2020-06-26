@@ -1,19 +1,21 @@
 {
   "stateBenefits": {
-    "incapacityBenefit": {
+    "incapacityBenefit": [
+    {
       "dateIgnored": "2019-04-04T01:01:01Z",
       "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
       "startDate": "2020-01-01",
       "endDate": "2020-04-01",
       "amount": 2000.00,
       "taxPaid": 2132.22
-    },
+     }
+    ],
     "statePension": {
       "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
       "startDate": "2019-01-01",
       "amount": 2000.00
     },
-    "statePensionsLumpSum": {
+    "statePensionLumpSum": {
       "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
       "startDate": "2019-01-01",
       "endDate"  : "2019-01-01",
