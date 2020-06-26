@@ -309,6 +309,41 @@
         }
       }
     },
+    "stateBenefitsHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["history"],
+      "properties": {
+        "incapacityBenefit":  {
+          "$ref": "#/definitions/incapacityBenefit"
+        },
+        "statePension":  {
+          "$ref": "#/definitions/statePension"
+        },
+        "statePensionLumpSum":  {
+          "$ref": "#/definitions/statePensionLumpSum"
+        },
+        "employmentSupportAllowance":  {
+          "$ref": "#/definitions/employmentSupportAllowance"
+        },
+        "jobSeekersAllowance":  {
+          "$ref": "#/definitions/jobSeekersAllowance"
+        },
+        "bereavementAllowance":  {
+          "$ref": "#/definitions/bereavementAllowance"
+        },
+        "otherStateBenefits":  {
+          "$ref": "#/definitions/bereavementAllowance"
+        },
+        "history": {
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/stateBenefits"
+          }
+        }
+      }
+    },
     "customerAddedStateBenefits": {
       "type": "object",
       "additionalProperties": false,
@@ -334,6 +369,41 @@
         },
         "otherStateBenefits":  {
           "$ref": "#/definitions/bereavementAllowance"
+        }
+      }
+    },
+    "customerAddedStateBenefitsHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["history"],
+      "properties": {
+        "incapacityBenefit": {
+          "$ref": "#/definitions/incapacityBenefit"
+        },
+        "statePension": {
+          "$ref": "#/definitions/statePension"
+        },
+        "statePensionLumpSum": {
+          "$ref": "#/definitions/statePensionLumpSum"
+        },
+        "employmentSupportAllowance": {
+          "$ref": "#/definitions/employmentSupportAllowance"
+        },
+        "jobSeekersAllowance": {
+          "$ref": "#/definitions/jobSeekersAllowance"
+        },
+        "bereavementAllowance": {
+          "$ref": "#/definitions/bereavementAllowance"
+        },
+        "otherStateBenefits": {
+          "$ref": "#/definitions/bereavementAllowance"
+        },
+        "history": {
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+            "$ref": "#/definitions/customerAddedStateBenefits"
+          }
         }
       }
     }

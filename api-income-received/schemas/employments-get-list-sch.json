@@ -4,10 +4,10 @@
   "title": "View Customer Employments",
   "description": "View a list of employments associated with the customer, the list may contain employments that the customer has added via their third party software, these are clearly marked.",
   "type": "object",
-  "oneOf": [
-    {
-      "properties": {
-        "employments": {
+  "required": ["employments"],
+  "additionalProperties": false,
+  "properties": {
+     "employments": {
           "type": "array",
           "additionalItems": false,
           "minItems": 1,
@@ -15,7 +15,7 @@
             "$ref": "#/definitions/hmrcEmployment"
           }
         },
-        "customerDeclaredEmployments": {
+     "customerDeclaredEmployments": {
           "type": "array",
           "additionalItems": false,
           "minItems": 1,
@@ -23,33 +23,7 @@
             "$ref": "#/definitions/customerEmployment"
           }
         }
-      },
-      "required": ["employments"],
-      "additionalProperties": false
-    },
-    {
-      "properties": {
-        "employments": {
-          "type": "array",
-          "additionalItems": false,
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/hmrcEmploymentHistory"
-          }
-        },
-        "customerDeclaredEmployments": {
-          "type": "array",
-          "additionalItems": false,
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/customerEmploymentHistory"
-          }
-        }
-      },
-      "required": ["employments"],
-      "additionalProperties": false
-    }
-  ],
+   },
   "definitions": {
     "employmentId": {
       "id": "#employmentId",
