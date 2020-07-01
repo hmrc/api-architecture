@@ -20,7 +20,7 @@ Early stage RAML > HTML designs for APIs
 | reliefs          |  [![Generic badge](https://img.shields.io/badge/investment-stable-green.svg)](https://github.com/hmrc/api-architecture/) [![Generic badge](https://img.shields.io/badge/other-stable-green.svg)](https://github.com/hmrc/api-architecture/) [![Generic badge](https://img.shields.io/badge/foreign-stable-green.svg)](https://github.com/hmrc/api-architecture/) [![Generic badge](https://img.shields.io/badge/pensions-new-blue.svg)](https://github.com/hmrc/api-architecture/)     | 20-06-18 |
 | state-benefits**  |  [![Generic badge](https://img.shields.io/badge/benefits-new-blue.svg)](https://github.com/hmrc/api-architecture/) | 20-06-29 |
 
-\** Including Private Pensions
+\* Including Private Pensions
 \** Including State Pensions
 
 ### Key
