@@ -1,7 +1,7 @@
 #%RAML 1.0
 title: Business
 baseUri: https://api.service.hmrc.gov.uk/individuals/
-version: 2020-06-17 18:26
+version: 2020-06-30 14:20
 documentation:
   - title: Property - Periodic Submission
     content: |
@@ -40,8 +40,8 @@ uses:
           incomeSourceId: baseTypes.IncomeSourceId
         /period:
           get:
-            displayName: Property Inc/Exp GET (list)
-            description: List of Periodic Property Inc/Exp submissions
+            displayName: Property Periodic GET (list)
+            description: List of Periodic Property Income/Expenses submissions
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
             responses:
               200:
@@ -49,8 +49,8 @@ uses:
                   application/json:
                     example: !include examples/periodic-business-get.json
           post:
-            displayName: Property Inc/Exp POST
-            description: Create/update Periodic Property Inc/Exp submission
+            displayName: Property Periodic POST
+            description: Create/update Periodic Property Income/Expenses submission
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
             body:
               application/json:
@@ -64,8 +64,8 @@ uses:
             uriParameters:
               submissionId: baseTypes.SubmissionId
             get:
-              displayName: Property Inc/Exp GET (detail)
-              description: List of Periodic Property Inc/Exp submissions
+              displayName: Property Periodic GET (detail)
+              description: Details of Periodic Property Income/Expenses submission
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
               responses:
                 200:
@@ -73,8 +73,8 @@ uses:
                     application/json:
                       example: !include examples/periodic-business-get-withid.json
             put:
-              displayName: Property Inc/Exp PUT
-              description: Create/update Periodic Property Inc/Exp submission
+              displayName: Property Periodic PUT
+              description: Update Periodic Property Income/Expenses submission
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
               responses:
                 200:
@@ -86,7 +86,7 @@ uses:
             uriParameters:
               taxYear: baseTypes.TaxYear
             get:
-              displayName: Property Inc/Exp GET
+              displayName: Property Annual GET
               description: List of Property annual submission
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
               responses:
@@ -95,7 +95,7 @@ uses:
                     application/json:
                       example: !include examples/annual-business.json
             put:
-              displayName: Property Inc/Exp PUT
+              displayName: Property Annual PUT
               description: Create/update Property annual submission
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
               responses:
@@ -104,7 +104,7 @@ uses:
                 application/json:
                   example: !include examples/annual-business.json
             delete:
-              displayName: Property Inc/Exp DELETE
+              displayName: Property Annual DELETE
               description: Delete Property annual submission
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
               responses:

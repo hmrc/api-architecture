@@ -5,20 +5,17 @@
   "description": "View a list of State Benefits & Pensions associated with the customer, the list may contain Benefits that the customer has added via their third party software, these are clearly marked.",
   "type": "object",
   "minItems": 1,
-  "properties": {
-    "stateBenefits": {
-      "$ref": "#/definitions/stateBenefits"
-    },
-    "customerAddedStateBenefits": {
-      "$ref": "#/definitions/customerAddedStateBenefits"
+  "oneOf": [
+    {
+      "$ref": "#/definitions/benefitsWithoutHistory"
     }
-  },
+  ],
   "definitions": {
     "benefitId": {
-      "description": "Unique identifier of the benrfit",
+      "description": "Unique identifier of the benefit",
       "type": "string",
-      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
-      "format": "uuid"
+      "format": "uuid",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
     },
     "startDate": {
       "type": "string",
@@ -54,34 +51,36 @@
     },
     "incapacityBenefit": {
       "type": "array",
-      "additionalProperties": false,
-      "required": [
-        "benefitId",
-        "startDate",
-        "amount",
-        "taxPaid"
-      ],
-      "properties": {
-        "dateIgnored": {
-          "$ref": "#/definitions/dateIgnored"
-        },
-        "submittedOn": {
-          "$ref": "#/definitions/submittedOn"
-        },
-        "benefitId": {
-          "$ref": "#/definitions/benefitId"
-        },
-        "startDate": {
-          "$ref": "#/definitions/startDate"
-        },
-        "endDate": {
-          "$ref": "#/definitions/endDate"
-        },
-        "amount": {
-          "$ref": "#/definitions/moneyPositive"
-        },
-        "taxPaid": {
-          "$ref": "#/definitions/moneyZeroToPositive"
+      "items": {
+        "additionalProperties": false,
+        "required": [
+          "benefitId",
+          "startDate",
+          "amount",
+          "taxPaid"
+        ],
+        "properties": {
+          "dateIgnored": {
+            "$ref": "#/definitions/dateIgnored"
+          },
+          "submittedOn": {
+            "$ref": "#/definitions/submittedOn"
+          },
+          "benefitId": {
+            "$ref": "#/definitions/benefitId"
+          },
+          "startDate": {
+            "$ref": "#/definitions/startDate"
+          },
+          "endDate": {
+            "$ref": "#/definitions/endDate"
+          },
+          "amount": {
+            "$ref": "#/definitions/moneyPositive"
+          },
+          "taxPaid": {
+            "$ref": "#/definitions/moneyZeroToPositive"
+          }
         }
       }
     },
@@ -152,67 +151,73 @@
     },
     "employmentSupportAllowance": {
       "type": "array",
-      "additionalProperties": false,
-      "required": [
-        "benefitId",
-        "startDate",
-        "amount",
-        "taxPaid"
-      ],
-      "properties": {
-        "dateIgnored": {
-          "$ref": "#/definitions/dateIgnored"
-        },
-        "submittedOn": {
-          "$ref": "#/definitions/submittedOn"
-        },
-        "benefitId": {
-          "$ref": "#/definitions/benefitId"
-        },
-        "startDate": {
-          "$ref": "#/definitions/startDate"
-        },
-        "endDate": {
-          "$ref": "#/definitions/endDate"
-        },
-        "amount": {
-          "$ref": "#/definitions/moneyPositive"
-        },
-        "taxPaid": {
-          "$ref": "#/definitions/moneyZeroToPositive"
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "benefitId",
+          "startDate",
+          "amount",
+          "taxPaid"
+        ],
+        "properties": {
+          "dateIgnored": {
+            "$ref": "#/definitions/dateIgnored"
+          },
+          "submittedOn": {
+            "$ref": "#/definitions/submittedOn"
+          },
+          "benefitId": {
+            "$ref": "#/definitions/benefitId"
+          },
+          "startDate": {
+            "$ref": "#/definitions/startDate"
+          },
+          "endDate": {
+            "$ref": "#/definitions/endDate"
+          },
+          "amount": {
+            "$ref": "#/definitions/moneyPositive"
+          },
+          "taxPaid": {
+            "$ref": "#/definitions/moneyZeroToPositive"
+          }
         }
       }
     },
     "jobSeekersAllowance": {
       "type": "array",
-      "additionalProperties": false,
-      "required": [
-        "benefitId",
-        "startDate",
-        "amount",
-        "taxPaid"
-      ],
-      "properties": {
-        "dateIgnored": {
-          "$ref": "#/definitions/dateIgnored"
-        },
-        "submittedOn": {
-          "$ref": "#/definitions/submittedOn"
-        },
-        "benefitId": {
-          "$ref": "#/definitions/benefitId"
-        },
-        "startDate": {
-          "$ref": "#/definitions/startDate"
-        },
-        "endDate": {
-          "$ref": "#/definitions/endDate"
-        },
-        "amount": {
-          "$ref": "#/definitions/moneyPositive"
-        },
-        "taxPaid": {
-          "$ref": "#/definitions/moneyZeroToPositive"
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "benefitId",
+          "startDate",
+          "amount",
+          "taxPaid"
+        ],
+        "properties": {
+          "dateIgnored": {
+            "$ref": "#/definitions/dateIgnored"
+          },
+          "submittedOn": {
+            "$ref": "#/definitions/submittedOn"
+          },
+          "benefitId": {
+            "$ref": "#/definitions/benefitId"
+          },
+          "startDate": {
+            "$ref": "#/definitions/startDate"
+          },
+          "endDate": {
+            "$ref": "#/definitions/endDate"
+          },
+          "amount": {
+            "$ref": "#/definitions/moneyPositive"
+          },
+          "taxPaid": {
+            "$ref": "#/definitions/moneyZeroToPositive"
+          }
         }
       }
     },
@@ -281,101 +286,23 @@
         }
       }
     },
+
+    "benefitsWithoutHistory": {
+      "title": "State Benefits",
+      "type": "object",
+      "properties": {
+        "stateBenefits": {
+          "$ref": "#/definitions/stateBenefits"
+        },
+        "customerAddedStateBenefits": {
+          "$ref": "#/definitions/customerAddedStateBenefits"
+        }
+      }
+    },
     "stateBenefits": {
       "type": "object",
       "additionalProperties": false,
       "minItems": 1,
-      "properties": {
-        "incapacityBenefit":  {
-          "$ref": "#/definitions/incapacityBenefit"
-        },
-        "statePension":  {
-          "$ref": "#/definitions/statePension"
-        },
-        "statePensionLumpSum":  {
-          "$ref": "#/definitions/statePensionLumpSum"
-        },
-        "employmentSupportAllowance":  {
-          "$ref": "#/definitions/employmentSupportAllowance"
-        },
-        "jobSeekersAllowance":  {
-          "$ref": "#/definitions/jobSeekersAllowance"
-        },
-        "bereavementAllowance":  {
-          "$ref": "#/definitions/bereavementAllowance"
-        },
-        "otherStateBenefits":  {
-          "$ref": "#/definitions/bereavementAllowance"
-        }
-      }
-    },
-    "stateBenefitsHistory": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["history"],
-      "properties": {
-        "incapacityBenefit":  {
-          "$ref": "#/definitions/incapacityBenefit"
-        },
-        "statePension":  {
-          "$ref": "#/definitions/statePension"
-        },
-        "statePensionLumpSum":  {
-          "$ref": "#/definitions/statePensionLumpSum"
-        },
-        "employmentSupportAllowance":  {
-          "$ref": "#/definitions/employmentSupportAllowance"
-        },
-        "jobSeekersAllowance":  {
-          "$ref": "#/definitions/jobSeekersAllowance"
-        },
-        "bereavementAllowance":  {
-          "$ref": "#/definitions/bereavementAllowance"
-        },
-        "otherStateBenefits":  {
-          "$ref": "#/definitions/bereavementAllowance"
-        },
-        "history": {
-          "type": "array",
-          "additionalItems": false,
-          "items": {
-            "$ref": "#/definitions/stateBenefits"
-          }
-        }
-      }
-    },
-    "customerAddedStateBenefits": {
-      "type": "object",
-      "additionalProperties": false,
-      "minItems": 1,
-      "properties": {
-        "incapacityBenefit":  {
-          "$ref": "#/definitions/incapacityBenefit"
-        },
-        "statePension":  {
-          "$ref": "#/definitions/statePension"
-        },
-        "statePensionLumpSum":  {
-          "$ref": "#/definitions/statePensionLumpSum"
-        },
-        "employmentSupportAllowance":  {
-          "$ref": "#/definitions/employmentSupportAllowance"
-        },
-        "jobSeekersAllowance":  {
-          "$ref": "#/definitions/jobSeekersAllowance"
-        },
-        "bereavementAllowance":  {
-          "$ref": "#/definitions/bereavementAllowance"
-        },
-        "otherStateBenefits":  {
-          "$ref": "#/definitions/bereavementAllowance"
-        }
-      }
-    },
-    "customerAddedStateBenefitsHistory": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["history"],
       "properties": {
         "incapacityBenefit": {
           "$ref": "#/definitions/incapacityBenefit"
@@ -397,12 +324,278 @@
         },
         "otherStateBenefits": {
           "$ref": "#/definitions/bereavementAllowance"
+        }
+      }
+    },
+    "customerAddedStateBenefits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "incapacityBenefit": {
+          "$ref": "#/definitions/incapacityBenefit"
         },
-        "history": {
+        "statePension": {
+          "$ref": "#/definitions/statePension"
+        },
+        "statePensionLumpSum": {
+          "$ref": "#/definitions/statePensionLumpSum"
+        },
+        "employmentSupportAllowance": {
+          "$ref": "#/definitions/employmentSupportAllowance"
+        },
+        "jobSeekersAllowance": {
+          "$ref": "#/definitions/jobSeekersAllowance"
+        },
+        "bereavementAllowance": {
+          "$ref": "#/definitions/bereavementAllowance"
+        },
+        "otherStateBenefits": {
+          "$ref": "#/definitions/bereavementAllowance"
+        }
+      }
+    },
+    "customerAddedStateBenefitsWithHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "minItems": 1,
+      "properties": {
+        "incapacityBenefit": {
           "type": "array",
-          "additionalItems": false,
           "items": {
-            "$ref": "#/definitions/customerAddedStateBenefits"
+            "additionalProperties": false,
+            "required": [
+              "benefitId",
+              "startDate",
+              "amount",
+              "taxPaid",
+              "history"
+            ],
+            "properties": {
+              "dateIgnored": {
+                "$ref": "#/definitions/dateIgnored"
+              },
+              "submittedOn": {
+                "$ref": "#/definitions/submittedOn"
+              },
+              "benefitId": {
+                "$ref": "#/definitions/benefitId"
+              },
+              "startDate": {
+                "$ref": "#/definitions/startDate"
+              },
+              "endDate": {
+                "$ref": "#/definitions/endDate"
+              },
+              "amount": {
+                "$ref": "#/definitions/moneyPositive"
+              },
+              "taxPaid": {
+                "$ref": "#/definitions/moneyZeroToPositive"
+              },
+            }
+          }
+        },
+        "statePension": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "benefitId",
+            "startDate",
+            "amount"
+          ],
+          "properties": {
+            "dateIgnored": {
+              "$ref": "#/definitions/dateIgnored"
+            },
+            "submittedOn": {
+              "$ref": "#/definitions/submittedOn"
+            },
+            "benefitId": {
+              "$ref": "#/definitions/benefitId"
+            },
+            "startDate": {
+              "$ref": "#/definitions/startDate"
+            },
+            "endDate": {
+              "$ref": "#/definitions/endDate"
+            },
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyZeroToPositive"
+            },
+          }
+        },
+        "statePensionLumpSum": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "benefitId",
+            "startDate",
+            "amount",
+            "taxPaid"
+          ],
+          "properties": {
+            "dateIgnored": {
+              "$ref": "#/definitions/dateIgnored"
+            },
+            "submittedOn": {
+              "$ref": "#/definitions/submittedOn"
+            },
+            "benefitId": {
+              "$ref": "#/definitions/benefitId"
+            },
+            "startDate": {
+              "$ref": "#/definitions/startDate"
+            },
+            "endDate": {
+              "$ref": "#/definitions/endDate"
+            },
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyZeroToPositive"
+            },
+          }
+        },
+        "employmentSupportAllowance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "benefitId",
+              "startDate",
+              "amount",
+              "taxPaid"
+            ],
+            "properties": {
+              "dateIgnored": {
+                "$ref": "#/definitions/dateIgnored"
+              },
+              "submittedOn": {
+                "$ref": "#/definitions/submittedOn"
+              },
+              "benefitId": {
+                "$ref": "#/definitions/benefitId"
+              },
+              "startDate": {
+                "$ref": "#/definitions/startDate"
+              },
+              "endDate": {
+                "$ref": "#/definitions/endDate"
+              },
+              "amount": {
+                "$ref": "#/definitions/moneyPositive"
+              },
+              "taxPaid": {
+                "$ref": "#/definitions/moneyZeroToPositive"
+              },
+            }
+          }
+        },
+        "jobSeekersAllowance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "benefitId",
+              "startDate",
+              "amount",
+              "taxPaid"
+            ],
+            "properties": {
+              "dateIgnored": {
+                "$ref": "#/definitions/dateIgnored"
+              },
+              "submittedOn": {
+                "$ref": "#/definitions/submittedOn"
+              },
+              "benefitId": {
+                "$ref": "#/definitions/benefitId"
+              },
+              "startDate": {
+                "$ref": "#/definitions/startDate"
+              },
+              "endDate": {
+                "$ref": "#/definitions/endDate"
+              },
+              "amount": {
+                "$ref": "#/definitions/moneyPositive"
+              },
+              "taxPaid": {
+                "$ref": "#/definitions/moneyZeroToPositive"
+              },
+            }
+          }
+        },
+        "bereavementAllowance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "benefitId",
+            "startDate",
+            "amount"
+          ],
+          "properties": {
+            "dateIgnored": {
+              "$ref": "#/definitions/dateIgnored"
+            },
+            "submittedOn": {
+              "$ref": "#/definitions/submittedOn"
+            },
+            "benefitId": {
+              "$ref": "#/definitions/benefitId"
+            },
+            "startDate": {
+              "$ref": "#/definitions/startDate"
+            },
+            "endDate": {
+              "$ref": "#/definitions/endDate"
+            },
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyZeroToPositive"
+            },
+          }
+        },
+        "otherStateBenefits": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "benefitId",
+            "startDate",
+            "amount",
+            "taxPaid"
+          ],
+          "properties": {
+            "dateIgnored": {
+              "$ref": "#/definitions/dateIgnored"
+            },
+            "submittedOn": {
+              "$ref": "#/definitions/submittedOn"
+            },
+            "benefitId": {
+              "$ref": "#/definitions/benefitId"
+            },
+            "startDate": {
+              "$ref": "#/definitions/startDate"
+            },
+            "endDate": {
+              "$ref": "#/definitions/endDate"
+            },
+            "amount": {
+              "$ref": "#/definitions/moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#/definitions/moneyZeroToPositive"
+            },
+            }
           }
         }
       }

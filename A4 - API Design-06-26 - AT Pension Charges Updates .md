@@ -1,5 +1,9 @@
 # A4 - API Design
 
+[TOC]
+
+
+
 ## 1. Managing Customer Declared Employments
 
 Once the tax year has ended a customer may add any employments they believe are missing from their list of employment via their third party software, once a customer employment has been added it may subsequently be updated, or deleted (logically) by the customer. 
@@ -808,6 +812,13 @@ N/A
       "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
       "employerName": "Wibble Inc",
       "dateIgnored": "2020-03-03T01:01:01Z"
+    },
+    {
+      "employmentId": "960b4a0f-05f2-4b6f-9b87-c3e001a84472",
+      "employerRef" : "123/JSA",
+      "employerName": "JSA", //Need to check where this comes from etc
+      "startDate": "", //Mandatory ??
+      "cessationDate": "" //optional
     }
   ],
   "customerDeclaredEmployments": [
@@ -1095,75 +1106,6 @@ N/A
               "type": "number",
               "minimum": 1,
               "maximum": 12
-            }
-          }
-        },
-        "lumpSums": {
-          "type": "object",
-          "additionalProperties": false,
-          "minProperties": 1,
-          "properties": {
-            "taxableLumpSumsAndCertainIncome": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxPaid": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxTakenOffInEmployment": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1,
-              "required": []
-            },
-            "benefitFromEmployerFinancedRetirementScheme": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                },
-                "exemptAmount": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxPaid": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxTakenOffInEmployment": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1
-            },
-            "redundancyCompensationPaymentsOverExemption": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxPaid": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxTakenOffInEmployment": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1
-            },
-            "redundancyCompensationPaymentsUnderExemption": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1
             }
           }
         },
@@ -1665,27 +1607,6 @@ N/A
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
     },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123,
-        "exemptAmount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123
-      }
-    },
     "deductions": {
       "studentLoans": {
         "uglDeductionAmount": 1232.22,
@@ -1755,27 +1676,6 @@ N/A
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
     },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123,
-        "exemptAmount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123
-      }
-    },
     "deductions": {
       "studentLoans": {
         "uglDeductionAmount": 1232.22,
@@ -1842,27 +1742,6 @@ N/A
       "payFrequency": "CALENDAR MONTHLY",
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
-    },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123,
-        "exemptAmount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123
-      }
     },
     "deductions": {
       "studentLoans": {
@@ -1931,27 +1810,6 @@ N/A
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
     },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123,
-        "exemptAmount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123
-      }
-    },
     "deductions": {
       "studentLoans": {
         "uglDeductionAmount": 1232.22,
@@ -2019,27 +1877,6 @@ N/A
       "payFrequency": "CALENDAR MONTHLY",
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
-    },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123,
-        "exemptAmount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123
-      }
     },
     "deductions": {
       "studentLoans": {
@@ -2111,27 +1948,6 @@ N/A
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
     },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123.0,
-        "exemptAmount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123.0
-      }
-    },
     "deductions": {
       "studentLoans": {
         "uglDeductionAmount": 1232.22,
@@ -2193,27 +2009,6 @@ N/A
           "payFrequency": "CALENDAR MONTHLY",
           "paymentDate": "2020-05-12",
           "taxWeekNo": 52
-        },
-        "lumpSums": {
-          "taxableLumpSumsAndCertainIncome": {
-            "amount": 123.0,
-            "taxPaid": 123.0,
-            "taxTakenOffInEmployment": true
-          },
-          "benefitFromEmployerFinancedRetirementScheme": {
-            "amount": 123.0,
-            "exemptAmount": 123.0,
-            "taxPaid": 123.0,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsOverExemption": {
-            "amount": 123.0,
-            "taxPaid": 123.0,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsUnderExemption": {
-            "amount": 123.0
-          }
         },
         "deductions": {
           "studentLoans": {
@@ -2284,27 +2079,6 @@ N/A
       "payFrequency": "CALENDAR MONTHLY",
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
-    },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123.0,
-        "exemptAmount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123.0
-      }
     },
     "deductions": {
       "studentLoans": {
@@ -2437,75 +2211,6 @@ N/A
             "tipsAndOtherPayments": {
               "$ref": "#/definitions/moneyPositive"
             },
-          }
-        },
-        "lumpSums": {
-          "type": "object",
-          "additionalProperties": false,
-          "minProperties": 1,
-          "properties": {
-            "taxableLumpSumsAndCertainIncome": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxPaid": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxTakenOffInEmployment": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1,
-              "required": []
-            },
-            "benefitFromEmployerFinancedRetirementScheme": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                },
-                "exemptAmount": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxPaid": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxTakenOffInEmployment": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1
-            },
-            "redundancyCompensationPaymentsOverExemption": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxPaid": {
-                  "$ref": "#moneyPositive"
-                },
-                "taxTakenOffInEmployment": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1
-            },
-            "redundancyCompensationPaymentsUnderExemption": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "$ref": "#moneyPositive"
-                }
-              },
-              "additionalProperties": false,
-              "minProperties": 1
-            }
           }
         },
         "deductions": {
@@ -2644,27 +2349,6 @@ N/A
           "paymentDate": "2020-05-12",
           "taxWeekNo": 52
         },
-        "lumpSums": {
-          "taxableLumpSumsAndCertainIncome": {
-            "amount": 123.0,
-            "taxPaid": 123.0,
-            "taxTakenOffInEmployment": true
-          },
-          "benefitFromEmployerFinancedRetirementScheme": {
-            "amount": 123.0,
-            "exemptAmount": 123.0,
-            "taxPaid": 123.0,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsOverExemption": {
-            "amount": 123.0,
-            "taxPaid": 123.0,
-            "taxTakenOffInEmployment": true
-          },
-          "redundancyCompensationPaymentsUnderExemption": {
-            "amount": 123.0
-          }
-        },
         "deductions": {
           "studentLoans": {
             "uglDeductionAmount": 1232.22,
@@ -2718,27 +2402,6 @@ N/A
       "grossAmountPaidYtd": 1234.15,
       "taxTakenOffYtd": 12.22,
       "tipsAndOtherPayments": 10000.0
-    },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123.0,
-        "exemptAmount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123.0
-      }
     },
     "deductions": {
       "studentLoans": {
@@ -2970,7 +2633,7 @@ N/A
       "multipleOf": 0.01
     },
     "expenses": {
-      "id": "#expenses
+      "id": "#expenses",
       "type": "object",
       "description": "itemised expenses",
       "additionalProperties": false,
@@ -3463,22 +3126,34 @@ N/A
     "submission": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["submittedOn"],
+      "required": [
+        "submittedOn"
+      ],
       "anyOf": [
         {
-          "required": ["pensionSavingsTaxCharges"]
+          "required": [
+            "pensionSavingsTaxCharges"
+          ]
         },
         {
-          "required": ["pensionSchemeOverseasTransfers"]
+          "required": [
+            "pensionSchemeOverseasTransfers"
+          ]
         },
         {
-          "required": ["pensionSchemeUnauthorisedPayments"]
+          "required": [
+            "pensionSchemeUnauthorisedPayments"
+          ]
         },
         {
-          "required": ["pensionContributions"]
+          "required": [
+            "pensionContributions"
+          ]
         },
         {
-          "required": ["overseasPensionContributions"]
+          "required": [
+            "overseasPensionContributions"
+          ]
         }
       ],
       "properties": {
@@ -3510,22 +3185,35 @@ N/A
     "submissionWithHistory": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["submittedOn", "history"],
+      "required": [
+        "submittedOn",
+        "history"
+      ],
       "anyOf": [
         {
-          "required": ["pensionSavingsTaxCharges"]
+          "required": [
+            "pensionSavingsTaxCharges"
+          ]
         },
         {
-          "required": ["pensionSchemeOverseasTransfers"]
+          "required": [
+            "pensionSchemeOverseasTransfers"
+          ]
         },
         {
-          "required": ["pensionSchemeUnauthorisedPayments"]
+          "required": [
+            "pensionSchemeUnauthorisedPayments"
+          ]
         },
         {
-          "required": ["pensionContributions"]
+          "required": [
+            "pensionContributions"
+          ]
         },
         {
-          "required": ["overseasPensionContributions"]
+          "required": [
+            "overseasPensionContributions"
+          ]
         }
       ],
       "properties": {
@@ -3565,24 +3253,52 @@ N/A
       }
     },
     "pensionSavingsTaxChargesType": {
-      "type" : "object",
+      "type": "object",
       "additionalProperties": false,
       "oneOf": [
         {
-          "required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance"],
-          "not": {"required": ["benefitInExcessOfLifetimeAllowance"]}},
-        {
-          "required": ["pensionSchemeTaxReference", "benefitInExcessOfLifetimeAllowance"],
-          "not": {"required": ["lumpSumBenefitTakenInExcessOfLifetimeAllowance"]}
+          "required": [
+            "pensionSchemeTaxReference",
+            "lumpSumBenefitTakenInExcessOfLifetimeAllowance",
+            "isAnnualAllowanceReduced"
+          ],
+          "not": {
+            "required": [
+              "benefitInExcessOfLifetimeAllowance",
+              "taperedAnnualAllowance",
+              "moneyPurchasedAllowance"
+            ]
+          }
         },
-        {"required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance","benefitInExcessOfLifetimeAllowance"]}
+        {
+          "required": [
+            "pensionSchemeTaxReference",
+            "benefitInExcessOfLifetimeAllowance",
+            "isAnnualAllowanceReduced"
+          ],
+          "not": {
+            "required": [
+              "lumpSumBenefitTakenInExcessOfLifetimeAllowance",
+              "taperedAnnualAllowance",
+              "moneyPurchasedAllowance"
+            ]
+          }
+        },
+        {
+          "required": [
+            "pensionSchemeTaxReference",
+            "lumpSumBenefitTakenInExcessOfLifetimeAllowance",
+            "benefitInExcessOfLifetimeAllowance",
+            "isAnnualAllowanceReduced"
+          ]
+        }
       ],
       "properties": {
         "pensionSchemeTaxReference": {
-          "$ref" : "#/definitions/pensionSchemeTaxReference"
+          "$ref": "#/definitions/pensionSchemeTaxReference"
         },
         "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
-          "type" : "object",
+          "type": "object",
           "properties": {
             "amount": {
               "$ref": "#/definitions/moneyPositive"
@@ -3592,10 +3308,13 @@ N/A
             }
           },
           "additionalProperties": false,
-          "required": ["amount"]
+          "required": [
+            "amount",
+            "taxPaid"
+          ]
         },
         "benefitInExcessOfLifetimeAllowance": {
-          "type" : "object",
+          "type": "object",
           "properties": {
             "amount": {
               "$ref": "#/definitions/moneyPositive"
@@ -3605,14 +3324,39 @@ N/A
             }
           },
           "additionalProperties": false,
-          "required": ["amount"]
+          "required": [
+            "amount",
+            "taxPaid"
+          ]
+        },
+        "isAnnualAllowanceReduced": {
+          "type": "boolean"
+        },
+        "taperedAnnualAllowance": {
+          "type": "boolean"
+        },
+        "moneyPurchasedAllowance": {
+          "type": "boolean"
         }
+      },
+      "if": {
+        "properties": { "isAnnualAllowanceReduced": { "const": true } }
+      },
+      "then": {
+        "properties": { "taperedAnnualAllowance": { "const": true } }
+      },
+      "else": {
+        "properties": { "moneyPurchasedAllowance": { "const": true } }
       }
     },
     "pensionSchemeOverseasTransfersType": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["overseasSchemeProvider","transferCharge"],
+      "required": [
+        "overseasSchemeProvider",
+        "transferCharge",
+        "transferChargeTaxPaid"
+      ],
       "properties": {
         "overseasSchemeProvider": {
           "$ref": "#/definitions/overseasSchemeProvider"
@@ -3626,48 +3370,70 @@ N/A
       }
     },
     "pensionSchemeUnauthorisedPaymentsType": {
-      "type" : "object",
+      "type": "object",
       "additionalProperties": false,
       "oneOf": [
         {
-          "required": ["pensionSchemeTaxReference","surcharge"],
-          "not": { "required": ["noSurcharge"]}
+          "required": [
+            "pensionSchemeTaxReference",
+            "surcharge"
+          ],
+          "not": {
+            "required": [
+              "noSurcharge"
+            ]
+          }
         },
         {
-          "required": ["pensionSchemeTaxReference","noSurcharge"],
-          "not": { "required": ["surcharge"]}
+          "required": [
+            "pensionSchemeTaxReference",
+            "noSurcharge"
+          ],
+          "not": {
+            "required": [
+              "surcharge"
+            ]
+          }
         },
         {
-          "required": ["pensionSchemeTaxReference","surcharge","noSurcharge"]
+          "required": [
+            "pensionSchemeTaxReference",
+            "surcharge",
+            "noSurcharge"
+          ]
         }
       ],
       "properties": {
         "pensionSchemeTaxReference": {
-          "$ref" : "#/definitions/pensionSchemeTaxReference"
+          "$ref": "#/definitions/pensionSchemeTaxReference"
         },
         "surcharge": {
           "type": "object",
           "additionalProperties": false,
-          "required": [ "amount"],
+          "required": [
+            "amount", "foreignTaxPaid"
+          ],
           "properties": {
             "amount": {
-              "$ref" : "#/definitions/moneyPositive"
+              "$ref": "#/definitions/moneyPositive"
             },
             "foreignTaxPaid": {
-              "$ref" : "#/definitions/moneyPositive"
+              "$ref": "#/definitions/moneyPositive"
             }
           }
         },
         "noSurcharge": {
           "type": "object",
           "additionalProperties": false,
-          "required": [ "amount"],
+          "required": [
+            "amount", "foreignTaxPaid"
+          ],
           "properties": {
             "amount": {
-              "$ref" : "#/definitions/moneyPositive"
+              "$ref": "#/definitions/moneyPositive"
             },
             "foreignTaxPaid": {
-              "$ref" : "#/definitions/moneyPositive"
+              "$ref": "#/definitions/moneyPositive"
             }
           }
         }
@@ -3676,10 +3442,14 @@ N/A
     "pensionContributionsType": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["pensionSchemeTaxReference","inExcessOfTheAnnualAllowance"],
+      "required": [
+        "pensionSchemeTaxReference",
+        "inExcessOfTheAnnualAllowance",
+        "annualAllowanceTaxPaid"
+      ],
       "properties": {
         "pensionSchemeTaxReference": {
-          "$ref" : "#/definitions/pensionSchemeTaxReference"
+          "$ref": "#/definitions/pensionSchemeTaxReference"
         },
         "inExcessOfTheAnnualAllowance": {
           "$ref": "#/definitions/moneyPositive"
@@ -3692,7 +3462,10 @@ N/A
     "overseasPensionContributionsType": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["overseasSchemeProvider", "shortServiceRefund"],
+      "required": [
+        "overseasSchemeProvider",
+        "shortServiceRefund", "shortServiceRefundTaxPaid"
+      ],
       "properties": {
         "overseasSchemeProvider": {
           "$ref": "#/definitions/overseasSchemeProvider"
@@ -3707,15 +3480,28 @@ N/A
     },
     "pensionSchemeTaxReference": {
       "type": "array",
-      "items" : {
-        "type": "string",
-        "pattern": "^[0-9]{8}[A-Z]{2}$"
+      "items": {
+        "$ref": "#/definitions/pensionSchemeTaxReferenceType"
       },
       "additionalItems": false,
       "minItems": 1
     },
     "schemeProvider": {
       "type": "object",
+      "anyOf": [
+        {
+          "required": [ "providerName", "providerAddress", "countryCode"],
+          "not": {
+            "required": ["pensionSchemeTaxReference"]
+          }
+        },
+        {
+          "required": [ "providerName", "providerAddress", "countryCode"],
+          "not": {
+            "required": ["qualifyingRecognisedOverseasPensionScheme"]
+          }
+        }
+      ],
       "properties": {
         "providerName": {
           "type": "string",
@@ -3727,12 +3513,17 @@ N/A
           "maxLength": 250,
           "minLength": 1
         },
-        "providerCountryCode": {
+        "countryCode": {
           "$ref": "#/definitions/countryCodes"
+        },
+        "pensionSchemeTaxReference": {
+          "$ref": "#/definitions/pensionSchemeTaxReferenceType"
+        },
+        "qualifyingRecognisedOverseasPensionScheme": {
+          "$ref": "#/definitions/qualifyingRecognisedOverseasPensionSchemeType"
         }
       },
-      "additionalProperties": false,
-      "required": ["providerName","providerAddress","providerCountryCode"]
+      "additionalProperties": false
     },
     "overseasSchemeProvider": {
       "type": "array",
@@ -3741,6 +3532,14 @@ N/A
       "items": {
         "$ref": "#/definitions/schemeProvider"
       }
+    },
+    "pensionSchemeTaxReferenceType": {
+      "type": "string",
+      "pattern": "^[0-9]{8}R[A-Z]{1}$"
+    },
+    "qualifyingRecognisedOverseasPensionSchemeType": {
+      "type": "string",
+      "pattern": "^Q[1-9]{6}"
     },
     "moneyPositive": {
       "$id": "#moneyPositive",
@@ -4012,29 +3811,37 @@ N/A
 {
   "submittedOn": "2020-03-03T01:01:01Z",
   "pensionSavingsTaxCharges": {
+   
     "pensionSchemeTaxReference": [
       "00123456RA",
-      "00654321RA"
+      "00654321RA" //8 digits followed by 2 letters first of which must be an R
     ],
     "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
       "amount": 1213.0,
-      "taxPaid": 123.0
+      "taxPaid": 123.0 // Mandataory when amount is present can be ZERO
     },
     "benefitInExcessOfLifetimeAllowance": {
       "amount": 1213.0,
-      "taxPaid": 123.0
-    }
+      "taxPaid": 123.0 //Mandatory when amount is present CAN BE ZERO
+    },
+    "isAnnualAllowanceReduced": true, // if this is true then one of tapered annual allowance or moneyPallowance must also be true. 
+    "taperedAnnualAllowance" : true, // 
+    "moneyPurchasedAllowance": false // 
+    
   },
   "pensionSchemeOverseasTransfers": {
     "overseasSchemeProvider": [
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM", //CHANGED
+        "pensionSchemeTaxReference": "00123456RA", //pstr qrops are optional but mutually exclusive
+        "qualifyingRecognisedOverseasPensionScheme": "Q123456" //Total 7 must start with Q followed by 6 digits
       }
     ],
     "transferCharge": 123.0,
-    "transferChargeTaxPaid": 123.0
+    "transferChargeTaxPaid": 123.00 //Mandatory at least zero
+    
   },
   "pensionSchemeUnauthorisedPayments": {
     "pensionSchemeTaxReference": [
@@ -4043,7 +3850,11 @@ N/A
     ],
     "surcharge": {
       "amount": 123.0,
-      "foreignTaxPaid": 123.0
+          "foreignTaxPaid": 123.0 //Mandatory can be zero
+    },
+    "noSurcharge": { 
+      "amount" : 123.00,
+      "foreignTaxPaid": 123.00 //Mandatory can be zero 
     }
   },
   "pensionContributions": {
@@ -4052,18 +3863,18 @@ N/A
       "00654321RA"
     ],
     "inExcessOfTheAnnualAllowance": 123.0,
-    "annualAllowanceTaxPaid": 123.0
+    "annualAllowanceTaxPaid": 123.0 //Mandatory can be zero
   },
   "overseasPensionContributions": {
     "overseasSchemeProvider": [
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM" //CHANGED 
       }
     ],
     "shortServiceRefund": 123.0,
-    "shortServiceRefundTaxPaid": 123.0
+    "shortServiceRefundTaxPaid": 123.0 //Mandatory can be zero 
   }
 }
 ```
@@ -4085,14 +3896,19 @@ N/A
     "benefitInExcessOfLifetimeAllowance": {
       "amount": 1213.0,
       "taxPaid": 123.0
-    }
+    },
+    "isAnnualAllowanceReduced": true,
+    "taperedAnnualAllowance" : true,
+    "moneyPurchasedAllowance": false 
   },
   "pensionSchemeOverseasTransfers": {
     "overseasSchemeProvider": [
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM",
+        "pensionSchemeTaxReference": "00123456RA",
+      "qualifyingRecognisedOverseasPensionScheme": "Q123456"
       }
     ],
     "transferCharge": 123.0,
@@ -4105,7 +3921,7 @@ N/A
     ],
     "surcharge": {
       "amount": 123.0,
-      "foreignTaxPaid": 123.0
+      "foreignTaxPaid": 123.0 //Mandatory can be zero
     }
   },
   "pensionContributions": {
@@ -4121,7 +3937,9 @@ N/A
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM",
+       "pensionSchemeTaxReference": "00123456RA",
+           "qualifyingRecognisedOverseasPensionScheme": "Q123456"
       }
     ],
     "shortServiceRefund": 123.0,
@@ -4148,14 +3966,19 @@ N/A
     "benefitInExcessOfLifetimeAllowance": {
       "amount": 1213.0,
       "taxPaid": 123.0
-    }
+    },
+    "isAnnualAllowanceReduced": true, 
+    "moneyPurchasedAllowance": false,
+    "taperedAnnualAllowance" : true,
   },
   "pensionSchemeOverseasTransfers": {
     "overseasSchemeProvider": [
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM",
+          "pensionSchemeTaxReference": "00123456RA",
+       "qualifyingRecognisedOverseasPensionScheme": "Q123456"
       }
     ],
     "transferCharge": 123.0,
@@ -4184,7 +4007,9 @@ N/A
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM",
+        "pensionSchemeTaxReference": "00123456RA",
+          "qualifyingRecognisedOverseasPensionScheme": "Q123456"
       }
     ],
     "shortServiceRefund": 123.0,
@@ -4205,14 +4030,19 @@ N/A
         "benefitInExcessOfLifetimeAllowance": {
           "amount": 1213.0,
           "taxPaid": 123.0
-        }
+        },
+        "isAnnualAllowanceReduced": true, 
+        "moneyPurchasedAllowance": false,
+          "taperedAnnualAllowance" : true,
       },
       "pensionSchemeOverseasTransfers": {
         "overseasSchemeProvider": [
           {
             "providerName": "Overseas Pensions Plc",
             "providerAddress": "111 Main Street, George Town, Grand Cayman",
-            "providerCountryCode": "CYM"
+            "countryCode": "CYM",
+            "pensionSchemeTaxReference": "00123456RA",
+            "qualifyingRecognisedOverseasPensionScheme": "Q123456"
           }
         ],
         "transferCharge": 123.0,
@@ -4241,7 +4071,9 @@ N/A
           {
             "providerName": "Overseas Pensions Plc",
             "providerAddress": "111 Main Street, George Town, Grand Cayman",
-            "providerCountryCode": "CYM"
+            "countryCode": "CYM",
+           "pensionSchemeTaxReference": "00123456RA",
+            "qualifyingRecognisedOverseasPensionScheme": "Q123456"
           }
         ],
         "shortServiceRefund": 123.0,
@@ -4317,24 +4149,52 @@ N/A
   },
   "definitions": {
     "pensionSavingsTaxChargesType": {
-      "type" : "object",
+      "type": "object",
       "additionalProperties": false,
       "oneOf": [
         {
-          "required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance"],
-          "not": {"required": ["benefitInExcessOfLifetimeAllowance"]}},
-        {
-          "required": ["pensionSchemeTaxReference", "benefitInExcessOfLifetimeAllowance"],
-          "not": {"required": ["lumpSumBenefitTakenInExcessOfLifetimeAllowance"]}
+          "required": [
+            "pensionSchemeTaxReference",
+            "lumpSumBenefitTakenInExcessOfLifetimeAllowance",
+            "isAnnualAllowanceReduced"
+          ],
+          "not": {
+            "required": [
+              "benefitInExcessOfLifetimeAllowance",
+              "taperedAnnualAllowance",
+              "moneyPurchasedAllowance"
+            ]
+          }
         },
-        {"required": ["pensionSchemeTaxReference", "lumpSumBenefitTakenInExcessOfLifetimeAllowance","benefitInExcessOfLifetimeAllowance"]}
+        {
+          "required": [
+            "pensionSchemeTaxReference",
+            "benefitInExcessOfLifetimeAllowance",
+            "isAnnualAllowanceReduced"
+          ],
+          "not": {
+            "required": [
+              "lumpSumBenefitTakenInExcessOfLifetimeAllowance",
+              "taperedAnnualAllowance",
+              "moneyPurchasedAllowance"
+            ]
+          }
+        },
+        {
+          "required": [
+            "pensionSchemeTaxReference",
+            "lumpSumBenefitTakenInExcessOfLifetimeAllowance",
+            "benefitInExcessOfLifetimeAllowance",
+            "isAnnualAllowanceReduced"
+          ]
+        }
       ],
       "properties": {
         "pensionSchemeTaxReference": {
-          "$ref" : "#/definitions/pensionSchemeTaxReference"
+          "$ref": "#/definitions/pensionSchemeTaxReference"
         },
         "lumpSumBenefitTakenInExcessOfLifetimeAllowance": {
-          "type" : "object",
+          "type": "object",
           "properties": {
             "amount": {
               "$ref": "#/definitions/moneyPositive"
@@ -4344,10 +4204,13 @@ N/A
             }
           },
           "additionalProperties": false,
-          "required": ["amount"]
+          "required": [
+            "amount",
+            "taxPaid"
+          ]
         },
         "benefitInExcessOfLifetimeAllowance": {
-          "type" : "object",
+          "type": "object",
           "properties": {
             "amount": {
               "$ref": "#/definitions/moneyPositive"
@@ -4357,14 +4220,35 @@ N/A
             }
           },
           "additionalProperties": false,
-          "required": ["amount"]
+          "required": [
+            "amount",
+            "taxPaid"
+          ]
+        },
+        "isAnnualAllowanceReduced": {
+          "type": "boolean"
+        },
+        "taperedAnnualAllowance": {
+          "type": "boolean"
+        },
+        "moneyPurchasedAllowance": {
+          "type": "boolean"
         }
+      },
+      "if": {
+        "properties": { "isAnnualAllowanceReduced": { "const": true } }
+      },
+      "then": {
+        "properties": { "taperedAnnualAllowance": { "const": true } }
+      },
+      "else": {
+        "properties": { "moneyPurchasedAllowance": { "const": true } }
       }
     },
     "pensionSchemeOverseasTransfersType": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["overseasSchemeProvider","transferCharge"],
+      "required": ["overseasSchemeProvider","transferCharge",  "transferChargeTaxPaid"],
       "properties": {
         "overseasSchemeProvider": {
           "$ref": "#/definitions/overseasSchemeProvider"
@@ -4400,7 +4284,7 @@ N/A
         "surcharge": {
           "type": "object",
           "additionalProperties": false,
-          "required": [ "amount"],
+          "required": [ "amount", "foreignTaxPaid"],
           "properties": {
             "amount": {
               "$ref" : "#/definitions/moneyPositive"
@@ -4413,7 +4297,7 @@ N/A
         "noSurcharge": {
           "type": "object",
           "additionalProperties": false,
-          "required": [ "amount"],
+          "required": [ "amount", "foreignTaxPaid"],
           "properties": {
             "amount": {
               "$ref" : "#/definitions/moneyPositive"
@@ -4428,7 +4312,7 @@ N/A
     "pensionContributionsType": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["pensionSchemeTaxReference","inExcessOfTheAnnualAllowance"],
+      "required": ["pensionSchemeTaxReference","inExcessOfTheAnnualAllowance", "annualAllowanceTaxPaid"],
       "properties": {
         "pensionSchemeTaxReference": {
           "$ref" : "#/definitions/pensionSchemeTaxReference"
@@ -4460,8 +4344,7 @@ N/A
     "pensionSchemeTaxReference": {
       "type": "array",
       "items" : {
-        "type": "string",
-        "pattern": "^[0-9]{8}[A-Z]{2}$"
+        "$ref": "#/definitions/pensionSchemeTaxReferenceType"
       },
       "additionalItems": false,
       "minItems": 1
@@ -4479,12 +4362,18 @@ N/A
           "maxLength": 250,
           "minLength": 1
         },
-        "providerCountryCode": {
+        "countryCode": {
           "$ref": "#/definitions/countryCodes"
+        },
+        "pensionSchemeTaxReference": {
+          "$ref": "#/definitions/pensionSchemeTaxReferenceType"
+        },
+        "qualifyingRecognisedOverseasPensionScheme": {
+          "$ref": "#/definitions/qualifyingRecognisedOverseasPensionSchemeType"
         }
       },
       "additionalProperties": false,
-      "required": ["providerName","providerAddress","providerCountryCode"]
+      "required": ["providerName","providerAddress","countryCode"]
     },
     "overseasSchemeProvider": {
       "type": "array",
@@ -4751,6 +4640,14 @@ N/A
         "ZMB",
         "ZWE"
       ]
+    },
+    "pensionSchemeTaxReferenceType": {
+      "type": "string",
+      "pattern": "^[0-9]{8}R[A-Z]{1}$"
+    },
+    "qualifyingRecognisedOverseasPensionSchemeType": {
+      "type": "string",
+      "pattern": "^Q[1-9]{6}"
     }
   }
 }
@@ -4774,14 +4671,19 @@ N/A
     "benefitInExcessOfLifetimeAllowance": {
       "amount": 1213.0,
       "taxPaid": 123.0
-    }
+    },
+     "isAnnualAllowanceReduced": true, 
+     "taperedAnnualAllowance" : true,
+      "moneyPurchasedAllowance": false 
   },
   "pensionSchemeOverseasTransfers": {
     "overseasSchemeProvider": [
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM" ,//CHANGED 
+        "pensionSchemeTaxReference": "00123456RA",
+        "qualifyingRecognisedOverseasPensionScheme": "Q123456"
       }
     ],
     "transferCharge": 123.0,
@@ -4810,7 +4712,9 @@ N/A
       {
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
-        "providerCountryCode": "CYM"
+        "countryCode": "CYM", //CHANGED NAME
+        "pensionSchemeTaxReference": "00123456RA", //pstr qrops are optional but mutually exclusive
+        "qualifyingRecognisedOverseasPensionScheme": "Q123456"
       }
     ],
     "shortServiceRefund": 123.0,
@@ -5312,7 +5216,9 @@ N/A
 
 ## 8 State Benefits
 
-### 8.1 View State Benefits
+### 8.1 View State Benefits - Note need to include 3 views (HMRC, CUSTOMER, LATEST)
+
+This operation allows a customer to list their state benefits
 
 #### 8.1.1 URI
 
@@ -5320,14 +5226,16 @@ N/A
 
 #### 8.1.2 Path Parameters
 
-| Parameter       | Description                                  | Example  |
-| --------------- | -------------------------------------------- | -------- |
-| taxableEntityId | Unique identifier of the customer            | AB123456 |
-| taxYear         | The tax year to which the employment applies | 2019-20  |
+| Parameter       | Description                               | Example  |
+| --------------- | ----------------------------------------- | -------- |
+| taxableEntityId | Unique identifier of the customer         | AB123456 |
+| taxYear         | The tax year to which the benefit applies | 2019-20  |
 
 #### 8.1.3 Query Parameters
 
-N/A
+| Parameter | Description                                                  | Optionality | Type    | Example / Values | Default Value |
+| --------- | ------------------------------------------------------------ | ----------- | ------- | ---------------- | ------------- |
+| internal  | Query parameter specifying that view should include historic data | Optional    | Boolean | true/false       | False         |
 
 #### 8.1.4 Request Headers
 
@@ -5345,38 +5253,674 @@ N/A
 
 #### 8.1.7 Response Status Code
 
+| Response Code | Description          |
+| :------------ | :------------------- |
+| 200           | Success              |
+| 400           | Parameter error      |
+| 401           | Unauthorised         |
+| 404           | No data found        |
+| 502           | Glitch in the matrix |
+
 #### 8.1.8 Response Schema
 
-N/A
+```json
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/View_State_Benefits",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Get State Benefits",
+  "description": "View a list of State Benefits & Pensions associated with the customer, the list may contain Benefits that the customer has added via their third party software, these are clearly marked.",
+  "type": "object",
+  "minItems": 1,
+  "properties": {
+    "stateBenefits": {
+      "$ref": "#/definitions/stateBenefits"
+    },
+    "customerAddedStateBenefits": {
+      "$ref": "#/definitions/customerAddedStateBenefits"
+    }
+  },
+  "definitions": {
+    "benefitId": {
+      "description": "Unique identifier of the benrfit",
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "format": "uuid"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "dateIgnored": {
+      "type": "string",
+      "format": "date-time",
+      "description": "An ISO-8601 compliant date-time representing when the customer requested the data set was ignored."
+    },
+    "submittedOn": {
+      "type": "string",
+      "format": "date-time",
+      "description": "An ISO-8601 compliant date-time representing when the customer requested the data set was ignored."
+    },
+    "moneyZeroToPositive": {
+      "description": "Definition of zero to positive money value",
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0,
+      "maximum": 99999999.99
+    },
+    "moneyPositive": {
+      "description": "Definition of a positive money value",
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0.01,
+      "maximum": 99999999.99
+    },
+    "incapacityBenefit": {
+      "type": "array",
+      "additionalProperties": false,
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount",
+        "taxPaid"
+      ],
+      "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
+        "benefitId": {
+          "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
+        }
+      }
+    },
+    "statePension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount"
+      ],
+      "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
+        "benefitId": {
+          "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
+        }
+      }
+    },
+    "statePensionLumpSum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount",
+        "taxPaid"
+      ],
+      "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
+        "benefitId": {
+          "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
+        }
+      }
+    },
+    "employmentSupportAllowance": {
+      "type": "array",
+      "additionalProperties": false,
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount",
+        "taxPaid"
+      ],
+      "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
+        "benefitId": {
+          "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
+        }
+      }
+    },
+    "jobSeekersAllowance": {
+      "type": "array",
+      "additionalProperties": false,
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount",
+        "taxPaid"
+      ],
+      "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
+        "benefitId": {
+          "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
+        }
+      }
+    },
+    "bereavementAllowance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount"
+      ],
+      "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
+        "benefitId": {
+          "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
+        }
+      }
+    },
+    "otherStateBenefits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "benefitId",
+        "startDate",
+        "amount",
+        "taxPaid"
+      ],
+      "properties": {
+        "dateIgnored": {
+          "$ref": "#/definitions/dateIgnored"
+        },
+        "submittedOn": {
+          "$ref": "#/definitions/submittedOn"
+        },
+        "benefitId": {
+          "$ref": "#/definitions/benefitId"
+        },
+        "startDate": {
+          "$ref": "#/definitions/startDate"
+        },
+        "endDate": {
+          "$ref": "#/definitions/endDate"
+        },
+        "amount": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxPaid": {
+          "$ref": "#/definitions/moneyZeroToPositive"
+        }
+      }
+    },
+    "stateBenefits": {
+      "type": "object",
+      "additionalProperties": false,
+      "minItems": 1,
+      "properties": {
+        "incapacityBenefit":  {
+          "$ref": "#/definitions/incapacityBenefit"
+        },
+        "statePension":  {
+          "$ref": "#/definitions/statePension"
+        },
+        "statePensionLumpSum":  {
+          "$ref": "#/definitions/statePensionLumpSum"
+        },
+        "employmentSupportAllowance":  {
+          "$ref": "#/definitions/employmentSupportAllowance"
+        },
+        "jobSeekersAllowance":  {
+          "$ref": "#/definitions/jobSeekersAllowance"
+        },
+        "bereavementAllowance":  {
+          "$ref": "#/definitions/bereavementAllowance"
+        },
+        "otherStateBenefits":  {
+          "$ref": "#/definitions/bereavementAllowance"
+        }
+      }
+    },
+    "customerAddedStateBenefits": {
+      "type": "object",
+      "additionalProperties": false,
+      "minItems": 1,
+      "properties": {
+        "incapacityBenefit":  {
+          "$ref": "#/definitions/incapacityBenefit"
+        },
+        "statePension":  {
+          "$ref": "#/definitions/statePension"
+        },
+        "statePensionLumpSum":  {
+          "$ref": "#/definitions/statePensionLumpSum"
+        },
+        "employmentSupportAllowance":  {
+          "$ref": "#/definitions/employmentSupportAllowance"
+        },
+        "jobSeekersAllowance":  {
+          "$ref": "#/definitions/jobSeekersAllowance"
+        },
+        "bereavementAllowance":  {
+          "$ref": "#/definitions/bereavementAllowance"
+        },
+        "otherStateBenefits":  {
+          "$ref": "#/definitions/bereavementAllowance"
+        }
+      }
+    }
+  }
+}
+```
+
+
 
 #### 8.1.9 Response Examples
 
-N/A
+##### 8.1.9.1 Full State Benefits
+
+```json
+{
+  "stateBenefits": {
+    "incapacityBenefit": {
+        "dateIgnored": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22
+     },
+    "statePension": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2019-01-01",
+      "amount": 2000.00
+    },
+    "statePensionLumpSum": { 
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2019-01-01",
+     	"endDate"  : "2019-01-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22
+    },
+    "employmentSupportAllowance": [
+      {
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22        
+      }
+    ],
+    "jobSeekersAllowance": [
+      {
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22        
+      }
+    ],
+    "bereavementAllowance": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "amount": 2000.00
+    },
+    "otherStateBenefits": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "amount": 2000.00
+    }
+  },
+  "customerAddedStateBenefits": {
+    "incapacityBenefit": [
+      {
+        "submittedOn": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22        
+      }
+    ],
+    "statePension": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2019-01-01",
+      "amount": 2000.00      
+    },
+    "statePensionLumpSum": { 
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2019-01-01",
+      "endDate" : "2019-01-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22       
+    },
+    "employmentSupportAllowance": [
+      {
+        "submittedOn": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22  
+      }
+    ],
+    "jobSeekersAllowance": [
+      {
+        "submittedOn": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "amount": 2000.00,
+        "taxPaid": 2132.22  
+      }
+    ],
+    "bereavementAllowance": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "amount": 2000.00      
+    },
+    "otherStateBenefits": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+        "amount": 2000.00      
+    }
+  }
+}
+```
+
+##### 8.1.9.2 Minimal Response Example
+
+```json
+{
+    "otherStatutoryBenefits": { 
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate" : "2020-01-01",
+        "endDate" : "2020-04-01"
+    }    
+}
+```
+
+##### 8.1.9.3 Response With History
+
+```json
+{
+  "stateBenefits": {
+    "incapacityBenefit": [
+      {
+        "dateIgnored": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "history": [ 
+          {
+            "action" : "ignored",
+            "submittedOn" : "2019-04-04T01:01:01Z"
+          }
+        ]
+      }
+    ],
+    "statePension": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2019-01-01",
+      "history": []
+    },
+    "employmentSupportAllowance": [
+      {
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "history": []
+      }
+    ],
+    "jobSeekersAllowance": [
+      {
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "history": []
+      }
+    ],
+    "bereavementAllowance": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "widowedParentsAllowance": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "industrialDeathBenefit": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "carersAllowance": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "otherStatutoryBenefits": {
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    }
+  },
+  "customerAddedStateBenefits": {
+    "incapacityBenefit": [
+      {
+        "submittedOn": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "history": [
+          {
+            "submittedOn": "2019-04-04T01:01:01Z",
+            "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+            "startDate": "2020-01-01",
+            "endDate": "2020-04-01"
+          }
+        ]
+      }
+    ],
+    "statePension": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2019-01-01",
+      "history": []
+    },
+    "employmentSupportAllowance": [
+      {
+        "submittedOn": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "history": []
+      }
+    ],
+    "jobSeekersAllowance": [
+      {
+        "submittedOn": "2019-04-04T01:01:01Z",
+        "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+        "startDate": "2020-01-01",
+        "endDate": "2020-04-01",
+        "history": []
+      }
+    ],
+    "bereavementAllowance": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "widowedParentsAllowance": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "industrialDeathBenefit": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "carersAllowance": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    },
+    "otherStatutoryBenefits": {
+      "submittedOn": "2019-04-04T01:01:01Z",
+      "benefitId": "f0d83ac0-a10a-4d57-9e41-6d033832779f",
+      "startDate": "2020-01-01",
+      "endDate": "2020-04-01",
+      "history": []
+    }
+  }
+}
+```
+
+
 
 #### 8.1.10 Response Headers
 
 | Header        | Description |
 | ------------- | ----------- |
 | CorrelationId |             |
-|               |             |
 
 #### 8.1.11 ITSD Components Impacted
 
 - ISS
+- IBD Store
+- View Service
 
-### 8.2 Get State Benefit Details
+### 8.2 Add State Benefit
+
+This operation allows a customer to add any state benefits they believe are missing
 
 #### 8.2.1 URI
 
-**GET** */income/state-benefits/{taxableEntityId}/{taxYear}*/*{stateBenefitId}*
+**POST** */income/state-benefits/{taxableEntityId}/{taxYear}/custom*
 
-#### 8.2.2 Path Parameters
+#### 8.1.2 Path Parameters
 
-| Parameter       | Description                                  | Example                              |
-| --------------- | -------------------------------------------- | ------------------------------------ |
-| taxableEntityId | Unique identifier of the customer            | AB123456                             |
-| taxYear         | The tax year to which the employment applies | 2019-20                              |
-| stateBenefitId  | Unique identifier of the state benefit       | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+| Parameter       | Description                               | Example  |
+| --------------- | ----------------------------------------- | -------- |
+| taxableEntityId | Unique identifier of the customer         | AB123456 |
+| taxYear         | The tax year to which the benefit applies | 2019-20  |
 
 #### 8.2.3 Query Parameters
 
@@ -5394,9 +5938,34 @@ N/A
 
 #### 8.2.6 Request Examples
 
-N/A
+##### 8.2.6.1 Minimum Request Payload
+
+```json
+{
+    "benefitType": "JOB SEEKERS ALLOWANCE",
+    "startDate" : "2020-01-01"
+}
+```
+
+##### 8.2.6.2 Full Request Payload
+
+```json
+{
+    "benefitType": "JOB SEEKERS ALLOWANCE",
+    "startDate" : "2020-01-01",
+    "endDate" : "2020-01-01"
+}
+```
 
 #### 8.2.7 Response Status Code
+
+| Response Code | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| 201           | Success the benefit has been created.                        |
+| 400           | Invalid Request - the request body or parameters are invalid |
+| 401           | The request cannot be authorised                             |
+| 422           | Invalid Request - validation / BVR failure                   |
+| 502           | Internal Error                                               |
 
 #### 8.2.8 Response Schema
 
@@ -5408,28 +5977,32 @@ N/A
 
 #### 8.2.10 Response Headers
 
-| Header        | Description |
-| ------------- | ----------- |
-| CorrelationId |             |
+| Header        | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| CorrelationId | Unique transaction Id                                        |
+| Location      | Location Header containing the unique id of the state benefit |
 
 #### 8.2.11 ITSD Components Impacted
 
-- View Service
-- IBD Store
+- ISS
 
-### 8.3 Override State Benefits
+### 8.3 Update Custom State Benefit
+
+A customer may update a previously created customer employment, if the customer attempts to update a pre-populated employment then this operation will fail with a forbidden response code. 
+
+This operation will replace the previously created resource completely. 
 
 #### 8.3.1 URI
 
-**PUT** */income/state-benefits/{taxableEntityId}/{taxYear}/{stateBenefitId}*
+**PUT** */income/state-benefits/{taxableEntityId}/{taxYear}/custom/{benefitId}*
 
 #### 8.3.2 Path Parameters
 
-| Parameter       | Description                                  | Example                              |
-| --------------- | -------------------------------------------- | ------------------------------------ |
-| taxableEntityId | Unique identifier of the customer            | AB123456                             |
-| taxYear         | The tax year to which the employment applies | 2019-20                              |
-| stateBenefitId  | Unique identifier of the state benefit       | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+| Parameter       | Description                               | Example                              |
+| --------------- | ----------------------------------------- | ------------------------------------ |
+| taxableEntityId | Unique identifier of the customer         | AB123456                             |
+| taxYear         | The tax year to which the benefit applies | 2019-20                              |
+| benefitId       | Unique identifier of the benefit          | 123e4567-e89b-12d3-a456-426614174000 |
 
 #### 8.3.3 Query Parameters
 
@@ -5443,13 +6016,40 @@ N/A
 
 #### 8.3.5 Request Schema
 
-N/A
+```json
+
+```
 
 #### 8.3.6 Request Examples
 
-N/A
+##### 8.3.6.1 Full Request
 
-#### 8.3.7 Response Status Code
+```json
+{ 
+    "startDate"   : "2020-01-01",
+    "endDate"     : "2020-03-01"
+}
+```
+
+##### 8.3.6.1 Minimum Request
+
+```json
+{ 
+    "startDate"   : "2020-01-01",
+}
+```
+
+#### 8.3.7 Response Status Codes
+
+| Response Code | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| 201           | Success the benefit has been updated                         |
+| 400           | Invalid Request - the request body or parameters are invalid |
+| 401           | The request cannot be authorised                             |
+| 403           | Forbidden - this response is returned if the benefit id supplied does not relate to a customer added benefit. |
+| 404           | If the benefit does not exist.                               |
+| 422           | Invalid Request - validation / BVR failure                   |
+| 502           | Internal Error                                               |
 
 #### 8.3.8 Response Schema
 
@@ -5461,19 +6061,23 @@ N/A
 
 #### 8.3.10 Response Headers
 
-| Header        | Description |
-| ------------- | ----------- |
-| CorrelationId |             |
+| Header        | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| CorrelationId | Unique transaction reference (supplied with the request) |
 
 #### 8.3.11 ITSD Components Impacted
 
-- IBD Store
+- ISS
 
-### 8.4 Delete State Benefits
+### 8.4 Delete Custom Benefit
+
+A customer can (logically) delete a previously added benefit if they so choose, this will also (logically) delete any financial information related to the benefit
+
+If the customer attempts to delete a pre-populated benefit then the operation will fail with a forbidden response. 
 
 #### 8.4.1 URI
 
-**DELETE** */income/state-benefits/{taxableEntityId}/{taxYear}/{stateBenefitId}*
+**DELETE** */income/state-benefits/{taxableEntityId}/{taxYear}/custom/{benefitId}*
 
 #### 8.4.2 Path Parameters
 
@@ -5481,7 +6085,7 @@ N/A
 | --------------- | -------------------------------------------- | ------------------------------------ |
 | taxableEntityId | Unique identifier of the customer            | AB123456                             |
 | taxYear         | The tax year to which the employment applies | 2019-20                              |
-| stateBenefitId  | Unique identifier of the state benefit       | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+| benefitId       | Unique identifier of the benefit             | 123e4567-e89b-12d3-a456-426614174000 |
 
 #### 8.4.3 Query Parameters
 
@@ -5501,7 +6105,16 @@ N/A
 
 N/A
 
-#### 8.4.7 Response Status Code
+#### 8.4.7 Response Status Codes
+
+| Response Code | Description                                                  |
+| :------------ | :----------------------------------------------------------- |
+| 204           | Success                                                      |
+| 400           | Parameter error                                              |
+| 401           | Unauthorised                                                 |
+| 403           | Forbidden - returned if the customer tries to delete a pre-populated benefit |
+| 404           | No data found                                                |
+| 502           | Glitch in the matrix                                         |
 
 #### 8.4.8 Response Schema
 
@@ -5513,14 +6126,344 @@ N/A
 
 #### 8.4.10 Response Headers
 
+| Header        | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| CorrelationId | Unique transaction reference (supplied with the request) |
+
+#### 8.4.11 ITSD Components Impacted
+
+- ISS
+
+ customer can opt to ignore an employment, this should be consider as an instruction to the the calculator
+
+### 8.5 Ignore State Benefit Toggle
+
+#### 8.5.1 URI
+
+**PUT** */income/state-benefits/{taxableEntityId}/{taxYear}/{benefitId}/ignore*
+
+#### 8.5.2 Path Parameters
+
+| Parameter       | Description                               | Example  |
+| --------------- | ----------------------------------------- | -------- |
+| taxableEntityId | Unique identifier of the customer         | AB123456 |
+| taxYear         | The tax year to which the benefit applies | 2019-20  |
+| benefitId       | Unique id of the benefit.                 |          |
+
+#### 8.5.3 Query Parameters
+
+N/A
+
+#### 8.5.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.5.5 Request Schema
+
+```json
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/ignore_benefit_schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ignore Benefit",
+  "description": "This schema allows a customer to mark an benefit as ignored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ignoreBenefit"],
+  "properties":{
+    "ignoreBenefit":{
+      "type","boolean"
+    }
+  }
+}
+```
+
+
+
+#### 8.5.6 Request Examples
+
+##### 8.5.6.1 Mark Benefit Ignored
+
+```json
+{
+  "ignoreBenefit": true
+}
+```
+
+##### 8.5.6.2 Mark Benefit not ignored
+
+```json
+{
+  "ignoreBenefit": false
+}
+```
+
+
+
+#### 8.5.7 Response Status Codes
+
+| Response Code | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| 201           | Success the benefit has been updated.                        |
+| 400           | Invalid Request - the request body or parameters are invalid |
+| 401           | The request cannot be authorised                             |
+| 403           | Forbidden - this response is returned if the benefit id supplied does not relate to a customer added benefit. |
+| 422           | Invalid Request - validation / BVR failure                   |
+| 502           | Internal Error                                               |
+
+#### 8.5.8 Response Schema
+
+N/A
+
+#### 8.5.9 Response Examples
+
+N/A
+
+#### 8.5.10 Response Headers
+
+| Header        | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| CorrelationId | Unique transaction reference (supplied with the request) |
+
+#### 8.5.11 ITSD Impact Components
+
+* ISS
+
+---
+
+### 8.6 Get State Benefit Details // REMOVE THIS IS NOW PART OF THE GET BENEFITS API
+
+#### 8.6.1 URI
+
+**GET** */income/state-benefits/{taxableEntityId}/{taxYear}*/*{stateBenefitId}*
+
+#### 8.6.2 Path Parameters
+
+| Parameter       | Description                                  | Example                              |
+| --------------- | -------------------------------------------- | ------------------------------------ |
+| taxableEntityId | Unique identifier of the customer            | AB123456                             |
+| taxYear         | The tax year to which the employment applies | 2019-20                              |
+| stateBenefitId  | Unique identifier of the state benefit       | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+
+#### 8.6.3 Query Parameters
+
+3 views hmrc held, customer, latest
+
+#### 8.6.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.6.5 Request Schema
+
+N/A
+
+#### 8.6.6 Request Examples
+
+N/A
+
+#### 8.6.7 Response Status Code
+
+| Response Code | Description          |
+| :------------ | :------------------- |
+| 200           | Success              |
+| 400           | Parameter error      |
+| 401           | Unauthorised         |
+| 404           | No data found        |
+| 502           | Glitch in the matrix |
+
+#### 8.6.8 Response Schema
+
+N/A
+
+#### 8.6.9 Response Example
+
+##### 8.6.9.1 Customer View
+
+```json
+{
+    "submittedOn" : "2020-03-03T01:01:01Z",
+  	"benefitType": "JOB SEEKERS ALLOWANCE",
+		"amount": 2200.00
+}
+```
+
+##### 8.6.9.2 HMRC Held View
+
+```json
+{
+    "submittedOn" : "2020-03-03T01:01:01Z",
+  	"benefitType": "JOB SEEKERS ALLOWANCE",  
+		"amount": 2200.00
+}
+```
+
+##### 8.6.9.3 Latest View
+
+```json
+{
+    "submittedOn" : "2020-03-03T01:01:01Z",
+    "benefitType": "JOB SEEKERS ALLOWANCE",
+    "amount": 2200.00
+}
+```
+
+##### 8.6.9.4 Ignored Allowance
+
+```json
+{
+    "submittedOn" : "2020-03-03T01:01:01Z",
+    "dateIgnored" : "2020-03-03T01:01:01Z",
+    "jobSeekersAllowance": { 
+        "amount": 2200.00
+    }    
+}
+```
+
+#### 8.6.10 Response Headers
+
 | Header        | Description |
 | ------------- | ----------- |
 | CorrelationId |             |
 
-#### 8.4.11 ITSD Components Impacted
+#### 8.6.11 ITSD Components Impacted
+
+- View Service
+- IBD Store
+
+### 8.7 Override State Benefits
+
+#### 8.7.1 URI
+
+**PUT** */income/state-benefits/{taxableEntityId}/{taxYear}/{stateBenefitId}*
+
+#### 8.7.2 Path Parameters
+
+| Parameter       | Description                                     | Example                              |
+| --------------- | ----------------------------------------------- | ------------------------------------ |
+| taxableEntityId | Unique identifier of the customer               | AB123456                             |
+| taxYear         | The tax year to which the state benefit applies | 2019-20                              |
+| stateBenefitId  | Unique identifier of the state benefit          | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+
+#### 8.7.3 Query Parameters
+
+N/A
+
+#### 8.7.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.7.5 Request Schema
+
+N/A
+
+#### 8.7.6 Request Examples
+
+
+
+Need to capture a bvr that enforces tax paid depending upon the type of benefit (e.g. state pension ls). 
+
+```json
+{
+  "amount": 200.00,
+  "taxPaid": 200.00 //optional 
+} 
+```
+
+
+
+#### 8.7.7 Response Status Code
+
+| Response Code | Description            |
+| :------------ | :--------------------- |
+| 204           | Success                |
+| 400           | Parameter error        |
+| 401           | Unauthorised           |
+| 422           | validation / bvr error |
+| 404           | No data found          |
+| 502           | Glitch in the matrix   |
+
+#### 8.7.8 Response Schema
+
+N/A
+
+#### 8.7.9 Response Examples
+
+N/A
+
+#### 8.7.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 8.7.11 ITSD Components Impacted
 
 - IBD Store
 
+### 8.8 Delete State Benefit financial 
+
+#### 8.8.1 URI
+
+**DELETE** */income/state-benefits/{taxableEntityId}/{taxYear}/{stateBenefitId}*
+
+#### 8.8.2 Path Parameters
+
+| Parameter       | Description                               | Example                              |
+| --------------- | ----------------------------------------- | ------------------------------------ |
+| taxableEntityId | Unique identifier of the customer         | AB123456                             |
+| taxYear         | The tax year to which the benefit applies | 2019-20                              |
+| stateBenefitId  | Unique identifier of the state benefit    | 960b4a0f-05f2-4b6f-9b87-c3e001a84472 |
+
+#### 8.8.3 Query Parameters
+
+N/A
+
+#### 8.8.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 8.8.5 Request Schema
+
+N/A
+
+#### 8.8.6 Request Examples
+
+N/A
+
+#### 8.8.7 Response Status Code
+
+| Response Code | Description          |
+| :------------ | :------------------- |
+| 204           | Success              |
+| 400           | Parameter error      |
+| 401           | Unauthorised         |
+| 404           | No data found        |
+| 502           | Glitch in the matrix |
+
+#### 8.8.8 Response Schema
+
+N/A
+
+#### 8.8.9 Response Examples
+
+N/A
+
+#### 8.8.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 8.8.11 ITSD Components Impacted
+
+- IBD Store
 ---
 
 #### WiP
@@ -5541,9 +6484,16 @@ N/A
       "lumpSumTaxPaid": 123.00 //Optional //Check if mandatory when lump sum amount is present. 
   },
   "incapacityBenefit": {  //Is this still required ? 
+    "id":"231232",
       "amountYTD": 123.00, 
       "taxPaid": 123.00
   },
+  
+   "incapacityBenefit": {  //Is this still required ? 
+     "id": "12321231231",
+      "amountYTD": 153.00, 
+      "taxPaid": 123.00
+  }, 
    "employmentSupportAllowance": {  //Move to the employments model - need to consider how this is "viewed"
      																//has an emp ref, will need to be in ISS as an employment and follow the rest of the employment pattern, including ignoring the esa. 
      	 "empRef": "123/av123421C", //not editable
@@ -5571,7 +6521,7 @@ N/A
       "amount":  123.00
   },
     "otherStatutoryBenefits": { //Prepop
-      "amount": 123.00
+      "amount": 123.00 //dwp
   }          
 }
 ```
@@ -5579,6 +6529,1405 @@ N/A
 ---
 
 
+
+HMRC HELD is always used when present ? 
+
+
+
+Where data is pre-populated it cannot be overriden until the tax year has ended, 
+
+Where data is not pre-populated you can provide a figure however this will be dropped in preference to the DWP figure and you will have to override again at the end of the tax year. 
+
+
+
+## 9. Other Employment Income
+
+Other employment income relates to income supplied by a customer relating to to their employment which cannot be pre-populated by HMRC.
+
+### 9.1 Create Other Employment Income
+
+#### 9.1.1 URI
+
+**PUT** */income/other/employment/{taxableEntityId}/{taxYear}*
+
+#### 9.1.2 Path Parameters
+
+| Parameter       | Description                                  | Example  |
+| --------------- | -------------------------------------------- | -------- |
+| taxableEntityId | Unique identifier of the customer            | AB123456 |
+| taxYear         | The tax year to which the employment applies | 2019-20  |
+
+#### 9.1.3 Query Parameters
+
+N/A
+
+#### 9.1.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 9.1.5 Request Schema
+
+```json
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/PUT_other_employment_income.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PUT other employment income",
+  "description": "This structure describes other employment income that can be submitted by the customer.",
+  "type": "object",
+  "additionalProperties": false,
+  "minProperties" : 1,   
+  "properties": {
+    "shareOption": {
+      "#ref": "#/definitions/shareOptions"
+  	},
+    "sharesAwardedOrReceived":{
+		"#ref": "#/definitions/sharesAwardedOrReceived"      
+    },
+    "disability":{
+      "#ref": "#/definitions/disability"
+    },
+    "foreignService":{ 
+      "#ref": "/definitions/foreignService"
+    },
+    "lumpSums":{
+      "$ref": "#/definitions/lumpSums"
+    }
+  },
+  "definitions": {
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.00,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    },
+    "employerRef": {
+      "type": "string",
+      "pattern": "^([0-9]{3})/([^ ].{0,10})$"
+    },
+    "employerName": {
+      "type": "string",
+      "pattern": "^.{0,74}$"
+    },
+    "classOfShare": {
+      "type": "string",
+      "enum": [
+        "FIRST"
+      ]
+    },
+    "shareOptions": {
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/shareOption"
+      }
+    },
+    "shareOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "employerName"
+      ],
+      "properties": {
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "dateOfOptionGrant": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateOfEvent": {
+          "type": "string",
+          "format": "date"
+        },
+        "optionNotExercisedButConsiderationReceived": {
+          "type": "string"
+        },
+        "amountOfConsiderationReceived": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "noOfSharesAcquired": {
+          "type": "number",
+          "minimum": 1
+        },
+        "classOfSharesAcquired": {
+          "$ref": "#/definitions/classOfShare"
+        },
+        "exercisePrice": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "amountPaidForOption": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "marketValueOfSharesOnExcise": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "profitOnOptionExercised": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "employersNicPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxableAmount": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "sharesAwardedOrReceived:": {
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/shareAwardedOrReceived"
+      }
+    },
+    "shareAwardedOrReceived": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "required": [
+        "employerName"
+      ],
+      "properties": {},
+      "employerName": {
+        "$ref": "#/definitions/employerName"
+      },
+      "employerRef": {
+        "$ref": "#/definitions/employerRef"
+      },
+      "schemePlanType": {
+        "type": "string"
+      },
+      "dateSharesCeasedToBeSubjectToPlan": {
+        "type": "string",
+        "format": "date"
+      },
+      "noOfShareSecuritiesAwarded": {
+        "type": "number",
+        "minimum": 1
+      },
+      "classOfShareAwarded": {
+        "$ref": "#/definitions/classOfShare"
+      },
+      "dateSharesAwarded": {
+        "type": "string",
+        "format": "date"
+      },
+      "sharesSubjectToRestrictions": {
+        "type": "boolean"
+      },
+      "electionEnteredIgnoreRestrictions": {
+        "type": "boolean"
+      },
+      "actualMarketValueOfSharesOnAward": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "unrestrictedMarketValueOfSharesOnAward": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "amountPaidForSharesOnAward": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "marketValueAfterRestrictionsLifted": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "taxableAmount": {
+        "$ref": "#/definitions/moneyPositive"
+      }
+    },
+    "disability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerReference": {
+          "type": "string"
+        },
+        "amountDeducted": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "foreignService": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerReference": {
+          "type": "string"
+        },
+        "amountDeducted": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "lumpSums" : { 
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/lumpSum"
+      }      
+    },
+    "lumpSum": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 3,
+      "required":[ "employerName", "employerRef"],
+      "properties": {
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "taxableLumpSumsAndCertainIncome": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#moneyPositive"
+            },
+            "taxTakenOffInEmployment": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1,
+          "required": []
+        },
+        "benefitFromEmployerFinancedRetirementScheme": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            },
+            "exemptAmount": {
+              "$ref": "#moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#moneyPositive"
+            },
+            "taxTakenOffInEmployment": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "redundancyCompensationPaymentsOverExemption": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#moneyPositive"
+            },
+            "taxTakenOffInEmployment": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "redundancyCompensationPaymentsUnderExemption": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "shareOption": [
+        {
+          "employerName": "wibble",
+          "empRef": "AB1321/123",
+          "schemePlanType": "Wibble",
+          "dateOfOptionGrant": "20-11-2019",
+          "dateOfEvent": "20-11-2019",
+          "optionNotExercisedButConsiderationReceived": "??",
+          "amountOfConsiderationReceived": 23122.22,
+          "noOfSharesAcquired": 1,
+          "classOfSharesAcquired": "FIRST",
+          "exercisePrice": 12.22,
+          "amountPaidForOption": 123.22,
+          "marketValueOfSharesOnExcise": 1232.22,
+          "profitOnOptionExercised": 1232.33,
+          "employersNicPaid": 2312.22,
+          "taxableAmount": 2132.22
+        }
+      ],
+      "sharesAwardedOrReceived": [
+        {
+          "employerName": "Wibble",
+          "empRef": "AB1321/123",
+          "schemePlanType": "Wibble",
+          "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+          "noOfShareSecuritiesAwarded": 11,
+          "classOfShareAwarded": "FIRST",
+          "dateSharesAwarded": "20-11-2019",
+          "sharesSubjectToRestrictions": true,
+          "electionEnteredIgnoreRestrictions": true,
+          "actualMarketValueOfSharesOnAward": 2123.22,
+          "unrestrictedMarketValueOfSharesOnAward": 123.22,
+          "amountPaidForSharesOnAward": 123.22,
+          "marketValueAfterRestrictionsLifted": 1232.22,
+          "taxableAmount": 12321.22
+        }
+      ],
+      "disability": {
+        "customerReference": "wibble",
+        "amountDeducted": 1223.22
+      },
+      "foreignService": {
+        "customerReference": "wibble",
+        "amountDeducted": 1223.22
+      },
+      "lumpSums": [
+        {
+          "employerName": "WibbleInc",
+          "employerRef": "123/AB12312",
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        }
+    	]
+    }
+  ]
+}
+```
+
+
+
+#### 9.1.6 Request Examples
+
+##### 9.1.6.1 All Data Items
+
+```json
+{
+  "shareOption": [
+    {
+      "employerName": "wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateOfOptionGrant": "20-11-2019",
+      "dateOfEvent": "20-11-2019",
+      "optionNotExercisedButConsiderationReceived": "??",
+      "amountOfConsiderationReceived": 23122.22,
+      "noOfSharesAcquired": 1,
+      "classOfSharesAcquired": "FIRST",
+      "exercisePrice": 12.22,
+      "amountPaidForOption": 123.22,
+      "marketValueOfSharesOnExcise": 1232.22,
+      "profitOnOptionExercised": 1232.33,
+      "employersNicPaid": 2312.22,
+      "taxableAmount": 2132.22
+    }
+  ],
+  "sharesAwardedOrReceived": [
+    {
+      "employerName": "Wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "noOfShareSecuritiesAwarded": 11,
+      "classOfShareAwarded": "FIRST",
+      "dateSharesAwarded": "20-11-2019",
+      "sharesSubjectToRestrictions": true,
+      "electionEnteredIgnoreRestrictions": true,
+      "actualMarketValueOfSharesOnAward": 2123.22,
+      "unrestrictedMarketValueOfSharesOnAward": 123.22,
+      "amountPaidForSharesOnAward": 123.22,
+      "marketValueAfterRestrictionsLifted": 1232.22,
+      "taxableAmount": 12321.22
+    }
+  ],
+  "disability": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "foreignService": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "lumpSums": [
+    {
+      "employerName": "WibbleInc",
+      "employerRef": "123/AB12312",
+      "taxableLumpSumsAndCertainIncome": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "benefitFromEmployerFinancedRetirementScheme": {
+        "amount": 123.00,
+        "exemptAmount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsOverExemption": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsUnderExemption": {
+        "amount": 123.00
+      }
+    }
+  ]
+}
+```
+
+##### 9.1.6.2 Minimum Data Items
+
+```json
+{
+  "shareOption": [
+    {
+      "employerName": "wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateOfOptionGrant": "20-11-2019",
+      "dateOfEvent": "20-11-2019",
+      "optionNotExercisedButConsiderationReceived": "??",
+      "amountOfConsiderationReceived": 23122.22,
+      "noOfSharesAcquired": 1,
+      "classOfSharesAcquired": "FIRST",
+      "exercisePrice": 12.22,
+      "amountPaidForOption": 123.22,
+      "marketValueOfSharesOnExcise": 1232.22,
+      "profitOnOptionExercised": 1232.33,
+      "employersNicPaid": 2312.22,
+      "taxableAmount": 2132.22
+    }
+  ]
+}
+```
+
+#### 9.1.7 Response Status Code
+
+| Response Code | Description          |
+| :------------ | :------------------- |
+| 204           | Success              |
+| 400           | Parameter error      |
+| 401           | Unauthorised         |
+| 404           | No data found        |
+| 502           | Glitch in the matrix |
+
+#### 9.1.8 Response Schema
+
+N/A
+
+#### 9.1.9 Response Examples
+
+N/A
+
+#### 9.1.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 9.1.11 ITSD Components Impacted
+
+- IBD Store
+
+### 9.2 Retrieve Other Employment Income
+
+#### 9.2.1 URI
+
+**GET** */income/other/employment/{taxableEntityId}/{taxYear}*
+
+#### 9.2.2 Path Parameters
+
+| Parameter       | Description                                  | Example  |
+| --------------- | -------------------------------------------- | -------- |
+| taxableEntityId | Unique identifier of the customer            | AB123456 |
+| taxYear         | The tax year to which the employment applies | 2019-20  |
+
+#### 9.2.3 Query Parameters
+
+| Parameter | Description                                                  | Optionality | Type    | Example / Values | Default Value |
+| --------- | ------------------------------------------------------------ | ----------- | ------- | ---------------- | ------------- |
+| internal  | Query parameter specifying that view should include historic data | Optional    | Boolean | true/false       | False         |
+
+#### 9.2.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 9.2.5 Request Schema
+
+N/A
+
+#### 9.2.6 Request Examples
+
+N/A
+
+#### 9.2.7 Response Status Code
+
+| Response Code | Description          |
+| :------------ | :------------------- |
+| 200           | Success              |
+| 400           | Parameter error      |
+| 401           | Unauthorised         |
+| 404           | No data found        |
+| 502           | Glitch in the matrix |
+
+#### 9.2.8 Response Schema
+
+```json
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/GET_other_employment_income.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GET other employment income",
+  "description": "This structure describes other employment income that can be retrieved including history.",
+  "type": "object",
+  "oneOf": [],
+  "definitions": {
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 2,
+      "required": [
+        "submittedOn"
+      ],
+      "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deletedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shareOption": {
+          "#ref": "#/definitions/shareOptions"
+        },
+        "sharesAwardedOrReceived": {
+          "#ref": "#/definitions/sharesAwardedOrReceived"
+        },
+        "disability": {
+          "#ref": "#/definitions/disability"
+        },
+        "foreignService": {
+          "#ref": "/definitions/foreignService"
+        },
+        "lumpSums": {
+          "$ref": "#/definitions/lumpSums"
+        }
+      }
+    },
+    "submissionWithHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 2,
+      "required": [
+        "history"
+      ],
+      "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deletedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shareOption": {
+          "#ref": "#/definitions/shareOptions"
+        },
+        "sharesAwardedOrReceived": {
+          "#ref": "#/definitions/sharesAwardedOrReceived"
+        },
+        "disability": {
+          "#ref": "#/definitions/disability"
+        },
+        "foreignService": {
+          "#ref": "/definitions/foreignService"
+        },
+        "lumpSums": {
+          "$ref": "#/definitions/lumpSums"
+        },
+        "history": {
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "submittedOn": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "deletedOn": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "shareOption": {
+                "#ref": "#/definitions/shareOptions"
+              },
+              "sharesAwardedOrReceived": {
+                "#ref": "#/definitions/sharesAwardedOrReceived"
+              },
+              "disability": {
+                "#ref": "#/definitions/disability"
+              },
+              "foreignService": {
+                "#ref": "/definitions/foreignService"
+              },
+              "lumpSums": {
+                "$ref": "#/definitions/lumpSums"
+              },
+            }
+          }
+        }
+      }
+    },
+    "moneyPositive": {
+      "$id": "#moneyPositive",
+      "type": "number",
+      "minimum": 0.00,
+      "maximum": 99999999999.99,
+      "multipleOf": 0.01
+    },
+    "employerRef": {
+      "type": "string",
+      "pattern": "^([0-9]{3})/([^ ].{0,10})$"
+    },
+    "employerName": {
+      "type": "string",
+      "pattern": "^.{0,74}$"
+    },
+    "classOfShare": {
+      "type": "string",
+      "enum": [
+        "FIRST"
+      ]
+    },
+    "shareOptions": {
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/shareOption"
+      }
+    },
+    "shareOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "employerName"
+      ],
+      "properties": {
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "dateOfOptionGrant": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateOfEvent": {
+          "type": "string",
+          "format": "date"
+        },
+        "optionNotExercisedButConsiderationReceived": {
+          "type": "string"
+        },
+        "amountOfConsiderationReceived": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "noOfSharesAcquired": {
+          "type": "number",
+          "minimum": 1
+        },
+        "classOfSharesAcquired": {
+          "$ref": "#/definitions/classOfShare"
+        },
+        "exercisePrice": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "amountPaidForOption": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "marketValueOfSharesOnExcise": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "profitOnOptionExercised": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "employersNicPaid": {
+          "$ref": "#/definitions/moneyPositive"
+        },
+        "taxableAmount": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "sharesAwardedOrReceived:": {
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/shareAwardedOrReceived"
+      }
+    },
+    "shareAwardedOrReceived": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "required": [
+        "employerName"
+      ],
+      "properties": {},
+      "employerName": {
+        "$ref": "#/definitions/employerName"
+      },
+      "employerRef": {
+        "$ref": "#/definitions/employerRef"
+      },
+      "schemePlanType": {
+        "type": "string"
+      },
+      "dateSharesCeasedToBeSubjectToPlan": {
+        "type": "string",
+        "format": "date"
+      },
+      "noOfShareSecuritiesAwarded": {
+        "type": "number",
+        "minimum": 1
+      },
+      "classOfShareAwarded": {
+        "$ref": "#/definitions/classOfShare"
+      },
+      "dateSharesAwarded": {
+        "type": "string",
+        "format": "date"
+      },
+      "sharesSubjectToRestrictions": {
+        "type": "boolean"
+      },
+      "electionEnteredIgnoreRestrictions": {
+        "type": "boolean"
+      },
+      "actualMarketValueOfSharesOnAward": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "unrestrictedMarketValueOfSharesOnAward": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "amountPaidForSharesOnAward": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "marketValueAfterRestrictionsLifted": {
+        "$ref": "#/definitions/moneyPositive"
+      },
+      "taxableAmount": {
+        "$ref": "#/definitions/moneyPositive"
+      }
+    },
+    "disability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerReference": {
+          "type": "string"
+        },
+        "amountDeducted": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "foreignService": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerReference": {
+          "type": "string"
+        },
+        "amountDeducted": {
+          "$ref": "#/definitions/moneyPositive"
+        }
+      }
+    },
+    "lumpSums":{ 
+      "type": "array",
+      "additionalItems": false,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/lumpSum"
+      }            
+    },
+    "lumpSum": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "employerName": {
+          "$ref": "#/definitions/employerName"
+        },
+        "employerRef": {
+          "$ref": "#/definitions/employerRef"
+        },
+        "taxableLumpSumsAndCertainIncome": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#moneyPositive"
+            },
+            "taxTakenOffInEmployment": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1,
+          "required": []
+        },
+        "benefitFromEmployerFinancedRetirementScheme": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            },
+            "exemptAmount": {
+              "$ref": "#moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#moneyPositive"
+            },
+            "taxTakenOffInEmployment": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "redundancyCompensationPaymentsOverExemption": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            },
+            "taxPaid": {
+              "$ref": "#moneyPositive"
+            },
+            "taxTakenOffInEmployment": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "redundancyCompensationPaymentsUnderExemption": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#moneyPositive"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "submittedOn": "2020-03-03T01:01:01Z",
+      "shareOption": [
+        {
+          "employerName": "wibble",
+          "empRef": "AB1321/123",
+          "schemePlanType": "Wibble",
+          "dateOfOptionGrant": "20-11-2019",
+          "dateOfEvent": "20-11-2019",
+          "optionNotExercisedButConsiderationReceived": "??",
+          "amountOfConsiderationReceived": 23122.22,
+          "noOfSharesAcquired": 1,
+          "classOfSharesAcquired": "FIRST",
+          "exercisePrice": 12.22,
+          "amountPaidForOption": 123.22,
+          "marketValueOfSharesOnExcise": 1232.22,
+          "profitOnOptionExercised": 1232.33,
+          "employersNicPaid": 2312.22,
+          "taxableAmount": 2132.22
+        }
+      ],
+      "sharesAwardedOrReceived": [
+        {
+          "employerName": "Wibble",
+          "empRef": "AB1321/123",
+          "schemePlanType": "Wibble",
+          "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+          "noOfShareSecuritiesAwarded": 11,
+          "classOfShareAwarded": "FIRST",
+          "dateSharesAwarded": "20-11-2019",
+          "sharesSubjectToRestrictions": true,
+          "electionEnteredIgnoreRestrictions": true,
+          "actualMarketValueOfSharesOnAward": 2123.22,
+          "unrestrictedMarketValueOfSharesOnAward": 123.22,
+          "amountPaidForSharesOnAward": 123.22,
+          "marketValueAfterRestrictionsLifted": 1232.22,
+          "taxableAmount": 12321.22
+        }
+      ],
+      "disability": {
+        "customerReference": "wibble",
+        "amountDeducted": 1223.22
+      },
+      "foreignService": {
+        "customerReference": "wibble",
+        "amountDeducted": 1223.22
+      },
+      "lumpSums": [
+        {
+          "employerName": "WibbleInc",
+          "employerRef": "123/AB12312",
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        }
+      ],
+      "history":[]
+    }
+  ]
+}
+```
+
+
+
+#### 9.2.9 Response Examples
+
+##### 9.2.9.1 Response Without History
+
+```json
+{
+  "submittedOn": "2020-03-03T01:01:01Z",
+  "deletedOn": "2020-03-03T01:01:01Z",
+  "shareOption": [
+    {
+      "employerName": "wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateOfOptionGrant": "20-11-2019",
+      "dateOfEvent": "20-11-2019",
+      "optionNotExercisedButConsiderationReceived": "??",
+      "amountOfConsiderationReceived": 23122.22,
+      "noOfSharesAcquired": 1,
+      "classOfSharesAcquired": "FIRST",
+      "exercisePrice": 12.22,
+      "amountPaidForOption": 123.22,
+      "marketValueOfSharesOnExcise": 1232.22,
+      "profitOnOptionExercised": 1232.33,
+      "employersNicPaid": 2312.22,
+      "taxableAmount": 2132.22
+    }
+  ],
+  "sharesAwardedOrReceived": [
+    {
+      "employerName": "Wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "noOfShareSecuritiesAwarded": 11,
+      "classOfShareAwarded": "FIRST",
+      "dateSharesAwarded": "20-11-2019",
+      "sharesSubjectToRestrictions": true,
+      "electionEnteredIgnoreRestrictions": true,
+      "actualMarketValueOfSharesOnAward": 2123.22,
+      "unrestrictedMarketValueOfSharesOnAward": 123.22,
+      "amountPaidForSharesOnAward": 123.22,
+      "marketValueAfterRestrictionsLifted": 1232.22,
+      "taxableAmount": 12321.22
+    }
+  ],
+  "disability": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "foreignService": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "lumpSums": [
+    {
+      "employerName": "WibbleInc",
+      "employerRef": "123/AB12312",
+      "taxableLumpSumsAndCertainIncome": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "benefitFromEmployerFinancedRetirementScheme": {
+        "amount": 123.00,
+        "exemptAmount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsOverExemption": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsUnderExemption": {
+        "amount": 123.00
+      }
+    }
+  ]
+}
+```
+
+##### 9.2.9.2 Response With Empty History
+
+```json
+{
+  "submittedOn": "2020-03-03T01:01:01Z",
+  "shareOption": [
+    {
+      "employerName": "wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateOfOptionGrant": "20-11-2019",
+      "dateOfEvent": "20-11-2019",
+      "optionNotExercisedButConsiderationReceived": "??",
+      "amountOfConsiderationReceived": 23122.22,
+      "noOfSharesAcquired": 1,
+      "classOfSharesAcquired": "FIRST",
+      "exercisePrice": 12.22,
+      "amountPaidForOption": 123.22,
+      "marketValueOfSharesOnExcise": 1232.22,
+      "profitOnOptionExercised": 1232.33,
+      "employersNicPaid": 2312.22,
+      "taxableAmount": 2132.22
+    }
+  ],
+  "sharesAwardedOrReceived": [
+    {
+      "employerName": "Wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "noOfShareSecuritiesAwarded": 11,
+      "classOfShareAwarded": "FIRST",
+      "dateSharesAwarded": "20-11-2019",
+      "sharesSubjectToRestrictions": true,
+      "electionEnteredIgnoreRestrictions": true,
+      "actualMarketValueOfSharesOnAward": 2123.22,
+      "unrestrictedMarketValueOfSharesOnAward": 123.22,
+      "amountPaidForSharesOnAward": 123.22,
+      "marketValueAfterRestrictionsLifted": 1232.22,
+      "taxableAmount": 12321.22
+    }
+  ],
+  "disability": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "foreignService": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "lumpSums": [
+    {
+      "employerName": "WibbleInc",
+      "employerRef": "123/AB12312",
+      "taxableLumpSumsAndCertainIncome": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "benefitFromEmployerFinancedRetirementScheme": {
+        "amount": 123.00,
+        "exemptAmount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsOverExemption": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsUnderExemption": {
+        "amount": 123.00
+      }
+    }
+  ],
+  "history": []
+}
+```
+
+##### 9.2.9.3 Response With History
+
+```json
+{
+  "submittedOn": "2020-03-03T01:01:01Z",
+  "deletedOn": "2020-03-03T01:01:01Z",    
+  "shareOption": [
+    {
+      "employerName": "wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateOfOptionGrant": "20-11-2019",
+      "dateOfEvent": "20-11-2019",
+      "optionNotExercisedButConsiderationReceived": "??",
+      "amountOfConsiderationReceived": 23122.22,
+      "noOfSharesAcquired": 1,
+      "classOfSharesAcquired": "FIRST",
+      "exercisePrice": 12.22,
+      "amountPaidForOption": 123.22,
+      "marketValueOfSharesOnExcise": 1232.22,
+      "profitOnOptionExercised": 1232.33,
+      "employersNicPaid": 2312.22,
+      "taxableAmount": 2132.22
+    }
+  ],
+  "sharesAwardedOrReceived": [
+    {
+      "employerName": "Wibble",
+      "empRef": "AB1321/123",
+      "schemePlanType": "Wibble",
+      "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+      "noOfShareSecuritiesAwarded": 11,
+      "classOfShareAwarded": "FIRST",
+      "dateSharesAwarded": "20-11-2019",
+      "sharesSubjectToRestrictions": true,
+      "electionEnteredIgnoreRestrictions": true,
+      "actualMarketValueOfSharesOnAward": 2123.22,
+      "unrestrictedMarketValueOfSharesOnAward": 123.22,
+      "amountPaidForSharesOnAward": 123.22,
+      "marketValueAfterRestrictionsLifted": 1232.22,
+      "taxableAmount": 12321.22
+    }
+  ],
+  "disability": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "foreignService": {
+    "customerReference": "wibble",
+    "amountDeducted": 1223.22
+  },
+  "lumpSums": [
+    {
+      "employerName": "WibbleInc",
+      "employerRef": "123/AB12312",
+      "taxableLumpSumsAndCertainIncome": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "benefitFromEmployerFinancedRetirementScheme": {
+        "amount": 123.00,
+        "exemptAmount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsOverExemption": {
+        "amount": 123.00,
+        "taxPaid": 123.00,
+        "taxTakenOffInEmployment": true
+      },
+      "redundancyCompensationPaymentsUnderExemption": {
+        "amount": 123.00
+      }
+    }
+  ],
+  "history": [
+    {
+      "submittedOn": "2020-03-03T01:01:01Z",
+      "deletedOn": "2020-03-03T01:01:01Z",        
+      "shareOption": [
+        {
+          "employerName": "wibble",
+          "empRef": "AB1321/123",
+          "schemePlanType": "Wibble",
+          "dateOfOptionGrant": "20-11-2019",
+          "dateOfEvent": "20-11-2019",
+          "optionNotExercisedButConsiderationReceived": "??",
+          "amountOfConsiderationReceived": 23122.22,
+          "noOfSharesAcquired": 1,
+          "classOfSharesAcquired": "FIRST",
+          "exercisePrice": 12.22,
+          "amountPaidForOption": 123.22,
+          "marketValueOfSharesOnExcise": 1232.22,
+          "profitOnOptionExercised": 1232.33,
+          "employersNicPaid": 2312.22,
+          "taxableAmount": 2132.22
+        }
+      ],
+      "sharesAwardedOrReceived": [
+        {
+          "employerName": "Wibble",
+          "empRef": "AB1321/123",
+          "schemePlanType": "Wibble",
+          "dateSharesCeasedToBeSubjectToPlan": "10-11-2019",
+          "noOfShareSecuritiesAwarded": 11,
+          "classOfShareAwarded": "FIRST",
+          "dateSharesAwarded": "20-11-2019",
+          "sharesSubjectToRestrictions": true,
+          "electionEnteredIgnoreRestrictions": true,
+          "actualMarketValueOfSharesOnAward": 2123.22,
+          "unrestrictedMarketValueOfSharesOnAward": 123.22,
+          "amountPaidForSharesOnAward": 123.22,
+          "marketValueAfterRestrictionsLifted": 1232.22,
+          "taxableAmount": 12321.22
+        }
+      ],
+      "disability": {
+        "customerReference": "wibble",
+        "amountDeducted": 1223.22
+      },
+      "foreignService": {
+        "customerReference": "wibble",
+        "amountDeducted": 1223.22
+      },
+      "lumpSums": [
+        {
+          "employerName": "WibbleInc",
+          "employerRef": "123/AB12312",
+          "taxableLumpSumsAndCertainIncome": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "benefitFromEmployerFinancedRetirementScheme": {
+            "amount": 123.00,
+            "exemptAmount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsOverExemption": {
+            "amount": 123.00,
+            "taxPaid": 123.00,
+            "taxTakenOffInEmployment": true
+          },
+          "redundancyCompensationPaymentsUnderExemption": {
+            "amount": 123.00
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+
+#### 9.2.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 9.2.11 ITSD Components Impacted
+
+- IBD Store
+
+### 9.2 Delete Other Employment Income
+
+#### 9.2.1 URI
+
+**DELETE** */income/other/employment/{taxableEntityId}/{taxYear}*
+
+#### 9.2.2 Path Parameters
+
+| Parameter       | Description                                  | Example  |
+| --------------- | -------------------------------------------- | -------- |
+| taxableEntityId | Unique identifier of the customer            | AB123456 |
+| taxYear         | The tax year to which the employment applies | 2019-20  |
+
+#### 9.2.3 Query Parameters
+
+N/A
+
+#### 9.2.4 Request Headers
+
+| Header        | Description                   |
+| ------------- | ----------------------------- |
+| CorrelationId | Unique transaction reference. |
+
+#### 9.2.5 Request Schema
+
+N/A
+
+#### 9.2.6 Request Examples
+
+N/A
+
+#### 9.2.7 Response Status Code
+
+N/A
+
+#### 9.2.8 Response Schema
+
+N/A
+
+#### 9.2.9 Response Examples
+
+N/A
+
+#### 9.2.10 Response Headers
+
+| Header        | Description |
+| ------------- | ----------- |
+| CorrelationId |             |
+
+#### 9.2.11 ITSD Components Impacted
+
+- IBD Store
 
 ## Appendix A 
 
@@ -5629,6 +7978,7 @@ N/A
 | 1.9     | 12/06/2020 | Jon Elliott | Updated Benefits field to benefits in kind (Product Owner Request), Updated employment schema in line with RTI Data items, Added Appendix to document field mappings (RTI) |
 | 1.10    | 12/06/2020 | Jon Elliott | Added employmentId to ignoring an employment                 |
 | 1.11    | 17/06/2020 | Jon Elliott | Added Pension Charges and Reliefs concerns, added placeholders for State Benefits. |
+| 1.12    | 22/06/2020 | Jon Elliott | Removed Lump Sumps from employment financial details endpoints. Added lump Sumps to other employment income endpoints - update other employment income sources to use history block. |
 
 ## Appendix C
 
