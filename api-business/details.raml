@@ -1,0 +1,30 @@
+      /{nino}:
+        uriParameters:
+          nino: baseTypes.Nino
+        get:
+          displayName: Businesses GET (list)
+          description: List businesses
+          is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised]
+          queryParameters:
+            typeOfBusiness:
+              displayName: uk-property | foreign-property
+              description: uk-property | foreign-property
+              example: uk-property
+              required: false
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/all-business-list.json
+        /{businessId}:
+          uriParameters:
+            businessId: baseTypes.BusinessId
+          get:
+            displayName: Businesses GET (detail)
+            description: Retrieve business detail
+            is: [genericErrors.notFound,genericErrors.clientOrAgentNotAuthorised,genericErrors.formatNino,genericErrors.ruleTaxYearNotSupported,genericErrors.ruleTaxYearRangeExceeded,genericErrors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/business-details.json

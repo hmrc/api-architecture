@@ -82,18 +82,20 @@ types:
     type: string
     example: TC663795B
   IncomeSourceId:
-    description: Unique identifier of the Income Source i.e. Business
+    description: Unique identifier of the Income Source
     type: string
     example: ABC33337954
+    pattern: "^[A-Za-z0-9]{15}$"
   BusinessId:
-    description: Unique identifier of the Business i.e. Income Source
+    description: Unique identifier of the Business (alias for Income Source Id)
     type: string
-    example: DFTR00000006356
+    example: ABC33337954
+    pattern: "^[A-Za-z0-9]{15}$"
   SubmissionId:
     description: Unique identifier of the Submission (Type 4 UUID)
     type: string
-    pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
     example: 4557ecb5-fd32-48cc-81f5-e6acd1099f3c
+    pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
   BenefitId:
     description: Unique identifier of the Benefit (Type 4 UUID)
     type: string

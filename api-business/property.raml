@@ -1,0 +1,87 @@
+    /{nino}:
+      /{businessId}:
+        uriParameters:
+          businessId: baseTypes.BusinessId
+        /period:
+          get:
+            displayName: Property Periodic GET (list)
+            description: List of Periodic Property Income/Expenses submissions
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include examples/periodic-property-business-get.json
+          post:
+            displayName: Property Periodic POST
+            description: Create/update Periodic Property Income/Expenses submission
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+            body:
+              application/json:
+                examples:
+                  example-1:
+                    description: With consolodated expenses
+                    value: !include examples/periodic-property-business-consol-post.json
+                  example-2:
+                    description: With itemised expenses
+                    value: !include examples/periodic-property-business-exp-post.json
+            responses:
+              201:
+                body:
+                  application/json:
+                    example: !include examples/periodic-property-business-post-resp.json
+          /{submissionId}:
+            uriParameters:
+              submissionId: baseTypes.SubmissionId
+            get:
+              displayName: Property Periodic GET (detail)
+              description: Details of Periodic Property Income/Expenses submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+                  body:
+                    application/json:
+                      example: !include examples/periodic-property-business-get-withid.json
+            put:
+              displayName: Property Periodic PUT
+              description: Update Periodic Property Income/Expenses submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+              body:
+                application/json:
+                  examples:
+                    example-1:
+                      description: With consolodated expenses
+                      value: !include examples/periodic-property-business-consol-put.json
+                    example-2:
+                      description: With itemised expenses
+                      value: !include examples/periodic-property-business-exp-put.json
+        /annual:
+          /{taxYear}:
+            uriParameters:
+              taxYear: baseTypes.TaxYear
+            get:
+              displayName: Property Annual GET
+              description: List of Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+                  body:
+                    application/json:
+                      example: !include examples/annual-property-business.json
+            put:
+              displayName: Property Annual PUT
+              description: Create/update Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino]
+              responses:
+                200:
+              body:
+                application/json:
+                  example: !include examples/annual-property-business.json
+            delete:
+              displayName: Property Annual DELETE
+              description: Delete Property annual submission
+              is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+              responses:
+                204:

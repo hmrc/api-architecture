@@ -1,0 +1,30 @@
+{
+  "foreignFhlEea": {
+    "income": {
+      "rentAmount": 200.22,
+      "taxDeducted": 22.22
+    },
+    "expenses": {
+      "consolidatedExpenseAmount": 1000.25
+    }
+  },
+  "foreignProperty": [
+    {
+      "countryCode": "GER",
+      "income": {
+        "rentIncome": {
+          "rentAmount": 100.25,
+          "taxDeducted": 100.25
+        },
+        "foreignTaxCreditRelief": true,
+        "premiumsOfLeaseGrantAmount": 100.25,
+        "otherPropertyIncomeAmount": 100.25,
+        "foreignTaxPaidOrDeducted": 44.21,
+        "specialWitholdingTaxOrUkTaxPaid": 23.78
+      },
+      "expenses": {
+        "consolidatedExpenseAmount": 1000.25
+      }
+    }
+  ]
+}
