@@ -1,0 +1,315 @@
+#lineWidth:1
+#direction: right
+#.mroot: bold fill=#C9B6A1 align=center visual=roundrect 
+#.mseg: fill=#EDD5BD align=center
+#.mparam: fill=#EDD5BD italic align=center visual=dashed
+#.mchld: fill=#FFEBD9 align=center
+#.mchldparam: fill=#FFEBD9 italic align=center visual=dashed
+#.eroot: bold fill=#C9BECF align=center visual=roundrect 
+#.eseg: fill=#E1D5E7 align=center
+#.eparam: fill=#E1D5E7 italic align=center visual=dashed
+#.echld: fill=#F9EBFF align=center
+#.echldparam: fill=#F9EBFF italic align=center visual=dashed
+#.nroot: bold fill=#B7C7B6 align=center visual=roundrect
+#.nseg: fill=#D5E8D4 align=center
+#.nparam: fill=#D5E8D4 italic align=center visual=dashed
+#.nchld: fill=#E5FAE4 align=center
+#.nchldparam: fill=#E5FAE4 italic align=center visual=dashed
+[<mroot> monolith | 
+  [<mseg> Existing SA Monolith ] 
+]
+[<eroot> existing | 
+  [<eseg> Existing MTD APIs ] 
+]
+[<nroot> new | 
+  [<nseg> New MTD APIs ] 
+]
+
+[<mroot> self-assessment/ni | 
+  [<mparam>  {nino} |   
+    [<mparam> {taxYear} | 
+       [<mchld> intent-to-crystalise]  
+       [<mchld> crystalisation]         
+    ]  
+    [<mseg> calculations | 
+      [<mparam> {calculationId} |  
+        [<mchld> validation-messages]
+      ]  
+    ]  
+    [<mseg> charitable-giving | 
+      [<mchldparam> {taxYear} ]  
+    ]      
+    [<mseg> crystalisation | 
+      [<mchld> obligations]
+    ]          
+    [<mseg> dividends | 
+      [<mchldparam> {taxYear} ]      
+    ]          
+    [<mseg> savings-accounts | 
+      [<mparam> {savingsAccountId} |
+        [<mchldparam> {taxYear} ]   
+      ]  
+    ]
+    [<mseg> self-employments | 
+      [<mparam> {selfEmploymentId} |
+        [<mparam> {taxYear} ]  | 
+          [<mchld> income-summary]
+      ]  
+      [<mseg> end-of-period-statements |
+        [<mchld> from/to]
+        [<mchld> obligations]
+      ]   
+      [<mchld> obligations ]
+      [<mseg> periods | 
+        [<mchldparam> {periodID}]
+      ]      
+    ]     
+    [<mseg> uk-properties |  
+      [<mparam> {taxYear} | 
+        [<mchld> income-summary]
+      ]
+      [<mseg> end-of-period-statements | 
+        [<mchld> from/to]
+        [<mchld> obligations]
+      ]
+      [<mseg> furnished-holday-lettings | 
+        [<mchldparam> {taxYear} ]
+        [<mseg> periods | 
+          [<mchld> periodId ]        
+        ]        
+      ]
+      [<mseg> other | 
+        [<mchldparam> {taxYear} ]
+        [<mseg> periods | 
+          [<mchld> periodId ]        
+        ]        
+      ]      
+    ] 
+  ]
+]
+
+[<eroot> organisations | 
+  [<eseg> vat |   
+    [<eparam> {vrn} |
+      [<echld> obligations ]
+      [<echld> returns ]
+      [<echld> liabilities ]
+      [<echld> payments ]      
+    ]  
+  ]  
+]
+
+[<eroot> agents | 
+    [<eparam> {vrn} | 
+      [<echld> invitations ]
+      [<echld> relationships ]
+    ]  
+]
+
+[<eroot> individuals/self-assessment | 
+    [<eseg> adjustable-summary (BSAS) |  
+      [<eparam> {nino} | 
+        [<echld> trigger]
+        [<eseg> property  | 
+          [<eparam> {bsasId} | 
+            [<echld> adjust ]
+          ]
+        ]
+        [<eseg> self-employment  | 
+          [<eparam> {bsasId} | 
+            [<echld> adjust ]
+          ]
+        ]        
+      ]
+    ] 
+    [<eseg> income-summary (BISS) |  
+      [<eparam> {nino} | 
+        [<echld> self-employment]    
+        [<echld> uk-property]            
+      ]  
+    ]  
+]  
+ 
+[<eroot> individuals/calculations | 
+  [<eseg> calculations | 
+    [<eparam> {nino} | 
+      [<eseg> self-employment | 
+        [<eparam> {calculationId} | 
+          [<echld> allowances-deductions-reliefs]
+          [<echld> end-of-year-estimate]          
+          [<echld> income-tax-nics-calculated]                    
+          [<echld> messages ]                    
+          [<echld> taxable-income ]                              
+        ]
+      ]    
+    ]    
+  ]  
+]  
+  
+[<eroot> individuals/losses |   
+  [<eseg> losses | 
+    [<eparam> {nino} | 
+      [<eseg> brought-forward-losses | 
+        [<eparam> {lossId} |     
+          [<echld> change-loss-amount]
+        ]
+      ]  
+    ]
+  ] 
+]
+
+[<nroot> individuals/income-received | 
+    [<nseg> dividends |    
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]
+    ]
+    [<nseg> employments | 
+      [<nparam> {nino} | 
+        [<nparam> {taxYear} |
+          [<nparam> {employmentId} | 
+            [<nchld> ignore]
+          ]
+          [<nseg> custom | 
+            [<nchldparam> {employmentId} ] 
+          ]
+        ]
+      ]     
+    ]    
+    [<nseg> foreign | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]     
+    ]        
+    [<nseg> insurance-policies | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ] 
+    ]        
+    [<nseg> pensions | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]     
+    ]        
+    [<nseg> savings | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]     
+    ]        
+    [<nseg> other | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]     
+    ]            
+]
+
+[<nroot> individuals/charges | 
+    [<nseg> pensions | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]  
+    ]
+]
+
+[<nroot> individuals/disclosures| 
+    [<nparam> {nino} | 
+      [<nchldparam> {taxYear} ]
+    ]  
+]
+
+[<nroot> individuals/expenses | 
+    [<nseg> employments | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]  
+    ]
+    [<nseg> other | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]  
+    ]
+]
+
+[<nroot> individuals/business | 
+    [<nseg> details | 
+      [<nparam> {nino} | 
+        [<nchldparam> {businessId} ]
+      ]  
+    ]
+    [<nseg> property | 
+      [<nparam> {nino} | 
+        [<nparam> {incomeSourceId} |         
+          [<nseg> annual | 
+            [<nchldparam> {taxYear} ]
+          ]
+          [<nseg> period | 
+            [<nchldparam> {submissionId} ]
+          ]          
+        ]  
+      ]  
+  ]  
+]  
+  
+[<nroot> individuals/reliefs |   
+    [<nseg> investment | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]  
+    ]
+    [<nseg> pensions | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]  
+    ]
+    [<nseg> other | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]  
+    ]    
+]  
+
+[<nroot> individuals/state-benefits  | 
+    [<nparam> {nino} | 
+      [<nparam> {taxYear} | 
+        [<nchldparam> {benefit_id} ]
+        [<nseg> custom | 
+          [<nchldparam> {benefit_id} ]
+        ]  
+      ]
+    ]  
+]    
+
+[<nroot> individuals/deductions  | 
+    [<nseg> cis | 
+      [<nparam> {nino} | 
+        [<nchld> current-position ]
+        [<nseg> amendments |
+          [<nchldparam> submissionId ]
+        ]        
+      ]  
+    ]
+    [<nseg> other | 
+      [<nparam> {nino} | 
+        [<nchldparam> {taxYear} ]
+      ]  
+    ]
+]
+
+[<nroot> accounts | 
+  [<nseg> self-assessment |   
+    [<nparam> {nino} |
+      [<nchld> balance ]
+      [<nchld> charges ]
+      [<nchld> payments ]
+      [<nchld> transactions ]      
+    ]  
+  ]  
+]
+
+[<nroot> obligations | 
+    [<nparam> {nino} |
+      [<nchld> income-tax ]      
+    ]  
+]
+
+

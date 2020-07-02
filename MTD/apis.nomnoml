@@ -1,0 +1,85 @@
+#lineWidth:1
+#direction: right 
+#.eroot: bold fill=#C9BECF align=center visual=roundrect 
+#.eseg: fill=#E1D5E7 align=center
+#.eparam: fill=#E1D5E7 italic align=center visual=dashed
+#.echld: fill=#F9EBFF align=center
+#.echldparam: fill=#F9EBFF italic align=center visual=dashed
+#.nroot: bold fill=#B7C7B6 align=center visual=roundrect
+#.nseg: fill=#D5E8D4 align=center
+#.nparam: fill=#D5E8D4 italic align=center visual=dashed
+#.nchld: fill=#E5FAE4 align=center
+#.nchldparam: fill=#E5FAE4 italic align=center visual=dashed
+
+[<eroot> self-assessment/ni | 
+  [<eparam> {nino} |   
+    [<eparam> {taxYear} | 
+       [<echld> intent-to-crystalise]  
+       [<echld> crystalisation]         
+    ]  
+    [<eseg> calculations | 
+      [<eparam> {calculationId} |  
+        [<echld> validation-messages]
+      ]  
+    ]  
+    [<eseg> charitable-giving | 
+      [<echldparam> {taxYear} ]  
+    ]      
+    [<eseg> crystalisation | 
+      [<echld> obligations]
+    ]          
+    [<eseg> dividends | 
+      [<echldparam> {taxYear} ]      
+    ]          
+    [<eseg> savings-accounts | 
+      [<eparam> {savingsAccountId} |
+        [<echldparam> {taxYear} ]   
+      ]  
+    ]
+    [<eseg> self-employments | 
+      [<eparam> {selfEmplymentId} |
+        [<eparam> {taxYear} ]  | 
+          [<echld> income-summary]
+      ]  
+      [<eseg> end-of-period-statements |
+        [<echld> from/to]
+        [<echld> obligations]
+      ]   
+      [<echld> obligations ]
+      [<eseg> periods | 
+        [<echldparam> {periodID}]
+      ]      
+    ]     
+  ]
+]
+
+
+[<eroot> organisations | 
+  [<eseg> vat |   
+    [<eparam> {vrn} |
+      [<echld> obligations ]
+      [<echld> returns ]
+      [<echld> liabilities ]
+      [<echld> payments ]      
+    ]  
+  ]  
+]
+
+[<eroot> agents | 
+    [<eparam> {vrn} | 
+      [<echld> invitations ]
+      [<echld> relationships ]
+    ]  
+]
+
+[<nroot> accounts | 
+  [<nseg> self-assessment |   
+    [<nparam> {nino} |
+      [<nchld> balance ]
+      [<nchld> charges ]
+      [<nchld> payments ]
+      [<nchld> transactions ]      
+    ]  
+  ]  
+]
+

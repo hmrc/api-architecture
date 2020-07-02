@@ -1,0 +1,759 @@
+<svg version="1.1" baseProfile="full" width="7596" height="1993" viewbox="0 0 7596 1993" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" style="font-weight:bold; font-size:12pt; font-family:'Calibri', Helvetica, sans-serif;;stroke-width:1;stroke-linejoin:round;stroke-linecap:round">
+  <title >nomnoml</title>
+  <desc >#lineWidth:1
+#direction: right
+#.mroot: bold fill=#C9B6A1 align=center visual=roundrect 
+#.mseg: fill=#EDD5BD align=center
+#.mparam: fill=#EDD5BD italic align=center visual=dashed
+#.mchld: fill=#FFEBD9 align=center
+#.mchldparam: fill=#FFEBD9 italic align=center visual=dashed
+#.eroot: bold fill=#C9BECF align=center visual=roundrect 
+#.eseg: fill=#E1D5E7 align=center
+#.eparam: fill=#E1D5E7 italic align=center visual=dashed
+#.echld: fill=#F9EBFF align=center
+#.echldparam: fill=#F9EBFF italic align=center visual=dashed
+#.nroot: bold fill=#B7C7B6 align=center visual=roundrect
+#.nseg: fill=#D5E8D4 align=center
+#.nparam: fill=#D5E8D4 italic align=center visual=dashed
+#.nchld: fill=#E5FAE4 align=center
+#.nchldparam: fill=#E5FAE4 italic align=center visual=dashed
+[&lt;mroot&gt; monolith | 
+  [&lt;mseg&gt; Existing SA Monolith ] 
+]
+[&lt;eroot&gt; existing | 
+  [&lt;eseg&gt; Existing MTD APIs ] 
+]
+[&lt;nroot&gt; new | 
+  [&lt;nseg&gt; New MTD APIs ] 
+]
+
+[&lt;mroot&gt; self-assessment/ni | 
+  [&lt;mparam&gt;  {nino} |   
+    [&lt;mparam&gt; {taxYear} | 
+       [&lt;mchld&gt; intent-to-crystalise]  
+       [&lt;mchld&gt; crystalisation]         
+    ]  
+    [&lt;mseg&gt; calculations | 
+      [&lt;mparam&gt; {calculationId} |  
+        [&lt;mchld&gt; validation-messages]
+      ]  
+    ]  
+    [&lt;mseg&gt; charitable-giving | 
+      [&lt;mchldparam&gt; {taxYear} ]  
+    ]      
+    [&lt;mseg&gt; crystalisation | 
+      [&lt;mchld&gt; obligations]
+    ]          
+    [&lt;mseg&gt; dividends | 
+      [&lt;mchldparam&gt; {taxYear} ]      
+    ]          
+    [&lt;mseg&gt; savings-accounts | 
+      [&lt;mparam&gt; {savingsAccountId} |
+        [&lt;mchldparam&gt; {taxYear} ]   
+      ]  
+    ]
+    [&lt;mseg&gt; self-employments | 
+      [&lt;mparam&gt; {selfEmplymentId} |
+        [&lt;mparam&gt; {taxYear} ]  | 
+          [&lt;mchld&gt; income-summary]
+      ]  
+      [&lt;mseg&gt; end-of-period-statements |
+        [&lt;mchld&gt; from/to]
+        [&lt;mchld&gt; obligations]
+      ]   
+      [&lt;mchld&gt; obligations ]
+      [&lt;mseg&gt; periods | 
+        [&lt;mchldparam&gt; {periodID}]
+      ]      
+    ]     
+    [&lt;mseg&gt; uk-properties |  
+      [&lt;mparam&gt; {taxYear} | 
+        [&lt;mchld&gt; income-summary]
+      ]
+      [&lt;mseg&gt; end-of-period-statements | 
+        [&lt;mchld&gt; from/to]
+        [&lt;mchld&gt; obligations]
+      ]
+      [&lt;mseg&gt; furnished-holday-lettings | 
+        [&lt;mchldparam&gt; {taxYear} ]
+        [&lt;mseg&gt; periods | 
+          [&lt;mchld&gt; periodId ]        
+        ]        
+      ]
+      [&lt;mseg&gt; other | 
+        [&lt;mchldparam&gt; {taxYear} ]
+        [&lt;mseg&gt; periods | 
+          [&lt;mchld&gt; periodId ]        
+        ]        
+      ]      
+    ] 
+  ]
+]
+
+[&lt;eroot&gt; individuals | 
+  [&lt;eseg&gt; self-assessment | 
+    [&lt;eseg&gt; adjustable-summary (BSAS) |  
+      [&lt;eparam&gt; {nino} | 
+        [&lt;echld&gt; trigger]
+        [&lt;eseg&gt; property  | 
+          [&lt;eparam&gt; {bsasId} | 
+            [&lt;echld&gt; adjust ]
+          ]
+        ]
+        [&lt;eseg&gt; self-employment  | 
+          [&lt;eparam&gt; {bsasId} | 
+            [&lt;echld&gt; adjust ]
+          ]
+        ]        
+      ]
+    ] 
+    [&lt;eseg&gt; income-summary (BISS) |  
+      [&lt;eparam&gt; {nino} | 
+        [&lt;echld&gt; self-employment]    
+        [&lt;echld&gt; uk-property]            
+      ]  
+    ]  
+  ]  
+  [&lt;eseg&gt; calculations | 
+    [&lt;eparam&gt; {nino} | 
+      [&lt;eseg&gt; self-employment | 
+        [&lt;eparam&gt; {calculationId} | 
+          [&lt;echld&gt; allowances-deductions-reliefs]
+          [&lt;echld&gt; end-of-year-estimate]          
+          [&lt;echld&gt; income-tax-nics-calculated]                    
+          [&lt;echld&gt; messages ]                    
+          [&lt;echld&gt; taxable-income ]                              
+        ]
+      ]    
+    ]    
+  ]    
+  [&lt;eseg&gt; losses | 
+    [&lt;eparam&gt; {nino} | 
+      [&lt;eseg&gt; brought-forward-losses | 
+        [&lt;eparam&gt; {lossId} |     
+          [&lt;echld&gt; change-loss-amount]
+        ]
+      ]  
+    ]
+  ] 
+  [&lt;nseg&gt; income-received | 
+    [&lt;nseg&gt; dividends |    
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]
+    ]
+    [&lt;nseg&gt; employments | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nparam&gt; {taxYear} |
+          [&lt;nparam&gt; {employmentId} | 
+            [&lt;nchld&gt; ignore]
+          ]
+          [&lt;nseg&gt; custom | 
+            [&lt;nchldparam&gt; {employmentId} ] 
+          ]
+        ]
+      ]     
+    ]    
+    [&lt;nseg&gt; foreign | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]     
+    ]        
+    [&lt;nseg&gt; insurance-policies | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ] 
+    ]        
+    [&lt;nseg&gt; pensions | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]     
+    ]        
+    [&lt;nseg&gt; savings | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]     
+    ]        
+    [&lt;nseg&gt; other | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]     
+    ]            
+  ]
+  [&lt;nseg&gt; charges | 
+    [&lt;nseg&gt; pensions | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]  
+    ]
+  ]  
+  [&lt;nseg&gt; disclosures | 
+    [&lt;nparam&gt; {nino} | 
+      [&lt;nchldparam&gt; {taxYear} ]
+    ]  
+  ]
+  [&lt;nseg&gt; expenses | 
+    [&lt;nseg&gt; employments | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]  
+    ]
+    [&lt;nseg&gt; other | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]  
+    ]
+  ]
+  [&lt;nseg&gt; business | 
+    [&lt;nseg&gt; details | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {businessId} ]
+      ]  
+    ]
+    [&lt;nseg&gt; property | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nparam&gt; {incomeSourceId} |         
+          [&lt;nseg&gt; annual | 
+            [&lt;nchldparam&gt; {taxYear} ]
+          ]
+          [&lt;nseg&gt; period | 
+            [&lt;nchldparam&gt; {submissionId} ]
+          ]          
+        ]  
+      ]  
+    ]
+  ]  
+  [&lt;nseg&gt; reliefs | 
+    [&lt;nseg&gt; investment | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]  
+    ]
+    [&lt;nseg&gt; pensions | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]  
+    ]
+    [&lt;nseg&gt; other | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]  
+    ]    
+  ]  
+  [&lt;nseg&gt; state-benefits | 
+    [&lt;nparam&gt; {nino} | 
+      [&lt;nparam&gt; {taxYear} | 
+        [&lt;nchldparam&gt; {benefit_id} ]
+        [&lt;nseg&gt; custom | 
+          [&lt;nchldparam&gt; {benefit_id} ]
+        ]  
+      ]
+    ]  
+  ]    
+  [&lt;nseg&gt; deductions | 
+    [&lt;nseg&gt; cis | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchld&gt; current-position ]
+        [&lt;nseg&gt; amendments |
+          [&lt;nchldparam&gt; submissionId ]
+        ]        
+      ]  
+    ]
+    [&lt;nseg&gt; other | 
+      [&lt;nparam&gt; {nino} | 
+        [&lt;nchldparam&gt; {taxYear} ]
+      ]  
+    ]
+  ]   
+]
+
+[&lt;eroot&gt; organisations | 
+  [&lt;eseg&gt; vat |   
+    [&lt;eparam&gt; {vrn} |
+      [&lt;echld&gt; obligations ]
+      [&lt;echld&gt; returns ]
+      [&lt;echld&gt; liabilities ]
+      [&lt;echld&gt; payments ]      
+    ]  
+  ]  
+]
+
+[&lt;eroot&gt; agents | 
+    [&lt;eparam&gt; {vrn} | 
+      [&lt;echld&gt; invitations ]
+      [&lt;echld&gt; relationships ]
+    ]  
+]
+
+[&lt;nroot&gt; accounts | 
+  [&lt;nseg&gt; self-assessment |   
+    [&lt;nparam&gt; {nino} |
+      [&lt;nchld&gt; balance ]
+      [&lt;nchld&gt; charges ]
+      [&lt;nchld&gt; payments ]
+      [&lt;nchld&gt; transactions ]      
+    ]  
+  ]  
+]
+
+[&lt;nroot&gt; obligations | 
+    [&lt;nparam&gt; {nino} |
+      [&lt;nchld&gt; income-tax ]      
+    ]  
+]
+
+
+</desc>
+  <rect x="3680.5" y="13.5" rx="20" ry="20" height="88" width="237" style="stroke:#33322E;fill:#C9B6A1;stroke-dasharray:none;"></rect>
+  <text x="3799" y="35" style="fill: #33322E;text-anchor: middle;">monolith</text>
+  <path d="M3680.5 44.5 L3917.5 44.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3693.5" y="57.5" height="31" width="211" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="3799" y="79" style="fill: #33322E;font-weight:normal;text-anchor: middle;">Existing SA Monolith</text>
+  <rect x="3694.5" y="141.5" rx="20" ry="20" height="88" width="208" style="stroke:#33322E;fill:#C9BECF;stroke-dasharray:none;"></rect>
+  <text x="3798.5" y="163" style="fill: #33322E;text-anchor: middle;">existing</text>
+  <path d="M3694.5 172.5 L3902.5 172.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3707.5" y="185.5" height="31" width="182" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="3798.5" y="207" style="fill: #33322E;font-weight:normal;text-anchor: middle;">Existing MTD APIs</text>
+  <rect x="3718.5" y="269.5" rx="20" ry="20" height="88" width="161" style="stroke:#33322E;fill:#B7C7B6;stroke-dasharray:none;"></rect>
+  <text x="3799" y="291" style="fill: #33322E;text-anchor: middle;">new</text>
+  <path d="M3718.5 300.5 L3879.5 300.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3731.5" y="313.5" height="31" width="135" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3799" y="335" style="fill: #33322E;font-weight:normal;text-anchor: middle;">New MTD APIs</text>
+  <rect x="1956.5" y="397.5" rx="20" ry="20" height="316" width="3685" style="stroke:#33322E;fill:#C9B6A1;stroke-dasharray:none;"></rect>
+  <text x="3799" y="419" style="fill: #33322E;text-anchor: middle;">self-assessment/ni</text>
+  <path d="M1956.5 428.5 L5641.5 428.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="1969.5" y="441.5" height="259" width="3659" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:4 4;"></rect>
+  <text x="3799" y="463" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M1969.5 472.5 L5628.5 472.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="1982.5" y="542.5" height="88" width="421" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:4 4;"></rect>
+  <text x="2193" y="564" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <path d="M1982.5 573.5 L2403.5 573.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="1995.5" y="586.5" height="31" width="206" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="2098.5" y="608" style="fill: #33322E;font-weight:normal;text-anchor: middle;">intent-to-crystalise</text>
+  <rect x="2241.5" y="586.5" height="31" width="149" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="2316" y="608" style="fill: #33322E;font-weight:normal;text-anchor: middle;">crystalisation</text>
+  <rect x="2443.5" y="514.5" height="145" width="249" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="2568" y="536" style="fill: #33322E;font-weight:normal;text-anchor: middle;">calculations</text>
+  <path d="M2443.5 545.5 L2692.5 545.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2456.5" y="558.5" height="88" width="223" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:4 4;"></rect>
+  <text x="2568" y="580" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{calculationId}</text>
+  <path d="M2456.5 589.5 L2679.5 589.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2469.5" y="602.5" height="31" width="197" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="2568" y="624" style="fill: #33322E;font-weight:normal;text-anchor: middle;">validation-messages</text>
+  <rect x="2732.5" y="542.5" height="88" width="178" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="2821.5" y="564" style="fill: #33322E;font-weight:normal;text-anchor: middle;">charitable-giving</text>
+  <path d="M2732.5 573.5 L2910.5 573.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2745.5" y="586.5" height="31" width="102" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:4 4;"></rect>
+  <text x="2796.5" y="608" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="2950.5" y="542.5" height="88" width="149" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="3025" y="564" style="fill: #33322E;font-weight:normal;text-anchor: middle;">crystalisation</text>
+  <path d="M2950.5 573.5 L3099.5 573.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2963.5" y="586.5" height="31" width="121" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="3024" y="608" style="fill: #33322E;font-weight:normal;text-anchor: middle;">obligations</text>
+  <rect x="3139.5" y="542.5" height="88" width="128" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="3203.5" y="564" style="fill: #33322E;font-weight:normal;text-anchor: middle;">dividends</text>
+  <path d="M3139.5 573.5 L3267.5 573.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3152.5" y="586.5" height="31" width="102" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:4 4;"></rect>
+  <text x="3203.5" y="608" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="3307.5" y="514.5" height="145" width="213" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="3414" y="536" style="fill: #33322E;font-weight:normal;text-anchor: middle;">savings-accounts</text>
+  <path d="M3307.5 545.5 L3520.5 545.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3320.5" y="558.5" height="88" width="187" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:4 4;"></rect>
+  <text x="3414" y="580" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{savingsAccountId}</text>
+  <path d="M3320.5 589.5 L3507.5 589.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3333.5" y="602.5" height="31" width="102" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:4 4;"></rect>
+  <text x="3384.5" y="624" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="3560.5" y="485.5" height="202" width="852" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="3986.5" y="507" style="fill: #33322E;font-weight:normal;text-anchor: middle;">self-employments</text>
+  <path d="M3560.5 516.5 L4412.5 516.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3573.5" y="529.5" height="145" width="178" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:4 4;"></rect>
+  <text x="3662.5" y="551" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{selfEmplymentId}</text>
+  <path d="M3573.5 560.5 L3751.5 560.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3586.5" y="573.5" height="31" width="102" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:4 4;"></rect>
+  <text x="3637.5" y="595" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <path d="M3573.5 617.5 L3751.5 617.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3586.5" y="630.5" height="31" width="149" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="3661" y="652" style="fill: #33322E;font-weight:normal;text-anchor: middle;">income-summary</text>
+  <rect x="3791.5" y="558.5" height="88" width="270" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="3926.5" y="580" style="fill: #33322E;font-weight:normal;text-anchor: middle;">end-of-period-statements</text>
+  <path d="M3791.5 589.5 L4061.5 589.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3804.5" y="602.5" height="31" width="83" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="3846" y="624" style="fill: #33322E;font-weight:normal;text-anchor: middle;">from/to</text>
+  <rect x="3927.5" y="602.5" height="31" width="121" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="3988" y="624" style="fill: #33322E;font-weight:normal;text-anchor: middle;">obligations</text>
+  <rect x="4101.5" y="558.5" height="88" width="137" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="4170" y="580" style="fill: #33322E;font-weight:normal;text-anchor: middle;">periods</text>
+  <path d="M4101.5 589.5 L4238.5 589.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4114.5" y="602.5" height="31" width="111" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:4 4;"></rect>
+  <text x="4170" y="624" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{periodID}</text>
+  <rect x="4278.5" y="586.5" height="31" width="121" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="4339" y="608" style="fill: #33322E;font-weight:normal;text-anchor: middle;">obligations</text>
+  <rect x="4452.5" y="485.5" height="202" width="1163" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="5034" y="507" style="fill: #33322E;font-weight:normal;text-anchor: middle;">uk-properties</text>
+  <path d="M4452.5 516.5 L5615.5 516.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4465.5" y="558.5" height="88" width="175" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:4 4;"></rect>
+  <text x="4553" y="580" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <path d="M4465.5 589.5 L4640.5 589.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4478.5" y="602.5" height="31" width="149" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="4553" y="624" style="fill: #33322E;font-weight:normal;text-anchor: middle;">income-summary</text>
+  <rect x="4680.5" y="558.5" height="88" width="270" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="4815.5" y="580" style="fill: #33322E;font-weight:normal;text-anchor: middle;">end-of-period-statements</text>
+  <path d="M4680.5 589.5 L4950.5 589.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4693.5" y="602.5" height="31" width="83" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="4735" y="624" style="fill: #33322E;font-weight:normal;text-anchor: middle;">from/to</text>
+  <rect x="4816.5" y="602.5" height="31" width="121" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="4877" y="624" style="fill: #33322E;font-weight:normal;text-anchor: middle;">obligations</text>
+  <rect x="4990.5" y="529.5" height="145" width="286" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="5133.5" y="551" style="fill: #33322E;font-weight:normal;text-anchor: middle;">furnished-holday-lettings</text>
+  <path d="M4990.5 560.5 L5276.5 560.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5003.5" y="573.5" height="88" width="118" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="5062.5" y="595" style="fill: #33322E;font-weight:normal;text-anchor: middle;">periods</text>
+  <path d="M5003.5 604.5 L5121.5 604.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5016.5" y="617.5" height="31" width="92" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="5062.5" y="639" style="fill: #33322E;font-weight:normal;text-anchor: middle;">periodId</text>
+  <rect x="5161.5" y="602.5" height="31" width="102" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:4 4;"></rect>
+  <text x="5212.5" y="624" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="5316.5" y="529.5" height="145" width="286" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="5459.5" y="551" style="fill: #33322E;font-weight:normal;text-anchor: middle;">other</text>
+  <path d="M5316.5 560.5 L5602.5 560.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5329.5" y="573.5" height="88" width="118" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
+  <text x="5388.5" y="595" style="fill: #33322E;font-weight:normal;text-anchor: middle;">periods</text>
+  <path d="M5329.5 604.5 L5447.5 604.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5342.5" y="617.5" height="31" width="92" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
+  <text x="5388.5" y="639" style="fill: #33322E;font-weight:normal;text-anchor: middle;">periodId</text>
+  <rect x="5487.5" y="602.5" height="31" width="102" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:4 4;"></rect>
+  <text x="5538.5" y="624" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="13.5" y="753.5" rx="20" ry="20" height="373" width="7570" style="stroke:#33322E;fill:#C9BECF;stroke-dasharray:none;"></rect>
+  <text x="3798.5" y="775" style="fill: #33322E;text-anchor: middle;">individuals</text>
+  <path d="M13.5 784.5 L7583.5 784.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="26.5" y="797.5" height="316" width="937" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="495" y="819" style="fill: #33322E;font-weight:normal;text-anchor: middle;">self-assessment</text>
+  <path d="M26.5 828.5 L963.5 828.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="39.5" y="841.5" height="259" width="499" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="289" y="863" style="fill: #33322E;font-weight:normal;text-anchor: middle;">adjustable-summary (BSAS)</text>
+  <path d="M39.5 872.5 L538.5 872.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="52.5" y="885.5" height="202" width="473" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="289" y="907" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M52.5 916.5 L525.5 916.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="65.5" y="929.5" height="145" width="125" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="128" y="951" style="fill: #33322E;font-weight:normal;text-anchor: middle;">property</text>
+  <path d="M65.5 960.5 L190.5 960.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="78.5" y="973.5" height="88" width="99" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="128" y="995" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{bsasId}</text>
+  <path d="M78.5 1004.5 L177.5 1004.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="91.5" y="1017.5" height="31" width="73" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="128" y="1039" style="fill: #33322E;font-weight:normal;text-anchor: middle;">adjust</text>
+  <rect x="230.5" y="929.5" height="145" width="159" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="310" y="951" style="fill: #33322E;font-weight:normal;text-anchor: middle;">self-employment</text>
+  <path d="M230.5 960.5 L389.5 960.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="243.5" y="973.5" height="88" width="99" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="293" y="995" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{bsasId}</text>
+  <path d="M243.5 1004.5 L342.5 1004.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="256.5" y="1017.5" height="31" width="73" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="293" y="1039" style="fill: #33322E;font-weight:normal;text-anchor: middle;">adjust</text>
+  <rect x="429.5" y="986.5" height="31" width="83" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="471" y="1008" style="fill: #33322E;font-weight:normal;text-anchor: middle;">trigger</text>
+  <rect x="578.5" y="898.5" height="145" width="372" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="764.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">income-summary (BISS)</text>
+  <path d="M578.5 929.5 L950.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="591.5" y="942.5" height="88" width="346" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="764.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M591.5 973.5 L937.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="604.5" y="986.5" height="31" width="159" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="684" y="1008" style="fill: #33322E;font-weight:normal;text-anchor: middle;">self-employment</text>
+  <rect x="803.5" y="986.5" height="31" width="121" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="864" y="1008" style="fill: #33322E;font-weight:normal;text-anchor: middle;">uk-property</text>
+  <rect x="1003.5" y="826.5" height="259" width="1266" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="1636.5" y="848" style="fill: #33322E;font-weight:normal;text-anchor: middle;">calculations</text>
+  <path d="M1003.5 857.5 L2269.5 857.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="1016.5" y="870.5" height="202" width="1240" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="1636.5" y="892" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M1016.5 901.5 L2256.5 901.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="1029.5" y="914.5" height="145" width="1214" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="1636.5" y="936" style="fill: #33322E;font-weight:normal;text-anchor: middle;">self-employment</text>
+  <path d="M1029.5 945.5 L2243.5 945.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="1042.5" y="958.5" height="88" width="1188" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="1636.5" y="980" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{calculationId}</text>
+  <path d="M1042.5 989.5 L2230.5 989.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="1055.5" y="1002.5" height="31" width="292" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="1201.5" y="1024" style="fill: #33322E;font-weight:normal;text-anchor: middle;">allowances-deductions-reliefs</text>
+  <rect x="1387.5" y="1002.5" height="31" width="206" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="1490.5" y="1024" style="fill: #33322E;font-weight:normal;text-anchor: middle;">end-of-year-estimate</text>
+  <rect x="1633.5" y="1002.5" height="31" width="263" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="1765" y="1024" style="fill: #33322E;font-weight:normal;text-anchor: middle;">income-tax-nics-calculated</text>
+  <rect x="1936.5" y="1002.5" height="31" width="92" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="1982.5" y="1024" style="fill: #33322E;font-weight:normal;text-anchor: middle;">messages</text>
+  <rect x="2068.5" y="1002.5" height="31" width="149" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="2143" y="1024" style="fill: #33322E;font-weight:normal;text-anchor: middle;">taxable-income</text>
+  <rect x="2309.5" y="826.5" height="259" width="291" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="2455" y="848" style="fill: #33322E;font-weight:normal;text-anchor: middle;">losses</text>
+  <path d="M2309.5 857.5 L2600.5 857.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2322.5" y="870.5" height="202" width="265" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="2455" y="892" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M2322.5 901.5 L2587.5 901.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2335.5" y="914.5" height="145" width="239" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="2455" y="936" style="fill: #33322E;font-weight:normal;text-anchor: middle;">brought-forward-losses</text>
+  <path d="M2335.5 945.5 L2574.5 945.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2348.5" y="958.5" height="88" width="213" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="2455" y="980" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{lossId}</text>
+  <path d="M2348.5 989.5 L2561.5 989.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2361.5" y="1002.5" height="31" width="187" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="2455" y="1024" style="fill: #33322E;font-weight:normal;text-anchor: middle;">change-loss-amount</text>
+  <rect x="2640.5" y="797.5" height="316" width="1665" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3473" y="819" style="fill: #33322E;font-weight:normal;text-anchor: middle;">income-received</text>
+  <path d="M2640.5 828.5 L4305.5 828.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2653.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="2730.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">dividends</text>
+  <path d="M2653.5 929.5 L2807.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2666.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="2730.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M2666.5 973.5 L2794.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2679.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="2730.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="2847.5" y="841.5" height="259" width="442" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3068.5" y="863" style="fill: #33322E;font-weight:normal;text-anchor: middle;">employments</text>
+  <path d="M2847.5 872.5 L3289.5 872.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2860.5" y="885.5" height="202" width="416" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="3068.5" y="907" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M2860.5 916.5 L3276.5 916.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2873.5" y="929.5" height="145" width="390" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="3068.5" y="951" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <path d="M2873.5 960.5 L3263.5 960.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2886.5" y="973.5" height="88" width="149" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="2961" y="995" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{employmentId}</text>
+  <path d="M2886.5 1004.5 L3035.5 1004.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="2899.5" y="1017.5" height="31" width="73" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:none;"></rect>
+  <text x="2936" y="1039" style="fill: #33322E;font-weight:normal;text-anchor: middle;">ignore</text>
+  <rect x="3075.5" y="973.5" height="88" width="175" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3163" y="995" style="fill: #33322E;font-weight:normal;text-anchor: middle;">custom</text>
+  <path d="M3075.5 1004.5 L3250.5 1004.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3088.5" y="1017.5" height="31" width="149" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="3163" y="1039" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{employmentId}</text>
+  <rect x="3329.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3406.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">foreign</text>
+  <path d="M3329.5 929.5 L3483.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3342.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="3406.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M3342.5 973.5 L3470.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3355.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="3406.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="3523.5" y="898.5" height="145" width="187" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3617" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">insurance-policies</text>
+  <path d="M3523.5 929.5 L3710.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3536.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="3600.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M3536.5 973.5 L3664.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3549.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="3600.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="3750.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3827.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">pensions</text>
+  <path d="M3750.5 929.5 L3904.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3763.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="3827.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M3763.5 973.5 L3891.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3776.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="3827.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="3944.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="4021.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">savings</text>
+  <path d="M3944.5 929.5 L4098.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3957.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="4021.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M3957.5 973.5 L4085.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3970.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="4021.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="4138.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="4215.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">other</text>
+  <path d="M4138.5 929.5 L4292.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4151.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="4215.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M4151.5 973.5 L4279.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4164.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="4215.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="4345.5" y="854.5" height="202" width="180" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="4435.5" y="876" style="fill: #33322E;font-weight:normal;text-anchor: middle;">charges</text>
+  <path d="M4345.5 885.5 L4525.5 885.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4358.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="4435.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">pensions</text>
+  <path d="M4358.5 929.5 L4512.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4371.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="4435.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M4371.5 973.5 L4499.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4384.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="4435.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="4565.5" y="883.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="4642.5" y="905" style="fill: #33322E;font-weight:normal;text-anchor: middle;">disclosures</text>
+  <path d="M4565.5 914.5 L4719.5 914.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4578.5" y="927.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="4642.5" y="949" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M4578.5 958.5 L4706.5 958.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4591.5" y="971.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="4642.5" y="993" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="4759.5" y="854.5" height="202" width="374" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="4946.5" y="876" style="fill: #33322E;font-weight:normal;text-anchor: middle;">expenses</text>
+  <path d="M4759.5 885.5 L5133.5 885.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4772.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="4849.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">employments</text>
+  <path d="M4772.5 929.5 L4926.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4785.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="4849.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M4785.5 973.5 L4913.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4798.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="4849.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="4966.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="5043.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">other</text>
+  <path d="M4966.5 929.5 L5120.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4979.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="5043.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M4979.5 973.5 L5107.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="4992.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="5043.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="5173.5" y="797.5" height="316" width="669" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="5508" y="819" style="fill: #33322E;font-weight:normal;text-anchor: middle;">business</text>
+  <path d="M5173.5 828.5 L5842.5 828.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5186.5" y="898.5" height="145" width="182" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="5277.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">details</text>
+  <path d="M5186.5 929.5 L5368.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5199.5" y="942.5" height="88" width="156" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="5277.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M5199.5 973.5 L5355.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5212.5" y="986.5" height="31" width="130" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="5277.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{businessId}</text>
+  <rect x="5408.5" y="841.5" height="259" width="421" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="5619" y="863" style="fill: #33322E;font-weight:normal;text-anchor: middle;">property</text>
+  <path d="M5408.5 872.5 L5829.5 872.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5421.5" y="885.5" height="202" width="395" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="5619" y="907" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M5421.5 916.5 L5816.5 916.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5434.5" y="929.5" height="145" width="369" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="5619" y="951" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{incomeSourceId}</text>
+  <path d="M5434.5 960.5 L5803.5 960.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5447.5" y="973.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="5511.5" y="995" style="fill: #33322E;font-weight:normal;text-anchor: middle;">annual</text>
+  <path d="M5447.5 1004.5 L5575.5 1004.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5460.5" y="1017.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="5511.5" y="1039" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="5615.5" y="973.5" height="88" width="175" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="5703" y="995" style="fill: #33322E;font-weight:normal;text-anchor: middle;">period</text>
+  <path d="M5615.5 1004.5 L5790.5 1004.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5628.5" y="1017.5" height="31" width="149" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="5703" y="1039" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{submissionId}</text>
+  <rect x="5882.5" y="854.5" height="202" width="568" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="6166.5" y="876" style="fill: #33322E;font-weight:normal;text-anchor: middle;">reliefs</text>
+  <path d="M5882.5 885.5 L6450.5 885.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5895.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="5972.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">investment</text>
+  <path d="M5895.5 929.5 L6049.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5908.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="5972.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M5908.5 973.5 L6036.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="5921.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="5972.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="6089.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="6166.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">pensions</text>
+  <path d="M6089.5 929.5 L6243.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6102.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="6166.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M6102.5 973.5 L6230.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6115.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="6166.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="6283.5" y="898.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="6360.5" y="920" style="fill: #33322E;font-weight:normal;text-anchor: middle;">other</text>
+  <path d="M6283.5 929.5 L6437.5 929.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6296.5" y="942.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="6360.5" y="964" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M6296.5 973.5 L6424.5 973.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6309.5" y="986.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="6360.5" y="1008" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="6490.5" y="826.5" height="259" width="404" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="6692.5" y="848" style="fill: #33322E;font-weight:normal;text-anchor: middle;">state-benefits</text>
+  <path d="M6490.5 857.5 L6894.5 857.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6503.5" y="870.5" height="202" width="378" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="6692.5" y="892" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M6503.5 901.5 L6881.5 901.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6516.5" y="914.5" height="145" width="352" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="6692.5" y="936" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <path d="M6516.5 945.5 L6868.5 945.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6529.5" y="958.5" height="88" width="156" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="6607.5" y="980" style="fill: #33322E;font-weight:normal;text-anchor: middle;">custom</text>
+  <path d="M6529.5 989.5 L6685.5 989.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6542.5" y="1002.5" height="31" width="130" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="6607.5" y="1024" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{benefit_id}</text>
+  <rect x="6725.5" y="987.5" height="31" width="130" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="6790.5" y="1009" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{benefit_id}</text>
+  <rect x="6934.5" y="826.5" height="259" width="636" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="7252.5" y="848" style="fill: #33322E;font-weight:normal;text-anchor: middle;">deductions</text>
+  <path d="M6934.5 857.5 L7570.5 857.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6947.5" y="870.5" height="202" width="416" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="7155.5" y="892" style="fill: #33322E;font-weight:normal;text-anchor: middle;">cis</text>
+  <path d="M6947.5 901.5 L7363.5 901.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6960.5" y="914.5" height="145" width="390" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="7155.5" y="936" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M6960.5 945.5 L7350.5 945.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6973.5" y="958.5" height="88" width="156" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="7051.5" y="980" style="fill: #33322E;font-weight:normal;text-anchor: middle;">amendments</text>
+  <path d="M6973.5 989.5 L7129.5 989.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="6986.5" y="1002.5" height="31" width="130" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="7051.5" y="1024" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">submissionId</text>
+  <rect x="7169.5" y="987.5" height="31" width="168" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:none;"></rect>
+  <text x="7253.5" y="1009" style="fill: #33322E;font-weight:normal;text-anchor: middle;">current-position</text>
+  <rect x="7403.5" y="899.5" height="145" width="154" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="7480.5" y="921" style="fill: #33322E;font-weight:normal;text-anchor: middle;">other</text>
+  <path d="M7403.5 930.5 L7557.5 930.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="7416.5" y="943.5" height="88" width="128" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="7480.5" y="965" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M7416.5 974.5 L7544.5 974.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="7429.5" y="987.5" height="31" width="102" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:4 4;"></rect>
+  <text x="7480.5" y="1009" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{taxYear}</text>
+  <rect x="3491.5" y="1166.5" rx="20" ry="20" height="202" width="615" style="stroke:#33322E;fill:#C9BECF;stroke-dasharray:none;"></rect>
+  <text x="3799" y="1188" style="fill: #33322E;text-anchor: middle;">organisations</text>
+  <path d="M3491.5 1197.5 L4106.5 1197.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3504.5" y="1210.5" height="145" width="589" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:none;"></rect>
+  <text x="3799" y="1232" style="fill: #33322E;font-weight:normal;text-anchor: middle;">vat</text>
+  <path d="M3504.5 1241.5 L4093.5 1241.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3517.5" y="1254.5" height="88" width="563" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="3799" y="1276" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{vrn}</text>
+  <path d="M3517.5 1285.5 L4080.5 1285.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3530.5" y="1298.5" height="31" width="121" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="3591" y="1320" style="fill: #33322E;font-weight:normal;text-anchor: middle;">obligations</text>
+  <rect x="3691.5" y="1298.5" height="31" width="83" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="3733" y="1320" style="fill: #33322E;font-weight:normal;text-anchor: middle;">returns</text>
+  <rect x="3814.5" y="1298.5" height="31" width="121" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="3875" y="1320" style="fill: #33322E;font-weight:normal;text-anchor: middle;">liabilities</text>
+  <rect x="3975.5" y="1298.5" height="31" width="92" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="4021.5" y="1320" style="fill: #33322E;font-weight:normal;text-anchor: middle;">payments</text>
+  <rect x="3622.5" y="1408.5" rx="20" ry="20" height="145" width="353" style="stroke:#33322E;fill:#C9BECF;stroke-dasharray:none;"></rect>
+  <text x="3799" y="1430" style="fill: #33322E;text-anchor: middle;">agents</text>
+  <path d="M3622.5 1439.5 L3975.5 1439.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3635.5" y="1452.5" height="88" width="327" style="stroke:#33322E;fill:#E1D5E7;stroke-dasharray:4 4;"></rect>
+  <text x="3799" y="1474" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{vrn}</text>
+  <path d="M3635.5 1483.5 L3962.5 1483.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3648.5" y="1496.5" height="31" width="121" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="3709" y="1518" style="fill: #33322E;font-weight:normal;text-anchor: middle;">invitations</text>
+  <rect x="3809.5" y="1496.5" height="31" width="140" style="stroke:#33322E;fill:#F9EBFF;stroke-dasharray:none;"></rect>
+  <text x="3879.5" y="1518" style="fill: #33322E;font-weight:normal;text-anchor: middle;">relationships</text>
+  <rect x="3505.5" y="1593.5" rx="20" ry="20" height="202" width="586" style="stroke:#33322E;fill:#B7C7B6;stroke-dasharray:none;"></rect>
+  <text x="3798.5" y="1615" style="fill: #33322E;text-anchor: middle;">accounts</text>
+  <path d="M3505.5 1624.5 L4091.5 1624.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3518.5" y="1637.5" height="145" width="560" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:none;"></rect>
+  <text x="3798.5" y="1659" style="fill: #33322E;font-weight:normal;text-anchor: middle;">self-assessment</text>
+  <path d="M3518.5 1668.5 L4078.5 1668.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3531.5" y="1681.5" height="88" width="534" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="3798.5" y="1703" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M3531.5 1712.5 L4065.5 1712.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3544.5" y="1725.5" height="31" width="83" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:none;"></rect>
+  <text x="3586" y="1747" style="fill: #33322E;font-weight:normal;text-anchor: middle;">balance</text>
+  <rect x="3667.5" y="1725.5" height="31" width="83" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:none;"></rect>
+  <text x="3709" y="1747" style="fill: #33322E;font-weight:normal;text-anchor: middle;">charges</text>
+  <rect x="3790.5" y="1725.5" height="31" width="92" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:none;"></rect>
+  <text x="3836.5" y="1747" style="fill: #33322E;font-weight:normal;text-anchor: middle;">payments</text>
+  <rect x="3922.5" y="1725.5" height="31" width="130" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:none;"></rect>
+  <text x="3987.5" y="1747" style="fill: #33322E;font-weight:normal;text-anchor: middle;">transactions</text>
+  <rect x="3717.5" y="1835.5" rx="20" ry="20" height="145" width="163" style="stroke:#33322E;fill:#B7C7B6;stroke-dasharray:none;"></rect>
+  <text x="3799" y="1857" style="fill: #33322E;text-anchor: middle;">obligations</text>
+  <path d="M3717.5 1866.5 L3880.5 1866.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3730.5" y="1879.5" height="88" width="137" style="stroke:#33322E;fill:#D5E8D4;stroke-dasharray:4 4;"></rect>
+  <text x="3799" y="1901" style="fill: #33322E;font-weight:normal;font-style:italic;text-anchor: middle;">{nino}</text>
+  <path d="M3730.5 1910.5 L3867.5 1910.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+  <rect x="3743.5" y="1923.5" height="31" width="111" style="stroke:#33322E;fill:#E5FAE4;stroke-dasharray:none;"></rect>
+  <text x="3799" y="1945" style="fill: #33322E;font-weight:normal;text-anchor: middle;">income-tax</text>
+</svg>
