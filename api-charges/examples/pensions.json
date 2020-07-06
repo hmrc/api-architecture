@@ -11,7 +11,10 @@
     "benefitInExcessOfLifetimeAllowance": {
       "amount": 1213.0,
       "taxPaid": 123.0
-    }
+    },
+    "isAnnualAllowanceReduced": true,
+    "taperedAnnualAllowance" : true,
+    "moneyPurchasedAllowance": false
   },
   "pensionSchemeOverseasTransfers": {
     "overseasSchemeProvider": [
