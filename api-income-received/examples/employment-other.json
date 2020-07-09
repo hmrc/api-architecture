@@ -45,5 +45,26 @@
     {
       "customerReference": "cust ref",
       "amountDeducted": 1223.22
+    },
+  "lumpSums": {
+    "taxableLumpSumsAndCertainIncome": {
+      "amount": 123.0,
+      "taxPaid": 123.0,
+      "taxTakenOffInEmployment": true
+    },
+    "benefitFromEmployerFinancedRetirementScheme": {
+      "amount": 123.0,
+      "exemptAmount": 123.0,
+      "taxPaid": 123.0,
+      "taxTakenOffInEmployment": true
+    },
+    "redundancyCompensationPaymentsOverExemption": {
+      "amount": 123.0,
+      "taxPaid": 123.0,
+      "taxTakenOffInEmployment": true
+    },
+    "redundancyCompensationPaymentsUnderExemption": {
+      "amount": 123.0
     }
+  }
 }

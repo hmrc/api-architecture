@@ -5,27 +5,6 @@
       "taxTakenOffYtd": 12.22,
       "tipsAndOtherPayments": 10000.0
     },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123.0,
-        "exemptAmount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123.0,
-        "taxPaid": 123.0,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123.0
-      }
-    },
     "deductions": {
       "studentLoans": {
         "uglDeductionAmount": 1232.22,
