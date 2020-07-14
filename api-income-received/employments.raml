@@ -51,7 +51,7 @@
                         value: !include examples/employments-get-detail-latest.json
           put:
             displayName: Employments PUT
-            description: Create/Update an override for an HRMC held Employment
+            description: Create/Update an override for an Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             body:
               application/json:
@@ -65,7 +65,7 @@
               502:
           delete:
             displayName: Employments DELETE
-            description: Delete an override for an HRMC held Employment
+            description: Delete an override for an Employment
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
             responses:
               204:
@@ -117,7 +117,7 @@
               employmentId:  baseTypes.EmploymentId
             put:
               displayName: Employments Custom PUT
-              description: Create/update a custom Employment
+              description: Update a custom Employment
               is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatToDate]
               body:
                 application/json:
