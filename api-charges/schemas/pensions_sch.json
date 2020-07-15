@@ -8,9 +8,6 @@
     {
       "$ref": "#/definitions/submission"
     },
-    {
-      "$ref": "#/definitions/submissionWithHistory"
-    }
   ],
   "definitions": {
     "submission": {
@@ -34,6 +31,10 @@
         }
       ],
       "properties": {
+        "submittedOn": {
+          "type": "string",
+          "format": "date-time"
+        },
         "pensionSavingsTaxCharges": {
           "$ref": "#/definitions/pensionSavingsTaxChargesType"
         },
