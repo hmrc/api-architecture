@@ -74,7 +74,7 @@
         [&lt;mchld&gt; from/to]
         [&lt;mchld&gt; obligations]
       ]
-      [&lt;mseg&gt; furnished-holday-lettings | 
+      [&lt;mseg&gt; furnished-holiday-lettings |
         [&lt;mchldparam&gt; {taxYear} ]
         [&lt;mseg&gt; periods | 
           [&lt;mchld&gt; periodId ]        
@@ -416,7 +416,7 @@
   <rect x="2873.5" y="602.5" height="31" width="121" style="stroke:#33322E;fill:#FFEBD9;stroke-dasharray:none;"></rect>
   <text x="2934" y="624" style="fill: #33322E;font-weight:normal;text-anchor: middle;">obligations</text>
   <rect x="3047.5" y="529.5" height="145" width="286" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
-  <text x="3190.5" y="551" style="fill: #33322E;font-weight:normal;text-anchor: middle;">furnished-holday-lettings</text>
+  <text x="3190.5" y="551" style="fill: #33322E;font-weight:normal;text-anchor: middle;">furnished-holiday-lettings</text>
   <path d="M3047.5 560.5 L3333.5 560.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
   <rect x="3060.5" y="573.5" height="88" width="118" style="stroke:#33322E;fill:#EDD5BD;stroke-dasharray:none;"></rect>
   <text x="3119.5" y="595" style="fill: #33322E;font-weight:normal;text-anchor: middle;">periods</text>

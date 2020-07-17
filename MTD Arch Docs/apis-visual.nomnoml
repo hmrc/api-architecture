@@ -72,7 +72,7 @@
         [<mchld> from/to]
         [<mchld> obligations]
       ]
-      [<mseg> furnished-holday-lettings | 
+      [<mseg> furnished-holiday-lettings |
         [<mchldparam> {taxYear} ]
         [<mseg> periods | 
           [<mchld> periodId ]        
