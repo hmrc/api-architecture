@@ -22,27 +22,6 @@
       "paymentDate": "2020-05-12",
       "taxWeekNo": 52
     },
-    "lumpSums": {
-      "taxableLumpSumsAndCertainIncome": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "benefitFromEmployerFinancedRetirementScheme": {
-        "amount": 123,
-        "exemptAmount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsOverExemption": {
-        "amount": 123,
-        "taxPaid": 123,
-        "taxTakenOffInEmployment": true
-      },
-      "redundancyCompensationPaymentsUnderExemption": {
-        "amount": 123
-      }
-    },
     "deductions": {
       "studentLoans": {
         "uglDeductionAmount": 1232.22,
