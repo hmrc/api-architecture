@@ -1,15 +1,20 @@
+'self-employments
+'
 individuals/self-assessment/ni/{nino}/ [9] self-employments
 self-employments [1] SE obligations
+SE obligations [1] income-tax
 self-employments [2] SE periodic
 SE periodic [2] New API
 self-employments [2] SE annual
 SE annual [2] New API
 self-employments [1] SE EOPS
-SE EOPS [1] New API
+SE EOPS [1] end-of-period-statement
 self-employments [1] SE EOPS/obligations
-SE obligations [1] New API
-SE EOPS/obligations [1] New API
+SE EOPS/obligations [1] income-tax
 self-employments [2] New API
+'
+'uk-properties
+'
 individuals/self-assessment/ni/{nino}/ [11] uk-properties
 uk-properties [2] New API
 uk-properties [3] UKP other
@@ -17,17 +22,29 @@ UKP other [3] New API
 uk-properties [3] UKP FHL
 UKP FHL [3] New API
 uk-properties [1] UKP EOPS
-UKP EOPS [1] New API
+UKP EOPS [1] end-of-period-statement
 uk-properties [1] UKP EOPS/obligations
-UKP EOPS/obligations [1] New API
+UKP EOPS/obligations [1] income-tax
 uk-properties [1] UKP income-summary
 UKP income-summary [1] New API
-individuals/self-assessment/ni/{nino}/ [1] dividends
-dividends [1] New API
+'
+'UK dividends
+'
+individuals/self-assessment/ni/{nino}/ [1] (UK) dividends
+(UK) dividends [1] New API
+'
+'savings-accounts
+'
 individuals/self-assessment/ni/{nino}/ [3] savings-accounts
 savings-accounts [3] New API
+'
+' calculations
+'
 individuals/self-assessment/ni/{nino}/ [3] calculations
 calculations [3] New API
+'
+' crystalisation
+'
 individuals/self-assessment/ni/{nino}/ [3] crystalisation
 crystalisation [1] {taxYear}/intent-to-crystalise
 {taxYear}/intent-to-crystalise [1] New API
@@ -35,6 +52,18 @@ crystalisation [1] {taxYear}/crystalisation
 {taxYear}/crystalisation [1] New API
 crystalisation [1] crystalisation/obligations
 crystalisation/obligations [1] New API
+'
+'charitable-giving
+'
 individuals/self-assessment/ni/{nino}/ [1] charitable-giving
 charitable-giving [1] New API
+'
+'
+' New Domain APIS
+'
+end-of-period-statement [2] business
+property [3] business
+business [5] individuals
 
+income-tax [3] {nino}
+{nino} [3] obligations
