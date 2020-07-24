@@ -4,66 +4,85 @@ individuals/self-assessment/ni/{nino}/ [9] self-employments
 self-employments [1] SE obligations
 SE obligations [1] income-tax
 self-employments [2] SE periodic
-SE periodic [2] New API
+SE periodic [2]
 self-employments [2] SE annual
-SE annual [2] New API
+SE annual [1] SE income-summary
+SE income-summary [1] income-summary (BISS)
 self-employments [1] SE EOPS
 SE EOPS [1] end-of-period-statement
 self-employments [1] SE EOPS/obligations
 SE EOPS/obligations [1] income-tax
-self-employments [2] New API
+self-employments [2]
 '
 'uk-properties
 '
 individuals/self-assessment/ni/{nino}/ [11] uk-properties
-uk-properties [2] New API
+uk-properties [2]
 uk-properties [3] UKP other
-UKP other [3] New API
+UKP other [2] annual
+UKP other [1] periodic
 uk-properties [3] UKP FHL
-UKP FHL [3] New API
+UKP FHL [2] annual
+UKP FHL [1] periodic
 uk-properties [1] UKP EOPS
 UKP EOPS [1] end-of-period-statement
 uk-properties [1] UKP EOPS/obligations
 UKP EOPS/obligations [1] income-tax
 uk-properties [1] UKP income-summary
-UKP income-summary [1] New API
+UKP income-summary [1] income-summary (BISS)
 '
 'UK dividends
 '
 individuals/self-assessment/ni/{nino}/ [1] (UK) dividends
-(UK) dividends [1] New API
+(UK) dividends [1] dividends
 '
 'savings-accounts
 '
 individuals/self-assessment/ni/{nino}/ [3] savings-accounts
-savings-accounts [3] New API
+savings-accounts [3]
 '
 ' calculations
 '
 individuals/self-assessment/ni/{nino}/ [3] calculations
-calculations [3] New API
+calculations [3] self-assessment
 '
 ' crystalisation
 '
 individuals/self-assessment/ni/{nino}/ [3] crystalisation
 crystalisation [1] {taxYear}/intent-to-crystalise
-{taxYear}/intent-to-crystalise [1] New API
+{taxYear}/intent-to-crystalise [1] .intent-to-crystalise
 crystalisation [1] {taxYear}/crystalisation
-{taxYear}/crystalisation [1] New API
+{taxYear}/crystalisation [1] .crystalisation
 crystalisation [1] crystalisation/obligations
-crystalisation/obligations [1] New API
+crystalisation/obligations [1] income-tax
 '
 'charitable-giving
 '
 individuals/self-assessment/ni/{nino}/ [1] charitable-giving
-charitable-giving [1] New API
+charitable-giving [1]
 '
 '
 ' New Domain APIS
 '
 end-of-period-statement [2] business
-property [3] business
-business [5] individuals
+annual [4] property
+periodic [2] property
+property [6] business
+business [8] individuals/income-received
+self-assessment [3] .calculations
+.crystalisation [1] .calculations
+.intent-to-crystalise [1] .calculations
+.calculations [5] individuals
+dividends [1] individuals/income-received
 
-income-tax [3] {nino}
-{nino} [3] obligations
+income-tax [4] obligations
+
+income-summary (BISS) [2] individuals/self-assessment
+
+obligations [4] New
+individuals/income-received [9] New
+individuals [5] New
+individuals/self-assessment [2] New
+
+
+
