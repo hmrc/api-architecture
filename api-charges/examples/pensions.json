@@ -1,4 +1,5 @@
 {
+  "submittedOn": "2020-07-29T11:43:30Z",
   "pensionSavingsTaxCharges": {
     "pensionSchemeTaxReference": [
       "00123456RA",
@@ -58,7 +59,7 @@
         "providerName": "Overseas Pensions Plc",
         "providerAddress": "111 Main Street, George Town, Grand Cayman",
         "providerCountryCode": "CYM",
-        "pensionSchemeTaxReference": [
+        "qualifyingRecognisedOverseasPensionScheme": [
           "00123456RA"
         ]
       }
