@@ -1,0 +1,42 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/View_Employment_Expenses_Response",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Disclosures",
+  "type": "object",
+  "description": "Non-financial information i.e. tax avoidance & voluntary class 2 NICs, pertinent to the calculation, to be stored against the person.",
+  "additionalProperties": false,
+  "required": ["submittedOn"],
+  "properties": {
+    "submittedOn": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "taxAvoidance": {
+      "type": "array",
+      "required": ["srn","taxYear"],
+      "description": "Tax avoidance declarations",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "srn": {
+          "type": "string"
+        },
+        "taxYear": {
+          "type": "string"
+        }
+      }
+    },
+    "class2Nics": {
+      "type": "object",
+      "required": ["voluntaryContributions"],
+      "description": "Voluntary contributions",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "voluntaryContributions": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

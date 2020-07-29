@@ -1,9 +1,9 @@
 {
   "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/View_Employment_Expenses_Response",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "View Employment Expenses Response",
+  "title": "Disclosures",
   "type": "object",
-  "description": "A view of the expenses a customer has declared in relation to the their activities as an employee.",
+  "description": "Non-financial information i.e. tax avoidance & voluntary class 2 NICs, pertinent to the calculation, to be stored against the person",
   "additionalProperties": false,
   "required": [
     "totalExpenses",
