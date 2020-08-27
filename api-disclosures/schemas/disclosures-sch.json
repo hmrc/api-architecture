@@ -34,7 +34,8 @@
       "minProperties": 1,
       "properties": {
         "voluntaryContributions": {
-          "type": "boolean"
+          "type": "boolean",
+          "enum": [true]
         }
       }
     }

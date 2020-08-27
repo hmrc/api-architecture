@@ -1,0 +1,62 @@
+#https://plantuml.com/gantt-diagram
+@startuml
+
+
+project starts 2020-01-01
+projectscale monthly
+saturday are closed
+sunday are closed
+
+[M'lth Dividends] starts 2020-01-01 and ends 2021-04-01
+[M'lth Dividends] is colored in Bisque
+[M'lth Savings] starts 2020-01-01 and ends 2021-04-01
+[M'lth Savings] is colored in Bisque
+[(New) Income Received SB] starts 2020-10-01 and ends 2020-11-30
+[(New) Income Received SB] is colored in lightblue
+[(New) Income Received Live] starts at [(New) Income Received SB]'s end and ends 2022-12-31
+[(New) Income Received Live] is colored in lightgreen
+
+
+[M'lth Property (UK Annual)] starts 2020-01-01 and ends 2021-04-01
+[M'lth Property (UK Annual)] is colored in Bisque
+[M'lth Property (UK Periodic)] starts 2020-01-01 and ends 2021-04-01
+[M'lth Property (UK Periodic)] is colored in Bisque
+[M'lth SE Income (Annual)] starts 2020-01-01 and ends 2021-04-01
+[M'lth SE Income (Annual)] is colored in Bisque
+[M'lth SE Income (Periodic)] starts 2020-01-01 and ends 2021-04-01
+[M'lth SE Income (Periodic)] is colored in Bisque
+[M'lth EOPs] starts 2020-01-01 and ends 2021-04-01
+[M'lth EOPs] is colored in Bisque
+[(New) Business SB] starts 2020-10-01 and ends 2020-11-30
+[(New) Business SB] is colored in lightblue
+[(New) Business Live] starts at [(New) Business SB]'s end and ends 2022-12-31
+[(New) Business Live] is colored in lightgreen
+
+[M'lth Calculations] starts 2020-01-01 and ends 2020-07-30
+[M'lth Calculations] is colored in Bisque
+[M'lth Calc EoL] happens 2020-07-30
+[M'lth Crystalisation] starts 2020-01-01 and ends 2021-04-01
+[M'lth Crystalisation] is colored in Bisque
+[(New) Calculations Live] starts at 2020-01-01 and ends 2022-12-31
+[(New) Calculations Live] is colored in lightgreen
+
+[M'lth SE Income Summary] starts 2020-01-01 and ends 2020-07-30
+[M'lth SE Income Summary] is colored in Bisque
+[M'lth IS EoL] happens 2020-07-30
+[(New) BISS/BSAS Live] starts at 2020-02-01 and ends 2022-12-31
+[(New) BISS/BSAS Live] is colored in lightgreen
+
+[M'lth Obligations] starts 2020-01-01 and ends 2021-04-01
+[M'lth Obligations] is colored in Bisque
+[(New) Obligations SB] starts 2020-10-01 and ends 2020-11-30
+[(New) Obligations SB] is colored in lightblue
+[(New) Obligations Live] starts at [(New) Obligations SB]'s end and ends 2022-12-31
+[(New) Obligations Live] is colored in lightgreen
+
+[M'lth Charitable Giving] starts 2020-01-01 and ends 2021-04-01
+[M'lth Charitable Giving] is colored in Bisque
+[(New) Reliefs SB] starts 2020-10-01 and ends 2020-11-30
+[(New) Reliefs SB] is colored in lightblue
+[(New) Reliefs Live] starts at [(New) Reliefs SB]'s end and ends 2022-12-31
+[(New) Reliefs Live] is colored in lightgreen
+@enduml

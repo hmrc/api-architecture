@@ -1,0 +1,22 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PlantUML Local" type="docker-deploy" factoryName="docker-image" server-name="Docker Local">
+    <deployment type="docker-image">
+      <settings>
+        <option name="imageTag" value="plantuml/plantuml-server:jetty" />
+        <option name="command" value="" />
+        <option name="containerName" value="plantuml" />
+        <option name="entrypoint" value="" />
+        <option name="portBindings">
+          <list>
+            <DockerPortBindingImpl>
+              <option name="containerPort" value="8080" />
+              <option name="hostPort" value="8080" />
+            </DockerPortBindingImpl>
+          </list>
+        </option>
+        <option name="commandLineOptions" value="" />
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>
