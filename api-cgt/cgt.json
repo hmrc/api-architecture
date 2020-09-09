@@ -1,0 +1,134 @@
+/disposals/
+
+{
+  "property": {
+    "disposalProceeds": ,
+    "allowableCostsIncPurchasePrice":  ,
+    "gainsInTheYearBeforeLosses":  ,
+    "lossesInTheYear":  ,
+    "claimOrElectionCode": ,
+    "totalGainChargeableToNonResidentCapitalGainsTaxAfterLosses",
+    "taxOnGainsAlreadyCharged": ,
+    "residentialPropertyOverallGainOrLoss" ,
+    "taxOnGainsAlreadyCharged": ,
+    "carriedInterest": ,
+    "disposalProceeds": ,
+    "allowableCosts": ,
+    "gainsInTheYearBeforeLosses": ,
+    "AttributedGainsWherePersonalLossesCannotBeSetOff": ,
+    "LossesInTheYear": ,
+    "overallGainOrLoss": ,
+    "TaxOnGainsAlreadyCharged": ,
+
+    ForDirectDisposalsOfNon-ResidentialUkPropertiesOrLand,OrIndirectDisposalsOfAnyUkPropertiesOrLand,PutTheTotalGainsChargeableToNrcgtInTheBox
+    IfAnyOfTheGainsInCgt.053.2AreFromIndirectDisposals,Put’X’InTheBox
+    TaxOnGainsInCgt.53.1And53.2AlreadyPaid
+    TotalLossesAvailableAgainstNrcgtGainsForTheYear
+    AnnualExemptAmount
+    TaxableGains
+    ClaimToSpecialCapitalGainsTaxTreatmentWhereAVulnerableBeneficiaryElectionHasEffect;AmountOfReliefClaimed
+    TotalTaxableGains
+    LossesBroughtForwardAndUsedInYear
+    IncomeLossesSetAgainstGains
+    DateOfDisposal/Sale
+    AmountOfDisposalProceedsOrMarketValue,IfAppropriate
+    IsTheAmountInCgt.076ActualOrMarketValue?
+    IncidentalCostsOfDisposalAmountOfIncidentalCostsOfDisposal
+    NetDisposalProceeds(Sum)
+    DateOfAcquisition
+    CostOr31March1982Value
+    PurchasePrice
+    AmountOfAllowableIncidentalCosts(ExcludingPurchasePrice)AmountOfIncidentalCostsOfAcquisition(ExcludingAcquisitionCost)
+    ImprovementCostsAmountOfOtherAllowableExpenditure(E.G.IncludesImprovementAndOtherAllowableCosts
+    AmountOfGainOrLoss(Sum)
+    AmountOfCgElectionsOrReliefs(NotTheAnnualExemptionReliefOrEntrepreneursRelief)AmountOfGainOrLossAfterTheApplicationOfTheElectionOrRelief
+    CodeForCgElectionsOrReliefs
+    CategoryOfDisposal
+    TypeOfAsset
+    HowMuchOfTheGainQualifiesForInvestor'SRelief?
+    DatePost-TransactionalValuationProvided
+    AmountOfPost-TransactionalValuationProvided
+    AddressOfPropertyDisposedOf
+    DoesCalculationIncludeAnyEstimatesOrValuations
+    DateOfCompletion/Conveyance
+    DateOfPre-TransactionRuling
+    ReferenceOfPre-TransactionRuling
+    HowMuchOfThePropertyDoYouOwn?
+    HaveYouIncludedAnyEstimatedFiguresInYourCgtCalculation?
+    HowDidYouObtainThisProperty?
+    CountryCode
+    NameOfAvoidanceSchemeUsed
+    DotasReferenceNumber
+
+  "sharesAndSecurities": {
+    "disposalProceeds": ,
+    "allowableCostsIncludingPurchasePrice": ,
+    "gainsInTheYearBeforeLosses":  ,
+    "lossesInTheYear":  ,
+    "claimOrElectionCode": ,
+    "overallGainOrLossForTheDisposalOfListedSharesOrSecurities": ,
+    "taxOnGainsAlreadyCharged": ,
+    "disposalProceeds": ,
+    "allowableCosts": ,
+    "gainsInTheYearBeforeLosses": ,
+    "claimOrElectionCode": ,
+    "overallGainOrLossForTheDisposalOfUnlistedSharesOrSecurities": ,
+    "taxOnGainsAlreadyCharged": ,
+    "gainsExceedingTheLifetimeLimitForEmployeeShareholderStatusShares": ,
+    "gainsInvestedUnderSeedEnterpriseInvestmentSchemeAndQualifyingForRelief": ,
+    "lossesUsedAgainstIncome":,
+    "amountRelatingToShareLossReliefIn201819ToWhichEnterpriseInvestmentSchemeOrSeedEnterpriseInvestmentSchemeReliefIsAttributable": ,
+
+
+    LossesInTheYear,
+    IfYouAreMakingAnyClaimOrElection,PutTheRelevantCodeInTheBox,
+    ,
+    AllowableCosts(IncludingPurchasePrice),
+    If,During2018-19,YouSubmittedRealTimeTransactionReturnsForTheDisposalOfUnlistedSharesOrSecurities,PutTheOverallGainOrLossInTheBox–IncludeTheIndividualAmountsOfGainsInCgt.034AndLossesInCgt.035
+    TaxOnGainsIn0.37AlreadyCharged
+
+
+
+
+    AmountInCgt.043RelatingToShareLossReliefIn2017-18ToWhichEnterpriseInvestmentSchemeOrSeedEnterpriseInvestmentSchemeReliefIsAttributable
+    NameOfCompanySharesHaveBeenDisposedIn
+    GainsQualifyingForEntrepreneurs’Relief-GainsBefore23June2010,
+    GainsQualifyingForEntrepreneurs’Relief-GainsOnOrAfter23June2010
+  },
+  "": {
+  }
+},
+
+
+/losses/
+"": {
+  LossesUsedAgainstIncome-AmountClaimedAgainst2017-18Income
+  LossesBroughtForwardAndUsedIn-Year
+  IncomeLossesOf2018-19SetAgainstGains
+  LossesAvailableToBeCarriedForward
+  LossesUsedAgainstAnEarlierYear’SGain
+  TotalOfThisYear'SLosses
+  UsedAgainstGains
+  CurrentYearLossesTransferredToBeneficiariesDuringTheYearAndCurrentYearLossesCarriedBack
+  CurrentYearLossesCarriedForward
+  UnusedLossesOf1996-97AndLaterYears
+  UsedThisYear(BoxAboveIsPriorityOfTheOneBelow)
+  UnusedLossesOf1995-96AndEarlierYears
+  RemainingUnusedLossesOf1996-97AndLaterYears
+  TotalCarriedForwardLossesOf1996-97AndLaterYears
+  TotalCarriedForwardLossesOf1995-96AndEarlierYears
+
+},
+
+/adjustments/
+"property": {
+adjustmentsToCapitalGainsTax
+additionalLiabilityForNonResidentOrDualResidentTrusts
+},
+
+
+/reliefs/
+{
+  AreYouClaimingEntrepreneursRelief?
+  AmountsOnWhichEntrepreneursReliefIsClaimed
+}
