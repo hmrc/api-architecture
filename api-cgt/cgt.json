@@ -1,25 +1,36 @@
-/disposals/
-
+/* disposals */
 {
   "property": {
-    "disposalProceeds": ,
-    "allowableCostsIncPurchasePrice":  ,
-    "gainsInTheYearBeforeLosses":  ,
-    "lossesInTheYear":  ,
-    "claimOrElectionCode": ,
-    "totalGainChargeableToNonResidentCapitalGainsTaxAfterLosses",
-    "taxOnGainsAlreadyCharged": ,
-    "residentialPropertyOverallGainOrLoss" ,
-    "taxOnGainsAlreadyCharged": ,
-    "carriedInterest": ,
-    "disposalProceeds": ,
-    "allowableCosts": ,
-    "gainsInTheYearBeforeLosses": ,
-    "AttributedGainsWherePersonalLossesCannotBeSetOff": ,
-    "LossesInTheYear": ,
-    "overallGainOrLoss": ,
-    "TaxOnGainsAlreadyCharged": ,
+     "residential": [
+        {
+         "disposalProceeds":,
+         "allowableCostsIncPurchasePrice":,
+         "gainsInTheYearBeforeLosses":,
+         "lossesInTheYear":,
+         "claimOrElectionCode":,
+         "totalGainChargeableToNonResidentCapitalGainsTaxAfterLosses",
+         "taxOnGainsAlreadyCharged":,
+         "residentialPropertyOverallGainOrLoss",
+         "taxOnGainsAlreadyCharged":,
+         "carriedInterest":,
+         "disposalProceeds":,
+         "allowableCosts":,
+         "gainsInTheYearBeforeLosses":,
+         "AttributedGainsWherePersonalLossesCannotBeSetOff":,
+         "LossesInTheYear":,
+         "overallGainOrLoss":,
+         "TaxOnGainsAlreadyCharged":,
+         "totalGainsChargeabletoCgt":
+        }
+      ]
+      },
+     "nonResidential": {
+         "totalGainsChargeable":
 
+  }
+},
+
+/*
     ForDirectDisposalsOfNon-ResidentialUkPropertiesOrLand,OrIndirectDisposalsOfAnyUkPropertiesOrLand,PutTheTotalGainsChargeableToNrcgtInTheBox
     IfAnyOfTheGainsInCgt.053.2AreFromIndirectDisposals,Put’X’InTheBox
     TaxOnGainsInCgt.53.1And53.2AlreadyPaid
@@ -59,25 +70,31 @@
     CountryCode
     NameOfAvoidanceSchemeUsed
     DotasReferenceNumber
+*/
 
-  "sharesAndSecurities": {
-    "disposalProceeds": ,
-    "allowableCostsIncludingPurchasePrice": ,
-    "gainsInTheYearBeforeLosses":  ,
-    "lossesInTheYear":  ,
-    "claimOrElectionCode": ,
-    "overallGainOrLossForTheDisposalOfListedSharesOrSecurities": ,
-    "taxOnGainsAlreadyCharged": ,
-    "disposalProceeds": ,
-    "allowableCosts": ,
-    "gainsInTheYearBeforeLosses": ,
-    "claimOrElectionCode": ,
-    "overallGainOrLossForTheDisposalOfUnlistedSharesOrSecurities": ,
-    "taxOnGainsAlreadyCharged": ,
-    "gainsExceedingTheLifetimeLimitForEmployeeShareholderStatusShares": ,
-    "gainsInvestedUnderSeedEnterpriseInvestmentSchemeAndQualifyingForRelief": ,
-    "lossesUsedAgainstIncome":,
-    "amountRelatingToShareLossReliefIn201819ToWhichEnterpriseInvestmentSchemeOrSeedEnterpriseInvestmentSchemeReliefIsAttributable": ,
+"sharesAndSecurities": {
+  "disposalProceeds": ,
+  "allowableCostsIncludingPurchasePrice": ,
+  "gainsInTheYearBeforeLosses": ,
+  "lossesInTheYear": ,
+  "claimOrElectionCode": ,
+  "overallGainOrLossForTheDisposalOfListedSharesOrSecurities": ,
+  "taxOnGainsAlreadyCharged": ,
+  "disposalProceeds": ,
+  "allowableCosts": ,
+  "gainsInTheYearBeforeLosses": ,
+  "claimOrElectionCode": ,
+  "overallGainOrLossForTheDisposalOfUnlistedSharesOrSecurities": ,
+  "taxOnGainsAlreadyCharged": ,
+  "gainsExceedingTheLifetimeLimitForEmployeeShareholderStatusShares": ,
+  "gainsInvestedUnderSeedEnterpriseInvestmentSchemeAndQualifyingForRelief": ,
+  "lossesUsedAgainstIncome": ,
+  "amountRelatingToShareLossReliefIn201819ToWhichEnterpriseInvestmentSchemeOrSeedEnterpriseInvestmentSchemeReliefIsAttributable": ,
+  "AmountInCgt.043RelatingToShareLossReliefIn2017-18ToWhichEnterpriseInvestmentSchemeOrSeedEnterpriseInvestmentSchemeReliefIsAttributable": ,
+  "NameOfCompanySharesHaveBeenDisposedIn": ,
+  "GainsQualifyingForEntrepreneursReliefGainsBefore23June2010": ,
+  "GainsQualifyingForEntrepreneursReliefGainsOnOrAfter23June2010":
+}
 
 
     LossesInTheYear,
@@ -90,23 +107,23 @@
 
 
 
-    AmountInCgt.043RelatingToShareLossReliefIn2017-18ToWhichEnterpriseInvestmentSchemeOrSeedEnterpriseInvestmentSchemeReliefIsAttributable
-    NameOfCompanySharesHaveBeenDisposedIn
-    GainsQualifyingForEntrepreneurs’Relief-GainsBefore23June2010,
-    GainsQualifyingForEntrepreneurs’Relief-GainsOnOrAfter23June2010
+
+
   },
   "": {
   }
 },
 
 
-/losses/
-"": {
-  LossesUsedAgainstIncome-AmountClaimedAgainst2017-18Income
-  LossesBroughtForwardAndUsedIn-Year
-  IncomeLossesOf2018-19SetAgainstGains
-  LossesAvailableToBeCarriedForward
-  LossesUsedAgainstAnEarlierYear’SGain
+/losses/,
+
+"captitalLosses": {
+  "LossesUsedAgainstIncomeAmountClaimedAgainst201718Income": ,
+  "LossesBroughtForwardAndUsedIn-Year": ,
+  "IncomeLossesOf2018-19SetAgainstGains": ,
+  "LossesAvailableToBeCarriedForward": ,
+  "LossesUsedAgainstAnEarlierYearsGain:" ,
+
   TotalOfThisYear'SLosses
   UsedAgainstGains
   CurrentYearLossesTransferredToBeneficiariesDuringTheYearAndCurrentYearLossesCarriedBack
@@ -121,9 +138,9 @@
 },
 
 /adjustments/
-"property": {
-adjustmentsToCapitalGainsTax
-additionalLiabilityForNonResidentOrDualResidentTrusts
+"": {
+  "adjustmentsToCapitalGainsTax": ,
+  "additionalLiabilityForNonResidentOrDualResidentTrusts":
 },
 
 
