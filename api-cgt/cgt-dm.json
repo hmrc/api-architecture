@@ -3,6 +3,9 @@
 //
 
 
+// Assumptions
+// 1. Record each disposal type rolled up
+
 // From Domain Modelling
 
 // removed:
@@ -13,9 +16,10 @@
 //  "sharesAndSecurities": {
 //    "numberOfDisposals": ,": ,
 
+
 {
 
-  "property": [
+  "property":
     {
     "disposalProceeds": ,
     "allowableCostsIncludingPurchasePrice": ,
@@ -75,7 +79,7 @@
     "dotasReferenceNumber": ,
     "typeOfAsset":
     }
-  ],
+  ,
 
   "sharesAndSecurities": {
     "disposalProceeds": ,
@@ -127,9 +131,17 @@
 
 }
 
-//From SA 108
+//Categorisations from SA 108
   {
     "residentialProperty": {},
     "other": {},
-    "listedSharesAndSecurities:"{}
+    "listedSharesAndSecurities":{},
+    "unlistedSharesAndSecurities":{},
+    "lossesAndAdjustments": {}
   }
+
+// Thoughts
+//
+// 1. Reuse Losses API?
+// 2. Adjustments API?
+// 3. How to minimise breaking changes of items with high volatility?  e.g. specific tax year rules
