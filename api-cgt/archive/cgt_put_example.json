@@ -2,18 +2,15 @@
   "ppdQualifyingDisposals": {
     "disposals": [
       {
-        "assetType": "ukResidentalProperty",
-        "assetDescription": "xxxxxxxx",
-        "ppdReference": "",
-        // pre-pop available Y?
+        "assetType": "ukResidentialProperty",
+        "assetDescription": "X",
+        "ppdReference": "TBD",
         "acquisitionDate": "2017-10-10",
         "disposalDate": "2020-08-10",
         "disposalProceeds": 100.00,
         "allowableCosts": 100.00,
         "gain": 50.00,
-        // pre-pop available Y?
         "loss": 50.00,
-        // pre-pop available Y?
         "claimOrElectionCodes": [
           "BAD"
         ],
@@ -22,8 +19,8 @@
       },
       {
         "assetType": "nonResidentUkResidentialProperty",
-        "assetDescription": "xxxxxxxx",
-        "ppdReference": "",
+        "assetDescription": "X",
+        "ppdReference": "TBD",
         "acquisitionDate": "2017-10-10",
         "disposalDate": "2020-08-10",
         "disposalProceeds": 100.00,
@@ -38,8 +35,8 @@
       },
       {
         "assetType": "nonResidentUkNonResidentialProperty",
-        "assetDescription": "xxxxxxxx",
-        "ppdReference": "",
+        "assetDescription": "X",
+        "ppdReference": "TBD",
         "acquisitionDate": "2017-10-10",
         "disposalDate": "2020-08-10",
         "disposalProceeds": 100.00,
@@ -53,9 +50,9 @@
         "lossAfterRelief": 45.00
       },
       {
-        "assetDescription": "nonResidentIndirect",
-        "assetType": "xxxxxxxx",
-        "ppdReference": "",
+        "assetType": "nonResidentIndirect",
+        "assetDescription": "X",
+        "ppdReference": "TBD",
         "acquisitionDate": "2017-10-10",
         "disposalDate": "2020-08-10",
         "disposalProceeds": 100.00,
@@ -71,7 +68,7 @@
     ],
     "ppdReturns": [
       {
-        "assetType": "ukResidentalProperty",
+        "assetType": "ukResidentialProperty",
         "gainsReported": 35.00,
         "lossesReported": 35.00,
         "taxCharged": 10.00
@@ -203,17 +200,12 @@
   },
   "carriedInterest": {
     "gain": 1000.00
-    //total for the year. Applicable for hedge fund manangers etc. They will calculate the gain.
   },
   "losses": {
     "broughtForwardLossesUsedInCurrentYear": 10.00,
-    // [CF Type: Type: Monetary, non negative]
     "setAgainstInYearGains": 10.00,
-    // [CF Type: Monetary, non negative]
     "setAgainstInYearGeneralIncome": 10.00,
-    // [CF Type: Monetary, non negative]
     "setAgainstEarlierYear": 10.00
-    // N.B. Carried Fwd amount to be derived  [CF Type: Monetary, non negative]
   },
   "adjustments": {
     "tbc": "tbc"

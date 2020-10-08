@@ -8,8 +8,7 @@
     "ppdQualifyingDisposals": {
       "type": "object",
       "required": [
-        "disposals",
-        "ppdReturns"
+        "disposals"
       ],
       "properties": {
         "disposals": {
@@ -17,6 +16,19 @@
           "minItems": 1,
           "items": {
             "type": "object",
+            "required": ["assetType", "assetDescription", "acquisitionDate", "disposalDate", "disposalProceeds"],
+            "anyOf": [
+              {
+                "required": [
+                  "gain"
+                ]
+              },
+              {
+                "required": [
+                  "loss"
+                ]
+              }
+            ],
             "properties": {
               "assetType": {
                 "$ref": "#/definitions/ppdAssetType"
@@ -98,6 +110,108 @@
         }
       }
     },
+    "rttQualifyingDisposals": {
+      "type": "object",
+      "required": [
+        "disposals"
+      ],
+      "properties": {
+        "disposals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["assetType", "assetDescription", "acquisitionDate", "disposalDate", "disposalProceeds"],
+            "anyOf": [
+              {
+                "required": [
+                  "gain"
+                ]
+              },
+              {
+                "required": [
+                  "loss"
+                ]
+              }
+            ],
+            "properties": {
+              "assetType": {
+                "$ref": "#/definitions/rttAssetType"
+              },
+              "assetDescription": {
+                "$ref": "#/definitions/cfMedStringType"
+              },
+              "acquisitionDate": {
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalDate": {
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalProceeds": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "allowableCosts": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "gain": {
+                "$ref": "#/definitions/cfMoneyNonNegGainType"
+              },
+              "loss": {
+                "$ref": "#/definitions/cfMoneyNonNegLossType"
+              },
+              "claimOrElectionCodes": {
+                "$ref": "#/definitions/claimElectionCodesType"
+              },
+              "gainAfterRelief": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "lossAfterRelief": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              }
+            }
+          }
+        },
+        "rttReturns": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [
+              "assetType",
+              "taxPaid"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "gainsReported"
+                ]
+              },
+              {
+                "required": [
+                  "lossesReported"
+                ]
+              }
+            ],
+            "properties": {
+              "assetType": {
+                "$ref": "#/definitions/rttAssetType"
+              },
+              "gainsReported": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "lossesReported": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "taxPaid": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              }
+            }
+          }
+        }
+      }
+    },
     "carriedInterest": {
       "type": "object",
       "required": [
@@ -134,18 +248,26 @@
   },
   "definitions": {
     "ppdAssetType": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "description": "",
-        "example": "PRR",
-        "enum": [
-          "ukResidentialProperty",
-          "nonResidentUkResidentialProperty",
-          "nonResidentUkNonResidentialProperty",
-          "nonResidentIndirect"
-        ]
-      }
+      "type": "string",
+      "description": "",
+      "example": "PRR",
+      "enum": [
+        "ukResidentialProperty",
+        "nonResidentUkResidentialProperty",
+        "nonResidentUkNonResidentialProperty",
+        "nonResidentIndirect"
+      ]
+    },
+    "rttAssetType": {
+      "type": "string",
+      "description": "",
+      "example": "listedShares",
+      "enum": [
+        "listedShares",
+        "unlistedShares",
+        "otherProperty",
+        "otherAsset"
+      ]
     },
     "cfDateType": {
       "type": "string",
@@ -157,7 +279,7 @@
       "type": "string",
       "minimum": 1,
       "maximum": 75,
-      "pattern": "^[0-9a-zA-Z{\\u00C0-\\u02FF’}\\- _&`():.'^]{1,90}$\n",
+      "pattern": "^[0-9a-zA-Z]",
       "description": "",
       "example": ""
     },
@@ -187,7 +309,7 @@
     },
     "ppdRefType": {
       "type": "string",
-      "pattern": "<TBD>",
+      "pattern": "TBD",
       "description": "",
       "example": ""
     },
@@ -213,7 +335,220 @@
         ]
       }
     }
-  }
+  },
+  "examples": [
+    {
+      "ppdQualifyingDisposals": {
+        "disposals": [
+          {
+            "assetType": "ukResidentialProperty",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "nonResidentUkResidentialProperty",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "nonResidentUkNonResidentialProperty",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "nonResidentIndirect",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          }
+        ],
+        "ppdReturns": [
+          {
+            "assetType": "ukResidentialProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          },
+          {
+            "assetType": "nonResidentUkResidentialProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          },
+          {
+            "assetType": "nonResidentUkNonResidentialProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          },
+          {
+            "assetType": "nonResidentIndirect",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          }
+        ]
+      },
+      "rttQualifyingDisposals": {
+        "disposals": [
+          {
+            "assetType": "listedShares",
+            "assetDescription": "Company PLC",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "listedShares",
+            "assetDescription": "Company PLC",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "unlistedShares",
+            "assetDescription": "Company Ltd",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "otherProperty",
+            "assetDescription": "Farmland",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "otherAsset",
+            "assetDescription": "Painting",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          }
+        ],
+        "rttReturns": [
+          {
+            "assetType": "listedShares",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          },
+          {
+            "assetType": "unlistedShares",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          },
+          {
+            "assetType": "otherProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          },
+          {
+            "assetType": "otherAsset",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          }
+        ]
+      },
+      "carriedInterest": {
+        "gain": 1000.00
+      },
+      "losses": {
+        "broughtForwardLossesUsedInCurrentYear": 10.00,
+        "setAgainstInYearGains": 10.00,
+        "setAgainstInYearGeneralIncome": 10.00,
+        "setAgainstEarlierYear": 10.00
+      },
+      "adjustments": {
+        "tbc": "tbc"
+      }
+    }
+  ]
 }
-
-
