@@ -211,3 +211,8 @@
     // TBC
   }
 }
+
+
+"rttQualifyingDisposals": {
+"type": "object"
+},
