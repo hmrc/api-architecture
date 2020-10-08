@@ -2,7 +2,7 @@
   "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/cgt_submission",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Capital Gains Tax Submissions",
-  "description": "Json Schema representing a Capital Gains Tax Submission",
+  "description": "JSON Schema representing a Capital Gains Tax Submission",
   "type": "object",
   "properties": {
     "ppdQualifyingDisposals": {
@@ -11,27 +11,45 @@
       "properties": {
         "disposals": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "type": "object",
             "properties":{
               "assetType": {
-                 "type": "string",
-                 "enum": ["ukResidentialProperty", "nonResidentUkResidentialProperty", "nonResidentUkNonResidentialProperty", "nonResidentIndirect"]
+                "$ref": "#/definitions/ppdAssetType"
                  },
               "assetDescription": {
-                "type": "string",
-                "description": "Description of the asset"
+                "$ref": "#/definitions/cfMedStringType"
+              },
+              "ppdReference": {
+                "$ref": "#/definitions/ppdRefType"
               },
               "acquisitionDate": {
-                "type": "string",
-                "format": "date"
-                "description": "Date of disposal"
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalDate": {
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalProceeds": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "allowableCosts": {
+                "$ref": "#/definitions/cfMoneyNonNegTypec"
+              },
+              "gain": {
+                "$ref": "#/definitions/cfMoneyNonNegGainType"
+              },
+              "loss":{
+                "$ref": "#/definitions/cfMoneyNonNegLossType"
               },
               "claimOrElectionCodes": {
-                "$ref": "#/definitions/claimOrElectionCodesType"
-                },
+              "$ref": "#/definitions/claimElectionCodesType"
+              },
               "gainAfterRelief": {
-                "$ref": "#/definitions/cfMoney"
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "lossAfterRelief": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
               }
           }
         },
@@ -42,11 +60,24 @@
           "uniqueItems": true,
           "items": {
             "type": "object",
+            "required": [ "assetType", "taxCharged"],
+            "anyOf": [
+              {"required": ["gainsReported"]},
+              {"required": ["lossesReported"]}
+            ],
             "properties":
             {
               "assetType": {
-                "type": "string",
-                "enum": ["ukResidentialProperty", "nonResidentUkResidentialProperty", "nonResidentUkNonResidentialProperty", "nonResidentIndirect"]
+                "$ref": "#/definitions/ppdAssetType"
+              },
+              "gainsReported":{
+                "$ref": "#/definitions/cfMoneyNonNegTypec"
+              },
+              "lossesReported":{
+                "$ref": "#/definitions/cfMoneyNonNegTypec"
+              },
+              "taxCharged":  {
+                "$ref": "#/definitions/cfMoneyNonNegTypec"
               }
             }
          }
@@ -55,30 +86,76 @@
       "type": "object"
     },
   "definitions": {
-     "cfMoney":{
-         "type": "number",
-         "multipleOf": 0.01,
-         "minimum": 0.00,
-         "maximum": 99999999999.99,
-         "example": "1999.99"
-       },
-    "claimOrElectionCodesType":{
+   "ppdAssetType": {
       "type": "array",
       "items": {
         "type": "string",
+        "description": "",
+        "example": "PRR",
         "enum": [
-          "PRR",
-          "BAD",
-          "LET",
-          "GHO",
-          "ROR",
-          "ESH",
-          "ERL",
-          "NVC",
-          "SIR",
-          "OTH"
+          "ukResidentialProperty",
+          "nonResidentUkResidentialProperty",
+          "nonResidentUkNonResidentialProperty",
+          "nonResidentIndirect"
         ]
       }
+    },
+    "cfDateType":{
+     "type": "string",
+    "format": "date",
+    "description": "Date in format YYYY-MM-DD",
+    "example": "2021-04-06"
+    },
+    "cfMedStringType":{
+      "type": "string",
+      "minimum":1,
+      "maximum": 75,
+      "pattern": "^[0-9a-zA-Z{\\u00C0-\\u02FF’}\\- _&`():.'^]{1,90}$\n",
+      "description": "",
+      "example": ""
+    },
+     "cfMoneyNonNegGainType":{
+       "type": "number",
+       "multipleOf": 0.01,
+       "minimum": 0.00,
+       "maximum": 99999999999999.98,
+       "description": "The difference between the disposal proceeds and the allowable costs if positive",
+       "example": "1999.99"
+       },
+    "cfMoneyNonNegLossType":{
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0.00,
+      "maximum": 99999999999999.98,
+      "description": "The difference between the disposal proceeds and the allowable costs if negative",
+      "example": "1999.99"
+    },
+     "ppdRefType":{
+        "type": "string",
+        "pattern": "<TBD>",
+        "description": "",
+        "example": ""
+        },
+     "claimElectionCodesType":{
+        "type": "array",
+        "items": {
+          "type": "string",
+          "description": "An enumeration of claim or election codes that the customer may make.",
+          "example": "PRR",
+          "enum": [
+            "PRR",
+            "BAD",
+            "LET",
+            "GHO",
+            "ROR",
+            "ESH",
+            "ERL",
+            "NVC",
+            "SIR",
+            "INV",
+            "PRO",
+            "OTH"
+        }
     }
   },
 
