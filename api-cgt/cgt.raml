@@ -1,0 +1,48 @@
+#%RAML 1.0
+title: Disposals
+baseUri: https://api.service.hmrc.gov.uk
+version: 2020-10-12 10:35
+documentation:
+  - title: PPD Qualifying Disposals
+    content: !include docs/PPDqualifying.md
+  - title: RTT Qualifying Disposals
+    content: !include docs/RTTqualifying.md
+uses:
+  errors: ../generic/traits/errors.raml
+  genericQueryParameters: ../generic/traits/queryParameters.raml
+  wipErrors: traits/errors.raml
+  genericHeaders: ../generic/traits/headers.raml
+  baseTypes: ../generic/types/common/base-types.raml
+/disposals:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
+        get:
+          displayName: Disposals GET
+          description: Asset Disposals Details for CGT
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  type: !include schemas/cgt_get_sch.json
+                  example: !include examples/cgt_get_example.json
+        put:
+          displayName: Disposals PUT
+          description: Create/update Asset Disposals Submission for CGT
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              type: !include schemas/cgt_put_sch.json
+              example: !include examples/cgt_put_example.json
+        delete:
+          displayName: Disposals DELETE
+          description: Delete Asset Disposals Submission for CGT
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:

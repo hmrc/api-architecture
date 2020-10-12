@@ -1,0 +1,554 @@
+{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/cgt_submission",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capital Gains Tax Submissions",
+  "description": "JSON Schema representing a Capital Gains Tax Submission",
+  "type": "object",
+  "properties": {
+    "ppdQualifyingDisposals": {
+      "type": "object",
+      "required": [
+        "disposals"
+      ],
+      "properties": {
+        "disposals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["assetType", "assetDescription", "acquisitionDate", "disposalDate", "disposalProceeds"],
+            "anyOf": [
+              {
+                "required": [
+                  "gain"
+                ]
+              },
+              {
+                "required": [
+                  "loss"
+                ]
+              }
+            ],
+            "properties": {
+              "assetType": {
+                "$ref": "#/definitions/ppdAssetType"
+              },
+              "assetDescription": {
+                "$ref": "#/definitions/cfUnrestrictedMedStringType"
+              },
+              "ppdReference": {
+                "$ref": "#/definitions/ppdRefType"
+              },
+              "acquisitionDate": {
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalDate": {
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalProceeds": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "allowableCosts": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "gain": {
+                "$ref": "#/definitions/cfMoneyNonNegGainType"
+              },
+              "loss": {
+                "$ref": "#/definitions/cfMoneyNonNegLossType"
+              },
+              "claimOrElectionCodes": {
+                "$ref": "#/definitions/claimElectionCodesType"
+              },
+              "gainAfterRelief": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "lossAfterRelief": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              }
+            }
+          }
+        },
+        "ppdReturns": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [
+              "assetType",
+              "taxCharged"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "gainsReported"
+                ]
+              },
+              {
+                "required": [
+                  "lossesReported"
+                ]
+              }
+            ],
+            "properties": {
+              "assetType": {
+                "$ref": "#/definitions/ppdAssetType"
+              },
+              "gainsReported": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "lossesReported": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "taxCharged": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              }
+            }
+          }
+        }
+      }
+    },
+    "rttQualifyingDisposals": {
+      "type": "object",
+      "required": [
+        "disposals"
+      ],
+      "properties": {
+        "disposals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["assetType", "assetDescription", "acquisitionDate", "disposalDate", "disposalProceeds"],
+            "anyOf": [
+              {
+                "required": [
+                  "gain"
+                ]
+              },
+              {
+                "required": [
+                  "loss"
+                ]
+              }
+            ],
+            "properties": {
+              "assetType": {
+                "$ref": "#/definitions/rttAssetType"
+              },
+              "assetDescription": {
+                "$ref": "#/definitions/cfUnrestrictedMedStringType"
+              },
+              "acquisitionDate": {
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalDate": {
+                "$ref": "#/definitions/cfDateType"
+              },
+              "disposalProceeds": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "allowableCosts": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "gain": {
+                "$ref": "#/definitions/cfMoneyNonNegGainType"
+              },
+              "loss": {
+                "$ref": "#/definitions/cfMoneyNonNegLossType"
+              },
+              "claimOrElectionCodes": {
+                "$ref": "#/definitions/claimElectionCodesType"
+              },
+              "gainAfterRelief": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "lossAfterRelief": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              }
+            }
+          }
+        },
+        "rttReturns": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [
+              "assetType",
+              "taxPaid"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "gainsReported"
+                ]
+              },
+              {
+                "required": [
+                  "lossesReported"
+                ]
+              }
+            ],
+            "properties": {
+              "assetType": {
+                "$ref": "#/definitions/rttAssetType"
+              },
+              "gainsReported": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "lossesReported": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              },
+              "taxPaid": {
+                "$ref": "#/definitions/cfMoneyNonNegType"
+              }
+            }
+          }
+        }
+      }
+    },
+    "carriedInterest": {
+      "type": "object",
+      "required": [
+        "gain"
+      ],
+      "items": {
+        "gain": {
+          "$ref": "#/definitions/cfMoneyNonNegGainType"
+        }
+      }
+    },
+    "losses": {
+      "type": "object",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "broughtForwardLossesUsedInCurrentYear": {
+          "$ref": "#/definitions/cfMoneyNonNegType"
+        },
+        "setAgainstInYearGains": {
+          "$ref": "#/definitions/cfMoneyNonNegType"
+        },
+        "setAgainstInYearGeneralIncome": {
+          "$ref": "#/definitions/cfMoneyNonNegType"
+        },
+        "setAgainstEarlierYear": {
+          "$ref": "#/definitions/cfMoneyNonNegType"
+        }
+      }
+    },
+    "adjustments": {
+      "tbc": "tbc"
+    }
+  },
+  "definitions": {
+    "ppdAssetType": {
+      "type": "string",
+      "description": "",
+      "example": "PRR",
+      "enum": [
+        "ukResidentialProperty",
+        "nonResidentUkResidentialProperty",
+        "nonResidentUkNonResidentialProperty",
+        "nonResidentIndirect"
+      ]
+    },
+    "rttAssetType": {
+      "type": "string",
+      "description": "",
+      "example": "listedShares",
+      "enum": [
+        "listedShares",
+        "unlistedShares",
+        "otherProperty",
+        "otherAsset"
+      ]
+    },
+    "cfDateType": {
+      "type": "string",
+      "format": "date",
+      "description": "Date in format YYYY-MM-DD",
+      "example": "2021-04-06"
+    },
+    "cfUnrestrictedMedStringType": {
+      "type": "string",
+      "minimum": 1,
+      "maximum": 90,
+      "pattern": "^[0-9a-zA-Z{\\u00C0-\\u02FF’}\\- _&`():.'^]{1,90}$\n",
+      "description": "Unrestricted string",
+      "example": "Customer reference 1Q2W3E4R5T6Y"
+    },
+    "cfMoneyNonNegType": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0.00,
+      "maximum": 99999999999999.98,
+      "description": "Positive monetary value to 2DP",
+      "example": "1999.99"
+    },
+    "cfMoneyNonNegGainType": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0.00,
+      "maximum": 99999999999999.98,
+      "description": "The difference between the disposal proceeds and the allowable costs if positive",
+      "example": "1999.99"
+    },
+    "cfMoneyNonNegLossType": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 0.00,
+      "maximum": 99999999999999.98,
+      "description": "The difference between the disposal proceeds and the allowable costs if negative",
+      "example": "1999.99"
+    },
+    "ppdRefType": {
+      "type": "string",
+      "pattern": "TBD",
+      "description": "Unique reference from PPD",
+      "example": "TBD"
+    },
+    "claimElectionCodesType": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "An enumeration of claim or election codes that the customer may make.",
+        "example": "PRR",
+        "enum": [
+          "PRR",
+          "BAD",
+          "LET",
+          "GHO",
+          "ROR",
+          "ESH",
+          "ERL",
+          "NVC",
+          "SIR",
+          "INV",
+          "PRO",
+          "OTH"
+        ]
+      }
+    }
+  },
+  "examples": [
+    {
+      "ppdQualifyingDisposals": {
+        "disposals": [
+          {
+            "assetType": "ukResidentialProperty",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "nonResidentUkResidentialProperty",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "nonResidentUkNonResidentialProperty",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "nonResidentIndirect",
+            "assetDescription": "X",
+            "ppdReference": "TBD",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          }
+        ],
+        "ppdReturns": [
+          {
+            "assetType": "ukResidentialProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          },
+          {
+            "assetType": "nonResidentUkResidentialProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          },
+          {
+            "assetType": "nonResidentUkNonResidentialProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          },
+          {
+            "assetType": "nonResidentIndirect",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxCharged": 10.00
+          }
+        ]
+      },
+      "rttQualifyingDisposals": {
+        "disposals": [
+          {
+            "assetType": "listedShares",
+            "assetDescription": "Company PLC",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "listedShares",
+            "assetDescription": "Company PLC",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "unlistedShares",
+            "assetDescription": "Company Ltd",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "otherProperty",
+            "assetDescription": "Farmland",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          },
+          {
+            "assetType": "otherAsset",
+            "assetDescription": "Painting",
+            "acquisitionDate": "2017-10-10",
+            "disposalDate": "2020-08-10",
+            "disposalProceeds": 100.00,
+            "allowableCosts": 100.00,
+            "gain": 50.00,
+            "loss": 50.00,
+            "claimOrElectionCodes": [
+              "BAD"
+            ],
+            "gainAfterRelief": 45.00,
+            "lossAfterRelief": 45.00
+          }
+        ],
+        "rttReturns": [
+          {
+            "assetType": "listedShares",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          },
+          {
+            "assetType": "unlistedShares",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          },
+          {
+            "assetType": "otherProperty",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          },
+          {
+            "assetType": "otherAsset",
+            "gainsReported": 35.00,
+            "lossesReported": 35.00,
+            "taxPaid": 10.00
+          }
+        ]
+      },
+      "carriedInterest": {
+        "gain": 1000.00
+      },
+      "losses": {
+        "broughtForwardLossesUsedInCurrentYear": 10.00,
+        "setAgainstInYearGains": 10.00,
+        "setAgainstInYearGeneralIncome": 10.00,
+        "setAgainstEarlierYear": 10.00
+      },
+      "adjustments": {
+        "tbc": "tbc"
+      }
+    }
+  ]
+}

@@ -34,7 +34,7 @@
                 "$ref": "#/definitions/ppdAssetType"
               },
               "assetDescription": {
-                "$ref": "#/definitions/cfMedStringType"
+                "$ref": "#/definitions/cfUnrestrictedMedStringType"
               },
               "ppdReference": {
                 "$ref": "#/definitions/ppdRefType"
@@ -139,7 +139,7 @@
                 "$ref": "#/definitions/rttAssetType"
               },
               "assetDescription": {
-                "$ref": "#/definitions/cfMedStringType"
+                "$ref": "#/definitions/cfUnrestrictedMedStringType"
               },
               "acquisitionDate": {
                 "$ref": "#/definitions/cfDateType"
@@ -275,13 +275,13 @@
       "description": "Date in format YYYY-MM-DD",
       "example": "2021-04-06"
     },
-    "cfMedStringType": {
+    "cfUnrestrictedMedStringType": {
       "type": "string",
       "minimum": 1,
-      "maximum": 75,
-      "pattern": "^[0-9a-zA-Z]",
-      "description": "",
-      "example": ""
+      "maximum": 90,
+      "pattern": "^[0-9a-zA-Z{\\u00C0-\\u02FF’}\\- _&`():.'^]{1,90}$\n",
+      "description": "Unrestricted string",
+      "example": "Customer reference 1Q2W3E4R5T6Y"
     },
     "cfMoneyNonNegType": {
       "type": "number",
@@ -310,8 +310,8 @@
     "ppdRefType": {
       "type": "string",
       "pattern": "TBD",
-      "description": "",
-      "example": ""
+      "description": "Unique reference from PPD",
+      "example": "TBD"
     },
     "claimElectionCodesType": {
       "type": "array",
