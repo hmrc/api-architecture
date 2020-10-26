@@ -1,0 +1,21 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "self-assessment-biss-api" #d6e6ff {
+[Retrieve a Self-Employment Business Income Source Summary (BISS)]
+[Retrieve a UK Property Business Income Source Summary (BISS)]
+[Retrieve a Foreign Property Business Income Source Summary (BISS)]
+}
+
+[Retrieve a Self-Employment Business Income Source Summary (BISS)]-->[DES API#1415]
+[Retrieve a UK Property Business Income Source Summary (BISS)]-->[DES API#1415]
+[Retrieve a Foreign Property Business Income Source Summary (BISS)]-->[DES API#1415]
+
+@enduml

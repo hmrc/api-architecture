@@ -1,0 +1,29 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "individual-state-benefits-api" #d6e6ff {
+[ List State Benefits - test only ]
+[ Create State Benefit - test only ]
+[ Amend State Benefit - test only ]
+[ Delete State Benefit - test only ]
+[ Create and Amend State Benefit Amounts - test only ]
+[ Delete State Benefit Amounts - test only ]
+[ Ignore State Benefit - test only ]
+}
+
+[ List State Benefits - test only ]-->[DES API#1652]
+[ Create State Benefit - test only ]-->[DES API#1676]
+[ Amend State Benefit - test only ]-->[DES API#1651]
+[ Delete State Benefit - test only ]-->[DES API#1678]
+[ Create and Amend State Benefit Amounts - test only ]-->[DES API#1651]
+[ Delete State Benefit Amounts - test only ]-->[DES API#1653]
+[ Ignore State Benefit - test only ]-->[DES API#1679]
+
+@enduml

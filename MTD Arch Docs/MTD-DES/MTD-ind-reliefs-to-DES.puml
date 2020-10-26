@@ -1,0 +1,44 @@
+@startuml
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #edf8ff
+  BorderColor black
+  Style rectangle
+}
+
+skinparam package {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+
+package "individual-reliefs-api" #d6e6ff {
+[ Retrieve Relief Investments - test only ]
+[ Create and Amend Relief Investments - test only ]
+[ Delete Relief Investments - test only ]
+[ Retrieve Other Reliefs - test only ]
+[ Create and Amend Other Reliefs - test only ]
+[ Delete Other Reliefs - test only ]
+[ Retrieve Foreign Reliefs - test only ]
+[ Create and Amend Foreign Reliefs - test only ]
+[ Delete Foreign Reliefs - test only ]
+[ Retrieve Pensions Reliefs - test only ]
+[ Create and Amend Pensions Reliefs - test only ]
+[ Delete Pensions Reliefs - test only ]
+}
+
+[ Retrieve Relief Investments - test only ]-->[DES API#1630]
+[ Create and Amend Relief Investments - test only ]-->[DES API#1629]
+[ Delete Relief Investments - test only ]-->[DES API#1631]
+[ Retrieve Other Reliefs - test only ]-->[DES API#1633]
+[ Create and Amend Other Reliefs - test only ]-->[DES API#1632]
+[ Delete Other Reliefs - test only ]-->[DES API#1634]
+[ Retrieve Foreign Reliefs - test only ]-->[DES API#1635]
+[ Create and Amend Foreign Reliefs - test only ]-->[DES API#1635]
+[ Delete Foreign Reliefs - test only ]-->[DES API#1637]
+[ Retrieve Pensions Reliefs - test only ]-->[DES API#1674]
+[ Create and Amend Pensions Reliefs - test only ]-->[DES API#1673]
+[ Delete Pensions Reliefs - test only ]-->[DES API#1675]
+@enduml

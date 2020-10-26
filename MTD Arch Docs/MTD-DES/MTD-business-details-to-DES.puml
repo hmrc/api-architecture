@@ -1,0 +1,19 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "business-details-api" #d6e6ff {
+[List All Businesses]
+[Retrieve Business Details]
+}
+
+[List All Businesses]-->[DES API#5]
+[Retrieve Business Details]-->[DES API#5]
+
+@enduml

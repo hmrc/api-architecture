@@ -1,0 +1,28 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "self-assessment-accounts-api" #d6e6ff {
+[ Retrieve a Self Assessment Balance - test only]
+[ List Self Assessment Transactions - test only ]
+[ Retrieve a Self Assessment Transaction's Detail - test only ]
+[ List Self Assessment Charges - test only ]
+[ Retrieve a Self Assessment Charge's History - test only ]
+[ List Self Assessment Payments - test only ]
+[ Retrieve a Self Assessment Payment's Allocation Details - test only ]
+}
+
+[ Retrieve a Self Assessment Balance - test only]-->[DES API#1553]
+[ List Self Assessment Transactions - test only ]-->[DES API#1553]
+[ Retrieve a Self Assessment Transaction's Detail - test only ]-->[DES API#1553]
+[ List Self Assessment Charges - test only ]-->[DES API#1553]
+[ Retrieve a Self Assessment Charge's History - test only ]-->[DES API#1554]
+[ List Self Assessment Payments - test only ]-->[DES API#1413]
+[ Retrieve a Self Assessment Payment's Allocation Details - test only ]-->[DES API#1413]
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "obligations-api" #d6e6ff {
+[Retrieve Income Tax (Self Assessment) Income and Expenditure Obligations - test only]
+[Retrieve Income Tax (Self Assessment) Crystallisation Obligations - test only]
+[ Retrieve Income Tax (Self Assessment) End of Period Statement - test only ]
+}
+
+[Retrieve Income Tax (Self Assessment) Income and Expenditure Obligations - test only]-->[DES API#1330]
+[Retrieve Income Tax (Self Assessment) Crystallisation Obligations - test only]-->[DES API#1330]
+[ Retrieve Income Tax (Self Assessment) End of Period Statement - test only ]-->[DES API#1330]
+@enduml

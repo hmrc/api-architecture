@@ -1,0 +1,38 @@
+#%RAML 1.0 Library
+uses:
+  types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
+traits:
+  ruleDateRangeInvalid:
+    responses:
+      400:
+        body:
+          application/json:
+            type: types.errorResponse
+            examples:
+              ruleDateRangeInvalid:
+                description: The date range is longer than 365 days or less than a day
+                value:
+                  code: RULE_DATE_RANGE_INVALID
+  ruleStartDateNotSupported:
+    responses:
+      400:
+        body:
+          application/json:
+            type: types.errorResponse
+            examples:
+              ruleStartDateNotSupported:
+                description: The start date specified is before 2018-04-06
+                value:
+                  code: RULE_START_DATE_NOT_SUPPORTED
+  rangeDateTooLong:
+      responses:
+        400:
+          body:
+            application/json:
+              type: types.errorResponse
+              examples:
+                rangeDateTooLOng:
+                  description: The date range is longer than 366 days.
+                  value:
+                    code: RANGE_DATE_TOO_LONG
+

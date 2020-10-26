@@ -1,0 +1,21 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "other-deductions-api" #d6e6ff {
+[ Retrieve deductions - test only ]
+[ Create and Amend deductions - test only ]
+[ Delete deductions - test only ]
+}
+
+[ Retrieve deductions - test only ]-->[DES API#1639]
+[ Create and Amend deductions - test only ]-->[DES API#1638]
+[ Delete deductions - test only ]-->[DES API#1640]
+
+@enduml

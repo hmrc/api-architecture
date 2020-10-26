@@ -1,0 +1,127 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "Self Assessent API" #a7c8fc {
+  package "self-assessment-api-legacy" #d6e6ff {
+  [List all self-employment businesses]
+  [Add a self-employment business sandbox only]
+  [Get a self-employment business]
+  [Amend a self-employment business]
+  [Retrieve self-employment business obligations]
+  [Create a self-employment periodic update]
+  [List all self-employment update periods]
+  [ Amend a self-employment periodic update]
+  [Get a self-employment periodic update]
+  [Amend a self-employment annual summary]
+  [Get a self-employment annual summary]
+  }
+  package "mtd-self-employment" #d6e6ff {
+  [Retrieve End of Period Statement Obligations for a Self-Employment Business ]
+  [Submit Self-Employment End-of-Period Statement ]
+  }
+  package "mtd-charitable-giving" {
+    [Get charitable giving tax relief ]
+  [Amend charitable giving tax relief ]
+  }
+  package "self-assessment-api-legacy" #d6e6ff {
+  [Get a UK property business]
+  [Add a UK property business sandbox only]
+  [Retrieve all UK property business obligations]
+  [Create a non-FHL UK property update period]
+  [Create a FHL UK property update period]
+  [List all non-FHL UK property update periods]
+  [List all FHL UK property update periods]
+  [Get a non-FHL UK property update period]
+  [Get a FHL UK property update period]
+  [Amend a non-FHL UK property periodic update]
+  [Amend a FHL UK property periodic update]
+  [Amend a non-FHL UK property business annual summary]
+  [Get a non-FHL UK property business annual summary]
+  [Amend a FHL UK property business annual summary]
+  [Get an FHL UK property business annual summary]
+  }
+  package "mtd-property-api" #d6e6ff {
+  [Retrieve End of Period Statement Obligations for a Self-Employment Business]
+  [Submit UK Property End-of-Period Statement ]
+  }
+  package "mtd-crystallisation" #d6e6ff {
+  [Intent to crystallise]
+  [Crystallisation]
+  }
+  package "mtd-tax-calculation" #d6e6ff {
+  [Trigger Tax Calc]
+  [Retrieve Tax Calc]
+  }
+  package "mtd-charitable-giving" #d6e6ff {
+  [Get charitable giving tax relief ]
+  [Amend charitable giving tax relief ]
+  }
+  package "mtd-savings-accounts" #d6e6ff {
+  [ List all savings accounts ]
+  [ Add a savings account ]
+  [Update a savings account ]
+  [Get a savings account ]
+  [Get a savings account annual summary ]
+  [Update a savings account annual summary ]
+  }
+  package "mtd-dividends-income" #d6e6ff {
+  [Update a dividends income annual summary ]
+  [Get dividends income annual summary ]
+  }
+}
+
+[List all self-employment businesses]-->[DES API#5]
+[Add a self-employment business sandbox only]-->[DES API#10]
+[Get a self-employment business]-->[DES API#5]
+[Amend a self-employment business]-->[DES API#28]
+[Retrieve self-employment business obligations]-->[DES API#1330]
+[Create a self-employment periodic update]-->[DES API#29]
+[List all self-employment update periods]-->[DES API#40]
+[ Amend a self-employment periodic update]-->[DES API#31]
+[Get a self-employment periodic update]-->[DES API#41]
+[Amend a self-employment annual summary]-->[DES API#33]
+[Get a self-employment annual summary]-->[DES API#44]
+[Retrieve End of Period Statement Obligations for a Self-Employment Business ]-->[DES API#1330]
+[Submit Self-Employment End-of-Period Statement ]-->[DES API#1342]
+[Get charitable giving tax relief ]-->[DES API#1391]
+[Amend charitable giving tax relief ]-->[DES API#1390]
+[Get a UK property business]-->[DES API#5]
+[Add a UK property business sandbox only]-->[DES API#35]
+[Retrieve all UK property business obligations]-->[DES API#1330]
+[Create a non-FHL UK property update period]-->[DES API#30]
+[Create a FHL UK property update period]-->[DES API#30]
+[List all non-FHL UK property update periods]-->[DES API#43]
+[List all FHL UK property update periods]-->[DES API#43]
+[Get a non-FHL UK property update period]-->[DES API#46]
+[Get a FHL UK property update period]-->[DES API#46]
+[Amend a non-FHL UK property periodic update]-->[DES API#32]
+[Amend a FHL UK property periodic update]-->[DES API#32]
+[Amend a non-FHL UK property business annual summary]-->[DES API#34]
+[Get a non-FHL UK property business annual summary]-->[DES API#45]
+[Amend a FHL UK property business annual summary]-->[DES API#34]
+[Get an FHL UK property business annual summary]-->[DES API#45]
+[Retrieve End of Period Statement Obligations for a Self-Employment Business ]-->[DES API#1415]
+[Submit UK Property End-of-Period Statement ]-->[DES API#1342]
+[Intent to crystallise]-->[DES API#16]
+[Crystallisation]-->[DES API#1416]
+[Trigger Tax Calc]-->[DES API#16]
+[Retrieve Tax Calc]-->[DES API#24]
+[Get charitable giving tax relief ]-->[DES API#1391]
+[Amend charitable giving tax relief ]-->[DES API#1390]
+[ List all savings accounts ]-->[DES API#1392]
+[ Add a savings account ]-->[DES API#1393]
+[Update a savings account ]-->[DES API#1389]
+[Get a savings account ]-->[DES API#1440]
+[Get a savings account annual summary ]-->[DES API#1391]
+[Update a savings account annual summary ]-->[DES API#1390]
+[Update a dividends income annual summary ]-->[DES API#1390]
+[Get dividends income annual summary ]-->[DES API#1391]
+
+@enduml

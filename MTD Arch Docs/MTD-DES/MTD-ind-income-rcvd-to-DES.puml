@@ -1,0 +1,75 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "individual-income-received" #d6e6ff {
+[List Employments - test only]
+[Add a Custom Employment - test only]
+[Retrieve an Employment - test only]
+[Create and amend a Custom Employment - test only]
+[Delete a Custom Employment - test only]
+[ Ignore an Employment - test only ]
+[ Retrieve an Employment and its Financial Details - test only ]
+[Create and amend Employment Financial Details - test only]
+[Delete Employment Financial Details - test only]
+[Retrieve Other Employment Income - test only]
+[Create and amend Other Employment Income - test only]
+[Delete Other Employment Income - test only]
+[Retrieve Dividends Income - test only]
+[Create and amend Dividends Income - test only]
+[Delete Dividends Income - test only]
+[Retrieve Foreign Income - test only]
+[Create and amend Foreign Income - test only]
+[Delete Foreign Income - test only]
+[Retrieve Insurance Policies Income - test only]
+[Create and amend Insurance Policies Income - test only]
+[Delete Insurance Policies Income - test only]
+[Retrieve Pensions Income - test only]
+[Create and amend Pensions Income - test only]
+[Delete Pensions Income - test only]
+[Retrieve Other Income - test only]
+[Create and amend Other Income - test only]
+[Delete Other Income - test only]
+[Retrieve Savings Income - test only]
+[Create and amend Savings Income - test only]
+[Delete Savings Income - test only]
+}
+
+[List Employments - test only]-->[DES API#1645]
+[Add a Custom Employment - test only]-->[DES API#1661]
+[Retrieve an Employment - test only]-->[DES API#1645]
+[Create and amend a Custom Employment - test only]-->[DES API#1662]
+[Delete a Custom Employment - test only]-->[DES API#1663]
+[ Ignore an Employment - test only ]-->[DES API#1664]
+[ Retrieve an Employment and its Financial Details - test only ]-->[DES API#1647]
+[Create and amend Employment Financial Details - test only]-->[DES API#1643]
+[Delete Employment Financial Details - test only]-->[DES API#1644]
+[Retrieve Other Employment Income - test only]-->[DES API#1618]
+[Create and amend Other Employment Income - test only]-->[DES API#1617]
+[Delete Other Employment Income - test only]-->[DES API#1619]
+[Retrieve Dividends Income - test only]-->[DES API#1609]
+[Create and amend Dividends Income - test only]-->[DES API#1608]
+[Delete Dividends Income - test only]-->[DES API#1610]
+[Retrieve Foreign Income - test only]-->[DES API#1603]
+[Create and amend Foreign Income - test only]-->[DES API#1602]
+[Delete Foreign Income - test only]-->[DES API#1604]
+[Retrieve Insurance Policies Income - test only]-->[DES API#1615]
+[Create and amend Insurance Policies Income - test only]-->[DES API#1614]
+[Delete Insurance Policies Income - test only]-->[DES API#1616]
+[Retrieve Pensions Income - test only]-->[DES API#1612]
+[Create and amend Pensions Income - test only]-->[DES API#1611]
+[Delete Pensions Income - test only]-->[DES API#1613]
+[Retrieve Other Income - test only]-->[DES API#1621]
+[Create and amend Other Income - test only]-->[DES API#1620]
+[Delete Other Income - test only]-->[DES API#1622]
+[Retrieve Savings Income - test only]-->[DES API#1606]
+[Create and amend Savings Income - test only]-->[DES API#1605]
+[Delete Savings Income - test only]-->[DES API#1607]
+
+@enduml

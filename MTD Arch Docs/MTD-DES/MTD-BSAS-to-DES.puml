@@ -1,0 +1,31 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "self-assessment-bsas-api" #d6e6ff {
+[List Business Source Adjustable Summaries (BSAS) - test only]
+[Trigger a Business Source Adjustable Summary (BSAS)]
+[Retrieve a Self-Employment Business Source Adjustable Summary (BSAS)]
+[Retrieve a Self-Employment Business' Summary Adjustments]
+[Submit an Adjustment to a Self-Employment Business Summary]
+[Retrieve a UK Property Business Source Adjustable Summary (BSAS)]
+[Retrieve a UK Property Business' Summary Adjustments]
+[Submit an Adjustment to a UK Property Business Summary]
+}
+
+[List Business Source Adjustable Summaries (BSAS) - test only]-->[DES API#1517]
+[Trigger a Business Source Adjustable Summary (BSAS)]-->[DES API#1515]
+[Retrieve a Self-Employment Business Source Adjustable Summary (BSAS)]-->[DES API#1516]
+[Retrieve a Self-Employment Business' Summary Adjustments]-->[DES API#1516]
+[Submit an Adjustment to a Self-Employment Business Summary]-->[DES API#1518]
+[Retrieve a UK Property Business Source Adjustable Summary (BSAS)]-->[DES API#1516]
+[Retrieve a UK Property Business' Summary Adjustments]-->[DES API#1516]
+[Submit an Adjustment to a UK Property Business Summary]-->[DES API#1518]
+
+@enduml

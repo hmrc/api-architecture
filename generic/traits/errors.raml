@@ -9,7 +9,7 @@ traits:
           application/json:
             type: types.errorResponse
             example:
-              description: No tax calculations could be found for the supplied NINO and tax year.
+              description: No submission could be found for the supplied NINO and tax year.
               value:
                 code: MATCHING_RESOURCE_NOT_FOUND
   clientOrAgentNotAuthorised:
@@ -123,7 +123,7 @@ traits:
                 formatStatus:
                   description: The format of the supplied Nino field is not valid
                   value:
-                    code: FORMAT_STATUS
+                    code: FORMAT_NINO
   #RANGE ERRORS
   rangeEndDateBeforeStartDate:
           responses:

@@ -1,0 +1,37 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "individual-losses-api" #d6e6ff {
+[List Brought Forward Losses]
+[Create a Brought Forward Loss]
+[Retrieve a Brought Forward Loss]
+[Delete a Brought Forward Loss]
+[Amend a Brought Forward Loss]
+[List Loss Claims]
+[Create a Loss Claim]
+[Retrieve a Loss Claim]
+[Delete a Loss Claim]
+[Amend a Loss Claim]
+[Amend Loss Claims Order]
+}
+
+[List Brought Forward Losses]-->[DES API#1503]
+[Create a Brought Forward Loss]-->[DES API#1500]
+[Retrieve a Brought Forward Loss]-->[DES API#1502]
+[Delete a Brought Forward Loss]-->[DES API#1504]
+[Amend a Brought Forward Loss]-->[DES API#1501]
+[List Loss Claims]-->[DES API#1507]
+[Create a Loss Claim]-->[DES API#1505]
+[Retrieve a Loss Claim]-->[DES API#1508]
+[Delete a Loss Claim]-->[DES API#1509]
+[Amend a Loss Claim]-->[DES API#1506]
+[Amend Loss Claims Order]-->[DES API#1577]
+
+@enduml

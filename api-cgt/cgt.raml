@@ -1,16 +1,14 @@
 #%RAML 1.0
 title: Disposals
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-10-12 10:35
+version: 2020-10-12 10:55
 documentation:
-  - title: PPD Qualifying Disposals
-    content: !include docs/PPDqualifying.md
-  - title: RTT Qualifying Disposals
-    content: !include docs/RTTqualifying.md
+  - title: Asset Disposals
+    content: !include docs/disposals.md
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
-  wipErrors: traits/errors.raml
+  #wipErrors: traits/errors.raml
   genericHeaders: ../generic/traits/headers.raml
   baseTypes: ../generic/types/common/base-types.raml
 /disposals:

@@ -1,0 +1,23 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "cis-deductions-api" #d6e6ff {
+[Retrieve CIS Deductions for Subcontractor - test only]
+[Create CIS Deductions for Subcontractor - test only]
+[Amend CIS Deductions for Subcontractor - test only]
+[Delete CIS Deductions for Subcontractor - test only]
+}
+
+[Retrieve CIS Deductions for Subcontractor - test only]-->[DES API#1572]
+[Create CIS Deductions for Subcontractor - test only]-->[DES API#1569]
+[Amend CIS Deductions for Subcontractor - test only]-->[DES API#1571]
+[Delete CIS Deductions for Subcontractor - test only]-->[DES API#1570]
+
+@enduml

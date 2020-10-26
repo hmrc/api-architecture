@@ -1,0 +1,29 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "individual-expenses-api" #d6e6ff {
+[Retrieve Other Expenses - test only.]
+[Amend Other Expenses - test only]
+[Delete Other Expenses - test only]
+[Retrieve Employment Expenses - test only]
+[Amend Employment Expenses - test only]
+[Delete Employment Expenses - test only]
+[Ignore Employment Expenses - test only]
+}
+
+[Retrieve Other Expenses - test only.]-->[DES API#1624]
+[Amend Other Expenses - test only]-->[DES API#1623]
+[Delete Other Expenses - test only]-->[DES API#1625]
+[Retrieve Employment Expenses - test only]-->[DES API#1668]
+[Amend Employment Expenses - test only]-->[DES API#1669]
+[Delete Employment Expenses - test only]-->[DES API#1670]
+[Ignore Employment Expenses - test only]-->[DES API#1669]
+
+@enduml

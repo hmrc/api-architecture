@@ -1,0 +1,31 @@
+@startuml
+skinparam componentStyle rectangle
+
+left to right direction
+
+skinparam component {
+  BackgroundColor #fafcff
+  BorderColor black
+}
+
+package "individual-calculations-api" #d6e6ff {
+[List Self Assessment Tax Calculations]
+[Trigger a Self Assessment Tax Calculation]
+[Retrieve Self Assessment Tax Calculation Metadata]
+[Retrieve Self Assessment Tax Calculation Income Tax and NICs Calculated]
+[Retrieve Self Assessment Tax Calculation Taxable Income]
+[Retrieve Self Assessment Tax Calculation Allowances, Deductions and Reliefs]
+[Retrieve Self Assessment Tax Calculation End Of Year Estimate]
+[Retrieve Self Assessment Tax Calculation Messages]
+}
+
+[List Self Assessment Tax Calculations]-->[DES API#39]
+[Trigger a Self Assessment Tax Calculation]-->[DES API#24]
+[Retrieve Self Assessment Tax Calculation Metadata]-->[DES API#24]
+[Retrieve Self Assessment Tax Calculation Income Tax and NICs Calculated]-->[DES API#24]
+[Retrieve Self Assessment Tax Calculation Taxable Income]-->[DES API#24]
+[Retrieve Self Assessment Tax Calculation Allowances, Deductions and Reliefs]-->[DES API#24]
+[Retrieve Self Assessment Tax Calculation End Of Year Estimate]-->[DES API#24]
+[Retrieve Self Assessment Tax Calculation Messages]-->[DES API#24]
+
+@enduml
