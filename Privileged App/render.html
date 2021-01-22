@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//unpkg.com/graphre/dist/graphre.js"></script>
+    <script src="//unpkg.com/nomnoml/dist/nomnoml.js"></script>
+
+
+    <canvas id="target-canvas"></canvas>
+    <script>
+
+    var canvas = document.getElementById('target-canvas');
+    var source =
+    `#lineWidth: 2
+    [API Platform |
+        [Privileged Application  |
+          - API subscriptions
+          - API scopes
+        ]
+    ]
+    [HMRC/SDST |
+        Gatekeeper
+    ]
+    [Application |
+        - name
+        - description
+        - admin
+    ]
+    [HMRC/SDST]TOTP->[Application]
+    [API Platform]OAuth token->[Application]
+    `;
+
+    nomnoml.draw(canvas, source);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

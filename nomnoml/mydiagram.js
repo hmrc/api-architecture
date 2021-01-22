@@ -1,0 +1,3 @@
+mysrc = '
+[nomndddddddl] is -> [aweccccsome]
+';

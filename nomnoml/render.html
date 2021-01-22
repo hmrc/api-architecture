@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//unpkg.com/graphre/dist/graphre.js"></script>
+    <script src="//unpkg.com/nomnoml/dist/nomnoml.js"></script>
+
+
+    <canvas id="target-canvas"></canvas>
+    <script>
+
+    var canvas = document.getElementById('target-canvas');
+    var source =
+`#lineWidth: 2
+#edges: rounded
+#direction: down
+#fontSize: 14
+[API Platform |
+    [scopes |
+    set in RAML per end point e.g.
+    "confidenceLevel": 200
+    ]
+    [play-authorisation |
+     check the confidence level
+     with the auth service
+     for request before servicing it.
+    ]
+    [scopes]--[play-authorisation]
+
+]
+[Auth]-[API Platform]
+[<actor>Taxpayer]
+[Signup
+
+]
+[Identity Verification (IV) |
+    Ask the questions
+]
+[Auth |
+    [enrolments |
+    services able to use
+    ]
+    [predicates]
+    [nino]
+    [SCP |
+      pan governmentss
+    ]
+    [Government Gateway |
+      username
+      password
+    ]
+    [<actor>Data Guardian]
+    [Data Guardian]-[confidence levels]
+    [<table> confidence levels |
+    CL50 | CG credentials  ||
+    CL100 | 1 question from 1 piece of identity evidence ||
+    CL200 | 2 questions from 1 piece of identity evidence
+    ]
+    [<note> CL Note |
+    Has to be reset on passwd invalidation]
+    [confidence levels]--[CL Note]
+
+]
+[Taxpayer]->[Signup]
+[Signup]->[Auth]
+[Signup]<-[Identity Verification (IV)]
+[Identity Verification (IV)]<--[Auth]
+[<note>Definition |
+Authentication: who you are
+Authorisation: what you can do
+]
+    `;
+
+    nomnoml.draw(canvas, source);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
