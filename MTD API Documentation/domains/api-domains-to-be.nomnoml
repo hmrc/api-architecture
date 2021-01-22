@@ -1,3 +1,4 @@
+#title: MTD APIs To Be
 #lineWidth:1.5
 #background: #ffffff
 #direction: right
@@ -148,17 +149,6 @@
   ]
 ]
 
-[<eroot> losses |
-  [<eseg> losses |
-    [<eparam> {nino} |
-      [<eseg> brought-forward-losses |
-        [<eparam> {lossId} |
-          [<echld> change-loss-amount]
-        ]
-      ]
-    ]
-  ]
-]
 
 [<nroot> income-received |
     [<nseg> dividends |
@@ -229,8 +219,20 @@
 
 
 [<nroot> declarations|
-    [<nparam> {nino} |
-      [<nchldparam> {taxYear} ]
+    [<nseg>self-assessment|
+      [<nseg> eops |
+        [<nchldparam> {incomeSourceId}]
+      ]
+      [<nseg>crystallisation |
+        [<nparam> {taxYear} |
+               [<nchldparam> {calculationId}]
+        ]
+      ]
+      [<nseg>other??? what do we call this now?  |
+        [<nparam> {nino} |
+          [<nchldparam> {taxYear} ]
+        ]
+      ]
     ]
 ]
 
@@ -274,6 +276,17 @@
           ]
         ]
       ]
+      [<eseg> losses |
+        [<eparam> {nino} |
+          [<eseg> brought-forward-losses |
+            [<eparam> {lossId} |
+              [<echld> change-loss-amount]
+            ]
+          ]
+        ]
+]
+
+
    ]
 ]
 
