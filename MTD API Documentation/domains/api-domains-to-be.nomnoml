@@ -282,11 +282,6 @@
         [<nchldparam> {taxYear} ]
       ]
     ]
-    [<nseg> losses |
-      [<nparam> {nino} |
-        [<nchldparam> {taxYear} ]
-      ]
-    ]
     [<nseg> pensions |
       [<nparam> {nino} |
         [<nchldparam> {taxYear} ]
