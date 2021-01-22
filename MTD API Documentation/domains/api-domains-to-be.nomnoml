@@ -1,4 +1,5 @@
 #lineWidth:1.5
+#background: #ffffff
 #direction: right
 #.mroot: bold fill=#C9B6A1 align=center visual=roundrect
 #.mseg: fill=#EDD5BD align=center
