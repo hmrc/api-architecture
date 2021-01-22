@@ -107,33 +107,21 @@
 
 [self-assessment]-[ni]
 
-[<eroot> self-assessment. |
-    [<eseg> adjustable-summary (BSAS) |
-      [<eparam> {nino} |
-        [<echld> trigger]
-        [<eseg> property  |
-          [<eparam> {bsasId} |
-            [<echld> adjust ]
-          ]
-        ]
-        [<eseg> self-employment  |
-          [<eparam> {bsasId} |
-            [<echld> adjust ]
-          ]
-        ]
-      ]
-    ]
-    [<eseg> income-summary (BISS) |
-      [<eparam> {nino} |
-        [<echld> self-employment]
-        [<echld> uk-property]
-      ]
-    ]
-]
-
 [<eroot> calculations |
   [<eseg> self-assessment |
     [<eparam> {nino} |
+        [<eseg> adjustable-summary |
+          [<echldparam> {bsasId} ]
+          [<echld> trigger ]
+        ]
+        [<eseg> crystallise |
+          [<echldparam> {taxYear} ]
+        ]
+        [<eseg> income-summary |
+          [<eparam> {taxYear} |
+            [<echldparam> {incomeSourceId} ]
+          ]
+        ]
         [<eparam> {calculationId} |
           [<echld> allowances-deductions-reliefs]
           [<echld> end-of-year-estimate]
@@ -141,10 +129,6 @@
           [<echld> messages ]
           [<echld> taxable-income ]
         ]
-        [<eseg> liability]
-        [<eseg> adjustable-summary]
-        [<eseg> crystallise]
-		[<eseg> income-summary]
     ]
   ]
 ]
@@ -354,8 +338,6 @@
 [individuals]-[state-benefits]
 [individuals]-[deductions]
 [individuals]-[income-received]
-[individuals]-[losses]
-[individuals]-[self-assessment.]
 [individuals]-[calculations]
 
 
