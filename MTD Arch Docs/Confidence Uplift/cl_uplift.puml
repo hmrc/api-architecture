@@ -1,0 +1,9 @@
+@startuml
+actor       individual  as ind
+participant PTA    as pta
+database    auth_record    as auth
+participant MTD_service    as mtd
+ind -> pta : Sign up to MTD
+pta -> auth : check
+pta -> mtd : check
+@enduml

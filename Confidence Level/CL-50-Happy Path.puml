@@ -1,0 +1,34 @@
+@startuml
+
+title
+AS IS - Happy Path Authentication Flow CL50: First Time User Access
+end title
+
+participant MTD as "MTD API Dev" #lightblue
+participant APIG as "API Gateway" #lightblue
+'participant IV as "Identity Verfication"
+participant OA as "OAuth/IV" #lightblue
+participant 3PV as "Registered App" #lightblue
+actor       TP  as "MTD Taxpayer" #lightblue
+
+note over TP #CCCCCC
+Signed up to MTD
+CL50
+end note
+note over MTD #CCCCCC
+read:self-assessment
+write:self-assessment
+CL: null
+end note
+MTD -> APIG : Publish API
+TP -> 3PV: Login
+3PV -> OA: tax.service.gov.uk/oauth/authorize
+TP -> OA: MTD sign in & 2FA
+OA -> TP: Success - Approve app?
+TP -> OA: Yes
+OA -> 3PV: OAuth token (CL50)
+3PV -> APIG: API request
+APIG -> 3PV: API response
+
+@enduml
+
