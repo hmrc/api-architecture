@@ -24,7 +24,7 @@ TP -> 3PV: Login
 3PV -> OA: tax.service.gov.uk/oauth/authorize
 TP -> OA: MTD sign in & 2FA
 OA -> TP: Failed IV check
-3PV -> TP: Can't
+3PV -> TP: Can't verify identity
 
 @enduml
 

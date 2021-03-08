@@ -23,10 +23,12 @@ end note
 MTD -> APIG : Publish API
 TP -> 3PV: Login
 3PV -> OA: tax.service.gov.uk/oauth/authorize
+OA -> TP: redirect
 TP -> OA: MTD sign in & 2FA
 OA -> TP: Success - Approve app?
 TP -> OA: Yes
 OA -> 3PV: OAuth token (CL50)
+3PV -> APIG: OAuth token (CL50)
 3PV -> APIG: API request
 APIG -> 3PV: API response
 

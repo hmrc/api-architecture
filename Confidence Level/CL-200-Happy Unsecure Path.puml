@@ -1,7 +1,7 @@
 @startuml
 
 title
-TO BE - Happy (Unsecure?) Path Authentication Flow CL200: Existifg User Access
+TO BE - Happy (Unsecure?) Path Authentication Flow CL200: Existing User Access
 end title
 
 participant MTD as "MTD API Dev" #lightblue
@@ -12,25 +12,27 @@ participant 3PV as "Registered App" #lightblue
 actor       TP  as "MTD Taxpayer" #lightblue
 note over TP #CCCCCC
 Signed up to MTD
-CL200
+CL50
 end note
 note over MTD #CCCCCC
 read:self-assessment
 write:self-assessment
-CL:200
+CL:50
 end note
 MTD -> APIG : Publish API
 TP -> 3PV: Login
 3PV -> OA: tax.service.gov.uk/oauth/authorize
-OA -> TP:
+OA -> TP: redirect
 TP -> OA: MTD sign in & 2FA
 OA -> TP: Approve app?
 TP -> OA: Yes
-OA -> 3PV: OAuth token (CL200)
+OA -> 3PV: OAuth token (CL50)
+3PV -> APIG: OAuth token (CL50)
 3PV -> APIG: API request
 APIG -> 3PV: API response
-
+MTD -> APIG : Re-publish API @CL200
+3PV -> APIG: OAuth token (CL50)
+3PV -> APIG: API request
+APIG -> 3PV: API response
 @enduml
-
-@startuml
 

@@ -1,0 +1,144 @@
+#%RAML 1.0
+---
+title: Individuals Income Received (MTD)
+description: This is a draft spec for the Individuals Income Received API.
+version: 1.0
+protocols: [ HTTPS ]
+baseUri: https://api.service.hmrc.gov.uk/
+mediaType: application/json
+
+documentation:
+ - title: Overview
+   content: !include docs/overview.md
+ - title: Versioning
+   content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/versioning.md
+ - title: Errors
+   content: !include docs/errors.md
+ - title: Changelog
+   content: !include docs/changelog.md
+ - title: Support
+   content: !include docs/support.md
+ - title: Testing
+   content: !include docs/testing.md
+
+uses:
+  sec: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml
+  annotations: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml
+  types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
+  errors: errors.raml
+  headers: headers.raml
+  queryParameters: queryParameters.raml
+
+'/individuals/income-received':
+  uriParameters:
+    nino: !include pathParameters/nino.raml
+  /employments:
+    (annotations.group):
+      name: Employments
+      description: Resources relating to an individual's employments
+    /{nino}:
+      /{taxYear}:
+        uriParameters:
+          taxYear: !include pathParameters/taxYearMinimum2021.raml
+        get: !include endpoints/employments/list.raml
+        post: !include endpoints/employments/add.raml
+        /{employmentId}:
+          uriParameters:
+            employmentId: !include pathParameters/employmentId.raml
+          get: !include endpoints/employments/retrieve.raml
+          put: !include endpoints/employments/amend.raml
+          delete: !include endpoints/employments/delete.raml
+          /ignore:
+            put: !include endpoints/employments/ignore.raml
+          /financial-details:
+            put: !include endpoints/employments/financialDetails/amend.raml
+            delete: !include endpoints/employments/financialDetails/delete.raml
+            get: !include endpoints/employments/financialDetails/retrieve.raml
+    /non-paye:
+      (annotations.group):
+        name: Non-PAYE Employment Income
+        description: Resources relating to an individual's non-PAYE employment income
+      /{nino}:
+        /{taxYear}:
+          uriParameters:
+            taxYear: !include pathParameters/taxYearMinimum2021.raml
+          put: !include endpoints/nonPayeEmploymentIncome/amend.raml
+          get: !include endpoints/nonPayeEmploymentIncome/retrieve.raml
+          delete: !include endpoints/nonPayeEmploymentIncome/delete.raml
+    /other:
+      (annotations.group):
+        name: Other Employment Income
+        description: Resources relating to an individual's other employment income
+      /{nino}:
+        /{taxYear}:
+          uriParameters:
+            taxYear: !include pathParameters/taxYearMinimum2021.raml
+          put: !include endpoints/otherEmploymentIncome/amend.raml
+          get: !include endpoints/otherEmploymentIncome/retrieve.raml
+          delete: !include endpoints/otherEmploymentIncome/delete.raml
+  /dividends:
+    (annotations.group):
+      name: Dividends Income
+      description: Resources relating to an individual's dividends income
+    /{nino}:
+      /{taxYear}:
+        uriParameters:
+          taxYear: !include pathParameters/taxYearMinimum2021.raml
+        delete: !include endpoints/dividendsIncome/delete.raml
+        put: !include endpoints/dividendsIncome/amend.raml
+        get: !include endpoints/dividendsIncome/retrieve.raml
+  /foreign:
+    (annotations.group):
+      name: Foreign Income
+      description: Resources relating to an individual's foreign income
+    /{nino}:
+      /{taxYear}:
+        uriParameters:
+          taxYear: !include pathParameters/taxYearMinimum2021.raml
+        put: !include endpoints/foreignIncome/amend.raml
+        get: !include endpoints/foreignIncome/retrieve.raml
+        delete: !include endpoints/foreignIncome/delete.raml
+  /insurance-policies:
+    (annotations.group):
+      name: Insurance Policies Income
+      description: Resources relating to an individual's insurance policies income
+    /{nino}:
+      /{taxYear}:
+        uriParameters:
+          taxYear: !include pathParameters/taxYearMinimum2021.raml
+        put: !include endpoints/insurancePoliciesIncome/amend.raml
+        get: !include endpoints/insurancePoliciesIncome/retrieve.raml
+        delete: !include endpoints/insurancePoliciesIncome/delete.raml
+  /pensions:
+    (annotations.group):
+      name: Pensions Income
+      description: Resources relating to an individual's pensions income
+    /{nino}:
+      /{taxYear}:
+        uriParameters:
+          taxYear: !include pathParameters/taxYearMinimum2021.raml
+        put: !include endpoints/pensionsIncome/amend.raml
+        get: !include endpoints/pensionsIncome/retrieve.raml
+        delete: !include endpoints/pensionsIncome/delete.raml
+  /other:
+    (annotations.group):
+      name: Other Income
+      description: Resources relating to an individual's other income
+    /{nino}:
+      /{taxYear}:
+        uriParameters:
+          taxYear: !include pathParameters/taxYearMinimum2021.raml
+        put: !include endpoints/otherIncome/amend.raml
+        get: !include endpoints/otherIncome/retrieve.raml
+        delete: !include endpoints/otherIncome/delete.raml
+  /savings:
+    (annotations.group):
+      name: Savings Income
+      description: Resources relating to an individual's savings income
+    /{nino}:
+      /{taxYear}:
+        uriParameters:
+          taxYear: !include pathParameters/taxYearMinimum2021.raml
+        put: !include endpoints/savingsIncome/amend.raml
+        get: !include endpoints/savingsIncome/retrieve.raml
+        delete: !include endpoints/savingsIncome/delete.raml

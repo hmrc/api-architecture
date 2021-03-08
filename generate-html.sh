@@ -1,6 +1,6 @@
 #!/bin/sh
 
-THEME=raml2html-slate-theme
+THEME=raml2html-mtd-theme
 MODULE=$1
 
 #https://www.npmjs.com/package/raml2html-slate-theme
@@ -27,6 +27,8 @@ sed -i "/version:/c\version: $(date '+%Y-%m-%d %H:%M')" api-${MODULE}/${MODULE}.
 #rm html_docs.zip
 #zip html_docs.zip html_docs_compact/*
 
-echo "raml2html --theme ${THEME} --logo MTD-logo.png --input api-${MODULE}/${MODULE}.raml --output  api-${MODULE}/${MODULE}.html"
-raml2html --theme ${THEME} --logo MTD-logo.png --input api-${MODULE}/${MODULE}.raml --output  api-${MODULE}/${MODULE}.html
-cp api-${MODULE}/${MODULE}.html docs/${MODULE}.html
+#api-${MODULE}/${MODULE}.raml
+
+echo "raml2html --theme ${THEME} --logo MTD-logo.png --input ${MODULE}.raml --output  ${MODULE}.html"
+raml2html --theme ${THEME} --logo MTD-logo.png --input ${MODULE}.raml  --output  ${MODULE}.html
+#cp api-${MODULE}/${MODULE}.html docs/${MODULE}.html

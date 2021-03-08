@@ -1,0 +1,37 @@
+is:
+  - headers.acceptJson
+  - headers.contentTypeJson
+  - headers.testScenarioHeader
+  - errors.formatNino
+  - errors.formatTaxYear
+  - errors.ruleTaxYearNotSupported
+  - errors.ruleTaxYearRangeInvalid
+  - errors.formatValue
+  - errors.formatCustomerRef
+  - errors.formatEmployerName
+  - errors.formatEmployerRef
+  - errors.formatDate
+  - errors.formatClassOfSharesAwarded
+  - errors.formatClassOfSharesAcquired
+  - errors.formatSchemePlanType
+  - errors.incorrectOrEmptyBody
+  - errors.clientOrAgentNotAuthorised
+displayName: NEW Create and Amend Non-PAYE Employment Income [test only]
+description: "This endpoint allows a developer to create and amend Non-PAYE employment income: tips. A National Insurance number and tax year must be provided."
+(annotations.sandboxData): !include ../../scenarios/nonPayeEmploymentIncome/put.md
+(annotations.scope): "write:self-assessment"
+securedBy: [ sec.oauth_2_0: { scopes: [ "write:self-assessment" ] } ]
+body:
+   application/json:
+      type: !include ../../schemas/otherEmployment_amend_request.json
+      example: !include ../../examples/nonPayeEmploymentIncome/amend_request.json
+responses:
+  200:
+    body:
+      application/json:
+        type: !include ../../schemas/otherEmployment_amend_response.json
+        example: !include ../../examples/nonPayeEmploymentIncome/amend_response.json
+    headers:
+      X-CorrelationId:
+        example: c75f40a6-a3df-4429-a697-471eeec46435
+        description: Unique ID for operation tracking <br> String, 36 characters.
