@@ -1,0 +1,123 @@
+#%RAML 1.0
+---
+
+title: Insolvent Organisation VAT Submission (MTD)
+version: 1.0 (Beta)
+protocols: [ HTTPS ]
+baseUri: https://api.service.hmrc.gov.uk/
+mediaType: application/json
+
+uses:
+  sec: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/securitySchemes.raml
+  headers: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/headers.raml
+  annotations: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/annotations.raml
+  types: https://developer.service.hmrc.gov.uk/api-documentation/assets/common/modules/types.raml
+
+
+documentation:
+  - title: Versioning
+    content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/versioning.md
+  - title: Errors
+    content: !include https://developer.service.hmrc.gov.uk/api-documentation/assets/common/docs/errors.md
+
+
+traits:
+  contentType:
+    headers:
+      Content-Type:
+        description: Specifies the format of the request body, which must be JSON.
+        type: string
+        required: true
+        example: application/json
+  testScenarioHeader:
+    headers:
+      Gov-Test-Scenario:
+        description: Only in sandbox environment. See Test Data table for all header values.
+        type: string
+        required: false
+        example: '-'
+  clientOrAgentNotAuthorised:
+    responses:
+      403:
+        body:
+          application/json:
+            type: types.errorResponse
+            examples:
+              clientNotSubscribedToMTD:
+                description: 'The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.'
+                value:
+                  code: CLIENT_OR_AGENT_NOT_AUTHORISED
+
+/organisations/insolvent/vat:
+  /{vrn}:
+    uriParameters:
+      vrn:
+        description: VAT registration number. <br> A nine-digit number.
+        type: string
+        example: "123456789"
+    /returns:
+      displayName: VAT Returns
+      description: Submit and read VAT returns
+      /{periodKey}:
+        uriParameters:
+          periodKey:
+            description: The ID code for the period that this obligation belongs to. The format is a string of four alphanumeric characters. Occasionally the format includes the "#" symbol, which must be URL-encoded.
+            type: string
+            example: "18AD, 18A1, #001"
+      post:
+        displayName: Submit VAT return for period
+        description: Submit VAT return for period. This endpoint is one of the mandatory endpoints to use to achieve the minimum level of compliance.
+        is: [headers.acceptHeader, contentType, testScenarioHeader, clientOrAgentNotAuthorised]
+        (annotations.scope): "write:vat"
+        securedBy: [ sec.oauth_2_0: { scopes: [ "write:vat" ] } ]
+        body:
+          application/json:
+            type: !include schemas/VatReturnDeclaration.json
+            examples:
+              example-1:
+               description: VAT Return with decimals
+               value: !include examples/SubmitVatReturn.json
+        responses:
+          201:
+            headers:
+              X-CorrelationId:
+                example: c75f40a6-a3df-4429-a697-471eeec46435
+                description: Unique id for operation tracking <br> String, 36 characters.
+              Receipt-ID:
+                example: 2dd537bc-4244-4ebf-bac9-96321be13cdc
+                description: Unique reference number returned for a submission <br> String, 36 characters.
+              Receipt-Timestamp:
+                example: 2018-02-14T09:32:15Z
+                description: The timestamp from the signature, in ISO8601 format
+              Receipt-Signature:
+                example: DO NOT USE
+                description: This header is not currently used
+          400:
+            body:
+              application/json:
+                type: types.errorResponse
+                examples:
+                  invalidVrn:
+                    description: Invalid VRN
+                    value:
+                      code: VRN_INVALID
+                  invalidPeriodKey:
+                    description: Invalid period key
+                    value:
+                      code: PERIOD_KEY_INVALID
+                  formatValue:
+                    description: 'One or more values have been added with the incorrect format.'
+                    value:
+                      code: FORMAT_VALUE
+                  invalidRequest:
+                    description: Invalid request
+                    value:
+                      code: INVALID_REQUEST
+                  invalidNumericValue:
+                    description: Please provide a numeric field
+                    value:
+                      code: INVALID_NUMERIC_VALUE
+                  invalidMonetaryAmount:
+                    description: The format of the Unique ID is invalid.
+                    value:
+                      code: FORMAT_UNIQUE_ID
