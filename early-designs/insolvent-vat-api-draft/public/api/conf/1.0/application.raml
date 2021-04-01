@@ -1,8 +1,10 @@
 #%RAML 1.0
+
+# raml2html --theme raml2html-printable-theme --input early-designs/insolvent-vat-api-draft/public/api/conf/1.0/application.raml --output insolvent-org-vat-submission.html
 ---
 
 title: Insolvent Organisation VAT Submission (MTD)
-version: 1.0 (Beta)
+version: 1.1 (Beta)
 protocols: [ HTTPS ]
 baseUri: https://api.service.hmrc.gov.uk/
 mediaType: application/json
@@ -83,41 +85,32 @@ traits:
               X-CorrelationId:
                 example: c75f40a6-a3df-4429-a697-471eeec46435
                 description: Unique id for operation tracking <br> String, 36 characters.
-              Receipt-ID:
-                example: 2dd537bc-4244-4ebf-bac9-96321be13cdc
-                description: Unique reference number returned for a submission <br> String, 36 characters.
-              Receipt-Timestamp:
-                example: 2018-02-14T09:32:15Z
-                description: The timestamp from the signature, in ISO8601 format
-              Receipt-Signature:
-                example: DO NOT USE
-                description: This header is not currently used
           400:
             body:
               application/json:
                 type: types.errorResponse
                 examples:
                   invalidVrn:
-                    description: Invalid VRN
+                    description: 'The format of the supplied VRN field is not valid.'
                     value:
-                      code: VRN_INVALID
+                      code: FORMAT_VRN
                   invalidPeriodKey:
-                    description: Invalid period key
+                    description: 'The format of the supplied period key is not valid. It must be a 4 character string.'
                     value:
-                      code: PERIOD_KEY_INVALID
+                      code: FORMAT_PERIOD_KEY
                   formatValue:
                     description: 'One or more values have been added with the incorrect format.'
                     value:
                       code: FORMAT_VALUE
-                  invalidRequest:
-                    description: Invalid request
+                  emptyBody:
+                    description: 'An empty or non-matching body was submitted.'
                     value:
-                      code: INVALID_REQUEST
-                  invalidNumericValue:
-                    description: Please provide a numeric field
+                      code: RULE_INCORRECT_OR_EMPTY_BODY_SUBMITTED
+                  ruleNotFinalised:
+                    description: 'The VAT return cannot be accepted unless the provided finalised is set to true.'
                     value:
-                      code: INVALID_NUMERIC_VALUE
+                      code: RULE_NOT_FINALISED
                   invalidMonetaryAmount:
-                    description: The format of the Unique ID is invalid.
+                    description: 'The format of the Unique ID is invalid.'
                     value:
                       code: FORMAT_UNIQUE_ID
