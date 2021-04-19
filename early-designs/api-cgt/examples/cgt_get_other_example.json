@@ -1,0 +1,48 @@
+{
+  "submittedOn": "2021-04-09T13:53:11Z",
+  "disposals": [
+    {
+      "assetType": "otherAsset",
+      "assetDescription": "Painting",
+      "acquisitionDate": "2017-10-10",
+      "disposalDate": "2020-08-10",
+      "disposalProceeds": 100.00,
+      "allowableCosts": 100.00,
+      "gain": 50.00,
+      "claimOrElectionCodes": [
+        "BAD"
+      ],
+      "gainAfterRelief": 45.00,
+      "rttTaxPaid": 123.00
+    },
+    {
+      "assetType": "otherProperty",
+      "assetDescription": "Farmland",
+      "acquisitionDate": "2017-10-10",
+      "disposalDate": "2020-08-10",
+      "disposalProceeds": 100.00,
+      "allowableCosts": 100.00,
+      "gain": 50.00,
+      "claimOrElectionCodes": [
+        "BAD"
+      ],
+      "gainAfterRelief": 45.00,
+      "rttTaxPaid": 123.00
+    }
+  ],
+  "nonStandardGains": {
+    "carriedInterestGain": 1000.00,
+    "carriedInterestRttTaxPaid": 123.00,
+    "attributedGains": 1000.00,
+    "attributedGainsRttTaxPaid": 123.00,
+    "otherGains": 1000.00,
+    "otherGainsRttTaxPaid": 123.00
+  },
+  "losses": {
+    "broughtForwardLossesUsedInCurrentYear": 10.00,
+    "setAgainstInYearGains": 10.00,
+    "setAgainstInYearGeneralIncome": 10.00,
+    "setAgainstEarlierYear": 10.00
+  },
+  "adjustments": 123.00
+}

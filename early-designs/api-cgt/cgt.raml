@@ -1,17 +1,20 @@
 #%RAML 1.0
 title: Disposals
 baseUri: https://api.service.hmrc.gov.uk
-version: 2020-10-12 10:55
+version: Draft 2021-04-19
 documentation:
-  - title: Asset Disposals
-    content: !include docs/disposals.md
+  - title: Residential Property Disposals
+    content: !include docs/residential.md
+  - title: Other Disposals & Gains
+    content: !include docs/other.md
 uses:
   errors: ../generic/traits/errors.raml
   genericQueryParameters: ../generic/traits/queryParameters.raml
   #wipErrors: traits/errors.raml
   genericHeaders: ../generic/traits/headers.raml
   baseTypes: ../generic/types/common/base-types.raml
-/disposals:
+/income-received/disposals:
+  /residential-property:
     /{nino}:
       uriParameters:
         nino: baseTypes.Nino
@@ -19,28 +22,81 @@ uses:
         uriParameters:
           taxYear: baseTypes.TaxYear
         get:
-          displayName: Disposals GET
-          description: Asset Disposals Details for CGT
+          displayName: Residential Property Disposals GET
+          description: Residential Property Disposals Details for CGT
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
               body:
                 application/json:
-                  type: !include schemas/cgt_get_sch.json
-                  example: !include examples/cgt_get_example.json
+                  type: !include schemas/cgt_sch.json
+                  examples:
+                    example-1:
+                      description: CUSTOMER view
+                      value: !include examples/cgt_get_customer_example.json
+                    example-2:
+                      description: HMRC view
+                      value: !include examples/cgt_get_hmrc_example.json
+                    example-3:
+                      description: LATEST view
+                      value: !include examples/cgt_get_latest_example.json
+        /ppd:
+          put:
+            displayName: Residential Property Disposal Overrides PUT
+            description: Create/update Residential Property Disposals Submission for CGT
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+            responses:
+              200:
+            body:
+              application/json:
+                type: !include schemas/cgt_sch.json
+                example: !include examples/cgt_put_ppd_override_example.json
+          get:
+            displayName: Residential Property Disposals Overrides GET
+            description: Residential Property Disposals Overrides Details for CGT
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+            responses:
+              200:
+                body:
+                  application/json:
+                    type: !include schemas/cgt_sch.json
+                    example: !include examples/cgt_get_ppd_override_example.json
+          delete:
+            displayName: Residential Property Disposals DELETE
+            description: Delete Residential Property Disposals Submission for CGT
+            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+            responses:
+              204:
+  /other-gains:
+    /{nino}:
+      uriParameters:
+        nino: baseTypes.Nino
+      /{taxYear}:
+        uriParameters:
+          taxYear: baseTypes.TaxYear
         put:
-          displayName: Disposals PUT
-          description: Create/update Asset Disposals Submission for CGT
+          displayName: Residential Property Disposal Overrides PUT
+          description: Create/update Residential Property Disposals Submission for CGT
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
           body:
             application/json:
-              type: !include schemas/cgt_put_sch.json
-              example: !include examples/cgt_put_example.json
+              type: !include schemas/cgt_sch.json
+              example: !include examples/cgt_put_other_example.json
+        get:
+          displayName: Residential Property Disposals Overrides GET
+          description: Residential Property Disposals Overrides Details for CGT
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+              body:
+                application/json:
+                  type: !include schemas/cgt_sch.json
+                  example !include examples/cgt_get_other_example.json
         delete:
-          displayName: Disposals DELETE
-          description: Delete Asset Disposals Submission for CGT
+          displayName: Residential Property Disposals DELETE
+          description: Delete Residential Property Disposals Submission for CGT
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             204:

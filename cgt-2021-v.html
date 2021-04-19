@@ -1,0 +1,585 @@
+<!DOCTYPE HTML><html><head><title>Disposals</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.8.0"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script><script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+  $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+  $('[data-toggle]').click(function() {
+    var selector = $(this).data('target') + ' pre code';
+    $(selector).each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+
+  // open modal on hashes like #_action_get
+  $(window).bind('hashchange', function(e) {
+    var anchor_id = document.location.hash.substr(1); //strip #
+    var element = $('#' + anchor_id);
+
+    // do we have such element + is it a modal?  --> show it
+    if (element.length && element.hasClass('modal')) {
+      element.modal('show');
+    }
+  });
+
+  // execute hashchange on first page load
+  $(window).trigger('hashchange');
+
+  // remove url fragment on modal hide
+  $('.modal').on('hidden.bs.modal', function() {
+    try {
+      if (history && history.replaceState) {
+          history.replaceState({}, '', '#');
+      }
+    } catch(e) {}
+  });
+});
+    </script><style>
+      .hljs {
+  background: transparent;
+}
+.parent {
+  color: #999;
+}
+.list-group-item > .badge {
+  float: none;
+  margin-right: 6px;
+}
+.panel-title > .methods {
+  float: right;
+}
+.badge {
+  border-radius: 0;
+  text-transform: uppercase;
+  width: 70px;
+  font-weight: normal;
+  color: #f3f3f6;
+  line-height: normal;
+}
+.badge_get {
+  background-color: #63a8e2;
+}
+.badge_post {
+  background-color: #6cbd7d;
+}
+.badge_put {
+  background-color: #22bac4;
+}
+.badge_delete {
+  background-color: #d26460;
+}
+.badge_patch {
+  background-color: #ccc444;
+}
+.list-group,
+.panel-group {
+  margin-bottom: 0;
+}
+.panel-group .panel+.panel-white {
+  margin-top: 0;
+}
+.panel-group .panel-white {
+  border-bottom: 1px solid #F5F5F5;
+  border-radius: 0;
+}
+.panel-white:last-child {
+  border-bottom-color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.panel-white .panel-heading {
+  background: white;
+}
+.tab-pane ul {
+  padding-left: 2em;
+}
+.tab-pane h1 {
+  font-size: 1.3em;
+}
+.tab-pane h2 {
+  font-size: 1.2em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ddd;
+}
+.tab-pane h3 {
+  font-size: 1.1em;
+}
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+#sidebar {
+  margin-top: 30px;
+  padding-right: 5px;
+  overflow: auto;
+  height: 90%;
+}
+.top-resource-description {
+  border-bottom: 1px solid #ddd;
+  background: #fcfcfc;
+  padding: 15px 15px 0 15px;
+  margin: -15px -15px 10px -15px;
+}
+.resource-description {
+  border-bottom: 1px solid #fcfcfc;
+  background: #fcfcfc;
+  padding: 15px 15px 0 15px;
+  margin: -15px -15px 10px -15px;
+}
+.resource-description p:last-child {
+  margin: 0;
+}
+.list-group .badge {
+  float: left;
+}
+.method_description {
+  margin-left: 85px;
+}
+.method_description p:last-child {
+  margin: 0;
+}
+.list-group-item {
+  cursor: pointer;
+}
+.list-group-item:hover {
+  background-color: #f5f5f5;
+}
+pre code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+.items {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+}
+.examples {
+  margin-left: 0.5em;
+}
+.resource-modal li > ul {
+  margin-bottom: 1em;
+}
+.required {
+  color: #f00;
+}
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Disposals <small>version Draft 2021-04-19</small></h1><p>https://api.service.hmrc.gov.uk</p><h3 id="residential_property_disposals"><a href="#residential_property_disposals">Residential Property Disposals</a></h3><ul><li>UK Residential Property</li><li>Non-resident UK Residential Property</li><li>Non-resident UK Non-residential Property</li><li>Non-resident Indirect</li></ul><h3 id="other_disposals___gains"><a href="#other_disposals___gains">Other Disposals & Gains</a></h3><ul><li>Listed Shares</li><li>Unlisted Shares</li><li>Other Property</li><li>Other Asset</li></ul><h4 id="non-standard-gains">Non-standard Gains</h4><ul><li>Carried interest</li><li>Attributed</li></ul><h4 id="losses">Losses</h4><h4 id="adjustments">Adjustments</h4></div><div class="panel panel-default"><div class="panel-heading"><h3 id="income_received_disposals" class="panel-title">/income-received/disposals</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_disposals_residential_property__nino___taxyear_"><span class="parent">/income-received/disposals/residential-property/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#income_received_disposals_residential_property__nino___taxyear__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_income_received_disposals_residential_property__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_disposals_residential_property__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Residential Property Disposals Details for CGT</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_disposals_residential_property__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income-received/disposals/residential-property/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Residential Property Disposals Details for CGT</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_disposals_residential_property__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#income_received_disposals_residential_property__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_disposals_residential_property__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2020-21</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_disposals_residential_property__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/cgt_submission",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capital Gains Tax Submissions",
+  "description": "JSON Schema representing a Capital Gains Tax Submission",
+  "type": "object",
+  "properties": {
+  }
+}
+</code></pre><p><strong>Examples</strong>:</p><div class="examples"><p><strong>example-1</strong>:<br>CUSTOMER view</p><pre><code>{
+  "customerOverrides": {
+    "submittedOn": "2021-04-09T13:53:11Z",
+    "multiplePropertyDisposals": [
+      {
+        "ppdSubmissionId": 1243432,
+        "amountOfNetGain": 12345.00,
+      }
+    ],
+    "singlePropertyDisposals": [
+      {
+        "ppdSubmissionId": 12312312,
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfLoss": 12345.00
+      }
+    ]
+  },
+  "customerAdded" : {
+    "submittedOn": "2021-04-09T13:53:11Z",
+    "disposals": [
+      {
+        "customerRef": "property1",
+        "disposalDate": "2021-03-01",
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      },
+      {
+        "customerRef": "property2",
+        "disposalDate": "2021-02-01",
+        "completionDate": "2021-01-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      }
+    ]
+  }
+}</code></pre><p><strong>example-2</strong>:<br>HMRC view</p><pre><code>{
+    "submittedOn": "2021-04-09T13:53:11Z",
+    "submissionId" : "",
+    "numberOfDisposals": 1,
+    "multiplePropertyDisposals": [
+      {
+        "ppdSubmissionId": 1243432,
+        "amountOfNetGain": 12345.00,
+      }
+    ],
+    "singlePropertyDisposals": [
+      {
+        "ppdSubmissionId": 12312312,
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfLoss": 12345.00
+      }
+    ]
+}</code></pre><p><strong>example-3</strong>:<br>LATEST view</p><pre><code>{
+  "ppdService": [
+    {
+      "submittedOn": "2021-04-09T13:53:11Z",
+      "ppdService": {
+        "submissionId": "",
+        "numberOfdisposals": 1
+      },
+      "source": "HMRC HELD",
+      "ppdSubmissionId": 12312312,
+      "completionDate": "2021-02-01",
+      "disposalProceeds": 123.00,
+      "acquisitionDate": "2002-03-01",
+      "acquisitionAmount": 1234567.00,
+      "improvementCosts": 1234567.00,
+      "additionalCosts": 12345.00,
+      "prfAmount": 12345.00,
+      "otherReliefAmount": 12345.00,
+      "lossesFromThisYear": 12345.00,
+      "lossesFromPreviousYear": 12345.00,
+      "amountOfLoss": 12345.00
+    }
+  ],
+  "customerAdded" : {
+    "submittedOn": "2021-04-09T13:53:11Z",
+    "disposals": [
+      {
+        "customerRef": "property1",
+        "disposalDate": "2021-03-01",
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      },
+      {
+        "customerRef": "property2",
+        "disposalDate": "2021-02-01",
+        "completionDate": "2021-01-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      }
+    ]
+  }
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_NINO"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No submission could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_disposals_residential_property__nino___taxyear__ppd"><span class="parent">/income-received/disposals/residential-property/{nino}/{taxYear}</span>/ppd</a> <span class="methods"><a href="#income_received_disposals_residential_property__nino___taxyear__ppd_put"><span class="badge badge_put">put</span></a> <a href="#income_received_disposals_residential_property__nino___taxyear__ppd_get"><span class="badge badge_get">get</span></a> <a href="#income_received_disposals_residential_property__nino___taxyear__ppd_delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_income_received_disposals_residential_property__nino___taxyear__ppd" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_disposals_residential_property__nino___taxyear__ppd_put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update Residential Property Disposals Submission for CGT</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_received_disposals_residential_property__nino___taxyear__ppd_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Residential Property Disposals Overrides Details for CGT</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_received_disposals_residential_property__nino___taxyear__ppd_delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete Residential Property Disposals Submission for CGT</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_disposals_residential_property__nino___taxyear__ppd_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income-received/disposals/residential-property/{nino}/{taxYear}</span>/ppd</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Residential Property Disposals Submission for CGT</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_disposals_residential_property__nino___taxyear__ppd_put_request" data-toggle="tab">Request</a></li><li><a href="#income_received_disposals_residential_property__nino___taxyear__ppd_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_disposals_residential_property__nino___taxyear__ppd_put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2020-21</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/cgt_submission",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capital Gains Tax Submissions",
+  "description": "JSON Schema representing a Capital Gains Tax Submission",
+  "type": "object",
+  "properties": {
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "customerOverrides": {
+    "multiplePropertyDisposals": [
+      {
+        "ppdSubmissionId": 1243432,
+        "amountOfNetGain": 12345.00,
+      }
+    ],
+    "singlePropertyDisposals": [
+      {
+        "ppdSubmissionId": 12312312,
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfLoss": 12345.00
+      }
+    ]
+  },
+  "customerAdded" : {
+    "disposals": [
+      {
+        "customerRef": "property1",
+        "disposalDate": "2021-03-01",
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      },
+      {
+        "customerRef": "property2",
+        "disposalDate": "2021-02-01",
+        "completionDate": "2021-01-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      }
+    ]
+  }
+}</code></pre></div></div><div class="tab-pane" id="income_received_disposals_residential_property__nino___taxyear__ppd_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_NINO"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No submission could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_disposals_residential_property__nino___taxyear__ppd_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income-received/disposals/residential-property/{nino}/{taxYear}</span>/ppd</h4></div><div class="modal-body"><div class="alert alert-info"><p>Residential Property Disposals Overrides Details for CGT</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_disposals_residential_property__nino___taxyear__ppd_get_request" data-toggle="tab">Request</a></li><li><a href="#income_received_disposals_residential_property__nino___taxyear__ppd_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_disposals_residential_property__nino___taxyear__ppd_get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2020-21</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_disposals_residential_property__nino___taxyear__ppd_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/cgt_submission",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capital Gains Tax Submissions",
+  "description": "JSON Schema representing a Capital Gains Tax Submission",
+  "type": "object",
+  "properties": {
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "customerOverrides": {
+    "submittedOn": "2021-04-09T13:53:11Z",
+    "multiplePropertyDisposals": [
+      {
+        "ppdSubmissionId": 1243432,
+        "amountOfNetGain": 12345.00,
+      }
+    ],
+    "singlePropertyDisposals": [
+      {
+        "ppdSubmissionId": 12312312,
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfLoss": 12345.00
+      }
+    ]
+  },
+  "customerAdded" : {
+    "submittedOn": "2021-04-09T13:53:11Z",
+    "disposals": [
+      {
+        "customerRef": "property1",
+        "disposalDate": "2021-03-01",
+        "completionDate": "2021-02-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      },
+      {
+        "customerRef": "property2",
+        "disposalDate": "2021-02-01",
+        "completionDate": "2021-01-01",
+        "disposalProceeds": 123.00,
+        "acquisitionDate": "2002-03-01",
+        "acquisitionAmount": 1234567.00,
+        "improvementCosts": 1234567.00,
+        "additionalCosts": 12345.00,
+        "prfAmount": 12345.00,
+        "otherReliefAmount": 12345.00,
+        "lossesFromThisYear": 12345.00,
+        "lossesFromPreviousYear": 12345.00,
+        "amountOfNetGain": 12345.00
+      }
+    ]
+  }
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_NINO"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No submission could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_disposals_residential_property__nino___taxyear__ppd_delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income-received/disposals/residential-property/{nino}/{taxYear}</span>/ppd</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Residential Property Disposals Submission for CGT</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_disposals_residential_property__nino___taxyear__ppd_delete_request" data-toggle="tab">Request</a></li><li><a href="#income_received_disposals_residential_property__nino___taxyear__ppd_delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_disposals_residential_property__nino___taxyear__ppd_delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2020-21</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_disposals_residential_property__nino___taxyear__ppd_delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_NINO"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No submission could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_income_received_disposals_other_gains__nino___taxyear_"><span class="parent">/income-received/disposals/other-gains/{nino}</span>/{taxYear}</a> <span class="methods"><a href="#income_received_disposals_other_gains__nino___taxyear__put"><span class="badge badge_put">put</span></a> <a href="#income_received_disposals_other_gains__nino___taxyear__get"><span class="badge badge_get">get</span></a> <a href="#income_received_disposals_other_gains__nino___taxyear__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_income_received_disposals_other_gains__nino___taxyear_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#income_received_disposals_other_gains__nino___taxyear__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Create/update Residential Property Disposals Submission for CGT</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_received_disposals_other_gains__nino___taxyear__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Residential Property Disposals Overrides Details for CGT</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#income_received_disposals_other_gains__nino___taxyear__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete Residential Property Disposals Submission for CGT</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_disposals_other_gains__nino___taxyear__put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/income-received/disposals/other-gains/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create/update Residential Property Disposals Submission for CGT</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_disposals_other_gains__nino___taxyear__put_request" data-toggle="tab">Request</a></li><li><a href="#income_received_disposals_other_gains__nino___taxyear__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_disposals_other_gains__nino___taxyear__put_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2020-21</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/cgt_submission",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capital Gains Tax Submissions",
+  "description": "JSON Schema representing a Capital Gains Tax Submission",
+  "type": "object",
+  "properties": {
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+  "disposals": [
+    {
+      "assetType": "otherAsset",
+      "assetDescription": "Painting",
+      "acquisitionDate": "2017-10-10",
+      "disposalDate": "2020-08-10",
+      "disposalProceeds": 100.00,
+      "allowableCosts": 100.00,
+      "gain": 50.00,
+      "claimOrElectionCodes": [
+        "BAD"
+      ],
+      "gainAfterRelief": 45.00,
+      "rttTaxPaid": 123.00
+    },
+    {
+      "assetType": "otherProperty",
+      "assetDescription": "Farmland",
+      "acquisitionDate": "2017-10-10",
+      "disposalDate": "2020-08-10",
+      "disposalProceeds": 100.00,
+      "allowableCosts": 100.00,
+      "gain": 50.00,
+      "claimOrElectionCodes": [
+        "BAD"
+      ],
+      "gainAfterRelief": 45.00,
+      "rttTaxPaid": 123.00
+    }
+  ],
+  "nonStandardGains": {
+    "carriedInterestGain": 1000.00,
+    "carriedInterestRttTaxPaid": 123.00,
+    "attributedGains": 1000.00,
+    "attributedGainsRttTaxPaid": 123.00,
+    "otherGains": 1000.00,
+    "otherGainsRttTaxPaid": 123.00
+  },
+  "losses": {
+    "broughtForwardLossesUsedInCurrentYear": 10.00,
+    "setAgainstInYearGains": 10.00,
+    "setAgainstInYearGeneralIncome": 10.00,
+    "setAgainstEarlierYear": 10.00
+  },
+  "adjustments": 123.00
+}</code></pre></div></div><div class="tab-pane" id="income_received_disposals_other_gains__nino___taxyear__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_NINO"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No submission could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_disposals_other_gains__nino___taxyear__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/income-received/disposals/other-gains/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Residential Property Disposals Overrides Details for CGT</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_disposals_other_gains__nino___taxyear__get_request" data-toggle="tab">Request</a></li><li><a href="#income_received_disposals_other_gains__nino___taxyear__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_disposals_other_gains__nino___taxyear__get_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2020-21</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_disposals_other_gains__nino___taxyear__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+  "$id": "https://www.gov.uk/government/organisations/hm-revenue-customs/schema/itsa/cgt_submission",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capital Gains Tax Submissions",
+  "description": "JSON Schema representing a Capital Gains Tax Submission",
+  "type": "object",
+  "properties": {
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_NINO"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No submission could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="income_received_disposals_other_gains__nino___taxyear__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/income-received/disposals/other-gains/{nino}</span>/{taxYear}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete Residential Property Disposals Submission for CGT</p></div><ul class="nav nav-tabs"><li class="active"><a href="#income_received_disposals_other_gains__nino___taxyear__delete_request" data-toggle="tab">Request</a></li><li><a href="#income_received_disposals_other_gains__nino___taxyear__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="income_received_disposals_other_gains__nino___taxyear__delete_request"><h3>URI Parameters</h3><ul><li><strong>nino</strong>: <em><span class="required">required</span>(string - pattern: ^([ACEHJLMOPRSWXY][A-CEGHJ-NPR-TW-Z]|B[A-CEHJ-NPR-TW-Z]|G[ACEGHJ-NPR-T-Z]|[KT][A-CEGHJ-MPR-TW-Z]|N[A-CEGHJL-NPR-SW-Z]|Z[A-CEGHJ-NPR-TW-Y])[0-9]{6}[A-D]?$)</em><p>National Insurance number, in the format AA999999A.</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>TC663795B</code></pre></div></li><li><strong>taxYear</strong>: <em><span class="required">required</span>(string)</em><p>The tax year the calculation relates to, in the format YYYY-YY</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>2020-21</code></pre></div></li></ul></div><div class="tab-pane" id="income_received_disposals_other_gains__nino___taxyear__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Examples</strong>:</p><div class="examples"><p><strong>formatStatus</strong>:<br>The format of the supplied Nino field is not valid</p><pre><code>{
+  "code": "FORMAT_NINO"
+}</code></pre><p><strong>formatTaxYear</strong>:<br>The format of the supplied tax year is not valid</p><pre><code>{
+  "code": "FORMAT_TAX_YEAR"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p><strong>clientOrAgentNotAuthorised</strong>:<br>The client and/or agent is not authorised. This is normally because: the client is not subscribed to MTD, the agent is not subscribed to Agent Services, or the client has not authorised the agent to act on their behalf.</p><pre><code>{
+  "code": "CLIENT_OR_AGENT_NOT_AUTHORISED"
+}</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><strong>Properties</strong><ul><li><strong>code</strong>: <em><span class="required">required</span>(string)</em></li></ul><p><strong>Example</strong>:</p><div class="examples"><p>No submission could be found for the supplied NINO and tax year.</p><pre><code>{
+  "code": "MATCHING_RESOURCE_NOT_FOUND"
+}</code></pre></div></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#income_received_disposals">/income-received/disposals</a></li></ul></div></div></div></div></body></html>
