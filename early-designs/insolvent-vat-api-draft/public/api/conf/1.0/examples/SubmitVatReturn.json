@@ -9,5 +9,6 @@
   "totalValuePurchasesExVAT": 300,
   "totalValueGoodsSuppliedExVAT": 3000,
   "totalAcquisitionsExVAT": 3000,
+  "receivedAt": "2017-01-01T00:01:00Z",
   "uniqueId": "a2-b3.cd5e"
 }

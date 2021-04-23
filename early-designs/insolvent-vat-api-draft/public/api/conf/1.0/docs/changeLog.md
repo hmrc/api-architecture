@@ -1,1 +1,2 @@
-- 1.2 Amended example ```periodKey``` to match the schema format 
+- 1.3 Exposed ```receivedAt``` from  API#56 (API#1329)
+- 1.2 Amended example ```periodKey``` to match the schema format

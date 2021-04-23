@@ -21,11 +21,10 @@
       "disposalDate": "2020-08-10",
       "disposalProceeds": 100.00,
       "allowableCosts": 100.00,
-      "gain": 50.00,
+      "loss": 50.00,
       "claimOrElectionCodes": [
         "BAD"
       ],
-      "gainAfterRelief": 45.00,
       "rttTaxPaid": 123.00
     }
   ],

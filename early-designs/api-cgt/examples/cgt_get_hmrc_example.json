@@ -1,27 +1,36 @@
 {
-    "submittedOn": "2021-04-09T13:53:11Z",
-    "submissionId" : "",
-    "numberOfDisposals": 1,
+  "ppdService": {
     "multiplePropertyDisposals": [
       {
-        "ppdSubmissionId": 1243432,
-        "amountOfNetGain": 12345.00,
+        "ppdSubmissionId": "string",
+        "ppdSubmissionDate": "2021-04-06",
+        "numberOfDisposals": 1,
+        "disposalTaxYear": "2021-04-06",
+        "completionDate": "2021-04-06",
+        "amountOfNetGain": 0,
+        "amountOfLoss": 0,
+        "ppdReturnCharge": 0
       }
     ],
     "singlePropertyDisposals": [
       {
-        "ppdSubmissionId": 12312312,
-        "completionDate": "2021-02-01",
-        "disposalProceeds": 123.00,
-        "acquisitionDate": "2002-03-01",
-        "acquisitionAmount": 1234567.00,
-        "improvementCosts": 1234567.00,
-        "additionalCosts": 12345.00,
-        "prfAmount": 12345.00,
-        "otherReliefAmount": 12345.00,
-        "lossesFromThisYear": 12345.00,
-        "lossesFromPreviousYear": 12345.00,
-        "amountOfLoss": 12345.00
+        "ppdSubmissionId": "string",
+        "ppdSubmissionDate": "2021-04-06",
+        "disposalDate": "2021-04-06",
+        "completionDate": "2021-04-06",
+        "disposalProceeds": 0,
+        "acquisitionDate": "2021-04-06",
+        "acquisitionAmount": 0,
+        "improvementCosts": 0,
+        "additionalCosts": 0,
+        "prfAmount": 0,
+        "otherReliefAmount": 0,
+        "lossesFromThisYear": 0,
+        "lossesFromPreviousYear": 0,
+        "amountOfNetGain": 0,
+        "amountOfLoss": 0,
+        "ppdReturnCharge": 0
       }
     ]
+  }
 }

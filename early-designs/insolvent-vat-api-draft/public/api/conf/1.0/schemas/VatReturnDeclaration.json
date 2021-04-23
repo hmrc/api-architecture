@@ -44,6 +44,12 @@
       "description": "Total value of acquisitions of goods and related costs excluding any VAT, from other EC member states. This corresponds to box 9 on the VAT Return form. The value must be between -9999999999999 and 9999999999999.",
       "$ref": "#/definitions/monetaryPosNegZeroDec13"
     },
+    "receivedAt": {
+      "title": "The date & time the return was received",
+      "description": "The date & time the return was received. UTC timezone",
+      "type": "string",
+      "format": "date-time"
+    },
     "uniqueId": {
       "description": "A unique scan reference ID must be provided for an externally scanned submission.",
       "$ref": "#/definitions/uniqueId"
@@ -60,6 +66,7 @@
     "totalValuePurchasesExVAT",
     "totalValueGoodsSuppliedExVAT",
     "totalAcquisitionsExVAT",
+    "receivedAt",
     "uniqueId"
   ],
   "definitions":

@@ -1,0 +1,36 @@
+{
+  "submittedOn": : "2021-04-09T13:53:11Z",
+  "disposals" :
+  [
+    {
+      "customerRef": "property1",
+      "disposalDate": "2021-03-01",
+      "completionDate": "2021-02-01",
+      "disposalProceeds": 123.00,
+      "acquisitionDate": "2002-03-01",
+      "acquisitionAmount": 1234567.00,
+      "improvementCosts": 1234567.00,
+      "additionalCosts": 12345.00,
+      "prfAmount": 12345.00,
+      "otherReliefAmount": 12345.00,
+      "lossesFromThisYear": 12345.00,
+      "lossesFromPreviousYear": 12345.00,
+      "amountOfNetGain": 12345.00
+    },
+    {
+      "customerRef": "property2",
+      "disposalDate": "2021-02-01",
+      "completionDate": "2021-01-01",
+      "disposalProceeds": 123.00,
+      "acquisitionDate": "2002-03-01",
+      "acquisitionAmount": 1234567.00,
+      "improvementCosts": 1234567.00,
+      "additionalCosts": 12345.00,
+      "prfAmount": 12345.00,
+      "otherReliefAmount": 12345.00,
+      "lossesFromThisYear": 12345.00,
+      "lossesFromPreviousYear": 12345.00,
+      "amountOfLoss": 12345.00
+    }
+  ]
+}

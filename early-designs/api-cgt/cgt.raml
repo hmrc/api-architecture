@@ -1,7 +1,7 @@
 #%RAML 1.0
-title: Disposals
+title: Disposals Income
 baseUri: https://api.service.hmrc.gov.uk
-version: Draft 2021-04-19
+version: Draft 2021-04-20
 documentation:
   - title: Residential Property Disposals
     content: !include docs/residential.md
@@ -23,8 +23,14 @@ uses:
           taxYear: baseTypes.TaxYear
         get:
           displayName: Residential Property Disposals GET
-          description: Residential Property Disposals Details for CGT
+          description: Retrieve Residential Property Disposals (#1725)
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          queryParameters:
+            view:
+              displayName: Specify the type of view that you want to see, either HMRC HELD, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+              description: Specify the type of view that you want to see, either HMRC HELD, CUSTOMER or LATEST which combines the HMRC and CUSTOMER views; Implicit default is LATEST
+              example: LATEST
+              required: false
           responses:
             200:
               body:
@@ -32,18 +38,35 @@ uses:
                   type: !include schemas/cgt_sch.json
                   examples:
                     example-1:
-                      description: CUSTOMER view
-                      value: !include examples/cgt_get_customer_example.json
+                      description: LATEST view
+                      value: !include examples/cgt_get_latest_example.json
                     example-2:
                       description: HMRC view
                       value: !include examples/cgt_get_hmrc_example.json
                     example-3:
-                      description: LATEST view
-                      value: !include examples/cgt_get_latest_example.json
+                      description: CUSTOMER view
+                      value: !include examples/cgt_get_customer_example.json
+
+        put:
+          displayName: Residential Property Disposal PUT
+          description: Create/update Residential Property Disposals (#1724)
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            200:
+          body:
+            application/json:
+              type: !include schemas/cgt_put_residential_sch.json
+              example: !include examples/cgt_put_nonppd_example.json
+        delete:
+          displayName: Residential Property Disposals DELETE
+          description: Delete Residential Property Disposals (#1726)
+          is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
+          responses:
+            204:
         /ppd:
           put:
             displayName: Residential Property Disposal Overrides PUT
-            description: Create/update Residential Property Disposals Submission for CGT
+            description: Create/update Residential Property Disposal (PPD) Overrides (#1738)
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
             responses:
               200:
@@ -51,22 +74,13 @@ uses:
               application/json:
                 type: !include schemas/cgt_sch.json
                 example: !include examples/cgt_put_ppd_override_example.json
-          get:
-            displayName: Residential Property Disposals Overrides GET
-            description: Residential Property Disposals Overrides Details for CGT
-            is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
-            responses:
-              200:
-                body:
-                  application/json:
-                    type: !include schemas/cgt_sch.json
-                    example: !include examples/cgt_get_ppd_override_example.json
           delete:
             displayName: Residential Property Disposals DELETE
-            description: Delete Residential Property Disposals Submission for CGT
+            description: Delete Residential Property Disposal (PPD) Overrides (#1740)
             is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
             responses:
               204:
+        /non-ppd:
   /other-gains:
     /{nino}:
       uriParameters:
@@ -75,8 +89,8 @@ uses:
         uriParameters:
           taxYear: baseTypes.TaxYear
         put:
-          displayName: Residential Property Disposal Overrides PUT
-          description: Create/update Residential Property Disposals Submission for CGT
+          displayName: Other Disposals & Gains PUT
+          description: Create/update Other Disposals & Gains (#1739)
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
@@ -85,18 +99,18 @@ uses:
               type: !include schemas/cgt_sch.json
               example: !include examples/cgt_put_other_example.json
         get:
-          displayName: Residential Property Disposals Overrides GET
-          description: Residential Property Disposals Overrides Details for CGT
+          displayName: Other Disposals & Gains  GET
+          description: Retrieve Other Disposals & Gains (#1737)
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             200:
               body:
                 application/json:
                   type: !include schemas/cgt_sch.json
-                  example !include examples/cgt_get_other_example.json
+                  example: !include examples/cgt_get_other_example.json
         delete:
-          displayName: Residential Property Disposals DELETE
-          description: Delete Residential Property Disposals Submission for CGT
+          displayName: Other Disposals & Gains DELETE
+          description: Delete Other Disposals & Gains (#1741)
           is: [errors.notFound,errors.clientOrAgentNotAuthorised,errors.formatNino,errors.formatTaxYear]
           responses:
             204:
