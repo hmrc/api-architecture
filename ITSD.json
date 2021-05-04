@@ -1,0 +1,100 @@
+...
+"calculation": {
+"allowancesAndDeductions": {
+"personalAllowance": 12500,
+"reducedPersonalAllowance": 12500,
+"giftOfInvestmentsAndPropertyToCharity": 12500,
+"blindPersonsAllowance": 12500,
+"lossesAppliedToGeneralIncome": 12500,
+"qualifyingLoanInterestFromInvestments": 5000.99,
+"post-cessationTradeReceipts": 5000.99,
+"paymentsToTradeUnionsForDeathBenefits": 5000.99,
+"grossAnnuityPayments": 5000.99,
+"annuityPayments": {
+"reliefClaimed": 5000.99,
+"rate": 20
+},
+"pensionContributions": 5000.99,
+"pensionContributionsDetail": {
+"retirementAnnuityPayments": 5000.99,
+"paymentToEmployersSchemeNoTaxRelief": 5000.99,
+"overseasPensionSchemeContributions": 5000.99
+}
+},
+"reliefs": {
+"residentialFinanceCosts": {
+"adjustedTotalIncome": 5000.99,
+"totalAllowableAmount": 5000.99,
+"relievableAmount": 5000.99,
+"rate": 20,
+"totalResidentialFinanceCostsRelief": 5000.99,
+"ukProperty": {
+"amountClaimed": 12500,
+"allowableAmount": 5000.99,
+"carryForwardAmount": 5000.99
+},
+"foreignProperty": {
+"totalForeignPropertyAllowableAmount": 5000.99,
+"foreignPropertyRfcDetail": [
+{
+"countryCode": "str",
+"amountClaimed": 12500,
+"allowableAmount": 5000.99,
+"carryForwardAmount": 5000.99
+}
+]
+},
+"allOtherIncomeReceivedWhilstAbroad": {
+"totalOtherIncomeAllowableAmount": 5000.99,
+"otherIncomeRfcDetail": [
+{
+"countryCode": "str",
+"residentialFinancialCostAmount": 5000.99,
+"broughtFwdResidentialFinancialCostAmount": 5000.99
+}
+]
+}
+},
+"reliefsClaimed": [
+{
+"type": "vctSubscriptions",
+"amountClaimed": 5000.99,
+"allowableAmount": 5000.99,
+"amountUsed": 5000.99,
+"rate": 20,
+"reliefsClaimedDetail": [
+{
+"amountClaimed": 5000.99,
+"uniqueInvestmentRef": "string",
+"name": "string",
+"socialEnterpriseName": "string",
+"companyName": "string",
+"deficiencyReliefType": "lifeInsurance",
+"customerReference": "string"
+}
+]
+}
+],
+"foreignTaxCreditRelief": {
+"customerCalculatedRelief": true,
+"totalForeignTaxCreditRelief": 5000.99,
+"foreignTaxCreditReliefOnProperty": 5000.99,
+"foreignTaxCreditReliefOnDividends": 5000.99,
+"foreignTaxCreditReliefOnSavings": 5000.99,
+"foreignTaxCreditReliefOnForeignIncome": 5000.99,
+"foreignTaxCreditReliefDetail": [
+{
+"incomeSourceType": 15,
+"incomeSourceId": "000000000000210",
+"countryCode": "str",
+"foreignIncome": 5000.99,
+"foreignTax": 5000.99,
+"dtaRate": 20,
+"dtaAmount": 5000.99,
+"ukLiabilityOnIncome": 5000.99,
+"foreignTaxCredit": 5000.99,
+"employmentLumpSum": true
+}
+]
+}
+},
